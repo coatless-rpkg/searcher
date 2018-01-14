@@ -141,5 +141,5 @@ options(error = search_google)
 }
 \seealso{
 \code{\link[=search_google]{search_google()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}}, \code{\link[=search_github]{search_github()}},
-\code{\link[=search_bing]{search_bing()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, \code{\link[=searcher]{searcher()}}, \code{\link[=browse_url]{browse_url()}}
+\code{\link[=search_bing]{search_bing()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, \code{\link[=searcher]{searcher()}}
 }

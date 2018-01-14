@@ -12,7 +12,7 @@
 #' @rdname search_site
 #' @export
 #' @seealso [search_google()], [search_stackoverflow()], [search_github()],
-#'          [search_bing()], [search_bitbucket()], [searcher()], [browse_url()]
+#'          [search_bing()], [search_bitbucket()], [searcher()]
 #' @examples
 #' \dontrun{
 #' # Search in a generic way
