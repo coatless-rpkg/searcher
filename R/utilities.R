@@ -29,7 +29,7 @@ browse_url = function(base,
 
   if (open_browser) {
     message("Searching query in web browser ... ")
-    Sys.sleep(1)
+    Sys.sleep(0.5)
     browseURL(encodedURL)
   } else {
     message("Please type into your browser: ", invisible(encodedURL))
