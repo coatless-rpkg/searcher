@@ -92,7 +92,7 @@ search_site = function(query,
 #' @inheritParams search_site
 #' @export
 #' @section Generic Error Search:
-#' The `errorist` function grabs the last error message and
+#' The `searcher` function grabs the last error message and
 #' tries to search it. This function will ensure that R language
 #' is the primary search context.
 #'
