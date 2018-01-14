@@ -15,7 +15,7 @@ having to open a browser, go to a search site, and type the query. By
 default, the search functions automatically search the last error on
 call.
 
-![](https://media.giphy.com/media/l378bwNTMR8DejX0I/giphy.gif)
+![](https://media.giphy.com/media/3o7528ih541CTYa6OY/giphy.gif)
 
 ## Installation
 
