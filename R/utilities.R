@@ -19,6 +19,7 @@
 #' browse_url("https://google.com/search?q=", "rstats is great",
 #'            open_browser = FALSE)
 #' }
+#' @noRd
 browse_url = function(base,
                       unencoded_query, encoded_query = "",
                       browser = getOption("browser"),
