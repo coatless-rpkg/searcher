@@ -2,25 +2,18 @@
 % Please edit documentation in R/searcher-package.R
 \docType{package}
 \name{searcher-package}
-\alias{searcher}
 \alias{searcher-package}
-\title{searcher: Search Error Messages Directly from R}
+\alias{_PACKAGE}
+\title{searcher: Query Search Engines Directly from R}
 \description{
-This package provides a search interface for R to search error messages
-on Google, StackOverflow, GitHub, Bing, or BitBucket. As an added bonus,
-this package can hook into R's error apparatus to capture the error message
-and automatically search the error message.
+This package provides a search interface for R to search terms
+on Google, Bing, DuckDuckGo, StackOverflow, GitHub, and BitBucket. Upon
+searching, a browser window will open with the aforementioned search results.
 }
 \details{
-Provides an interface to search websites via R.
+Provides an interface to search engines via R.
 }
 \author{
 \strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu}
-
-Other contributors:
-\itemize{
-  \item Dirk Eddelbuettel \email{edd@debian.org} [contributor]
-  \item Barry Rowlingson \email{b.rowlingson@gmail.com} [contributor, NA]
-}
 
 }

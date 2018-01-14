@@ -1,3 +1,4 @@
+#' @aliases searcher-package
 #' @details
-#' Provides an interface to search websites via R.
+#' Provides an interface to search engines via R.
 "_PACKAGE"
