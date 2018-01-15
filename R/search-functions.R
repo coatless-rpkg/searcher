@@ -9,14 +9,15 @@
 #' @param query Contents of string to search. Default is the error message.
 #' @param rlang Search for results written in R. Default is `TRUE`
 #'
+#' @return The generated search URL or an empty string.
+#'
 #' @rdname search_site
 #' @export
 #' @seealso [search_google()], [search_stackoverflow()], [search_github()],
 #'          [search_bing()], [search_bitbucket()], [searcher()]
 #' @examples
-#' \dontrun{
 #' # Search in a generic way
-#' search_site("google", "r-project")
+#' search_site("r-project", "google")
 #'
 #' # Search Google
 #' search_google("r-project")
@@ -42,6 +43,7 @@
 #' # Search BitBucket for assertions
 #' search_bitbucket("assertions")
 #'
+#' \dontrun{
 #' # On error, automatically search the message on google
 #' options(error = searcher("google"))
 #' options(error = search_google)
@@ -102,12 +104,13 @@ search_site = function(query,
 #' To call the function, add a second set of parentheses.
 #'
 #' @examples
-#' \dontrun{
-#' # On error, automatically search the message on google
-#' options(error = searcher("google"))
-#'
 #' ### Manually
 #' searcher("google")()
+#'
+#' \dontrun{
+#' ### Automatically
+#' # On error, automatically search the message on google
+#' options(error = searcher("google"))
 #' }
 searcher = function(site  = c(
   "google",
@@ -136,8 +139,10 @@ rlang = TRUE) {
 #' See \url{https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters}
 #' for details.
 search_google = function(query = geterrmessage()) {
-  if (!valid_query(query))
-    return(invisible(NULL))
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
 
   browse_url("https://google.com/search?q=", query)
 }
@@ -148,8 +153,10 @@ search_google = function(query = geterrmessage()) {
 #' The `search_bing()` function searches [Bing](https://bing.com) using:
 #' `https://bing.com/search?q=<query>`
 search_bing = function(query = geterrmessage()) {
-  if (!valid_query(query))
-    return(invisible(NULL))
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
 
   browse_url("https://bing.com/search?q=", query)
 }
@@ -160,8 +167,10 @@ search_bing = function(query = geterrmessage()) {
 #' The `search_duckduckgo()` and `search_ddg()` functions both search
 #' [DuckDuckGo](https://duckduckgo.com) using: `https://duckduckgo.com/?q=<query>`
 search_duckduckgo = function(query = geterrmessage()) {
-  if (!valid_query(query))
-    return(invisible(NULL))
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
 
   browse_url("https://duckduckgo.com/?q=", query)
 }
@@ -181,8 +190,10 @@ search_ddg = search_duckduckgo
 #' search interface please see:
 #'  \url{https://stackoverflow.com/help/advanced-search-parameters-jobs}
 search_stackoverflow = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query))
-    return(invisible(NULL))
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
 
   query = if (rlang)
     paste(query, "[r]")
@@ -207,8 +218,10 @@ search_so = search_stackoverflow
 #' \url{https://help.github.com/categories/searching-for-information-on-github/}
 #' and \url{https://help.github.com/articles/searching-code/}
 search_github = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query))
-    return(invisible(NULL))
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
 
   query = if (rlang)
     paste(query, "language:r type:issue")
@@ -234,8 +247,10 @@ search_gh = search_github
 #' search interface please see:
 #'  \url{https://confluence.atlassian.com/bitbucket/code-search-in-bitbucket-873876782.html}
 search_bitbucket = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query))
-    return(invisible(NULL))
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
 
   query = if (rlang)
     paste(query, "lang:r")
@@ -247,12 +262,3 @@ search_bitbucket = function(query = geterrmessage(), rlang = TRUE) {
 #' @rdname search_site
 #' @export
 search_bb = search_bitbucket
-
-valid_query = function(query) {
-  if (missing(query) | is.null(query) |
-      query == "" | is.expression(query)) {
-    FALSE
-  } else {
-    TRUE
-  }
-}

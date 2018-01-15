@@ -4,11 +4,12 @@
 \name{searcher-package}
 \alias{searcher-package}
 \alias{_PACKAGE}
-\title{searcher: Query Search Engines Directly from R}
+\title{searcher: Query Search Interfaces}
 \description{
-This package provides a search interface for R to search terms
-on Google, Bing, DuckDuckGo, StackOverflow, GitHub, and BitBucket. Upon
-searching, a browser window will open with the aforementioned search results.
+Provides a search interface to look up terms
+on 'Google', 'Bing', 'DuckDuckGo', 'StackOverflow', 'GitHub', and 'BitBucket'.
+Upon searching, a browser window will open with the aforementioned search
+results.
 }
 \details{
 Provides an interface to search engines via R.
