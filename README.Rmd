@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/coatless/searcher.svg?branch=master)](https://travis-ci.org/coatless/searcher)[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/searcher)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
+[![Travis-CI Build Status](https://travis-ci.org/coatless/searcher.svg?branch=master)](https://travis-ci.org/coatless/searcher)[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/searcher)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)[![Coverage Status](https://img.shields.io/codecov/c/github/coatless/searcher/master.svg)](https://codecov.io/github/coatless/searcher?branch=master)
 
 # searcher
 
