@@ -7,6 +7,8 @@ Description: Provides a search interface to look up terms
     on 'Google', 'Bing', 'DuckDuckGo', 'StackOverflow', 'GitHub', and 'BitBucket'.
     Upon searching, a browser window will open with the aforementioned search
     results.
+URL: https://github.com/coatless/searcher
+BugReports: https://github.com/coatless/searcher/issues
 Depends: R (>= 3.0.0)
 License: GPL (>= 2)
 Encoding: UTF-8

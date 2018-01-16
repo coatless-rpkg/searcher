@@ -14,6 +14,14 @@ results.
 \details{
 Provides an interface to search engines via R.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/coatless/searcher}
+  \item Report bugs at \url{https://github.com/coatless/searcher/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu}
 
