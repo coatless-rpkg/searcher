@@ -8,20 +8,17 @@
 
 0 errors | 0 warnings | 1 note
 
-Possibly mis-spelled words in DESCRIPTION:
-  Bing (7:16)
-  BitBucket (7:61)
-  DuckDuckGo (7:22)
-  GitHub (7:49)
-  StackOverflow (7:34)
-
 Found the following (possibly) invalid URLs:
   URL: http://www.r-pkg.org/pkg/searcher (moved to https://www.r-pkg.org:443/pkg/searcher)
     From: README.md
     Status: 404
     Message: Not Found
 
-- The mis-spelled words correspond to official company names.
+- This is a resubmission to address comments raised by Swetlana. In particular:
+   - "for R" has been omitted in the DESCRIPTION file.
+   -  Software names have been put between single quotes (e.g.'Google') in the DESCRIPTION file.
+   - Examples that could be run (e.g. non-error handler hooks) are now being run.
+   - Added unit tests
 - The URL linked above has yet to become activated because the package 
   is not on CRAN. Once on CRAN, the URL will work.
 - This is a new release.
