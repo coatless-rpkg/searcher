@@ -1,6 +1,6 @@
 Package: searcher
 Title: Query Search Interfaces 
-Version: 0.0.2
+Version: 0.0.2.1000
 Authors@R: c(person("James", "Balamuta",
                     email = "balamut2@illinois.edu", role = c("aut", "cre")))
 Description: Provides a search interface to look up terms
