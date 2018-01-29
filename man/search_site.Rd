@@ -6,6 +6,7 @@
 \alias{search_bing}
 \alias{search_duckduckgo}
 \alias{search_ddg}
+\alias{search_ixquick}
 \alias{search_stackoverflow}
 \alias{search_so}
 \alias{search_github}
@@ -15,7 +16,7 @@
 \title{Search a Query on a Search Portal in a Web Browser}
 \usage{
 search_site(query, site = c("google", "bing", "stackoverflow", "so", "github",
-  "gh", "duckduckgo", "ddg", "bitbucket", "bb"), rlang = TRUE)
+  "gh", "duckduckgo", "ddg", "bitbucket", "bb", "ixquick"), rlang = TRUE)
 
 search_google(query = geterrmessage())
 
@@ -24,6 +25,8 @@ search_bing(query = geterrmessage())
 search_duckduckgo(query = geterrmessage())
 
 search_ddg(query = geterrmessage())
+
+search_ixquick(query = geterrmessage())
 
 search_stackoverflow(query = geterrmessage(), rlang = TRUE)
 
@@ -74,6 +77,17 @@ The \code{search_duckduckgo()} and \code{search_ddg()} functions both search
 \href{https://duckduckgo.com}{DuckDuckGo} using: \code{https://duckduckgo.com/?q=<query>}
 }
 
+\section{ixquick Search}{
+
+The \code{search_ixquick()} function searches
+\href{https://ixquick.com}{ixquick} using:
+\code{https://ixquick.com/do/dsearch?query=<query>}
+
+For additional details regarding \href{https://ixquick.com}{ixquick}'s
+search interface please see:
+\url{https://support.ixquick.com/index.php?/Knowledgebase/Article/View/201/0/how-do-i-make-startpage-by-ixquick-my-default-search-engine-in-chrome}
+}
+
 \section{StackOverflow Search}{
 
 The \code{search_stackoverflow()} and \code{search_so()} functions both search
@@ -120,6 +134,9 @@ search_bing("Microsoft R")
 
 # Search DuckDuckGo
 search_duckduckgo("R language")
+
+# Search ixquick
+search_ixquick("RStudio IDE")
 
 # Search StackOverflow for Convolutions in the r tag
 search_stackoverflow("convolutions")

@@ -28,6 +28,9 @@
 #' # Search DuckDuckGo
 #' search_duckduckgo("R language")
 #'
+#' # Search ixquick
+#' search_ixquick("RStudio IDE")
+#'
 #' # Search StackOverflow for Convolutions in the r tag
 #' search_stackoverflow("convolutions")
 #'
@@ -59,7 +62,8 @@ search_site = function(query,
                          "duckduckgo",
                          "ddg",
                          "bitbucket",
-                         "bb"
+                         "bb",
+                         "ixquick"
                        ),
                        rlang = TRUE) {
   site = tolower(site)
@@ -81,6 +85,7 @@ search_site = function(query,
     duckduckgo     = ,
     # empty case carried below
     ddg            = search_duckduckgo(query),
+    ixquick        = search_ixquick(query),
     search_google(query)
   )
 }
@@ -122,13 +127,17 @@ searcher = function(site  = c(
   "duckduckgo",
   "stackoverflow",
   "github",
-  "bitbucket"
+  "bitbucket",
+  "ixquick"
 ),
 rlang = TRUE) {
   function(query = geterrmessage()) {
     search_site(query, site, rlang = rlang)
   }
 }
+
+
+########################### Start Search Engines
 
 #' @rdname search_site
 #' @export
@@ -178,6 +187,31 @@ search_duckduckgo = function(query = geterrmessage()) {
 #' @rdname search_site
 #' @export
 search_ddg = search_duckduckgo
+
+
+#' @rdname search_site
+#' @export
+#' @section ixquick Search:
+#' The `search_ixquick()` function searches
+#' [ixquick](https://ixquick.com) using:
+#'  \code{https://ixquick.com/do/dsearch?query=<query>}
+#'
+#' For additional details regarding [ixquick](https://ixquick.com)'s
+#' search interface please see:
+#'  \url{https://support.ixquick.com/index.php?/Knowledgebase/Article/View/201/0/how-do-i-make-startpage-by-ixquick-my-default-search-engine-in-chrome}
+search_ixquick = function(query = geterrmessage()) {
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
+
+  browse_url("https://ixquick.com/do/dsearch?query=", query)
+}
+
+########################### End Search Engines
+
+
+########################### Start Search Code Repos
 
 #' @rdname search_site
 #' @export
@@ -262,3 +296,5 @@ search_bitbucket = function(query = geterrmessage(), rlang = TRUE) {
 #' @rdname search_site
 #' @export
 search_bb = search_bitbucket
+
+########################### End Search Code Repos

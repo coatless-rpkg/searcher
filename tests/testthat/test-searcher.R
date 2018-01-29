@@ -23,6 +23,13 @@ test_that("Check link generation", {
     "https://duckduckgo.com/?q=toad"
   )
 
+  ##### ixquick
+
+  expect_identical(
+    search_ixquick("toad"),
+    "https://ixquick.com/do/dsearch?query=toad"
+  )
+
   ##### StackOverflow
 
   expect_identical(
@@ -61,10 +68,64 @@ test_that("Check link generation", {
 
 })
 
+test_that("Validate selection", {
+
+  expect_identical(
+    search_site("toad", "bb", rlang = FALSE),
+    "https://bitbucket.com/search?q=toad"
+  )
+
+  expect_identical(
+    search_site("", rlang = FALSE),
+    "",
+    "Verify empty query fall through"
+  )
+
+})
+
 
 test_that("Malformed search query validation", {
+
   expect_identical(
     search_google(""),
+    "",
+    "Empty string check if no error messages"
+  )
+
+
+  expect_identical(
+    search_bing(""),
+    "",
+    "Empty string check if no error messages"
+  )
+
+
+  expect_identical(
+    search_ddg(""),
+    "",
+    "Empty string check if no error messages"
+  )
+
+  expect_identical(
+    search_ixquick(""),
+    "",
+    "Empty string check if no error messages"
+  )
+
+  expect_identical(
+    search_so(""),
+    "",
+    "Empty string check if no error messages"
+  )
+
+  expect_identical(
+    search_gh(""),
+    "",
+    "Empty string check if no error messages"
+  )
+
+  expect_identical(
+    search_bb(""),
     "",
     "Empty string check if no error messages"
   )
