@@ -5,7 +5,7 @@
 \title{Generate a Searcher function for use with Error Handling}
 \usage{
 searcher(site = c("google", "bing", "ddg", "so", "gh", "bb", "duckduckgo",
-  "stackoverflow", "github", "bitbucket"), rlang = TRUE)
+  "stackoverflow", "github", "bitbucket", "ixquick"), rlang = TRUE)
 }
 \arguments{
 \item{site}{Name of site to search on. Supported options:

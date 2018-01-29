@@ -23,6 +23,13 @@ test_that("Check link generation", {
     "https://duckduckgo.com/?q=toad"
   )
 
+  ##### ixquick
+
+  expect_identical(
+    search_ixquick("toad"),
+    "https://ixquick.com/do/dsearch?query=toad"
+  )
+
   ##### StackOverflow
 
   expect_identical(
