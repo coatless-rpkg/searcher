@@ -20,10 +20,20 @@ call.
 
 ## Installation
 
-The `searcher` package is only available on GitHub for the moment. You
-can install the `searcher` package with:
+The `searcher` package is available on both CRAN and GitHub. The CRAN
+version is considered stable while the GitHub version is in a state of
+development and may break. You can install the stable version of the
+`searcher` package with:
 
 ``` r
+install.packages("searcher")
+```
+
+For the development version, you can opt for:
+
+``` r
+install.packages("devtools")
+
 devtools::install_github("coatless/searcher")
 ```
 
