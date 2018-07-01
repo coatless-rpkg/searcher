@@ -2,11 +2,12 @@
 
 ## Features
 
-- Added search portal `search_ixquick()`: Searches with [ixquick](https://www.ixquick.com/). (#6)
+- Added search portal `search_ixquick()`: Searches with [ixquick](https://www.ixquick.com/). (#8, #6)
 
 ## Changes
 
-- Add `ixquick` as a valid engine to `search_site()`. (#6)
+- Append `r programming` to major search engines by default (#11, #10)
+- Add `ixquick` as a valid engine to `search_site()`. (#8, #6)
 - Included link to repository and bug tracker to `DESCRIPTION`.
 
 # searcher 0.0.2

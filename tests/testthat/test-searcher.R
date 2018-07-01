@@ -6,6 +6,11 @@ test_that("Check link generation", {
 
   expect_identical(
     search_google("toad"),
+    "https://google.com/search?q=toad%20r%20programming"
+  )
+
+  expect_identical(
+    search_google("toad", rlang = FALSE),
     "https://google.com/search?q=toad"
   )
 
@@ -13,6 +18,11 @@ test_that("Check link generation", {
 
   expect_identical(
     search_bing("toad"),
+    "https://bing.com/search?q=toad%20r%20programming"
+  )
+
+  expect_identical(
+    search_bing("toad", rlang = FALSE),
     "https://bing.com/search?q=toad"
   )
 
@@ -20,6 +30,11 @@ test_that("Check link generation", {
 
   expect_identical(
     search_duckduckgo("toad"),
+    "https://duckduckgo.com/?q=toad%20r%20programming"
+  )
+
+  expect_identical(
+    search_duckduckgo("toad", rlang = FALSE),
     "https://duckduckgo.com/?q=toad"
   )
 
@@ -27,6 +42,11 @@ test_that("Check link generation", {
 
   expect_identical(
     search_ixquick("toad"),
+    "https://ixquick.com/do/dsearch?query=toad%20r%20programming"
+  )
+
+  expect_identical(
+    search_ixquick("toad", rlang = FALSE),
     "https://ixquick.com/do/dsearch?query=toad"
   )
 

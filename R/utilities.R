@@ -70,3 +70,30 @@ valid_query = function(query) {
     TRUE
   }
 }
+
+
+#' Append R Search Term Suffix
+#'
+#' Customizes the query string with an appropriate _R_ specific suffix.
+#'
+#' @param query  Search terms to verify
+#' @param rlang  Append value to query.
+#' @param suffix Value to be added to search query. Default `r programming`.
+#'
+#' @return Query string returned as-is or modified with a suffix that
+#' ensure results are _R_ oriented.
+#'
+#' @examples
+#'
+#' # Add suffix
+#' append_r_suffix("testing", rlang = TRUE, suffix = "toad")
+#'
+#' # Retain original search query
+#' append_r_suffix("testing", rlang = FALSE, suffix = "toad")
+#' @noRd
+append_r_suffix = function(query, rlang = TRUE, suffix = "r programming") {
+  if (rlang)
+    paste(query, suffix)
+  else
+    query
+}
