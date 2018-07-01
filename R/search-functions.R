@@ -85,8 +85,7 @@ search_site = function(query,
     duckduckgo     = ,
     # empty case carried below
     ddg            = search_duckduckgo(query, rlang),
-    ixquick        = search_ixquick(query, rlang),
-    search_google(query)
+    ixquick        = search_ixquick(query, rlang)
   )
 }
 
