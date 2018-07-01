@@ -1,10 +1,10 @@
 Package: searcher
 Title: Query Search Interfaces 
-Version: 0.0.2.1000
+Version: 0.0.2.2000
 Authors@R: c(person("James", "Balamuta",
                     email = "balamut2@illinois.edu", role = c("aut", "cre")))
 Description: Provides a search interface to look up terms
-    on 'Google', 'Bing', 'DuckDuckGo', 'StackOverflow', 'GitHub', and 'BitBucket'.
+    on 'Google', 'Bing', 'ixquick', 'DuckDuckGo', 'StackOverflow', 'GitHub', and 'BitBucket'.
     Upon searching, a browser window will open with the aforementioned search
     results.
 URL: https://github.com/coatless/searcher

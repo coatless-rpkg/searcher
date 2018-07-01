@@ -18,15 +18,15 @@
 search_site(query, site = c("google", "bing", "stackoverflow", "so", "github",
   "gh", "duckduckgo", "ddg", "bitbucket", "bb", "ixquick"), rlang = TRUE)
 
-search_google(query = geterrmessage())
+search_google(query = geterrmessage(), rlang = TRUE)
 
-search_bing(query = geterrmessage())
+search_bing(query = geterrmessage(), rlang = TRUE)
 
-search_duckduckgo(query = geterrmessage())
+search_duckduckgo(query = geterrmessage(), rlang = TRUE)
 
-search_ddg(query = geterrmessage())
+search_ddg(query = geterrmessage(), rlang = TRUE)
 
-search_ixquick(query = geterrmessage())
+search_ixquick(query = geterrmessage(), rlang = TRUE)
 
 search_stackoverflow(query = geterrmessage(), rlang = TRUE)
 
