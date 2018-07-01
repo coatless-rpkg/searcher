@@ -1,0 +1,5 @@
+# Set line ends automatically
+* text=auto
+
+# Handle multiple PR Updates
+NEWS.md merge=union
