@@ -53,10 +53,13 @@ library(searcher)
 
 The `search_*()` functions can be used to search a query directly from _R_ on
 major search engines, code repositories, and help websites. The following search
-platforms are supported: Google, Bing, ixquick, DuckDuckGo, StackOverflow, GitHub,
-and BitBucket. By default, an appropriate suffix for each platform that ensures
-relevant results to _R_ is appended to all queries. This behavior can be 
-disabled by using `rlang = FALSE`.
+platforms are supported: [Google](https://google.com), [Bing](https://www.bing.com/),
+[DuckDuckGo](https://duckduckgo.com/), [Startpage](https://www.startpage.com/en/),
+[StackOverflow](https://stackoverflow.com/search), 
+[GitHub](https://github.com/search), and [BitBucket](https://bitbucket.com/search).
+By default, an appropriate suffix for each platform that ensures relevant 
+results to _R_ is appended to all queries. This behavior can be disabled by 
+using `rlang = FALSE`.
 
 ```r
 # Searching R project on major search engines
