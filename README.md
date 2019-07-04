@@ -15,11 +15,11 @@ coverage](https://codecov.io/gh/r-assist/searcher/branch/master/graph/badge.svg)
 # searcher
 
 The goal of `searcher` is to provide a search interface directly inside
-of *R*. For example, within *R*, there is now the ability to look up
-`rcpp example numeric vector` or `ggplot2 fix axis labels` without
-having to open a browser, go to a search site, and type the query. By
-default, the search functions automatically search the last error on
-call.
+of *R*. For example, within *R*, it is possible to look up `rcpp example
+numeric vector` or `ggplot2 fix axis labels` without having to open a
+browser, go to a search site, and type the query. By default, the search
+functions automatically search the last error on call if no query is
+specified.
 
 ![](https://i.imgur.com/Zq2rg6G.gif)
 
@@ -55,7 +55,8 @@ The `search_*()` functions can be used to search a query directly from
 following search platforms are supported: [Google](https://google.com),
 [Bing](https://www.bing.com/), [DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/),
-[StackOverflow](https://stackoverflow.com/search),
+[StackOverflow](https://stackoverflow.com/search), [RStudio
+Community](https://community.rstudio.com/search),
 [GitHub](https://github.com/search), and
 [BitBucket](https://bitbucket.com/search). By default, an appropriate
 suffix for each platform that ensures relevant results to *R* is
@@ -72,6 +73,10 @@ search_startpage("R project")                            # or search_sp(...)
 # Searching for linear regression questions for R and in general
 search_stackoverflow("linear regression")
 search_stackoverflow("linear regression", rlang = FALSE) # or search_so(...)
+
+# Searching RStudio Community for tips
+search_rstudio_community("tips")
+search_rstudio_community("tips", rlang = FALSE)          # or search_rscom(...)
 
 # Searching GitHub Issues for maps in R and other languages
 search_github("maps")
@@ -117,11 +122,12 @@ search portal.
 ``` r
 search_google()
 search_bing()
-search_duckduckgo()    # or search_ddg()
-search_startpage()     # or search_sp()
-search_stackoverflow() # or search_so()
-search_github()        # or search_gh()
-search_bitbucket()     # or search_bb()
+search_duckduckgo()        # or search_ddg()
+search_startpage()         # or search_sp()
+search_stackoverflow()     # or search_so()
+search_rstudio_community() # or search_rscom()
+search_github()            # or search_gh()
+search_bitbucket()         # or search_bb()
 ```
 
 # Motivation
