@@ -12,10 +12,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+<!-- badges: start -->
 [![Travis-CI Build Status](https://travis-ci.org/r-assist/searcher.svg?branch=master)](https://travis-ci.org/r-assist/searcher)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/searcher)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
-[![Coverage Status](https://img.shields.io/codecov/c/github/r-assist/searcher/master.svg)](https://codecov.io/github/r-assist/searcher?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/r-assist/searcher/branch/master/graph/badge.svg)](https://codecov.io/gh/r-assist/searcher?branch=master)
+<!-- badges: end -->
 
 # searcher
 
