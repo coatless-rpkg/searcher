@@ -5,6 +5,10 @@
 - Renamed search portal `search_ixquick()` to `search_startpage()` due to the 
   merging of ixquick into startpage. (#15)
 
+## Deployment
+
+- Improve Travis CI testing deployments by testing across an array and using
+  all CPUs allotted to build the container. (#16)
 
 # searcher 0.0.3
 
