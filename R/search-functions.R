@@ -200,10 +200,9 @@ search_ddg = search_duckduckgo
 
 #' @rdname search_site
 #' @export
-#' @section ixquick Search:
-#' The `search_ixquick()` function searches
-#' [ixquick](https://ixquick.com) using:
-#'  \code{https://ixquick.com/do/dsearch?query=<query>}
+search_ixquick = function(query = geterrmessage(), rlang = TRUE) {
+  .Defunct(msg = "ixquick is now startpage, please use `search_startpage()`.")
+}
 
 #' @rdname search_site
 #' @export
