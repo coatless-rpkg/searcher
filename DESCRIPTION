@@ -1,6 +1,6 @@
 Package: searcher
 Title: Query Search Interfaces 
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: c(person("James", "Balamuta",
                     email = "balamut2@illinois.edu", role = c("aut", "cre"),
                     comment = c(ORCID = "0000-0003-2826-8458")))
