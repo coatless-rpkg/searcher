@@ -4,6 +4,7 @@
 
 - Renamed search portal `search_ixquick()` to `search_startpage()` due to the 
   merging of ixquick into startpage. (#15)
+- Update the README overview for the project. (#16)
 
 ## Deployment
 
