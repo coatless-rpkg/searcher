@@ -9,6 +9,7 @@
 
 - Improve Travis CI testing deployments by testing across an array and using
   all CPUs allotted to build the container. (#16)
+- Modify thresholding for code coverage rejections. (#16)
 
 # searcher 0.0.3
 
