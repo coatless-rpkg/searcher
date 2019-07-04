@@ -1,3 +1,11 @@
+# searcher 0.0.3.9000
+
+## Changes
+
+- Renamed search portal `search_ixquick()` to `search_startpage()` due to the 
+  merging of ixquick into startpage. (#15)
+
+
 # searcher 0.0.3
 
 ## Features
