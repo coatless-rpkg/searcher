@@ -4,14 +4,15 @@
 \alias{searcher}
 \title{Generate a Searcher function for use with Error Handling}
 \usage{
-searcher(site = c("google", "bing", "ddg", "sp", "so", "gh", "bb",
-  "duckduckgo", "stackoverflow", "github", "bitbucket", "startpage"),
-  rlang = TRUE)
+searcher(site = c("google", "bing", "duckduckgo", "ddg", "startpage",
+  "sp", "stackoverflow", "so", "rstudio community", "rscom", "github",
+  "gh", "bitbucket", "bb"), rlang = TRUE)
 }
 \arguments{
 \item{site}{Name of site to search on. Supported options:
 \code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
-\code{"stackoverflow"}, \code{"github"}, and \code{"bitbucket"}.}
+\code{"stackoverflow"}, \code{"rstudio community"}, \code{"github"}, and
+\code{"bitbucket"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
 }
