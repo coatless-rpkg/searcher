@@ -62,6 +62,18 @@ test_that("Check link generation", {
     "https://stackoverflow.com/search?q=toad"
   )
 
+  ##### RStudio Community
+
+  expect_identical(
+    search_rscom("toad"),
+    "https://community.rstudio.com/search?q=toad"
+  )
+
+  expect_identical(
+    search_rscom("toad", rlang = FALSE),
+    "https://community.rstudio.com/search?q=toad"
+  )
+
   ##### GitHub
 
   expect_identical(
@@ -161,13 +173,20 @@ test_that("Malformed search query validation", {
   )
 
   expect_identical(
-    search_startpage(""),
+    search_sp(""),
     "",
     "Empty string check if no error messages"
   )
 
   expect_identical(
     search_so(""),
+    "",
+    "Empty string check if no error messages"
+  )
+
+
+  expect_identical(
+    search_rscom(""),
     "",
     "Empty string check if no error messages"
   )
