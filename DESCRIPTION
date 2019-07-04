@@ -1,6 +1,6 @@
 Package: searcher
 Title: Query Search Interfaces 
-Version: 0.0.3.9100
+Version: 0.0.3.9200
 Authors@R: c(
              person("James", "Balamuta",
                     email = "balamut2@illinois.edu", 
