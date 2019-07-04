@@ -7,9 +7,9 @@
 \title{searcher: Query Search Interfaces}
 \description{
 Provides a search interface to look up terms
-on 'Google', 'Bing', 'ixquick', 'DuckDuckGo', 'StackOverflow', 'GitHub', and 'BitBucket'.
-Upon searching, a browser window will open with the aforementioned search
-results.
+    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'StackOverflow', 'GitHub', 
+    and 'BitBucket'. Upon searching, a browser window will open with the 
+    aforementioned search results.
 }
 \details{
 Provides an interface to search engines via R.

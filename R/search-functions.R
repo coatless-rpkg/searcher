@@ -4,8 +4,8 @@
 #' up the resulting page in a web browser.
 #'
 #' @param site  Name of site to search on. Supported options:
-#'              `"google"` (default), `"stackoverflow"`, `"github"`, `"bing"`,
-#'              `"bitbucket"`
+#'              `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
+#'              `"stackoverflow"`, `"github"`, and `"bitbucket"`.
 #' @param query Contents of string to search. Default is the error message.
 #' @param rlang Search for results written in R. Default is `TRUE`
 #'
@@ -13,8 +13,9 @@
 #'
 #' @rdname search_site
 #' @export
-#' @seealso [search_google()], [search_stackoverflow()], [search_github()],
-#'          [search_bing()], [search_bitbucket()], [searcher()]
+#' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
+#'          [search_startpage()], [search_stackoverflow()], [search_github()],
+#'          [search_bitbucket()], [searcher()]
 #' @examples
 #' # Search in a generic way
 #' search_site("r-project", "google")
@@ -28,8 +29,8 @@
 #' # Search DuckDuckGo
 #' search_duckduckgo("R language")
 #'
-#' # Search ixquick
-#' search_ixquick("RStudio IDE")
+#' # Search startpage
+#' search_startpage("RStudio IDE")
 #'
 #' # Search StackOverflow for Convolutions in the r tag
 #' search_stackoverflow("convolutions")
@@ -63,7 +64,8 @@ search_site = function(query,
                          "ddg",
                          "bitbucket",
                          "bb",
-                         "ixquick"
+                         "startpage",
+                         "sp"
                        ),
                        rlang = TRUE) {
   site = tolower(site)
@@ -85,7 +87,8 @@ search_site = function(query,
     duckduckgo     = ,
     # empty case carried below
     ddg            = search_duckduckgo(query, rlang),
-    ixquick        = search_ixquick(query, rlang)
+    startpage      = ,
+    sp             = search_startpage(query, rlang)
   )
 }
 
@@ -120,6 +123,7 @@ searcher = function(site  = c(
   "google",
   "bing",
   "ddg",
+  "sp",
   "so",
   "gh",
   "bb",
@@ -127,7 +131,7 @@ searcher = function(site  = c(
   "stackoverflow",
   "github",
   "bitbucket",
-  "ixquick"
+  "startpage"
 ),
 rlang = TRUE) {
   function(query = geterrmessage(), rlang = rlang) {
@@ -196,15 +200,21 @@ search_ddg = search_duckduckgo
 
 #' @rdname search_site
 #' @export
-#' @section ixquick Search:
-#' The `search_ixquick()` function searches
-#' [ixquick](https://ixquick.com) using:
-#'  \code{https://ixquick.com/do/dsearch?query=<query>}
-#'
-#' For additional details regarding [ixquick](https://ixquick.com)'s
-#' search interface please see:
-#'  \url{https://support.ixquick.com/index.php?/Knowledgebase/Article/View/201/0/how-do-i-make-startpage-by-ixquick-my-default-search-engine-in-chrome}
 search_ixquick = function(query = geterrmessage(), rlang = TRUE) {
+  .Defunct(msg = "ixquick is now startpage, please use `search_startpage()`.")
+}
+
+#' @rdname search_site
+#' @export
+#' @section Startpage Search:
+#' The `search_startpage()` function searches
+#' [startpage](https://startpage.com) using:
+#'  \code{https://startpage.com/do/dsearch?query=<query>}
+#'
+#' For additional details regarding [startpage](https://startpage.com)'s
+#' search interface please see:
+#'  \url{https://support.startpage.com/index.php?/Knowledgebase/Article/View/1261/0/add-familystartpagecom-as-the-default-search-engine-in-chrome}
+search_startpage = function(query = geterrmessage(), rlang = TRUE) {
   if (!valid_query(query)) {
     message("Please provide only 1 `query` term that is not empty.")
     return(invisible(""))
@@ -212,8 +222,12 @@ search_ixquick = function(query = geterrmessage(), rlang = TRUE) {
 
   query = append_r_suffix(query, rlang = rlang)
 
-  browse_url("https://ixquick.com/do/dsearch?query=", query)
+  browse_url("https://startpage.com/do/dsearch?query=", query)
 }
+
+#' @rdname search_site
+#' @export
+search_sp = search_startpage
 
 ########################### End Search Engines
 

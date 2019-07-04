@@ -2,10 +2,12 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![Travis-CI Build
-Status](https://travis-ci.org/coatless/searcher.svg?branch=master)](https://travis-ci.org/coatless/searcher)[![CRAN
-RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/searcher)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)[![Coverage
-Status](https://img.shields.io/codecov/c/github/coatless/searcher/master.svg)](https://codecov.io/github/coatless/searcher?branch=master)
+Status](https://travis-ci.org/r-assist/searcher.svg?branch=master)](https://travis-ci.org/r-assist/searcher)
+[![CRAN RStudio mirror
+downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/searcher)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/r-assist/searcher/master.svg)](https://codecov.io/github/r-assist/searcher?branch=master)
 
 # searcher
 
@@ -34,7 +36,7 @@ For the development version, you can opt for:
 ``` r
 install.packages("devtools")
 
-devtools::install_github("coatless/searcher")
+devtools::install_github("r-assist/searcher")
 ```
 
 ## Usage
@@ -47,18 +49,22 @@ library(searcher)
 
 The `search_*()` functions can be used to search a query directly from
 *R* on major search engines, code repositories, and help websites. The
-following search platforms are supported: Google, Bing, ixquick,
-DuckDuckGo, StackOverflow, GitHub, and BitBucket. By default, an
-appropriate suffix for each platform that ensures relevant results to
-*R* is appended to all queries. This behavior can be disabled by using
-`rlang = FALSE`.
+following search platforms are supported: [Google](https://google.com),
+[Bing](https://www.bing.com/), [DuckDuckGo](https://duckduckgo.com/),
+[Startpage](https://www.startpage.com/en/),
+[StackOverflow](https://stackoverflow.com/search),
+[GitHub](https://github.com/search), and
+[BitBucket](https://bitbucket.com/search). By default, an appropriate
+suffix for each platform that ensures relevant results to *R* is
+appended to all queries. This behavior can be disabled by using `rlang =
+FALSE`.
 
 ``` r
 # Searching R project on major search engines
 search_google("R project")
 search_bing("R project")
-search_ixquick("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
+search_startpage("R project")                            # or search_sp(...)
 
 # Searching for linear regression questions for R and in general
 search_stackoverflow("linear regression")
@@ -78,7 +84,7 @@ search_bitbucket("assertions", rlang = FALSE)            # or search_bb(...)
 `searcher` offers preliminary support for automatically or manually
 searching errors that are generated in *R*. For more robust error search
 support and to also search warning messages, please use the
-[`errorist`](https://github.com/coatless/errorist) package.
+[`errorist`](https://github.com/r-assist/errorist) package.
 
 ### Automatically
 
@@ -109,6 +115,7 @@ search portal.
 search_google()
 search_bing()
 search_duckduckgo()    # or search_ddg()
+search_startpage()     # or search_sp()
 search_stackoverflow() # or search_so()
 search_github()        # or search_gh()
 search_bitbucket()     # or search_bb()
@@ -129,7 +136,7 @@ an off-site user premade database. Both of these options were focused
 solely on querying *R* documentation made available by packages. Given
 the nature of errors generally being *undocumented*, neither of these
 approaches could be used. Thus, `searcher` was unintentionally born to
-provide a means for [`errorist`](https://github.com/coatless/errorist),
+provide a means for [`errorist`](https://github.com/r-assist/errorist),
 which contains a robust way to automatically searching errors and
 warnings.
 

@@ -7,6 +7,8 @@
 \alias{search_duckduckgo}
 \alias{search_ddg}
 \alias{search_ixquick}
+\alias{search_startpage}
+\alias{search_sp}
 \alias{search_stackoverflow}
 \alias{search_so}
 \alias{search_github}
@@ -15,8 +17,9 @@
 \alias{search_bb}
 \title{Search a Query on a Search Portal in a Web Browser}
 \usage{
-search_site(query, site = c("google", "bing", "stackoverflow", "so", "github",
-  "gh", "duckduckgo", "ddg", "bitbucket", "bb", "ixquick"), rlang = TRUE)
+search_site(query, site = c("google", "bing", "stackoverflow", "so",
+  "github", "gh", "duckduckgo", "ddg", "bitbucket", "bb", "startpage",
+  "sp"), rlang = TRUE)
 
 search_google(query = geterrmessage(), rlang = TRUE)
 
@@ -27,6 +30,10 @@ search_duckduckgo(query = geterrmessage(), rlang = TRUE)
 search_ddg(query = geterrmessage(), rlang = TRUE)
 
 search_ixquick(query = geterrmessage(), rlang = TRUE)
+
+search_startpage(query = geterrmessage(), rlang = TRUE)
+
+search_sp(query = geterrmessage(), rlang = TRUE)
 
 search_stackoverflow(query = geterrmessage(), rlang = TRUE)
 
@@ -44,8 +51,8 @@ search_bb(query = geterrmessage(), rlang = TRUE)
 \item{query}{Contents of string to search. Default is the error message.}
 
 \item{site}{Name of site to search on. Supported options:
-\code{"google"} (default), \code{"stackoverflow"}, \code{"github"}, \code{"bing"},
-\code{"bitbucket"}}
+\code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
+\code{"stackoverflow"}, \code{"github"}, and \code{"bitbucket"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
 }
@@ -77,15 +84,15 @@ The \code{search_duckduckgo()} and \code{search_ddg()} functions both search
 \href{https://duckduckgo.com}{DuckDuckGo} using: \code{https://duckduckgo.com/?q=<query>}
 }
 
-\section{ixquick Search}{
+\section{Startpage Search}{
 
-The \code{search_ixquick()} function searches
-\href{https://ixquick.com}{ixquick} using:
-\code{https://ixquick.com/do/dsearch?query=<query>}
+The \code{search_startpage()} function searches
+\href{https://startpage.com}{startpage} using:
+\code{https://startpage.com/do/dsearch?query=<query>}
 
-For additional details regarding \href{https://ixquick.com}{ixquick}'s
+For additional details regarding \href{https://startpage.com}{startpage}'s
 search interface please see:
-\url{https://support.ixquick.com/index.php?/Knowledgebase/Article/View/201/0/how-do-i-make-startpage-by-ixquick-my-default-search-engine-in-chrome}
+\url{https://support.startpage.com/index.php?/Knowledgebase/Article/View/1261/0/add-familystartpagecom-as-the-default-search-engine-in-chrome}
 }
 
 \section{StackOverflow Search}{
@@ -135,8 +142,8 @@ search_bing("Microsoft R")
 # Search DuckDuckGo
 search_duckduckgo("R language")
 
-# Search ixquick
-search_ixquick("RStudio IDE")
+# Search startpage
+search_startpage("RStudio IDE")
 
 # Search StackOverflow for Convolutions in the r tag
 search_stackoverflow("convolutions")
@@ -160,6 +167,7 @@ options(error = search_google)
 }
 }
 \seealso{
-\code{\link[=search_google]{search_google()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}}, \code{\link[=search_github]{search_github()}},
-\code{\link[=search_bing]{search_bing()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, \code{\link[=searcher]{searcher()}}
+\code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
+\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}}, \code{\link[=search_github]{search_github()}},
+\code{\link[=search_bitbucket]{search_bitbucket()}}, \code{\link[=searcher]{searcher()}}
 }
