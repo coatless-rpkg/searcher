@@ -65,8 +65,8 @@ using `rlang = FALSE`.
 # Searching R project on major search engines
 search_google("R project")
 search_bing("R project")
-search_ixquick("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
+search_startpage("R project")                            # or search_sp(...)
 
 # Searching for linear regression questions for R and in general
 search_stackoverflow("linear regression")
@@ -116,6 +116,7 @@ the last error message as the search query on the desired search portal.
 search_google()
 search_bing()
 search_duckduckgo()    # or search_ddg()
+search_startpage()     # or search_sp()
 search_stackoverflow() # or search_so()
 search_github()        # or search_gh()
 search_bitbucket()     # or search_bb()
