@@ -160,6 +160,28 @@ contains a robust way to automatically searching errors and warnings.
   on [XKCD Comic 1185: Ineffective Sorts](https://xkcd.com/1185/).
 - [Barry Rowlingson](http://barry.rowlingson.com) for remarks about functionality.
 
+### Publicity
+
+On the [`#rstats`-twitter verse](https://twitter.com/search?q=%23rstats), `searcher` has been positively received by
+community members.
+
+> R package "searcher" that automatically searches Stackoverflow for error that
+> you just saw in the console. Cool package, especially for those who learn R :)
+> https://github.com/coatless/searcher ... #r #rlang #rstats #rstudio
+>
+> --- [Paweł Przytuła](https://twitter.com/pawel_appsilon/status/1109545516264841216) 
+> March 23th, 2019. ~292 Retweets and 876 likes
+
+> Did you know, using "searcher" package, you could automatically to
+> search stackoverflow, google, GitHub and many more sites for errors,
+> packages or topics. #rstats
+>
+> --- [Shakirah Nakalungi](https://twitter.com/cynthia_kyra) June 29th, 2019, when she was [Rotating Curator for the "We are R-Ladies" twitter account](https://twitter.com/WeAreRLadies/status/1144921174251581440).
+> ~144 Retweets and 544 likes
+
+Please let us know via an [issue ticket](https://github.com/r-assist/searcher/issues/new)
+about how you are using `searcher`.
+
 ## License
 
 GPL (>= 2)
