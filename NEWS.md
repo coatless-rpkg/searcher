@@ -5,6 +5,7 @@
 - Added search portal:
     - `search_rstudio_community()` or `search_rscom()`: Searches on [RStudio Community](https://community.rstudio.com/search). 
       (#13, #17)
+- Added vignette on search patterns (#18).
 
 ## Changes
 
