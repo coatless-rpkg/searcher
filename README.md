@@ -15,11 +15,11 @@ coverage](https://codecov.io/gh/r-assist/searcher/branch/master/graph/badge.svg)
 # searcher
 
 The goal of `searcher` is to provide a search interface directly inside
-of *R*. For example, within *R*, it is possible to look up `rcpp example
-numeric vector` or `ggplot2 fix axis labels` without having to open a
-browser, go to a search site, and type the query. By default, the search
-functions automatically search the last error on call if no query is
-specified.
+of *R*. For example, to look up `rcpp example numeric vector` or
+`ggplot2 fix axis labels` call one of the `search_*()` functions to
+automatically have a web browser open, go to a search site, and type the
+query. By default, the search functions will attempt to search the last
+error on call if no query is specified.
 
 ![](https://i.imgur.com/Zq2rg6G.gif)
 
