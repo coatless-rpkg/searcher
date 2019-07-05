@@ -28,7 +28,7 @@ enough to the programming language being used. The goal of `searcher` is to
 attempt to address both needs by providing a convenient pre-specified search
 interface that tailors the results to _R_.
 
-# Implementation of Operators
+# Search Operators
 
 Within the `searcher` package, each `search_*()` function has the parameter
 of `rlang = TRUE`. By default, this enforces a search that guarantees
