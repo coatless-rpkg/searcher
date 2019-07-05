@@ -61,7 +61,7 @@ library(searcher)
 ## Search Terms
 
 The `search_*()` functions can be used to search a query directly from _R_ on
-major search engines, code repositories, and help websites. The following search
+major search engines, programming help websites, and code repositories. The following search
 platforms are supported: [Google](https://google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/), [Startpage](https://www.startpage.com/en/),
 [StackOverflow](https://stackoverflow.com/search), 
