@@ -1,9 +1,16 @@
-# searcher 0.0.3.9000
+# searcher 0.0.3.9200
+
+## Features
+
+- Added search portal:
+    - `search_rstudio_community()` or `search_rscom()`: Searches on [RStudio Community](https://community.rstudio.com/search). 
+      (#13, #17)
 
 ## Changes
 
-- Renamed search portal `search_ixquick()` to `search_startpage()` due to the 
-  merging of ixquick into startpage. (#15)
+- Renamed search portal:
+    - Changed `search_ixquick()` to `search_startpage()` due to the 
+      merging of ixquick into startpage. (#15)
 - Update the README overview for the project. (#16)
 
 ## Deployment
@@ -16,7 +23,8 @@
 
 ## Features
 
-- Added search portal `search_ixquick()`: Searches with [ixquick](https://www.ixquick.com/). (#8, #6)
+- Added search portal:
+    - `search_ixquick()`: Searches with [ixquick](https://www.ixquick.com/). (#8, #6)
 
 ## Changes
 

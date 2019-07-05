@@ -7,9 +7,9 @@
 \title{searcher: Query Search Interfaces}
 \description{
 Provides a search interface to look up terms
-    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'StackOverflow', 'GitHub', 
-    and 'BitBucket'. Upon searching, a browser window will open with the 
-    aforementioned search results.
+    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'StackOverflow', 
+    'RStudio Community', 'GitHub', and 'BitBucket'. Upon searching, a browser 
+    window will open with the aforementioned search results.
 }
 \details{
 Provides an interface to search engines via R.
@@ -17,8 +17,8 @@ Provides an interface to search engines via R.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/coatless/searcher}
-  \item Report bugs at \url{https://github.com/coatless/searcher/issues}
+  \item \url{https://github.com/r-assist/searcher}
+  \item Report bugs at \url{https://github.com/r-assist/searcher/issues}
 }
 
 }

@@ -3,19 +3,20 @@
 #' Creates an appropriate query string for a search engine and then opens
 #' up the resulting page in a web browser.
 #'
-#' @param site  Name of site to search on. Supported options:
-#'              `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
-#'              `"stackoverflow"`, `"github"`, and `"bitbucket"`.
-#' @param query Contents of string to search. Default is the error message.
-#' @param rlang Search for results written in R. Default is `TRUE`
+#' @param site   Name of site to search on. Supported options:
+#'               `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
+#'               `"stackoverflow"`, `"rstudio community"`, `"github"`, and
+#'               `"bitbucket"`.
+#' @param query  Contents of string to search. Default is the error message.
+#' @param rlang  Search for results written in R. Default is `TRUE`
 #'
 #' @return The generated search URL or an empty string.
 #'
 #' @rdname search_site
 #' @export
 #' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
-#'          [search_startpage()], [search_stackoverflow()], [search_github()],
-#'          [search_bitbucket()], [searcher()]
+#'          [search_startpage()], [search_stackoverflow()], [search_rstudio_community()],
+#'          [search_github()], [search_bitbucket()], and [searcher()]
 #' @examples
 #' # Search in a generic way
 #' search_site("r-project", "google")
@@ -38,6 +39,9 @@
 #' # Search all languages on StackOverflow for convolutions
 #' search_stackoverflow("convolutions", rlang = FALSE)
 #'
+#' # Search RStudio Community
+#' search_rstudio_community("RStudio IDE")
+#'
 #' # Search GitHub Issues for bivariate normal in the language:r
 #' search_github("bivariate normal")
 #'
@@ -56,16 +60,18 @@ search_site = function(query,
                        site = c(
                          "google",
                          "bing",
-                         "stackoverflow",
-                         "so",
-                         "github",
-                         "gh",
                          "duckduckgo",
                          "ddg",
-                         "bitbucket",
-                         "bb",
                          "startpage",
-                         "sp"
+                         "sp",
+                         "stackoverflow",
+                         "so",
+                         "rstudio community",
+                         "rscom",
+                         "github",
+                         "gh",
+                         "bitbucket",
+                         "bb"
                        ),
                        rlang = TRUE) {
   site = tolower(site)
@@ -74,21 +80,19 @@ search_site = function(query,
   switch(
     site,
     google         = search_google(query, rlang),
-    stackoverflow  = ,
-    # empty case carried below
-    so             = search_stackoverflow(query, rlang),
-    github         = ,
-    # empty case carried below
-    gh             = search_github(query, rlang),
-    bitbucket      = ,
-    # empty case carried below
-    bb             = search_bitbucket(query, rlang),
     bing           = search_bing(query, rlang),
-    duckduckgo     = ,
-    # empty case carried below
+    duckduckgo     = ,       # empty case carried below
     ddg            = search_duckduckgo(query, rlang),
-    startpage      = ,
-    sp             = search_startpage(query, rlang)
+    startpage      = ,      # empty case carried below
+    sp             = search_startpage(query, rlang),
+    stackoverflow  = ,      # empty case carried below
+    so             = search_stackoverflow(query, rlang),
+    `rstudio community` = , # empty case carried below
+    rscom          = search_rstudio_community(query, rlang),
+    github         = ,      # empty case carried below
+    gh             = search_github(query, rlang),
+    bitbucket      = ,      # empty case carried below
+    bb             = search_bitbucket(query, rlang)
   )
 }
 
@@ -122,16 +126,18 @@ search_site = function(query,
 searcher = function(site  = c(
   "google",
   "bing",
-  "ddg",
-  "sp",
-  "so",
-  "gh",
-  "bb",
   "duckduckgo",
+  "ddg",
+  "startpage",
+  "sp",
   "stackoverflow",
+  "so",
+  "rstudio community",
+  "rscom",
   "github",
+  "gh",
   "bitbucket",
-  "startpage"
+  "bb"
 ),
 rlang = TRUE) {
   function(query = geterrmessage(), rlang = rlang) {
@@ -232,7 +238,7 @@ search_sp = search_startpage
 ########################### End Search Engines
 
 
-########################### Start Search Code Repos
+########################### Start Search Development Community Websites
 
 #' @rdname search_site
 #' @export
@@ -261,6 +267,36 @@ search_so = search_stackoverflow
 
 #' @rdname search_site
 #' @export
+#' @section RStudio Community Search:
+#' The `search_rstudio_community()` and `search_rscom()` functions both search
+#' [RStudio Community](https://community.rstudio.com/) using:
+#' \code{https://community.rstudio.com/search?q=<query>}
+#'
+#' For additional details regarding [RStudio Community](https://community.rstudio.com/)'s
+#' search interface please see the [Discourse](https://discourse.org) API documentation:
+#'  \url{https://docs.discourse.org/#tag/Search}
+search_rstudio_community = function(query = geterrmessage(), rlang = TRUE) {
+  if (!valid_query(query)) {
+    message("Please provide only 1 `query` term that is not empty.")
+    return(invisible(""))
+  }
+
+  # Disable using a query check
+  # query = append_r_suffix(query, rlang = rlang, "[r]")
+
+  browse_url("https://community.rstudio.com/search?q=", query)
+}
+
+#' @rdname search_site
+#' @export
+search_rscom = search_rstudio_community
+
+########################### End Search Development Community Websites
+
+########################### Start Search Code Repos
+
+#' @rdname search_site
+#' @export
 #' @section GitHub Search:
 #' The `search_github()` and `search_gh()` functions both search
 #' [GitHub](https://github.com) using:
@@ -284,7 +320,6 @@ search_github = function(query = geterrmessage(), rlang = TRUE) {
 #' @rdname search_site
 #' @export
 search_gh = search_github
-
 
 #' @rdname search_site
 #' @export

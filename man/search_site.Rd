@@ -11,15 +11,17 @@
 \alias{search_sp}
 \alias{search_stackoverflow}
 \alias{search_so}
+\alias{search_rstudio_community}
+\alias{search_rscom}
 \alias{search_github}
 \alias{search_gh}
 \alias{search_bitbucket}
 \alias{search_bb}
 \title{Search a Query on a Search Portal in a Web Browser}
 \usage{
-search_site(query, site = c("google", "bing", "stackoverflow", "so",
-  "github", "gh", "duckduckgo", "ddg", "bitbucket", "bb", "startpage",
-  "sp"), rlang = TRUE)
+search_site(query, site = c("google", "bing", "duckduckgo", "ddg",
+  "startpage", "sp", "stackoverflow", "so", "rstudio community", "rscom",
+  "github", "gh", "bitbucket", "bb"), rlang = TRUE)
 
 search_google(query = geterrmessage(), rlang = TRUE)
 
@@ -39,6 +41,10 @@ search_stackoverflow(query = geterrmessage(), rlang = TRUE)
 
 search_so(query = geterrmessage(), rlang = TRUE)
 
+search_rstudio_community(query = geterrmessage(), rlang = TRUE)
+
+search_rscom(query = geterrmessage(), rlang = TRUE)
+
 search_github(query = geterrmessage(), rlang = TRUE)
 
 search_gh(query = geterrmessage(), rlang = TRUE)
@@ -52,7 +58,8 @@ search_bb(query = geterrmessage(), rlang = TRUE)
 
 \item{site}{Name of site to search on. Supported options:
 \code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
-\code{"stackoverflow"}, \code{"github"}, and \code{"bitbucket"}.}
+\code{"stackoverflow"}, \code{"rstudio community"}, \code{"github"}, and
+\code{"bitbucket"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
 }
@@ -106,6 +113,17 @@ search interface please see:
 \url{https://stackoverflow.com/help/advanced-search-parameters-jobs}
 }
 
+\section{RStudio Community Search}{
+
+The \code{search_rstudio_community()} and \code{search_rscom()} functions both search
+\href{https://community.rstudio.com/}{RStudio Community} using:
+\code{https://community.rstudio.com/search?q=<query>}
+
+For additional details regarding \href{https://community.rstudio.com/}{RStudio Community}'s
+search interface please see the \href{https://discourse.org}{Discourse} API documentation:
+\url{https://docs.discourse.org/#tag/Search}
+}
+
 \section{GitHub Search}{
 
 The \code{search_github()} and \code{search_gh()} functions both search
@@ -151,6 +169,9 @@ search_stackoverflow("convolutions")
 # Search all languages on StackOverflow for convolutions
 search_stackoverflow("convolutions", rlang = FALSE)
 
+# Search RStudio Community
+search_rstudio_community("RStudio IDE")
+
 # Search GitHub Issues for bivariate normal in the language:r
 search_github("bivariate normal")
 
@@ -168,6 +189,6 @@ options(error = search_google)
 }
 \seealso{
 \code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
-\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}}, \code{\link[=search_github]{search_github()}},
-\code{\link[=search_bitbucket]{search_bitbucket()}}, \code{\link[=searcher]{searcher()}}
+\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}}, \code{\link[=search_rstudio_community]{search_rstudio_community()}},
+\code{\link[=search_github]{search_github()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
 }
