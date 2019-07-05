@@ -138,7 +138,7 @@ search_bitbucket()         # or search_bb()
 ```
 
 
-# Motivation
+## Motivation
 
 The idea for `searcher` began as a project to automatically search errors and
 warnings that occurred while working with _R_ after a conversation 
@@ -154,12 +154,12 @@ approaches could be used. Thus, `searcher` was unintentionally born to
 provide a means for [`errorist`](https://github.com/r-assist/errorist), which
 contains a robust way to automatically searching errors and warnings.
 
-# Special Thanks
+### Special Thanks
 
 - [Dirk Eddelbuettel](http://dirk.eddelbuettel.com) for starting the discussion
   on [XKCD Comic 1185: Ineffective Sorts](https://xkcd.com/1185/).
 - [Barry Rowlingson](http://barry.rowlingson.com) for remarks about functionality.
 
-# License
+## License
 
 GPL (>= 2)
