@@ -30,7 +30,8 @@ interface that tailors the results to _R_.
 
 # Usage
 
-To begin using `searcher`, first install the package from [CRAN]().
+To begin using `searcher`, first install the package from
+[CRAN](https://CRAN.R-project.org/package=searcher).
 
 ```r
 # Install the searcher package if not already installed
@@ -62,7 +63,7 @@ _R_-specific results. If `rlang = FALSE`, then the results are generalized.
    - `"r programming"` was selected because it performed best when compared
      to `"rlang"`, `"rstats"`, and `"r language"` on [Google Trends](https://trends.google.com).
 - Community Sites
-   - [StackOverflow Search](https://stackoverflow.com/search): `[r] + <query>`
+   - [StackOverflow Search](https://stackoverflow.com/search): ` <query> + [r]`
    - [RStudio Community](https://community.rstudio.com/search): `<query>`
 - Code Repositories
    - [GitHub Search](https://github.com/search): `<query> language:r type:issue`
