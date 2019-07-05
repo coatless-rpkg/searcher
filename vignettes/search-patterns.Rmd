@@ -28,6 +28,28 @@ enough to the programming language being used. The goal of `searcher` is to
 attempt to address both needs by providing a convenient pre-specified search
 interface that tailors the results to _R_.
 
+# Usage
+
+To begin using `searcher`, first install the package from [CRAN]().
+
+```r
+# Install the searcher package if not already installed
+install.packages("searcher")
+```
+
+Once installed, searching with `searcher` is done by using one or more of the
+`search_*()` functions. To access these functions, either use a namespace 
+function call of `searcher::search_*()` or load the `searcher` package and,
+then, call the function.
+
+```r
+# Loads the searcher package
+library("searcher")
+
+# Searches using Google for `tips`
+search_google("tips")
+```
+
 # Search Operators
 
 Within the `searcher` package, each `search_*()` function has the parameter
