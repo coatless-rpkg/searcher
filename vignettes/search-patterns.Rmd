@@ -84,6 +84,7 @@ To improve your _R_-related search query, it has been suggested to use:
     - By specifying the package name, a year, and target site the "freshest" 
       solution will likely be found.
   
-These suggestions come from [Steph Locke](https://itsalocke.com/blog/) and 
+Suggestions here were pooled from discussion on rOpenSci's slack with
+[Steph Locke](https://itsalocke.com/blog/) and 
 [Robert Mitchell](http://robertmitchellv.com/).
 
