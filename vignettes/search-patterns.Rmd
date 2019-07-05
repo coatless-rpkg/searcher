@@ -1,0 +1,91 @@
+---
+title: "Search Patterns"
+author: "James Joseph Balamuta"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{search-patterns}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+When trying to solve a problem, part of the process is to research what attempts
+have been made by others. The most common form of research is to **query
+a search portal**. One downside to this approach is that each search portal has
+its own set of operators or query phrasing that will yield relevant content.
+As a result, those that have domain knowledge are able to format the
+search query in a way that is better. Still many queries are not constrained
+enough to the programming language being used. The goal of `searcher` is to
+attempt to address both needs by providing a convenient pre-specified search
+interface that tailors the results to _R_.
+
+# Usage
+
+To begin using `searcher`, first install the package from
+[CRAN](https://CRAN.R-project.org/package=searcher).
+
+```r
+# Install the searcher package if not already installed
+install.packages("searcher")
+```
+
+Once installed, searching with `searcher` is done by using one or more of the
+`search_*()` functions. To access these functions, either use a namespace 
+function call of `searcher::search_*()` or load the `searcher` package and,
+then, call the function.
+
+```r
+# Loads the searcher package
+library("searcher")
+
+# Searches using Google for `tips`
+search_google("tips")
+```
+
+# Search Operators
+
+Within the `searcher` package, each `search_*()` function has the parameter
+of `rlang = TRUE`. By default, this enforces a search that guarantees
+_R_-specific results. If `rlang = FALSE`, then the results are generalized.
+
+- Search Engines
+   - All search engines affix `"r programming"` to the end of the query to 
+     constrain the results to be _R_-specific.
+   - `"r programming"` was selected because it performed best when compared
+     to `"rlang"`, `"rstats"`, and `"r language"` on [Google Trends](https://trends.google.com).
+- Community Sites
+   - [StackOverflow Search](https://stackoverflow.com/search): ` <query> + [r]`
+   - [RStudio Community](https://community.rstudio.com/search): `<query>`
+- Code Repositories
+   - [GitHub Search](https://github.com/search): `<query> language:r type:issue`
+   - [Bitbucket Search](https://bitbucket.com/search): `<query> lang:r`
+
+# General Search Tips
+
+To improve your _R_-related search query, it has been suggested to use: 
+
+- `"r how to do <x>"`
+    - `"r how to remove legends in ggplot"`
+    - This is a baseline search query.
+- `"<package name> <problem>"`
+    - `"ggplot2 fix x-axis labels."`
+    - If the package is _R_-specific, it may help dropping `r` and instead
+      focusing on the package name at the start of the query.
+- `"r <package-name> <problem> <year> site:<specific-site>`
+    - `"r ggplot2 center graph title 2018 site:stackoverflow.com`
+    - By specifying the package name, a year, and target site the "freshest" 
+      solution will likely be found.
+  
+Suggestions here were pooled from discussion on rOpenSci's slack with
+[Steph Locke](https://itsalocke.com/blog/) and 
+[Robert Mitchell](http://robertmitchellv.com/).
+

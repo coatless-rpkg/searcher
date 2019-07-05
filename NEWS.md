@@ -1,10 +1,11 @@
-# searcher 0.0.3.9200
+# searcher 0.0.4
 
 ## Features
 
 - Added search portal:
     - `search_rstudio_community()` or `search_rscom()`: Searches on [RStudio Community](https://community.rstudio.com/search). 
       (#13, #17)
+- Added vignette on search patterns (#18).
 
 ## Changes
 
@@ -15,7 +16,7 @@
 
 ## Deployment
 
-- Improve Travis CI testing deployments by testing across an array and using
+- Improved TravisCI testing deployments by testing across an array and using
   all CPUs allotted to build the container. (#16)
 - Modify thresholding for code coverage rejections. (#16)
 

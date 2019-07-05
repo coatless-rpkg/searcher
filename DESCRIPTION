@@ -1,6 +1,6 @@
 Package: searcher
 Title: Query Search Interfaces 
-Version: 0.0.3.9200
+Version: 0.0.4
 Authors@R: c(
              person("James", "Balamuta",
                     email = "balamut2@illinois.edu", 
@@ -20,5 +20,9 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
-Suggests: testthat,
-    covr
+Suggests: 
+    testthat,
+    covr,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

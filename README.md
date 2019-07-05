@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# searcher
+
 <!-- badges: start -->
 
 [![Travis-CI Build
@@ -12,23 +14,26 @@ downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/
 coverage](https://codecov.io/gh/r-assist/searcher/branch/master/graph/badge.svg)](https://codecov.io/gh/r-assist/searcher?branch=master)
 <!-- badges: end -->
 
-# searcher
-
 The goal of `searcher` is to provide a search interface directly inside
-of *R*. For example, within *R*, it is possible to look up `rcpp example
-numeric vector` or `ggplot2 fix axis labels` without having to open a
-browser, go to a search site, and type the query. By default, the search
-functions automatically search the last error on call if no query is
-specified.
+of *R*. For example, to look up `rcpp example numeric vector` or
+`ggplot2 fix axis labels` call one of the `search_*()` functions to
+automatically have a web browser open, go to a search site, and type the
+query. By default, the search functions will attempt to search the last
+error on call if no query is specified.
 
 ![](https://i.imgur.com/Zq2rg6G.gif)
 
 ## Installation
 
-The `searcher` package is available on both CRAN and GitHub. The CRAN
-version is considered stable while the GitHub version is in a state of
-development and may break. You can install the stable version of the
-`searcher` package with:
+The `searcher` package is available on both
+[CRAN](https://CRAN.R-project.org/package=searcher) and
+[GitHub](https://github.com/r-assist/searcher). The
+[CRAN](https://CRAN.R-project.org/package=searcher) version is
+considered stable while the
+[GitHub](https://github.com/r-assist/searcher) version is in a state of
+development and may break.
+
+You can install the stable version of the `searcher` package with:
 
 ``` r
 install.packages("searcher")
@@ -37,8 +42,7 @@ install.packages("searcher")
 For the development version, you can opt for:
 
 ``` r
-install.packages("devtools")
-
+if(!requireNamespace("devtools")) { install.packages("devtools") }
 devtools::install_github("r-assist/searcher")
 ```
 
@@ -51,9 +55,10 @@ library(searcher)
 ## Search Terms
 
 The `search_*()` functions can be used to search a query directly from
-*R* on major search engines, code repositories, and help websites. The
-following search platforms are supported: [Google](https://google.com),
-[Bing](https://www.bing.com/), [DuckDuckGo](https://duckduckgo.com/),
+*R* on major search engines, programming help websites, and code
+repositories. The following search platforms are supported:
+[Google](https://google.com), [Bing](https://www.bing.com/),
+[DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/),
 [StackOverflow](https://stackoverflow.com/search), [RStudio
 Community](https://community.rstudio.com/search),
@@ -130,7 +135,7 @@ search_github()            # or search_gh()
 search_bitbucket()         # or search_bb()
 ```
 
-# Motivation
+## Motivation
 
 The idea for `searcher` began as a project to automatically search
 errors and warnings that occurred while working with *R* after a
@@ -149,7 +154,7 @@ provide a means for [`errorist`](https://github.com/r-assist/errorist),
 which contains a robust way to automatically searching errors and
 warnings.
 
-# Special Thanks
+### Special Thanks
 
   - [Dirk Eddelbuettel](http://dirk.eddelbuettel.com) for starting the
     discussion on [XKCD Comic 1185: Ineffective
@@ -157,6 +162,34 @@ warnings.
   - [Barry Rowlingson](http://barry.rowlingson.com) for remarks about
     functionality.
 
-# License
+### Publicity
+
+On the [`#rstats`-twitter
+verse](https://twitter.com/search?q=%23rstats), `searcher` has been
+positively received by community members.
+
+> R package “searcher” that automatically searches Stackoverflow for
+> error that you just saw in the console. Cool package, especially for
+> those who learn R :) <https://github.com/coatless/searcher> … \#r
+> \#rlang \#rstats \#rstudio
+> 
+> — [Paweł
+> Przytuła](https://twitter.com/pawel_appsilon/status/1109545516264841216)
+> March 23th, 2019. \~292 Retweets and 876 likes
+
+> Did you know, using “searcher” package, you could automatically to
+> search stackoverflow, google, GitHub and many more sites for errors,
+> packages or topics. \#rstats
+> 
+> — [Shakirah Nakalungi](https://twitter.com/cynthia_kyra) June 29th,
+> 2019, when she was [Rotating Curator for the “We are R-Ladies” twitter
+> account](https://twitter.com/WeAreRLadies/status/1144921174251581440).
+> \~144 Retweets and 544 likes
+
+Please let us know via an [issue
+ticket](https://github.com/r-assist/searcher/issues/new) about how you
+are using `searcher`.
+
+## License
 
 GPL (\>= 2)
