@@ -135,6 +135,36 @@ search_github()            # or search_gh()
 search_bitbucket()         # or search_bb()
 ```
 
+## Package Customizations
+
+The ability to customize different operations in `searcher` is possible
+by setting values in
+[`options()`](https://stat.ethz.ch/R-manual/R-patched/RHOME/library/base/html/options.html)
+within
+[`~/.Rprofile`](https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html).
+Presently, the following options are available:
+
+  - `searcher.launch_delay`: Amount of time between launching the web
+    browser from when the command was issued. Default is `0.5` seconds.
+
+To set one of these options, please create the `.Rprofile` by typing
+into *R*:
+
+``` r
+file.edit("~/.Rprofile")
+```
+
+From there, add:
+
+``` r
+.First = function() {
+  options(
+    searcher.launch_delay = 0
+    ## Additional options.
+  )
+}
+```
+
 ## Motivation
 
 The idea for `searcher` began as a project to automatically search

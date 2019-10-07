@@ -30,10 +30,13 @@ browse_url = function(base,
 
   encodedURL = paste0(base, utils::URLencode(unencoded_query), encoded_query)
 
+
   if (open_browser) {
     message("Searching query in web browser ... ")
-    Sys.sleep(0.5)
+
+    Sys.sleep(getOption("searcher.launch_delay"))
     utils::browseURL(encodedURL)
+
   } else {
     message("Please type into your browser: \n", invisible(encodedURL))
   }
