@@ -146,6 +146,8 @@ Presently, the following options are available:
 
   - `searcher.launch_delay`: Amount of time between launching the web
     browser from when the command was issued. Default is `0.5` seconds.
+  - `searcher.use_rstudio_viewer`: Display search results in the RStudio
+    viewer pane instead of a web browser. Default is `TRUE`.
 
 To set one of these options, please create the `.Rprofile` by typing
 into *R*:
@@ -159,7 +161,8 @@ From there, add:
 ``` r
 .First = function() {
   options(
-    searcher.launch_delay = 0
+    searcher.launch_delay       = 0,
+    searcher.use_rstudio_viewer = FALSE
     ## Additional options.
   )
 }
