@@ -11,9 +11,18 @@ Provides a search interface to look up terms
     'RStudio Community', 'GitHub', and 'BitBucket'. Upon searching, a browser 
     window will open with the aforementioned search results.
 }
-\details{
-Provides an interface to search engines via R.
+\section{Package Customizations}{
+
+
+\code{searcher} accesses a set of default values stored in \code{\link[=options]{options()}} on each
+call to keep the function signatures small. By default, these options are given as:
+\itemize{
+\item \code{searcher.launch_delay}: Amount of time to remain in \emph{R} before opening
+a browser window. Default is 0.5 seconds.
+\item ...
 }
+}
+
 \seealso{
 Useful links:
 \itemize{
