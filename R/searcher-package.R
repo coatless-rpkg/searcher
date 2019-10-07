@@ -5,13 +5,16 @@
 #' call to keep the function signatures small. By default, these options are given as:
 #'
 #' - `searcher.launch_delay`: Amount of time to remain in _R_ before opening
-#'    a browser window. Default is 0.5 seconds.
+#'    a browser window. Default is `0.5` seconds.
+#' - `searcher.use_rstudio_viewer`: Display search results in the RStudio
+#'    viewer pane instead of a web browser. Default is `TRUE`.
 #' - ...
 #'
 "_PACKAGE"
 
 searcher_default_options = list(
-  searcher.launch_delay = 0.5
+  searcher.launch_delay = 0.5,
+  searcher.use_rstudio_viewer = TRUE
 )
 
 .onLoad = function(libname, pkgname) {

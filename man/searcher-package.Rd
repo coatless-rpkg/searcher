@@ -18,7 +18,9 @@ Provides a search interface to look up terms
 call to keep the function signatures small. By default, these options are given as:
 \itemize{
 \item \code{searcher.launch_delay}: Amount of time to remain in \emph{R} before opening
-a browser window. Default is 0.5 seconds.
+a browser window. Default is \code{0.5} seconds.
+\item \code{searcher.use_rstudio_viewer}: Display search results in the RStudio
+viewer pane instead of a web browser. Default is \code{TRUE}.
 \item ...
 }
 }
