@@ -1,3 +1,11 @@
+# searcher 0.0.5
+
+## Features
+
+- Added ability to set default package actions.
+  - `searcher.launch_delay` controls how long the user remains in _R_ prior
+    to the browser opening. 
+
 # searcher 0.0.4
 
 ## Features
