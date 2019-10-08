@@ -6,7 +6,7 @@ keyword_entry = function(base, tidyverse = base) {
   list(base = base, tidyverse = tidyverse)
 }
 
-site_entry = function(url, keywords = keywords_default(), suffix = NULL) {
+site_entry = function(url, keywords = keyword_default(), suffix = NULL) {
   list("url" = url,
        "keywords" = keywords,
        "suffix" = suffix)
