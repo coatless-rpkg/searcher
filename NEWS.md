@@ -3,8 +3,18 @@
 ## Features
 
 - Added ability to set default package actions.
+- Allow RStudio's Viewer pane to display search results.
+  - Note: This feature requires a patch per [issue 2252](https://github.com/rstudio/rstudio/issues/2252).
+
+## Changes
+
+- Default options added.
   - `searcher.launch_delay` controls how long the user remains in _R_ prior
-    to the browser opening. 
+    to the browser opening. Default is `0.5` seconds.
+  - `searcher.use_rstudio_viewer` specifies whether RStudio's viewer pane should
+    open the link instead of a web browser. Default is `FALSE` until the issue
+    is resolved..
+
 
 # searcher 0.0.4
 

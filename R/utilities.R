@@ -5,12 +5,14 @@
 #' @param base             The URL prefix e.g. `https://google.com/search?q=`
 #' @param unencoded_query  An unencoded string that must be encoded with [utils::URLencode()].
 #' @param encoded_query    An encoded string that satisifies [utils::URLencode()].
-#' @param open_browser     Should the URL be opened in a web browser.
-#' @inheritParams utils::browseURL
+#' @param open_browser  Should the URL be opened in a web browser.
 #'
-#' @return A `character` object containing the query URL
+#' @return
+#' A `character` object containing the query URL
 #'
-#' @seealso [utils::browseURL()], [utils::URLencode()]
+#' @seealso
+#' [utils::browseURL()]
+#'
 #' @examples
 #' # Query Google
 #' browse_url("https://google.com/search?q=", "rstats is great")
@@ -25,26 +27,54 @@
 #' @noRd
 browse_url = function(base,
                       unencoded_query, encoded_query = "",
-                      browser = getOption("browser"),
                       open_browser = interactive()) {
 
-  encodedURL = paste0(base, utils::URLencode(unencoded_query), encoded_query)
-
-
+  url = encode_url(base, unencoded_query, encoded_query)
   if (open_browser) {
-    message("Searching query in web browser ... ")
-
-    Sys.sleep(getOption("searcher.launch_delay"))
-    utils::browseURL(encodedURL)
-
+    if (is_rstudio() && getOption("searcher.use_rstudio_viewer")) {
+      open_rstudio_viewer(url)
+    } else {
+      open_browser(url)
+    }
   } else {
-    message("Please type into your browser: \n", invisible(encodedURL))
+    message("Please type into your browser:\n", invisible(url))
   }
 
-  invisible(encodedURL)
+  invisible(url)
 }
 
+open_rstudio_viewer = function(url) {
+  message("Searching query in RStudio's Viewer panel ... ")
+  Sys.sleep(getOption("searcher.launch_delay"))
 
+  # If in RStudio, this should be set.
+  viewer <- getOption("viewer")
+  viewer(url)
+}
+
+open_browser = function(url) {
+  message("Searching query in a web browser ... ")
+  Sys.sleep(getOption("searcher.launch_delay"))
+  utils::browseURL(url)
+}
+
+#' Form Encoded URL
+#'
+#' Creates a URL with appropriate encoding
+#'
+#' @param base             The URL prefix e.g. `https://google.com/search?q=`
+#' @param unencoded_query  An unencoded string that must be encoded with [utils::URLencode()].
+#' @param encoded_query    An encoded string that satisifies [utils::URLencode()].
+#'
+#' @return
+#' A properly formatted URL.
+#'
+#' @seealso
+#' [utils::URLencode()]
+#' @noRd
+encode_url = function(base, unencoded_query, encoded_query = "") {
+  paste0(base, utils::URLencode(unencoded_query), encoded_query)
+}
 
 #' Validate search query
 #'
@@ -99,4 +129,21 @@ append_r_suffix = function(query, rlang = TRUE, suffix = "r programming") {
     paste(query, suffix)
   else
     query
+}
+
+#' Check if in RStudio
+#'
+#' Verifies whether the user is using the RStudio IDE.
+#'
+#' @return
+#' A `logical` value indicating whether _R_ is being accessed from the RStudio
+#' IDE.
+#'
+#' @examples
+#' # Check if in RStudio
+#' is_rstudio()
+#'
+#' @noRd
+is_rstudio = function() {
+  Sys.getenv("RSTUDIO") == "1"
 }
