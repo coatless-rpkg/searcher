@@ -8,13 +8,16 @@
 
 ## Changes
 
-- Default options added.
+- Default options added:
   - `searcher.launch_delay` controls how long the user remains in _R_ prior
     to the browser opening. Default is `0.5` seconds.
   - `searcher.use_rstudio_viewer` specifies whether RStudio's viewer pane should
     open the link instead of a web browser. Default is `FALSE` until the issue
     is resolved..
 
+## Fixes
+
+- Fixed vignette index name.
 
 # searcher 0.0.4
 
