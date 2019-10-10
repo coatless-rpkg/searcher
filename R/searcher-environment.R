@@ -31,10 +31,3 @@ searcher_properties =
                                       keyword_entry("lang:r"))
   )
 
-setup_search_function = function(site) {
-  if(!site %in% searcher_properties) {
-    stop("Please enter a supported website.")
-  }
-
-
-}
