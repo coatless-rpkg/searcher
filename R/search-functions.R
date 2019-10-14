@@ -102,6 +102,7 @@ search_site = function(query,
 #' R error message on search portals by opening a
 #' browser.
 #'
+#' @param keyword Opt to search under different default terms.
 #' @inheritParams search_site
 #' @export
 #' @section Generic Error Search:
@@ -123,23 +124,10 @@ search_site = function(query,
 #' # On error, automatically search the message on google
 #' options(error = searcher("google"))
 #' }
-searcher = function(site  = c(
-  "google",
-  "bing",
-  "duckduckgo",
-  "ddg",
-  "startpage",
-  "sp",
-  "stackoverflow",
-  "so",
-  "rstudio community",
-  "rscom",
-  "github",
-  "gh",
-  "bitbucket",
-  "bb"
-),
-rlang = TRUE) {
+searcher = function(site, rlang = TRUE, keyword = getOption("searcher.default_keyword", "base")) {
+
+  check_valid_site(site)
+
   function(query = geterrmessage(), rlang = rlang) {
     search_site(query, site, rlang = rlang)
   }
