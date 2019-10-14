@@ -31,3 +31,33 @@ searcher_properties =
                                       keyword_entry("lang:r"))
   )
 
+short_site_name_map = c(
+  "ddg" = "duckduckgo",
+  "sp" = "startpage",
+  "so" = "stackoverflow",
+  "rscom" = "rstudio community",
+  "gh" = "github",
+  "bb" = "bitbucket"
+)
+
+check_site_name = function(x, data) {
+  !x %in% names(data)
+}
+
+check_short_site_name = function(x) {
+  check_site_name(x, short_site_name_map)
+}
+
+check_long_site_name = function(x) {
+  check_site_name(x, searcher_properties)
+}
+
+check_valid_site = function(site) {
+  recorded_site = any(check_long_site_name(site) | check_short_site_name(site))
+
+  if(!recorded_site) {
+      stop("`site` must be a valid site name.", call. = FALSE)
+  }
+
+  invisible(TRUE)
+}

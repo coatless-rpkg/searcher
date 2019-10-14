@@ -4,9 +4,8 @@
 \alias{searcher}
 \title{Generate a Searcher function for use with Error Handling}
 \usage{
-searcher(site = c("google", "bing", "duckduckgo", "ddg", "startpage",
-  "sp", "stackoverflow", "so", "rstudio community", "rscom", "github",
-  "gh", "bitbucket", "bb"), rlang = TRUE)
+searcher(site, rlang = TRUE,
+  keyword = getOption("searcher.default_keyword", "base"))
 }
 \arguments{
 \item{site}{Name of site to search on. Supported options:
@@ -15,6 +14,8 @@ searcher(site = c("google", "bing", "duckduckgo", "ddg", "startpage",
 \code{"bitbucket"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
+
+\item{keyword}{Opt to search under different default terms.}
 }
 \description{
 Constructs a function object that will search the last
