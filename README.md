@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-[![Travis-CI Build
-Status](https://travis-ci.org/r-assist/searcher.svg?branch=master)](https://travis-ci.org/r-assist/searcher)
+[![R build
+status](https://github.com/r-assist/searcher/workflows/R-CMD-check/badge.svg)](https://github.com/r-assist/searcher/actions)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/searcher)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
