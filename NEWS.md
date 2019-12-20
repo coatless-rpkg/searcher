@@ -2,22 +2,33 @@
 
 ## Features
 
-- Added ability to set default package actions.
 - Allow RStudio's Viewer pane to display search results.
-  - Note: This feature requires a patch per [issue 2252](https://github.com/rstudio/rstudio/issues/2252).
-
-## Changes
-
-- Default options added:
+  - Note: This feature requires a patch per [issue 2252](https://github.com/rstudio/rstudio/issues/2252). 
+  ([#21](https://github.com/r-assist/searcher/issues/21),
+   [#22](https://github.com/r-assist/searcher/pull/22))
+- Added ability to set default package actions.
+  ([#7](https://github.com/r-assist/searcher/issues/7),
+   [#20](https://github.com/r-assist/searcher/pull/20))
   - `searcher.launch_delay` controls how long the user remains in _R_ prior
     to the browser opening. Default is `0.5` seconds.
   - `searcher.use_rstudio_viewer` specifies whether RStudio's viewer pane should
-    open the link instead of a web browser. Default is `FALSE` until the issue
-    is resolved..
+    open the link instead of a web browser. Default is `FALSE` until RStudio's
+    [sandbox issue](https://github.com/rstudio/rstudio/issues/2252) is resolved.
 
 ## Fixes
 
 - Fixed vignette index name.
+
+## Deployment
+
+- Switched from using [TravisCI](http://travis-ci.com/) to using
+  [GitHub Actions for R](https://github.com/r-lib/actions). 
+  ([#25](https://github.com/r-assist/searcher/issues/25),
+   [#27](https://github.com/r-assist/searcher/pull/27))
+- Added [pkgdown](https://pkgdown.r-lib.org/) website for `searcher` available 
+  at: <https://r-assist.github.io/searcher>. 
+  ([#26](https://github.com/r-assist/searcher/issues/26),
+   [#27](https://github.com/r-assist/searcher/pull/27))
 
 # searcher 0.0.4
 
