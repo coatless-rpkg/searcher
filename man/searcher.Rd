@@ -4,8 +4,11 @@
 \alias{searcher}
 \title{Generate a Searcher function for use with Error Handling}
 \usage{
-searcher(site, rlang = TRUE,
-  keyword = getOption("searcher.default_keyword", "base"))
+searcher(
+  site,
+  rlang = TRUE,
+  keyword = getOption("searcher.default_keyword", "base")
+)
 }
 \arguments{
 \item{site}{Name of site to search on. Supported options:

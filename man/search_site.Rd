@@ -19,9 +19,12 @@
 \alias{search_bb}
 \title{Search a Query on a Search Portal in a Web Browser}
 \usage{
-search_site(query, site = c("google", "bing", "duckduckgo", "ddg",
-  "startpage", "sp", "stackoverflow", "so", "rstudio community", "rscom",
-  "github", "gh", "bitbucket", "bb"), rlang = TRUE)
+search_site(
+  query,
+  site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "stackoverflow",
+    "so", "rstudio community", "rscom", "github", "gh", "bitbucket", "bb"),
+  rlang = TRUE
+)
 
 search_google(query = geterrmessage(), rlang = TRUE)
 
@@ -73,7 +76,7 @@ up the resulting page in a web browser.
 \section{Google Search}{
 
 The \code{search_google} function searches \href{https://google.com}{Google} using:
-\code{https://google.com/search?q=<query>}
+\verb{https://google.com/search?q=<query>}
 
 See \url{https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters}
 for details.
@@ -82,13 +85,13 @@ for details.
 \section{Bing Search}{
 
 The \code{search_bing()} function searches \href{https://bing.com}{Bing} using:
-\code{https://bing.com/search?q=<query>}
+\verb{https://bing.com/search?q=<query>}
 }
 
 \section{DuckDuckGo Search}{
 
 The \code{search_duckduckgo()} and \code{search_ddg()} functions both search
-\href{https://duckduckgo.com}{DuckDuckGo} using: \code{https://duckduckgo.com/?q=<query>}
+\href{https://duckduckgo.com}{DuckDuckGo} using: \verb{https://duckduckgo.com/?q=<query>}
 }
 
 \section{Startpage Search}{
