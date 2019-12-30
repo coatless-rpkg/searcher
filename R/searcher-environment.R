@@ -6,57 +6,71 @@ keyword_entry = function(base, tidyverse = base) {
   list(base = base, tidyverse = tidyverse)
 }
 
-site_entry = function(url, keywords = keyword_default(), suffix = NULL) {
-  list("url" = url,
-       "keywords" = keywords,
-       "suffix" = suffix)
+site_entry = function(site_long_name,
+                      site_url,
+                      site_short_name = site_long_name,
+                      keywords = keyword_default(),
+                      suffix = NULL) {
+  list(
+    "site_long_name" = site_long_name,
+    "site_short_name" = site_short_name,
+    "site_url" = site_url,
+    "keywords" = keywords,
+    "suffix" = suffix
+  )
 }
 
 searcher_properties =
   list(
-    "google"            = site_entry("https://github.com/search?q="),
-    "bing"              = site_entry("https://bing.com/search?q="),
-    "duckduckgo"        = site_entry("https://duckduckgo.com/?q="),
-    "startpage"         = site_entry("https://startpage.com/do/dsearch?query="),
-    "stackoverflow"     = site_entry("https://stackoverflow.com/search?q=",
-                                     keyword_entry("[r]", "[tidyverse]")
-                                    ),
-    "rstudio community" = site_entry("https://community.rstudio.com/search?q=",
-                                     NULL),
-    "github"            = site_entry("https://github.com/search?q=",
-                                     keyword_entry("language:r type:issue"),
-                                     "&type=Issues"
-                                     ),
-    "bitbucket"         = site_entry("https://bitbucket.com/search?q=",
-                                      keyword_entry("lang:r"))
+    site_entry("google", "https://github.com/search?q="),
+    site_entry("bing", "https://bing.com/search?q="),
+    site_entry("duckduckgo", "https://duckduckgo.com/?q=", "ddg"),
+    site_entry("startpage", "https://startpage.com/do/dsearch?query=", "sp"),
+    site_entry(
+      "stackoverflow",
+      "https://stackoverflow.com/search?q=",
+      "so",
+      keyword_entry("[r]", "[tidyverse]")
+    ),
+    site_entry(
+      "rstudio community",
+      "https://community.rstudio.com/search?q=",
+      "rscom",
+      NULL
+    ),
+    site_entry(
+      "github",
+      "https://github.com/search?q=",
+      "gh",
+      keyword_entry("language:r type:issue"),
+      "&type=Issues"
+    ),
+    site_entry(
+      "bitbucket",
+      "https://bitbucket.com/search?q=",
+      "bb",
+      keyword_entry("lang:r")
+    )
   )
 
-short_site_name_map = c(
-  "ddg" = "duckduckgo",
-  "sp" = "startpage",
-  "so" = "stackoverflow",
-  "rscom" = "rstudio community",
-  "gh" = "github",
-  "bb" = "bitbucket"
-)
-
-check_site_name = function(x, data) {
-  !x %in% names(data)
+check_site_name = function(x, site_name_type) {
+  x %in% vapply(searcher_properties, "[[", "", site_name_type)
 }
 
 check_short_site_name = function(x) {
-  check_site_name(x, short_site_name_map)
+  check_site_name(x, "site_long_name")
 }
 
 check_long_site_name = function(x) {
-  check_site_name(x, searcher_properties)
+  check_site_name(x, "site_short_name")
 }
 
 check_valid_site = function(site) {
-  recorded_site = any(check_long_site_name(site) | check_short_site_name(site))
+  site_present = check_long_site_name(site) ||
+    check_short_site_name(site)
 
-  if(!recorded_site) {
-      stop("`site` must be a valid site name.", call. = FALSE)
+  if (!site_present) {
+    stop("`site` must be a valid site name.", call. = FALSE)
   }
 
   invisible(TRUE)
