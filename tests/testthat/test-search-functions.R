@@ -1,5 +1,3 @@
-context("searcher")
-
 test_that("Check link generation", {
 
   ##### Google
