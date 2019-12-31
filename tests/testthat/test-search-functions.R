@@ -138,14 +138,10 @@ test_that("Validate selection", {
 
 
 test_that("Verify search handler generation", {
+  expect_message(searcher("bing")(""))
   expect_identical(
-    searcher("bing", rlang = TRUE)(""),
-    search_bing("")
-  )
-
-  expect_identical(
-    searcher("bing", rlang = FALSE)(""),
-    search_bing("", rlang = FALSE)
+    searcher("bing")(""),
+    ""
   )
 })
 

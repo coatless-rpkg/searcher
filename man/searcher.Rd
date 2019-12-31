@@ -4,16 +4,13 @@
 \alias{searcher}
 \title{Generate a Searcher function for use with Error Handling}
 \usage{
-searcher(site, rlang = TRUE,
-  keyword = getOption("searcher.default_keyword", "base"))
+searcher(site, keyword = getOption("searcher.default_keyword"))
 }
 \arguments{
 \item{site}{Name of site to search on. Supported options:
 \code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
 \code{"stackoverflow"}, \code{"rstudio community"}, \code{"github"}, and
 \code{"bitbucket"}.}
-
-\item{rlang}{Search for results written in R. Default is \code{TRUE}}
 
 \item{keyword}{Opt to search under different default terms.}
 }

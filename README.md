@@ -148,6 +148,8 @@ Presently, the following options are available:
     browser from when the command was issued. Default is `0.5` seconds.
   - `searcher.use_rstudio_viewer`: Display search results in the RStudio
     viewer pane instead of a web browser. Default is `FALSE`.
+  - `searcher.default_keyword`: Suffix keyword to focus search results
+    between either `"base"` or `"tidyverse"`. Default is `"base"`.
 
 To set one of these options, please create the `.Rprofile` by typing
 into *R*:
@@ -162,7 +164,8 @@ From there, add:
 .First = function() {
   options(
     searcher.launch_delay       = 0,
-    searcher.use_rstudio_viewer = FALSE
+    searcher.use_rstudio_viewer = FALSE,
+    searcher.default_keyword    = "tidyverse"
     ## Additional options.
   )
 }

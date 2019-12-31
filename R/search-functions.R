@@ -7,8 +7,8 @@
 #'               `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
 #'               `"stackoverflow"`, `"rstudio community"`, `"github"`, and
 #'               `"bitbucket"`.
-#' @param query  Contents of string to search. Default is the error message.
-#' @param rlang  Search for results written in R. Default is `TRUE`
+#' @param query   Contents of string to search. Default is the error message.
+#' @param rlang   Search for results written in R. Default is `TRUE`
 #'
 #' @return The generated search URL or an empty string.
 #'
@@ -124,15 +124,22 @@ search_site = function(query,
 #' # On error, automatically search the message on google
 #' options(error = searcher("google"))
 #' }
-searcher = function(site, rlang = TRUE, keyword = getOption("searcher.default_keyword", "base")) {
+searcher = function(site, keyword = getOption("searcher.default_keyword")) {
 
-  check_valid_site(site)
+  entry = site_details(site)
 
-  function(query = geterrmessage(), rlang = rlang) {
-    search_site(query, site, rlang = rlang)
+  function(query = geterrmessage(), rlang = TRUE) {
+
+    if (!valid_query(query)) {
+      message("`query` must contain only 1 element that is not empty.")
+      return(invisible(""))
+    }
+
+    query = append_search_term_suffix(query, rlang, entry[["keywords"]][[keyword]])
+
+    browse_url(entry$site_url, query, entry$suffix)
   }
 }
-
 
 ########################### Start Search Engines
 
@@ -144,48 +151,21 @@ searcher = function(site, rlang = TRUE, keyword = getOption("searcher.default_ke
 #'
 #' See \url{https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters}
 #' for details.
-search_google = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  query = append_r_suffix(query, rlang = rlang)
-
-  browse_url("https://google.com/search?q=", query)
-}
+search_google = searcher("google")
 
 #' @rdname search_site
 #' @export
 #' @section Bing Search:
 #' The `search_bing()` function searches [Bing](https://bing.com) using:
 #' `https://bing.com/search?q=<query>`
-search_bing = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  query = append_r_suffix(query, rlang = rlang)
-
-  browse_url("https://bing.com/search?q=", query)
-}
+search_bing = searcher("bing")
 
 #' @rdname search_site
 #' @export
 #' @section DuckDuckGo Search:
 #' The `search_duckduckgo()` and `search_ddg()` functions both search
 #' [DuckDuckGo](https://duckduckgo.com) using: `https://duckduckgo.com/?q=<query>`
-search_duckduckgo = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  query = append_r_suffix(query, rlang = rlang)
-
-  browse_url("https://duckduckgo.com/?q=", query)
-}
+search_duckduckgo = searcher("ddg")
 
 #' @rdname search_site
 #' @export
@@ -208,16 +188,7 @@ search_ixquick = function(query = geterrmessage(), rlang = TRUE) {
 #' For additional details regarding [startpage](https://startpage.com)'s
 #' search interface please see:
 #'  \url{https://support.startpage.com/index.php?/Knowledgebase/Article/View/1261/0/add-familystartpagecom-as-the-default-search-engine-in-chrome}
-search_startpage = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  query = append_r_suffix(query, rlang = rlang)
-
-  browse_url("https://startpage.com/do/dsearch?query=", query)
-}
+search_startpage = searcher("sp")
 
 #' @rdname search_site
 #' @export
@@ -238,16 +209,7 @@ search_sp = search_startpage
 #' For additional details regarding [StackOverflow](https://stackoverflow.com)'s
 #' search interface please see:
 #'  \url{https://stackoverflow.com/help/advanced-search-parameters-jobs}
-search_stackoverflow = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  query = append_r_suffix(query, rlang = rlang, "[r]")
-
-  browse_url("https://stackoverflow.com/search?q=", query)
-}
+search_stackoverflow = searcher("so")
 
 #' @rdname search_site
 #' @export
@@ -263,17 +225,7 @@ search_so = search_stackoverflow
 #' For additional details regarding [RStudio Community](https://community.rstudio.com/)'s
 #' search interface please see the [Discourse](https://discourse.org) API documentation:
 #'  \url{https://docs.discourse.org/#tag/Search}
-search_rstudio_community = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  # Disable using a query check
-  # query = append_r_suffix(query, rlang = rlang, "[r]")
-
-  browse_url("https://community.rstudio.com/search?q=", query)
-}
+search_rstudio_community = searcher("rscom")
 
 #' @rdname search_site
 #' @export
@@ -294,16 +246,7 @@ search_rscom = search_rstudio_community
 #' search interface please see:
 #' \url{https://help.github.com/categories/searching-for-information-on-github/}
 #' and \url{https://help.github.com/articles/searching-code/}
-search_github = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  query = append_r_suffix(query, rlang = rlang, "language:r type:issue")
-
-  browse_url("https://github.com/search?q=", query, "&type=Issues")
-}
+search_github = searcher("gh")
 
 #' @rdname search_site
 #' @export
@@ -319,16 +262,7 @@ search_gh = search_github
 #' For additional details regarding [BitBucket](https://bitbucket.com)'s
 #' search interface please see:
 #'  \url{https://confluence.atlassian.com/bitbucket/code-search-in-bitbucket-873876782.html}
-search_bitbucket = function(query = geterrmessage(), rlang = TRUE) {
-  if (!valid_query(query)) {
-    message("Please provide only 1 `query` term that is not empty.")
-    return(invisible(""))
-  }
-
-  query = append_r_suffix(query, rlang = rlang, "lang:r")
-
-  browse_url("https://bitbucket.com/search?q=", query)
-}
+search_bitbucket = searcher("bb")
 
 #' @rdname search_site
 #' @export

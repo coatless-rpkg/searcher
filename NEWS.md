@@ -3,7 +3,7 @@
 ## Features
 
 - Allow RStudio's Viewer pane to display search results.
-  - Note: This feature requires a patch per [issue 2252](https://github.com/rstudio/rstudio/issues/2252). 
+  - Note: This feature requires a patch per [rstudio/rstudio#2252](https://github.com/rstudio/rstudio/issues/2252). 
   ([#21](https://github.com/r-assist/searcher/issues/21),
    [#22](https://github.com/r-assist/searcher/pull/22))
 - Added ability to set default package actions.
@@ -14,10 +14,20 @@
   - `searcher.use_rstudio_viewer` specifies whether RStudio's viewer pane should
     open the link instead of a web browser. Default is `FALSE` until RStudio's
     [sandbox issue](https://github.com/rstudio/rstudio/issues/2252) is resolved.
+  - `searcher.default_keyword`: Suffix keyword to focus search results
+    between either `"base"` or `"tidyverse"`. Default is `"base"`.
 
+## Changes
+
+- Function factory or a closure approach is now used to create
+  search portal functions through `searcher()`. 
+- `searcher()` function has lost the ability to specify `rlang` to address
+  an unevaluated promise issue.
+  
 ## Fixes
 
-- Fixed vignette index name.
+- Addressed internal vignette index name being used as the title.
+- Block new CI/CD routines from being included with the package.
 
 ## Deployment
 
