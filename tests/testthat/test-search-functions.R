@@ -1,6 +1,4 @@
-test_that("Check link generation", {
-
-  ##### Google
+test_that("Check link generation - google", {
 
   expect_identical(
     search_google("toad"),
@@ -12,7 +10,9 @@ test_that("Check link generation", {
     "https://google.com/search?q=toad"
   )
 
-  ##### Bing
+})
+
+test_that("Check link generation - bing", {
 
   expect_identical(
     search_bing("toad"),
@@ -24,7 +24,9 @@ test_that("Check link generation", {
     "https://bing.com/search?q=toad"
   )
 
-  ##### DDG
+})
+
+test_that("Check link generation - duckduckgo", {
 
   expect_identical(
     search_duckduckgo("toad"),
@@ -36,7 +38,9 @@ test_that("Check link generation", {
     "https://duckduckgo.com/?q=toad"
   )
 
-  ##### startpage
+})
+
+test_that("Check link generation - startpage", {
 
   expect_identical(
     search_startpage("toad"),
@@ -48,19 +52,9 @@ test_that("Check link generation", {
     "https://startpage.com/do/dsearch?query=toad"
   )
 
-  ##### StackOverflow
+})
 
-  expect_identical(
-    search_stackoverflow("toad"),
-    "https://stackoverflow.com/search?q=toad%20[r]"
-  )
-
-  expect_identical(
-    search_stackoverflow("toad", rlang = FALSE),
-    "https://stackoverflow.com/search?q=toad"
-  )
-
-  ##### RStudio Community
+test_that("Check link generation - RStudio Community", {
 
   expect_identical(
     search_rscom("toad"),
@@ -72,7 +66,38 @@ test_that("Check link generation", {
     "https://community.rstudio.com/search?q=toad"
   )
 
-  ##### GitHub
+})
+
+test_that("Check link generation - twitter", {
+
+  expect_identical(
+    search_twitter("toad"),
+    "https://twitter.com/search?q=toad %23rstats"
+  )
+
+  expect_identical(
+    search_twitter("toad", rlang = FALSE),
+    "https://twitter.com/search?q=toad"
+  )
+
+})
+
+
+test_that("Check link generation - stackoverflow", {
+
+  expect_identical(
+    search_stackoverflow("toad"),
+    "https://stackoverflow.com/search?q=toad%20[r]"
+  )
+
+  expect_identical(
+    search_stackoverflow("toad", rlang = FALSE),
+    "https://stackoverflow.com/search?q=toad"
+  )
+
+})
+
+test_that("Check link generation - github", {
 
   expect_identical(
     search_github("toad"),
@@ -84,7 +109,9 @@ test_that("Check link generation", {
     "https://github.com/search?q=toad&type=Issues"
   )
 
-  ##### BitBucket
+})
+
+test_that("Check link generation - bitbucket", {
 
   expect_identical(
     search_bitbucket("toad"),
@@ -140,8 +167,8 @@ test_that("Validate selection short name - search_site", {
   )
 
   expect_identical(
-    search_site("toad", "gh", rlang = FALSE),
-    "https://github.com/search?q=toad&type=Issues"
+    search_site("toad", "twitter", rlang = FALSE),
+    "https://twitter.com/search?q=toad"
   )
 
   expect_identical(
@@ -149,6 +176,11 @@ test_that("Validate selection short name - search_site", {
     "https://stackoverflow.com/search?q=toad"
   )
 
+
+  expect_identical(
+    search_site("toad", "gh", rlang = FALSE),
+    "https://github.com/search?q=toad&type=Issues"
+  )
   expect_identical(
     search_site("toad", "bb", rlang = FALSE),
     "https://bitbucket.com/search?q=toad"
