@@ -125,10 +125,12 @@ valid_query = function(query) {
 #' append_search_term_suffix("testing", rlang = FALSE, suffix = "toad")
 #' @noRd
 append_search_term_suffix = function(query, rlang = TRUE, suffix = "r programming") {
-  if (rlang)
+
+  if (rlang && !is.null(suffix))
     paste(query, suffix)
   else
     query
+
 }
 
 #' Check if in RStudio
