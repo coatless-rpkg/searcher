@@ -3,12 +3,12 @@
 #' Creates an appropriate query string for a search engine and then opens
 #' up the resulting page in a web browser.
 #'
-#' @param site   Name of site to search on. Supported options:
-#'               `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
-#'               `"stackoverflow"`, `"rstudio community"`, `"github"`, and
-#'               `"bitbucket"`.
-#' @param query  Contents of string to search. Default is the error message.
-#' @param rlang  Search for results written in R. Default is `TRUE`
+#' @param site         Name of site to search on. Supported options:
+#'                     `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
+#'                     `"stackoverflow"`, `"rstudio community"`, `"github"`, and
+#'                     `"bitbucket"`.
+#' @param query         Contents of string to search. Default is the error message.
+#' @param rlang,rlang.  Search for results written in R. Default is `TRUE`
 #'
 #' @return The generated search URL or an empty string.
 #'
@@ -124,15 +124,22 @@ search_site = function(query,
 #' # On error, automatically search the message on google
 #' options(error = searcher("google"))
 #' }
-searcher = function(site, rlang = TRUE, keyword = getOption("searcher.default_keyword", "base")) {
+searcher = function(site, rlang. = TRUE, keyword = getOption("searcher.default_keyword")) {
 
-  check_valid_site(site)
+  entry = site_details(site)
 
-  function(query = geterrmessage(), rlang = rlang) {
-    search_site(query, site, rlang = rlang)
+  function(query = geterrmessage(), rlang = rlang.) {
+
+    if (!valid_query(query)) {
+      message("`query` must contain only 1 element that is not empty.")
+      return(invisible(""))
+    }
+
+    query = append_search_term_suffix(query, rlang, entry[["keywords"]][[keyword]])
+
+    browse_url(entry$site_url, query, entry$suffix)
   }
 }
-
 
 ########################### Start Search Engines
 
