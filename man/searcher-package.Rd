@@ -7,7 +7,7 @@
 \title{searcher: Query Search Interfaces}
 \description{
 Provides a search interface to look up terms
-    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'StackOverflow', 
+    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Twitter', 'StackOverflow', 
     'RStudio Community', 'GitHub', and 'BitBucket'. Upon searching, a browser 
     window will open with the aforementioned search results.
 }
