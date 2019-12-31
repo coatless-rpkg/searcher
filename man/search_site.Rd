@@ -64,7 +64,7 @@ search_bb(query = geterrmessage(), rlang = TRUE)
 \code{"stackoverflow"}, \code{"rstudio community"}, \code{"github"}, and
 \code{"bitbucket"}.}
 
-\item{rlang}{Search for results written in R. Default is \code{TRUE}}
+\item{rlang, rlang.}{Search for results written in R. Default is \code{TRUE}}
 }
 \value{
 The generated search URL or an empty string.
