@@ -35,10 +35,6 @@
   [GitHub Actions for R](https://github.com/r-lib/actions). 
   ([#25](https://github.com/r-assist/searcher/issues/25),
    [#27](https://github.com/r-assist/searcher/pull/27))
-- Added [pkgdown](https://pkgdown.r-lib.org/) website for `searcher` available 
-  at: <https://r-assist.github.io/searcher>. 
-  ([#26](https://github.com/r-assist/searcher/issues/26),
-   [#27](https://github.com/r-assist/searcher/pull/27))
 
 # searcher 0.0.4
 
