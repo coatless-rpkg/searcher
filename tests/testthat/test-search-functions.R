@@ -1,5 +1,3 @@
-context("searcher")
-
 test_that("Check link generation", {
 
   ##### Google
@@ -100,12 +98,7 @@ test_that("Check link generation", {
 
 })
 
-test_that("Validate selection", {
-
-  expect_identical(
-    search_site("toad", "bb", rlang = FALSE),
-    "https://bitbucket.com/search?q=toad"
-  )
+test_that("Validate selection long name - search_site", {
 
   expect_error(
     search_site("toad", "", rlang = FALSE)
@@ -122,11 +115,6 @@ test_that("Validate selection", {
   )
 
   expect_identical(
-    search_site("toad", "ddg", rlang = FALSE),
-    "https://duckduckgo.com/?q=toad"
-  )
-
-  expect_identical(
     search_site("", rlang = FALSE),
     "",
     "Verify empty query fall through"
@@ -134,8 +122,38 @@ test_that("Validate selection", {
 
 })
 
+test_that("Validate selection short name - search_site", {
 
+  expect_identical(
+    search_site("toad", "ddg", rlang = FALSE),
+    "https://duckduckgo.com/?q=toad"
+  )
 
+  expect_identical(
+    search_site("toad", "sp", rlang = FALSE),
+    "https://startpage.com/do/dsearch?query=toad"
+  )
+
+  expect_identical(
+    search_site("toad", "rscom", rlang = FALSE),
+    "https://community.rstudio.com/search?q=toad"
+  )
+
+  expect_identical(
+    search_site("toad", "gh", rlang = FALSE),
+    "https://github.com/search?q=toad&type=Issues"
+  )
+
+  expect_identical(
+    search_site("toad", "so", rlang = FALSE),
+    "https://stackoverflow.com/search?q=toad"
+  )
+
+  expect_identical(
+    search_site("toad", "bb", rlang = FALSE),
+    "https://bitbucket.com/search?q=toad"
+  )
+})
 
 test_that("Verify search handler generation", {
   expect_message(searcher("bing")(""))
@@ -144,7 +162,6 @@ test_that("Verify search handler generation", {
     ""
   )
 })
-
 
 test_that("Malformed search query validation", {
 
@@ -204,4 +221,8 @@ test_that("Malformed search query validation", {
     "",
     "NULL value handling"
   )
+})
+
+test_that("Ensure deprecation", {
+  expect_error(search_ixquick())
 })
