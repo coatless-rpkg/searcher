@@ -119,12 +119,12 @@ valid_query = function(query) {
 #' @examples
 #'
 #' # Add suffix
-#' append_r_suffix("testing", rlang = TRUE, suffix = "toad")
+#' append_search_term_suffix("testing", rlang = TRUE, suffix = "toad")
 #'
 #' # Retain original search query
-#' append_r_suffix("testing", rlang = FALSE, suffix = "toad")
+#' append_search_term_suffix("testing", rlang = FALSE, suffix = "toad")
 #' @noRd
-append_r_suffix = function(query, rlang = TRUE, suffix = "r programming") {
+append_search_term_suffix = function(query, rlang = TRUE, suffix = "r programming") {
   if (rlang)
     paste(query, suffix)
   else
