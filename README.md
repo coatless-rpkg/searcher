@@ -60,6 +60,7 @@ repositories. The following search platforms are supported:
 [Google](https://google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/),
+[Twitter](https://twitter.com/search),
 [StackOverflow](https://stackoverflow.com/search), [RStudio
 Community](https://community.rstudio.com/search),
 [GitHub](https://github.com/search), and
@@ -74,6 +75,10 @@ search_google("R project")
 search_bing("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
 search_startpage("R project")                            # or search_sp(...)
+
+# Searching Twitter to find out about machine learning for R and in general
+search_twitter("machine learning")
+search_twitter("machine learning", rlang = FALSE)
 
 # Searching for linear regression questions for R and in general
 search_stackoverflow("linear regression")
@@ -127,6 +132,7 @@ search portal.
 ``` r
 search_google()
 search_bing()
+search_twitter()
 search_duckduckgo()        # or search_ddg()
 search_startpage()         # or search_sp()
 search_stackoverflow()     # or search_so()

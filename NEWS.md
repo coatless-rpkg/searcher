@@ -2,10 +2,10 @@
 
 ## Features
 
-- Allow RStudio's Viewer pane to display search results.
-  - Note: This feature requires a patch per [rstudio/rstudio#2252](https://github.com/rstudio/rstudio/issues/2252). 
-  ([#21](https://github.com/r-assist/searcher/issues/21),
-   [#22](https://github.com/r-assist/searcher/pull/22))
+- Added search portal:
+    - `search_twitter()`: Searches on [Twitter](https://twitter.com/search). 
+      ([#19](https://github.com/r-assist/searcher/issues/19), 
+       [#30](https://github.com/r-assist/searcher/pull/30))
 - Added ability to set default package actions.
   ([#7](https://github.com/r-assist/searcher/issues/7),
    [#20](https://github.com/r-assist/searcher/pull/20))
@@ -16,11 +16,15 @@
     [sandbox issue](https://github.com/rstudio/rstudio/issues/2252) is resolved.
   - `searcher.default_keyword`: Suffix keyword to focus search results
     between either `"base"` or `"tidyverse"`. Default is `"base"`.
+- Added option to launch RStudio's Viewer pane to display search results.
+  - Note: This feature requires a patch per [rstudio/rstudio#2252](https://github.com/rstudio/rstudio/issues/2252). 
+  ([#21](https://github.com/r-assist/searcher/issues/21),
+   [#22](https://github.com/r-assist/searcher/pull/22))
 
-## Changes
+## Breaking Changes
 
-- Function factory or a closure approach is now used to create
-  search portal functions through `searcher()`. 
+- Function factory or a closure approach-based approach is now used to create
+  search portal functions `search_*()` through `searcher()`. 
 - `searcher()` function has lost the ability to specify `rlang` to address
   an unevaluated promise issue.
   

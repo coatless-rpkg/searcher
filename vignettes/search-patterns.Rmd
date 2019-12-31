@@ -64,6 +64,7 @@ _R_-specific results. If `rlang = FALSE`, then the results are generalized.
      to `"rlang"`, `"rstats"`, and `"r language"` on [Google Trends](https://trends.google.com).
 - Community Sites
    - [StackOverflow Search](https://stackoverflow.com/search): ` <query> + [r]`
+   - [Twitter](https://twitter.com/search): `<query> + #rstats`
    - [RStudio Community](https://community.rstudio.com/search): `<query>`
 - Code Repositories
    - [GitHub Search](https://github.com/search): `<query> language:r type:issue`

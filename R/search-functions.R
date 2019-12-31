@@ -5,8 +5,8 @@
 #'
 #' @param site   Name of site to search on. Supported options:
 #'               `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
-#'               `"stackoverflow"`, `"rstudio community"`, `"github"`, and
-#'               `"bitbucket"`.
+#'               `"rstudio community"`, `"twitter"`,`"stackoverflow"`,
+#'               `"github"`, and `"bitbucket"`.
 #' @param query   Contents of string to search. Default is the error message.
 #' @param rlang   Search for results written in R. Default is `TRUE`
 #'
@@ -15,8 +15,9 @@
 #' @rdname search_site
 #' @export
 #' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
-#'          [search_startpage()], [search_stackoverflow()], [search_rstudio_community()],
-#'          [search_github()], [search_bitbucket()], and [searcher()]
+#'          [search_startpage()], [search_twitter()], [search_rstudio_community()],
+#'          [search_stackoverflow()], [search_github()], [search_bitbucket()],
+#'          and [searcher()]
 #' @examples
 #' # Search in a generic way
 #' search_site("r-project", "google")
@@ -31,16 +32,19 @@
 #' search_duckduckgo("R language")
 #'
 #' # Search startpage
-#' search_startpage("RStudio IDE")
+#' search_startpage("VS Code")
+#'
+#' # Search RStudio Community
+#' search_rstudio_community("RStudio IDE")
+#'
+#' # Search Twitter
+#' search_twitter("searcher")
 #'
 #' # Search StackOverflow for Convolutions in the r tag
 #' search_stackoverflow("convolutions")
 #'
 #' # Search all languages on StackOverflow for convolutions
 #' search_stackoverflow("convolutions", rlang = FALSE)
-#'
-#' # Search RStudio Community
-#' search_rstudio_community("RStudio IDE")
 #'
 #' # Search GitHub Issues for bivariate normal in the language:r
 #' search_github("bivariate normal")
@@ -64,10 +68,11 @@ search_site = function(query,
                          "ddg",
                          "startpage",
                          "sp",
-                         "stackoverflow",
-                         "so",
                          "rstudio community",
                          "rscom",
+                         "twitter",
+                         "stackoverflow",
+                         "so",
                          "github",
                          "gh",
                          "bitbucket",
@@ -85,10 +90,11 @@ search_site = function(query,
     ddg            = search_duckduckgo(query, rlang),
     startpage      = ,      # empty case carried below
     sp             = search_startpage(query, rlang),
-    stackoverflow  = ,      # empty case carried below
-    so             = search_stackoverflow(query, rlang),
     `rstudio community` = , # empty case carried below
     rscom          = search_rstudio_community(query, rlang),
+    twitter        = search_twitter(query, rlang),
+    stackoverflow  = ,      # empty case carried below
+    so             = search_stackoverflow(query, rlang),
     github         = ,      # empty case carried below
     gh             = search_github(query, rlang),
     bitbucket      = ,      # empty case carried below
@@ -199,21 +205,6 @@ search_sp = search_startpage
 
 ########################### Start Search Development Community Websites
 
-#' @rdname search_site
-#' @export
-#' @section StackOverflow Search:
-#' The `search_stackoverflow()` and `search_so()` functions both search
-#' [StackOverflow](https://stackoverflow.com) using:
-#' \code{https://stackoverflow.com/search?q=\%5Br\%5D+<query>}
-#'
-#' For additional details regarding [StackOverflow](https://stackoverflow.com)'s
-#' search interface please see:
-#'  \url{https://stackoverflow.com/help/advanced-search-parameters-jobs}
-search_stackoverflow = searcher("so")
-
-#' @rdname search_site
-#' @export
-search_so = search_stackoverflow
 
 #' @rdname search_site
 #' @export
@@ -230,6 +221,34 @@ search_rstudio_community = searcher("rscom")
 #' @rdname search_site
 #' @export
 search_rscom = search_rstudio_community
+
+#' @rdname search_site
+#' @export
+#' @section Twitter Search:
+#' The `search_twitter()` functions search
+#' [Twitter](https://twitter.com/) using:
+#' \code{https://twitter.com/search?q=<query>}
+#'
+#' For additional details regarding [Twitter](https://twitter.com/)'s
+#' search interface please see:
+#' \url{https://help.twitter.com/en/using-twitter/twitter-advanced-search}
+search_twitter = searcher("twitter")
+
+#' @rdname search_site
+#' @export
+#' @section StackOverflow Search:
+#' The `search_stackoverflow()` and `search_so()` functions both search
+#' [StackOverflow](https://stackoverflow.com) using:
+#' \code{https://stackoverflow.com/search?q=\%5Br\%5D+<query>}
+#'
+#' For additional details regarding [StackOverflow](https://stackoverflow.com)'s
+#' search interface please see:
+#'  \url{https://stackoverflow.com/help/advanced-search-parameters-jobs}
+search_stackoverflow = searcher("so")
+
+#' @rdname search_site
+#' @export
+search_so = search_stackoverflow
 
 ########################### End Search Development Community Websites
 
