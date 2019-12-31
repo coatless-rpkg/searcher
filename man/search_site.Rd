@@ -118,7 +118,9 @@ The \code{search_rstudio_community()} and \code{search_rscom()} functions both s
 For additional details regarding \href{https://community.rstudio.com/}{RStudio Community}'s
 search interface please see the \href{https://discourse.org}{Discourse} API documentation:
 \url{https://docs.discourse.org/#tag/Search}
+}
 
+\section{Twitter Search}{
 
 The \code{search_twitter()} functions search
 \href{https://twitter.com/}{Twitter} using:

@@ -224,7 +224,7 @@ search_rscom = search_rstudio_community
 
 #' @rdname search_site
 #' @export
-#' @section RStudio Community Search:
+#' @section Twitter Search:
 #' The `search_twitter()` functions search
 #' [Twitter](https://twitter.com/) using:
 #' \code{https://twitter.com/search?q=<query>}
