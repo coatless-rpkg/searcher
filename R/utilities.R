@@ -31,11 +31,11 @@ browse_url = function(base,
 
   url = encode_url(base, unencoded_query, encoded_query)
   if (open_browser) {
-    if (is_rstudio() && getOption("searcher.use_rstudio_viewer")) {
+    if (is_rstudio() && getOption("searcher.use_rstudio_viewer")) { # nocov start
       open_rstudio_viewer(url)
     } else {
-      open_browser(url)
-    }
+      open_web_browser(url)
+    } # nocov end
   } else {
     message("Please type into your browser:\n", invisible(url))
   }
@@ -43,20 +43,20 @@ browse_url = function(base,
   invisible(url)
 }
 
-open_rstudio_viewer = function(url) {
+open_rstudio_viewer = function(url) { # nocov start
   message("Searching query in RStudio's Viewer panel ... ")
   Sys.sleep(getOption("searcher.launch_delay"))
 
   # If in RStudio, this should be set.
   viewer <- getOption("viewer")
   viewer(url)
-}
+} # nocov end
 
-open_browser = function(url) {
+open_web_browser = function(url) { # nocov start
   message("Searching query in a web browser ... ")
   Sys.sleep(getOption("searcher.launch_delay"))
   utils::browseURL(url)
-}
+} # nocov end
 
 #' Form Encoded URL
 #'
