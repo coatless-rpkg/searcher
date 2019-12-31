@@ -8,13 +8,16 @@
 #'    a browser window. Default is `0.5` seconds.
 #' - `searcher.use_rstudio_viewer`: Display search results in the RStudio
 #'    viewer pane instead of a web browser. Default is `FALSE`.
+#' - `searcher.default_keyword`: Suffix keyword to generate accurate results
+#'    between either `"base"` or `"tidyverse"`. Default is `"base"`.
 #' - ...
 #'
 "_PACKAGE"
 
 searcher_default_options = list(
   searcher.launch_delay = 0.5,
-  searcher.use_rstudio_viewer = FALSE
+  searcher.use_rstudio_viewer = FALSE,
+  searcher.default_keyword = "base"
 )
 
 .onLoad = function(libname, pkgname) {
