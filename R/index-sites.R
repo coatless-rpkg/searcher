@@ -94,31 +94,3 @@ site_details = function(site) {
 }
 
 
-#### Earlier prototype functions...
-
-check_site_name = function(x, site_name_type) {
-  x %in% vapply(site_index, "[[", "", site_name_type)
-}
-
-check_short_site_name = function(x) {
-  check_site_name(x, "site_long_name")
-}
-
-check_long_site_name = function(x) {
-  check_site_name(x, "site_short_name")
-}
-
-check_valid_site = function(site) {
-  site = tolower(site)
-
-  site_present = check_long_site_name(site) ||
-    check_short_site_name(site)
-
-  if (!site_present) {
-    stop("`site` must be a valid site name.", call. = FALSE)
-  }
-
-  invisible(TRUE)
-}
-
-
