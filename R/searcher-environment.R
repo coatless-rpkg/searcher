@@ -1,11 +1,32 @@
-keyword_default = function() {
-  keyword_entry("r programming", "tidyverse")
-}
-
 keyword_entry = function(base, tidyverse = base) {
   list(base = base, tidyverse = tidyverse)
 }
 
+keyword_default = function() {
+  keyword_entry("r programming", "tidyverse")
+}
+
+#' Construct a Site Entry
+#'
+#' Encodes search portal information into a searchable list.
+#'
+#' @param site_long_name  Long name of the site
+#' @param site_url        Entry point to query website
+#' @param site_short_name Short hand value for the site
+#' @param keywords        Direct search to be relevant
+#' @param suffix          Specify page load options.
+#'
+#' @return
+#' A named `list`.
+#'
+#' @examples
+#' # Create a portal to google
+#' site_entry("google", "https://github.com/search?q=")
+#'
+#' # Create a portal to duckduckgo
+#' site_entry("duckduckgo", "https://duckduckgo.com/?q=", "ddg")
+#'
+#' @noRd
 site_entry = function(site_long_name,
                       site_url,
                       site_short_name = site_long_name,
@@ -20,9 +41,9 @@ site_entry = function(site_long_name,
   )
 }
 
-searcher_properties =
+site_index =
   list(
-    site_entry("google", "https://github.com/search?q="),
+    site_entry("google", "https://google.com/search?q="),
     site_entry("bing", "https://bing.com/search?q="),
     site_entry("duckduckgo", "https://duckduckgo.com/?q=", "ddg"),
     site_entry("startpage", "https://startpage.com/do/dsearch?query=", "sp"),
@@ -53,8 +74,30 @@ searcher_properties =
     )
   )
 
+site_name_matrix = function() {
+  cbind(vapply(site_index, "[[", "", "site_long_name"),
+        vapply(site_index, "[[", "", "site_short_name"))
+}
+
+site_details = function(site) {
+  site_names = site_name_matrix()
+
+  idx = which(site_names == tolower(site), arr.ind = TRUE)
+
+  # If empty, not found.
+  if ( nrow(idx) == 0L ) {
+    stop("`site` must be a valid site name.", call. = FALSE)
+  }
+
+  # Retrieve the first row position
+  site_index[[ idx[1, 1] ]]
+}
+
+
+#### Earlier prototype functions...
+
 check_site_name = function(x, site_name_type) {
-  x %in% vapply(searcher_properties, "[[", "", site_name_type)
+  x %in% vapply(site_index, "[[", "", site_name_type)
 }
 
 check_short_site_name = function(x) {
@@ -66,6 +109,8 @@ check_long_site_name = function(x) {
 }
 
 check_valid_site = function(site) {
+  site = tolower(site)
+
   site_present = check_long_site_name(site) ||
     check_short_site_name(site)
 
@@ -75,3 +120,5 @@ check_valid_site = function(site) {
 
   invisible(TRUE)
 }
+
+
