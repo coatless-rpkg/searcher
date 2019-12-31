@@ -71,6 +71,11 @@ site_index =
       "https://bitbucket.com/search?q=",
       "bb",
       keyword_entry("lang:r")
+    ),
+    site_entry(
+      "twitter",
+      "https://twitter.com/search?q=",
+      keywords = keyword_entry("%23rstats", "%23rstats %23tidyverse") # %23 is #
     )
   )
 
