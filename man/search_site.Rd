@@ -9,6 +9,7 @@
 \alias{search_ixquick}
 \alias{search_startpage}
 \alias{search_sp}
+\alias{search_ecosia}
 \alias{search_rstudio_community}
 \alias{search_rscom}
 \alias{search_twitter}
@@ -41,6 +42,8 @@ search_ixquick(query = geterrmessage(), rlang = TRUE)
 search_startpage(query = geterrmessage(), rlang = TRUE)
 
 search_sp(query = geterrmessage(), rlang = TRUE)
+
+search_ecosia(query = geterrmessage(), rlang = TRUE)
 
 search_rstudio_community(query = geterrmessage(), rlang = TRUE)
 
@@ -107,6 +110,17 @@ The \code{search_startpage()} function searches
 For additional details regarding \href{https://startpage.com}{startpage}'s
 search interface please see:
 \url{https://support.startpage.com/index.php?/Knowledgebase/Article/View/1261/0/add-familystartpagecom-as-the-default-search-engine-in-chrome}
+}
+
+\section{Ecosia Search}{
+
+The \code{search_ecosia()} function searches
+\href{https://www.ecosia.org/}{Ecosia} using:
+\code{https://www.ecosia.org/search?q=<query>}
+
+For additional details regarding \href{https://www.ecosia.org}{Ecosia}'s
+search interface please see:
+\url{https://ecosia.zendesk.com/hc/en-us}
 }
 
 \section{RStudio Community Search}{
