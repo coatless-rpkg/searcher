@@ -48,8 +48,8 @@ install.packages("searcher")
 For the development version, you can opt for:
 
 ```r
-if(!requireNamespace("devtools")) { install.packages("devtools") }
-devtools::install_github("r-assist/searcher")
+if(!requireNamespace("remotes")) { install.packages("remotes") }
+remotes::install_github("r-assist/searcher")
 ```
 
 ## Usage
@@ -64,7 +64,8 @@ The `search_*()` functions can be used to search a query directly from _R_ on
 major search engines, programming help websites, and code repositories. The following search
 platforms are supported: [Google](https://google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/), [Startpage](https://www.startpage.com/en/),
-[Twitter](https://twitter.com/search), [StackOverflow](https://stackoverflow.com/search), 
+[Ecosia](https://www.ecosia.org/), [Twitter](https://twitter.com/search), 
+[StackOverflow](https://stackoverflow.com/search), 
 [RStudio Community](https://community.rstudio.com/search), 
 [GitHub](https://github.com/search), and [BitBucket](https://bitbucket.com/search).
 By default, an appropriate suffix for each platform that ensures relevant 
@@ -75,6 +76,7 @@ using `rlang = FALSE`.
 # Searching R project on major search engines
 search_google("R project")
 search_bing("R project")
+search_ecosia("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
 search_startpage("R project")                            # or search_sp(...)
 
@@ -133,6 +135,7 @@ the last error message as the search query on the desired search portal.
 ```r
 search_google()
 search_bing()
+search_ecosia()
 search_twitter()
 search_duckduckgo()        # or search_ddg()
 search_startpage()         # or search_sp()
