@@ -200,6 +200,18 @@ search_startpage = searcher("sp")
 #' @export
 search_sp = search_startpage
 
+#' @rdname search_site
+#' @export
+#' @section Ecosia Search:
+#' The `search_ecosia()` function searches
+#' [Ecosia](https://www.ecosia.org/) using:
+#'  \code{https://www.ecosia.org/search?q=<query>}
+#'
+#' For additional details regarding [Ecosia](https://www.ecosia.org)'s
+#' search interface please see:
+#'  \url{https://ecosia.zendesk.com/hc/en-us}
+search_ecosia = searcher("ecosia")
+
 ########################### End Search Engines
 
 

@@ -111,7 +111,7 @@ valid_query = function(query) {
 #'
 #' @param query  Search terms to verify
 #' @param rlang  Append value to query.
-#' @param suffix Value to be added to search query. Default `r programming`.
+#' @param suffix Value to be added to search query. Default `"r programming"`.
 #'
 #' @return Query string returned as-is or modified with a suffix that
 #' ensure results are _R_ oriented.

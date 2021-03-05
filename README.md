@@ -42,8 +42,8 @@ install.packages("searcher")
 For the development version, you can opt for:
 
 ``` r
-if(!requireNamespace("devtools")) { install.packages("devtools") }
-devtools::install_github("r-assist/searcher")
+if(!requireNamespace("remotes")) { install.packages("remotes") }
+remotes::install_github("r-assist/searcher")
 ```
 
 ## Usage
@@ -60,19 +60,21 @@ repositories. The following search platforms are supported:
 [Google](https://google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/),
+[Ecosia](https://www.ecosia.org/),
 [Twitter](https://twitter.com/search),
 [StackOverflow](https://stackoverflow.com/search), [RStudio
 Community](https://community.rstudio.com/search),
 [GitHub](https://github.com/search), and
 [BitBucket](https://bitbucket.com/search). By default, an appropriate
 suffix for each platform that ensures relevant results to *R* is
-appended to all queries. This behavior can be disabled by using `rlang =
-FALSE`.
+appended to all queries. This behavior can be disabled by using
+`rlang = FALSE`.
 
 ``` r
 # Searching R project on major search engines
 search_google("R project")
 search_bing("R project")
+search_ecosia("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
 search_startpage("R project")                            # or search_sp(...)
 
@@ -132,6 +134,7 @@ search portal.
 ``` r
 search_google()
 search_bing()
+search_ecosia()
 search_twitter()
 search_duckduckgo()        # or search_ddg()
 search_startpage()         # or search_sp()
@@ -150,11 +153,11 @@ within
 [`~/.Rprofile`](https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html).
 Presently, the following options are available:
 
-  - `searcher.launch_delay`: Amount of time between launching the web
+-   `searcher.launch_delay`: Amount of time between launching the web
     browser from when the command was issued. Default is `0.5` seconds.
-  - `searcher.use_rstudio_viewer`: Display search results in the RStudio
+-   `searcher.use_rstudio_viewer`: Display search results in the RStudio
     viewer pane instead of a web browser. Default is `FALSE`.
-  - `searcher.default_keyword`: Suffix keyword to focus search results
+-   `searcher.default_keyword`: Suffix keyword to focus search results
     between either `"base"` or `"tidyverse"`. Default is `"base"`.
 
 To set one of these options, please create the `.Rprofile` by typing
@@ -198,10 +201,10 @@ warnings.
 
 ### Special Thanks
 
-  - [Dirk Eddelbuettel](http://dirk.eddelbuettel.com) for starting the
+-   [Dirk Eddelbuettel](http://dirk.eddelbuettel.com) for starting the
     discussion on [XKCD Comic 1185: Ineffective
     Sorts](https://xkcd.com/1185/).
-  - [Barry Rowlingson](http://barry.rowlingson.com) for remarks about
+-   [Barry Rowlingson](http://barry.rowlingson.com) for remarks about
     functionality.
 
 ### Publicity
@@ -214,7 +217,7 @@ positively received by community members.
 > error that you just saw in the console. Cool package, especially for
 > those who learn R :) <https://github.com/coatless/searcher> … \#r
 > \#rlang \#rstats \#rstudio
-> 
+>
 > — [Paweł
 > Przytuła](https://twitter.com/pawel_appsilon/status/1109545516264841216)
 > March 23th, 2019. \~292 Retweets and 876 likes
@@ -222,7 +225,7 @@ positively received by community members.
 > Did you know, using “searcher” package, you could automatically to
 > search stackoverflow, google, GitHub and many more sites for errors,
 > packages or topics. \#rstats
-> 
+>
 > — [Shakirah Nakalungi](https://twitter.com/cynthia_kyra) June 29th,
 > 2019, when she was [Rotating Curator for the “We are R-Ladies” twitter
 > account](https://twitter.com/WeAreRLadies/status/1144921174251581440).
@@ -234,4 +237,4 @@ are using `searcher`.
 
 ## License
 
-GPL (\>= 2)
+GPL (&gt;= 2)

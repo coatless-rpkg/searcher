@@ -54,6 +54,20 @@ test_that("Check link generation - startpage", {
 
 })
 
+test_that("Check link generation - Ecosia", {
+
+  expect_identical(
+    search_ecosia("toad"),
+    "https://www.ecosia.org/search?q=toad%20r%20programming"
+  )
+
+  expect_identical(
+    search_ecosia("toad", rlang = FALSE),
+    "https://www.ecosia.org/search?q=toad"
+  )
+
+})
+
 test_that("Check link generation - RStudio Community", {
 
   expect_identical(
