@@ -81,7 +81,7 @@ site_index =
     site_entry(
       "rseek",
       "https://rseek.org/?q=",
-      keywords = keyword_entry(c("", "tidyverse"))
+      keywords = keyword_entry("", "tidyverse")
     )
   )
 
