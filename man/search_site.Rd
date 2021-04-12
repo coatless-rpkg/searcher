@@ -10,6 +10,7 @@
 \alias{search_startpage}
 \alias{search_sp}
 \alias{search_ecosia}
+\alias{search_rseek}
 \alias{search_rstudio_community}
 \alias{search_rscom}
 \alias{search_twitter}
@@ -23,7 +24,7 @@
 \usage{
 search_site(
   query,
-  site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp",
+  site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "rseek",
     "rstudio community", "rscom", "twitter", "stackoverflow", "so", "github", "gh",
     "bitbucket", "bb"),
   rlang = TRUE
@@ -44,6 +45,8 @@ search_startpage(query = geterrmessage(), rlang = TRUE)
 search_sp(query = geterrmessage(), rlang = TRUE)
 
 search_ecosia(query = geterrmessage(), rlang = TRUE)
+
+search_rseek(query = geterrmessage(), rlang = TRUE)
 
 search_rstudio_community(query = geterrmessage(), rlang = TRUE)
 
@@ -123,6 +126,12 @@ search interface please see:
 \url{https://ecosia.zendesk.com/hc/en-us}
 }
 
+\section{Rseek Search}{
+
+The \code{search_rseek()} function searches \href{https://rseek.org}{Rseek} using:
+\verb{https://rseek.org/?q=<query>}
+}
+
 \section{RStudio Community Search}{
 
 The \code{search_rstudio_community()} and \code{search_rscom()} functions both search
@@ -195,6 +204,9 @@ search_duckduckgo("R language")
 # Search startpage
 search_startpage("VS Code")
 
+# Search Rseek
+search_rseek("searcher")
+
 # Search RStudio Community
 search_rstudio_community("RStudio IDE")
 
@@ -224,7 +236,7 @@ options(error = search_google)
 }
 \seealso{
 \code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
-\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_twitter]{search_twitter()}}, \code{\link[=search_rstudio_community]{search_rstudio_community()}},
-\code{\link[=search_stackoverflow]{search_stackoverflow()}}, \code{\link[=search_github]{search_github()}}, \code{\link[=search_bitbucket]{search_bitbucket()}},
-and \code{\link[=searcher]{searcher()}}
+\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_twitter]{search_twitter()}},
+\code{\link[=search_rstudio_community]{search_rstudio_community()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}},
+\code{\link[=search_github]{search_github()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
 }
