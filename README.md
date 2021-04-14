@@ -60,7 +60,7 @@ repositories. The following search platforms are supported:
 [Google](https://google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/),
-[Ecosia](https://www.ecosia.org/),
+[Ecosia](https://www.ecosia.org/), [rseek](https://www.rseek.org/),
 [Twitter](https://twitter.com/search),
 [StackOverflow](https://stackoverflow.com/search), [RStudio
 Community](https://community.rstudio.com/search),
@@ -75,6 +75,7 @@ appended to all queries. This behavior can be disabled by using
 search_google("R project")
 search_bing("R project")
 search_ecosia("R project")
+search_rseek("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
 search_startpage("R project")                            # or search_sp(...)
 
@@ -135,6 +136,7 @@ search portal.
 search_google()
 search_bing()
 search_ecosia()
+search_rseek()
 search_twitter()
 search_duckduckgo()        # or search_ddg()
 search_startpage()         # or search_sp()
