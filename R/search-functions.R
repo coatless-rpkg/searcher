@@ -15,9 +15,9 @@
 #' @rdname search_site
 #' @export
 #' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
-#'          [search_startpage()], [search_twitter()], [search_rstudio_community()],
-#'          [search_stackoverflow()], [search_github()], [search_bitbucket()],
-#'          and [searcher()]
+#'          [search_startpage()], [search_rseek()], [search_twitter()],
+#'          [search_rstudio_community()], [search_stackoverflow()],
+#'          [search_github()], [search_bitbucket()], and [searcher()]
 #' @examples
 #' # Search in a generic way
 #' search_site("r-project", "google")
@@ -33,6 +33,9 @@
 #'
 #' # Search startpage
 #' search_startpage("VS Code")
+#'
+#' # Search Rseek
+#' search_rseek("searcher")
 #'
 #' # Search RStudio Community
 #' search_rstudio_community("RStudio IDE")
@@ -68,6 +71,7 @@ search_site = function(query,
                          "ddg",
                          "startpage",
                          "sp",
+                         "rseek",
                          "rstudio community",
                          "rscom",
                          "twitter",
@@ -90,6 +94,7 @@ search_site = function(query,
     ddg            = search_duckduckgo(query, rlang),
     startpage      = ,      # empty case carried below
     sp             = search_startpage(query, rlang),
+    rseek          = search_rseek(query, rlang),
     `rstudio community` = , # empty case carried below
     rscom          = search_rstudio_community(query, rlang),
     twitter        = search_twitter(query, rlang),
@@ -211,6 +216,13 @@ search_sp = search_startpage
 #' search interface please see:
 #'  \url{https://ecosia.zendesk.com/hc/en-us}
 search_ecosia = searcher("ecosia")
+
+#' @rdname search_site
+#' @export
+#' @section Rseek Search:
+#' The `search_rseek()` function searches [Rseek](https://rseek.org) using:
+#' `https://rseek.org/?q=<query>`
+search_rseek = searcher("rseek")
 
 ########################### End Search Engines
 

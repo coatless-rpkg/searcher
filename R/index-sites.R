@@ -77,6 +77,11 @@ site_index =
       "twitter",
       "https://twitter.com/search?q=",
       keywords = keyword_entry("%23rstats", "%23rstats %23tidyverse") # %23 is #
+    ),
+    site_entry(
+      "rseek",
+      "https://rseek.org/?q=",
+      keywords = keyword_entry("", "tidyverse")
     )
   )
 
