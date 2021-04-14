@@ -2,10 +2,12 @@
 
 ## Features
 
-- Added search portal:
+- Added search portals:
     - `search_ecosia()`: Searches on [Ecosia](https://www.ecosia.org/). 
       ([#31](https://github.com/r-assist/searcher/issues/31), 
        [#32](https://github.com/r-assist/searcher/pull/32))
+    - `search_rseek()`: Searches on [rseek](https://rseek.org/). 
+      ([#32](https://github.com/r-assist/searcher/pull/33), thanks @rossellhayes!)
 
 # searcher 0.0.5
 
