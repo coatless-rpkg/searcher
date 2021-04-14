@@ -7,7 +7,7 @@
       ([#31](https://github.com/r-assist/searcher/issues/31), 
        [#32](https://github.com/r-assist/searcher/pull/32))
     - `search_rseek()`: Searches on [rseek](https://rseek.org/). 
-      ([#32](https://github.com/r-assist/searcher/pull/33), thanks @rossellhayes!)
+      ([#32](https://github.com/r-assist/searcher/pull/33), thanks [@rossellhayes](https://github.com/rossellhayes)!)
 
 # searcher 0.0.5
 
