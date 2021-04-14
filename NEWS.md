@@ -8,6 +8,13 @@
        [#32](https://github.com/r-assist/searcher/pull/32))
     - `search_rseek()`: Searches on [rseek](https://rseek.org/). 
       ([#32](https://github.com/r-assist/searcher/pull/33), thanks [@rossellhayes](https://github.com/rossellhayes)!)
+      
+## Deployment
+
+- Updated [GitHub Actions for R](https://github.com/r-lib/actions) workflows
+  ([#34](https://github.com/r-assist/searcher/pull/34)).
+- Added pkgdown website ([#34](https://github.com/r-assist/searcher/pull/34)).
+
 
 # searcher 0.0.5
 

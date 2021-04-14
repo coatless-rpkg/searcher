@@ -1,0 +1,11 @@
+url: https://r-assist.github.io/searcher
+
+authors:
+  "James Balamuta":
+    href: https://thecoatlessprofessor.com
+
+development:
+  mode: auto
+
+home:
+  strip_header: true
