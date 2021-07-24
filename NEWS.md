@@ -1,4 +1,4 @@
-# searcher 0.0.5.1
+# searcher 0.0.6
 
 ## Features
 
@@ -14,7 +14,6 @@
 - Updated [GitHub Actions for R](https://github.com/r-lib/actions) workflows
   ([#34](https://github.com/r-assist/searcher/pull/34)).
 - Added pkgdown website ([#34](https://github.com/r-assist/searcher/pull/34)).
-
 
 # searcher 0.0.5
 
