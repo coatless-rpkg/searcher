@@ -7,8 +7,8 @@
 \title{searcher: Query Search Interfaces}
 \description{
 Provides a search interface to look up terms
-    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Ecosia', 'Twitter',
-    'StackOverflow', 'RStudio Community', 'GitHub', and 'BitBucket'.
+    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Ecosia', 'rseek',
+    'Twitter', 'StackOverflow', 'RStudio Community', 'GitHub', and 'BitBucket'.
     Upon searching, a browser window will open with the aforementioned search
     results.
 }
@@ -38,5 +38,10 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu} (\href{https://orcid.org/0000-0003-2826-8458}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Alex Rossell Hayes \email{alexander@rossellhayes.com} (\href{https://orcid.org/0000-0001-9412-0457}{ORCID}) [contributor]
+}
 
 }
