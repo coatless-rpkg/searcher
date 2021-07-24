@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   search-patterns: search-patterns.html
-last_built: 2021-04-14T05:49Z
+last_built: 2021-07-24T18:23Z
 urls:
   reference: https://r-assist.github.io/searcher/reference
   article: https://r-assist.github.io/searcher/articles
