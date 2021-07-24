@@ -61,14 +61,15 @@ _R_-specific results. If `rlang = FALSE`, then the results are generalized.
    - All search engines affix `"r programming"` to the end of the query to 
      constrain the results to be _R_-specific.
    - `"r programming"` was selected because it performed best when compared
-     to `"rlang"`, `"rstats"`, and `"r language"` on [Google Trends](https://trends.google.com).
+     to `"rlang"`, `"rstats"`, and `"r language"` on [Google Trends](https://trends.google.com/trends/).
 - Community Sites
    - [StackOverflow Search](https://stackoverflow.com/search): ` <query> + [r]`
    - [Twitter](https://twitter.com/search): `<query> + #rstats`
    - [RStudio Community](https://community.rstudio.com/search): `<query>`
+   - [Rseek](https://rseek.org/): `<query>`
 - Code Repositories
    - [GitHub Search](https://github.com/search): `<query> language:r type:issue`
-   - [Bitbucket Search](https://bitbucket.com/search): `<query> lang:r`
+   - [Bitbucket Search](https://bitbucket.org/search): `<query> lang:r`
 
 # General Search Tips
 

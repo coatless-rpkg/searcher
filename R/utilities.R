@@ -15,14 +15,14 @@
 #'
 #' @examples
 #' # Query Google
-#' browse_url("https://google.com/search?q=", "rstats is great")
+#' browse_url("https://www.google.com/search?q=", "rstats is great")
 #'
 #' # Generate URL for Google (do not open in a web browser)
-#' browse_url("https://google.com/search?q=", "rstats is great",
+#' browse_url("https://www.google.com/search?q=", "rstats is great",
 #'            open_browser = FALSE)
 #'
 #' # Print out the hidden url
-#' print(browse_url("https://google.com/search?q=", "rstats is great",
+#' print(browse_url("https://www.google.com/search?q=", "rstats is great",
 #'            open_browser = FALSE))
 #' @noRd
 browse_url = function(base,

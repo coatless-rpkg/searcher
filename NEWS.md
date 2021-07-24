@@ -3,11 +3,16 @@
 ## Features
 
 - Added search portals:
-    - `search_ecosia()`: Searches on [Ecosia](https://www.ecosia.org/). 
+    - `search_ecosia()`: Searches on Ecosia. 
       ([#31](https://github.com/r-assist/searcher/issues/31), 
        [#32](https://github.com/r-assist/searcher/pull/32))
     - `search_rseek()`: Searches on [rseek](https://rseek.org/). 
       ([#32](https://github.com/r-assist/searcher/pull/33), thanks [@rossellhayes](https://github.com/rossellhayes)!)
+      
+## Bug Fixes
+
+- Modified URLs to search engines to pass CRAN checks.
+- Removed documentation URLs to Ecosia search engine as they return `404: Not Found`.
       
 ## Deployment
 
@@ -84,7 +89,7 @@
 ## Features
 
 - Added search portal:
-    - `search_ixquick()`: Searches with [ixquick](https://www.ixquick.com/). (#8, #6)
+    - `search_ixquick()`: Searches with ixquick. (#8, #6)
 
 ## Changes
 
@@ -98,11 +103,11 @@
 
 - Added search portal functions
     - `search_site()`: Looks up search portal and _then_ searches with it.
-    - `search_google()`: Searches with [Google](https://google.com/)
+    - `search_google()`: Searches with [Google](https://www.google.com)
     - `search_bing()`: Searches with [Bing](https://www.bing.com)
     - `search_duckduckgo()` or `search_ddg()`: Searches with [DuckDuckGo](https://duckduckgo.com/)
     - `search_github()` or `search_gh()`: Searches issues on [GitHub](https://github.com/)
-    - `search_bitbucket()` or `search_bb()`: Searches issues on [BitBucket](https://bitbucket.com/)
+    - `search_bitbucket()` or `search_bb()`: Searches issues on [BitBucket](https://bitbucket.org/)
     - `search_stackoverflow()` or `search_so()`: Searches questions on [StackOverflow](https://stackoverflow.com/)
 - Add function generator `searcher()` to create function objects that can be
   used as error handlers in `option(error = )` and task call-backs.

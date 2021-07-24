@@ -8,8 +8,8 @@
 [![R build
 status](https://github.com/r-assist/searcher/workflows/R-CMD-check/badge.svg)](https://github.com/r-assist/searcher/actions)
 [![CRAN RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/searcher)](http://www.r-pkg.org/pkg/searcher)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
+downloads](https://cranlogs.r-pkg.org/badges/searcher)](https://www.r-pkg.org/pkg/searcher)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
 [![Codecov test
 coverage](https://codecov.io/gh/r-assist/searcher/branch/master/graph/badge.svg)](https://codecov.io/gh/r-assist/searcher?branch=master)
 <!-- badges: end -->
@@ -57,15 +57,14 @@ library(searcher)
 The `search_*()` functions can be used to search a query directly from
 *R* on major search engines, programming help websites, and code
 repositories. The following search platforms are supported:
-[Google](https://google.com), [Bing](https://www.bing.com/),
+[Google](https://www.google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/),
-[Startpage](https://www.startpage.com/en/),
-[Ecosia](https://www.ecosia.org/), [rseek](https://www.rseek.org/),
-[Twitter](https://twitter.com/search),
+[Startpage](https://www.startpage.com/en/), Ecosia,
+[rseek](https://rseek.org/), [Twitter](https://twitter.com/search),
 [StackOverflow](https://stackoverflow.com/search), [RStudio
 Community](https://community.rstudio.com/search),
 [GitHub](https://github.com/search), and
-[BitBucket](https://bitbucket.com/search). By default, an appropriate
+[BitBucket](https://bitbucket.org/product/). By default, an appropriate
 suffix for each platform that ensures relevant results to *R* is
 appended to all queries. This behavior can be disabled by using
 `rlang = FALSE`.
@@ -217,12 +216,13 @@ positively received by community members.
 
 > R package “searcher” that automatically searches Stackoverflow for
 > error that you just saw in the console. Cool package, especially for
-> those who learn R :) <https://github.com/coatless/searcher> … \#r
+> those who learn R :) <https://github.com/r-assist/searcher> … \#r
 > \#rlang \#rstats \#rstudio
 >
 > — [Paweł
 > Przytuła](https://twitter.com/pawel_appsilon/status/1109545516264841216)
-> March 23th, 2019. \~292 Retweets and 876 likes
+> March 23th, 2019. \~292 Retweets and 876 likes (Note, URL updated to
+> new repository location.)
 
 > Did you know, using “searcher” package, you could automatically to
 > search stackoverflow, google, GitHub and many more sites for errors,

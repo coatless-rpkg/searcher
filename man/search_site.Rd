@@ -85,8 +85,8 @@ up the resulting page in a web browser.
 }
 \section{Google Search}{
 
-The \code{search_google} function searches \href{https://google.com}{Google} using:
-\verb{https://google.com/search?q=<query>}
+The \code{search_google} function searches \href{https://www.google.com/}{Google} using:
+\verb{https://www.google.com/search?q=<query>}
 
 See \url{https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters}
 for details.
@@ -94,8 +94,8 @@ for details.
 
 \section{Bing Search}{
 
-The \code{search_bing()} function searches \href{https://bing.com}{Bing} using:
-\verb{https://bing.com/search?q=<query>}
+The \code{search_bing()} function searches \href{https://www.bing.com/}{Bing} using:
+\verb{https://www.bing.com/search?q=<query>}
 }
 
 \section{DuckDuckGo Search}{
@@ -118,10 +118,10 @@ search interface please see:
 \section{Ecosia Search}{
 
 The \code{search_ecosia()} function searches
-\href{https://www.ecosia.org/}{Ecosia} using:
+Ecosia using:
 \code{https://www.ecosia.org/search?q=<query>}
 
-For additional details regarding \href{https://www.ecosia.org}{Ecosia}'s
+For additional details regarding Ecosia's
 search interface please see:
 \url{https://ecosia.zendesk.com/hc/en-us}
 }
@@ -180,10 +180,10 @@ and \url{https://help.github.com/articles/searching-code/}
 \section{BitBucket Search}{
 
 The \code{search_bitbucket()} and \code{search_bb()} functions both search
-\href{https://bitbucket.com}{BitBucket} using:
-\code{https://bitbucket.com/search?q=lang\%3Ar+<query>}
+\href{https://bitbucket.org}{BitBucket} using:
+\code{https://bitbucket.org/search?q=lang\%3Ar+<query>}
 
-For additional details regarding \href{https://bitbucket.com}{BitBucket}'s
+For additional details regarding \href{https://bitbucket.org}{BitBucket}'s
 search interface please see:
 \url{https://confluence.atlassian.com/bitbucket/code-search-in-bitbucket-873876782.html}
 }
