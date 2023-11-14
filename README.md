@@ -5,8 +5,7 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/coatless-rpkg/searcher/workflows/R-CMD-check/badge.svg)](https://github.com/coatless-rpkg/searcher/actions)
+[![R-CMD-check](https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/searcher)](https://www.r-pkg.org/pkg/searcher)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
