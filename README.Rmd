@@ -15,10 +15,10 @@ knitr::opts_chunk$set(
 # searcher
 
 <!-- badges: start -->
-[![R build status](https://github.com/r-assist/searcher/workflows/R-CMD-check/badge.svg)](https://github.com/r-assist/searcher/actions)
+[![R build status](https://github.com/coatless-rpkg/searcher/workflows/R-CMD-check/badge.svg)](https://github.com/coatless-rpkg/searcher/actions)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/searcher)](https://www.r-pkg.org/pkg/searcher)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
-[![Codecov test coverage](https://codecov.io/gh/r-assist/searcher/branch/master/graph/badge.svg)](https://codecov.io/gh/r-assist/searcher?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/coatless-rpkg/searcher/branch/master/graph/badge.svg)](https://codecov.io/gh/coatless-rpkg/searcher?branch=master)
 <!-- badges: end -->
 
 The goal of `searcher` is to provide a search interface directly inside of _R_.
@@ -34,9 +34,9 @@ if no query is specified.
 
 The `searcher` package is available on both 
 [CRAN](https://CRAN.R-project.org/package=searcher) and 
-[GitHub](https://github.com/r-assist/searcher). The 
+[GitHub](https://github.com/coatless-rpkg/searcher). The 
 [CRAN](https://CRAN.R-project.org/package=searcher)
-version is considered stable while the [GitHub](https://github.com/r-assist/searcher) 
+version is considered stable while the [GitHub](https://github.com/coatless-rpkg/searcher) 
 version is in a state of development and may break. 
 
 You can install the stable version of the `searcher` package with:
@@ -49,7 +49,7 @@ For the development version, you can opt for:
 
 ```r
 if(!requireNamespace("remotes")) { install.packages("remotes") }
-remotes::install_github("r-assist/searcher")
+remotes::install_github("coatless-rpkg/searcher")
 ```
 
 ## Usage
@@ -107,7 +107,7 @@ search_bitbucket("assertions", rlang = FALSE)            # or search_bb(...)
 `searcher` offers preliminary support for automatically or manually 
 searching errors that are generated in _R_. For more robust error search
 support and to also search warning messages, please use the
-[`errorist`](https://github.com/r-assist/errorist) package.
+[`errorist`](https://github.com/coatless-rpkg/errorist) package.
 
 ### Automatically 
 
@@ -192,7 +192,7 @@ package, which queries an off-site user premade database. Both of these options
 were focused solely on querying _R_ documentation made available by packages.
 Given the nature of errors generally being _undocumented_, neither of these
 approaches could be used. Thus, `searcher` was unintentionally born to
-provide a means for [`errorist`](https://github.com/r-assist/errorist), which
+provide a means for [`errorist`](https://github.com/coatless-rpkg/errorist), which
 contains a robust way to automatically searching errors and warnings.
 
 ### Special Thanks
@@ -208,7 +208,7 @@ community members.
 
 > R package "searcher" that automatically searches Stackoverflow for error that
 > you just saw in the console. Cool package, especially for those who learn R :)
-> https://github.com/r-assist/searcher ... #r #rlang #rstats #rstudio
+> https://github.com/coatless-rpkg/searcher ... #r #rlang #rstats #rstudio
 >
 > --- [Paweł Przytuła](https://twitter.com/pawel_appsilon/status/1109545516264841216) 
 > March 23th, 2019. ~292 Retweets and 876 likes (Note, URL updated to new repository location.)
@@ -220,7 +220,7 @@ community members.
 > --- [Shakirah Nakalungi](https://twitter.com/cynthia_kyra) June 29th, 2019, when she was [Rotating Curator for the "We are R-Ladies" twitter account](https://twitter.com/WeAreRLadies/status/1144921174251581440).
 > ~144 Retweets and 544 likes
 
-Please let us know via an [issue ticket](https://github.com/r-assist/searcher/issues/new)
+Please let us know via an [issue ticket](https://github.com/coatless-rpkg/searcher/issues/new)
 about how you are using `searcher`.
 
 ## License

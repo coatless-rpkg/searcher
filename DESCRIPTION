@@ -18,12 +18,12 @@ Description: Provides a search interface to look up terms
     'Twitter', 'StackOverflow', 'RStudio Community', 'GitHub', and 'BitBucket'.
     Upon searching, a browser window will open with the aforementioned search
     results.
-URL: https://github.com/r-assist/searcher
-BugReports: https://github.com/r-assist/searcher/issues
+URL: https://github.com/coatless-rpkg/searcher, https://r-pkg.thecoatlessprofessor.com/searcher/
+BugReports: https://github.com/coatless-rpkg/searcher/issues
 Depends: R (>= 3.3.0)
 License: GPL (>= 2)
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 Suggests: 
     testthat (>= 2.1.0),
