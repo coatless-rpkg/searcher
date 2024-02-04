@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   search-patterns: search-patterns.html
-last_built: 2024-02-04T06:07Z
+last_built: 2024-02-04T06:31Z
 urls:
   reference: https://r-pkg.thecoatlessprofessor.com/searcher/reference
   article: https://r-pkg.thecoatlessprofessor.com/searcher/articles
