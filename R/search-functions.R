@@ -17,7 +17,7 @@
 #' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
 #'          [search_startpage()], [search_rseek()], [search_twitter()],
 #'          [search_rstudio_community()], [search_stackoverflow()],
-#'          [search_github()], [search_bitbucket()], and [searcher()]
+#'          [search_github()], [search_grep()], [search_bitbucket()], and [searcher()]
 #' @examples
 #' # Search in a generic way
 #' search_site("r-project", "google")
@@ -55,6 +55,12 @@
 #' # Search all languages on GitHub Issues for bivariate normal
 #' search_github("bivariate normal", rlang = FALSE)
 #'
+#' # Search R code on GitHub for numerical optimization
+#' search_grep("optim")
+#'
+#' # Search all code on GitHub for numerical optimization
+#' search_grep("optim", rlang = FALSE)
+#'
 #' # Search BitBucket for assertions
 #' search_bitbucket("assertions")
 #'
@@ -79,6 +85,7 @@ search_site = function(query,
                          "so",
                          "github",
                          "gh",
+                         "grep",
                          "bitbucket",
                          "bb"
                        ),
@@ -102,6 +109,7 @@ search_site = function(query,
     so             = search_stackoverflow(query, rlang),
     github         = ,      # empty case carried below
     gh             = search_github(query, rlang),
+    grep           = search_grep(query, rlang),
     bitbucket      = ,      # empty case carried below
     bb             = search_bitbucket(query, rlang)
   )
@@ -294,6 +302,14 @@ search_github = searcher("gh")
 #' @rdname search_site
 #' @export
 search_gh = search_github
+
+#' @rdname search_site
+#' @export
+#' @section grep.app Search:
+#' The `search_grep()` function searches all public code on
+#' [GitHub](https://github.com) using [grep.app](https://grep.app) by
+#' querying: `https://grep.app/search?q=<query-here>&filter[lang][0]=R`
+search_grep = searcher("grep")
 
 #' @rdname search_site
 #' @export
