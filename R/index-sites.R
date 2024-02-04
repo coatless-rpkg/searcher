@@ -45,6 +45,8 @@ site_index =
   list(
     site_entry("google", "https://google.com/search?q="),
     site_entry("bing", "https://bing.com/search?q="),
+    site_entry("grep", "https://grep.app/search?q=",
+               keywords = keyword_entry("&filter[lang][0]=R")),
     site_entry("duckduckgo", "https://duckduckgo.com/?q=", "ddg"),
     site_entry("startpage", "https://startpage.com/do/dsearch?query=", "sp"),
     site_entry("ecosia", "https://www.ecosia.org/search?q="),

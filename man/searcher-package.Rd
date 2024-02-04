@@ -3,7 +3,6 @@
 \docType{package}
 \name{searcher-package}
 \alias{searcher-package}
-\alias{_PACKAGE}
 \title{searcher: Query Search Interfaces}
 \description{
 Provides a search interface to look up terms on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Ecosia', 'rseek', 'Twitter', 'StackOverflow', 'RStudio Community', 'GitHub', and 'BitBucket'. Upon searching, a browser window will open with the aforementioned search results.

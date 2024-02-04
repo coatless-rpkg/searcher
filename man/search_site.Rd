@@ -18,6 +18,7 @@
 \alias{search_so}
 \alias{search_github}
 \alias{search_gh}
+\alias{search_grep}
 \alias{search_bitbucket}
 \alias{search_bb}
 \title{Search a Query on a Search Portal in a Web Browser}
@@ -26,7 +27,7 @@ search_site(
   query,
   site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "rseek",
     "rstudio community", "rscom", "twitter", "stackoverflow", "so", "github", "gh",
-    "bitbucket", "bb"),
+    "grep", "bitbucket", "bb"),
   rlang = TRUE
 )
 
@@ -61,6 +62,8 @@ search_so(query = geterrmessage(), rlang = TRUE)
 search_github(query = geterrmessage(), rlang = TRUE)
 
 search_gh(query = geterrmessage(), rlang = TRUE)
+
+search_grep(query = geterrmessage(), rlang = TRUE)
 
 search_bitbucket(query = geterrmessage(), rlang = TRUE)
 
@@ -177,6 +180,13 @@ search interface please see:
 and \url{https://help.github.com/articles/searching-code/}
 }
 
+\section{grep.app Search}{
+
+The \code{search_grep()} function searches all public code on
+\href{https://github.com}{GitHub} using \href{https://grep.app}{grep.app} by
+querying: \verb{https://grep.app/search?q=<query-here>&filter[lang][0]=R}
+}
+
 \section{BitBucket Search}{
 
 The \code{search_bitbucket()} and \code{search_bb()} functions both search
@@ -225,6 +235,12 @@ search_github("bivariate normal")
 # Search all languages on GitHub Issues for bivariate normal
 search_github("bivariate normal", rlang = FALSE)
 
+# Search R code on GitHub for numerical optimization
+search_grep("optim")
+
+# Search all code on GitHub for numerical optimization
+search_grep("optim", rlang = FALSE)
+
 # Search BitBucket for assertions
 search_bitbucket("assertions")
 
@@ -238,5 +254,5 @@ options(error = search_google)
 \code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
 \code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_twitter]{search_twitter()}},
 \code{\link[=search_rstudio_community]{search_rstudio_community()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}},
-\code{\link[=search_github]{search_github()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
+\code{\link[=search_github]{search_github()}}, \code{\link[=search_grep]{search_grep()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
 }
