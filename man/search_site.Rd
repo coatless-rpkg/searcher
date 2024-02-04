@@ -11,6 +11,7 @@
 \alias{search_sp}
 \alias{search_ecosia}
 \alias{search_rseek}
+\alias{search_qwant}
 \alias{search_rstudio_community}
 \alias{search_rscom}
 \alias{search_twitter}
@@ -25,7 +26,7 @@
 \usage{
 search_site(
   query,
-  site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "rseek",
+  site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "qwant", "rseek",
     "rstudio community", "rscom", "twitter", "stackoverflow", "so", "github", "gh",
     "grep", "bitbucket", "bb"),
   rlang = TRUE
@@ -48,6 +49,8 @@ search_sp(query = geterrmessage(), rlang = TRUE)
 search_ecosia(query = geterrmessage(), rlang = TRUE)
 
 search_rseek(query = geterrmessage(), rlang = TRUE)
+
+search_qwant(query = geterrmessage(), rlang = TRUE)
 
 search_rstudio_community(query = geterrmessage(), rlang = TRUE)
 
@@ -74,8 +77,8 @@ search_bb(query = geterrmessage(), rlang = TRUE)
 
 \item{site}{Name of site to search on. Supported options:
 \code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
-\code{"rstudio community"}, \code{"twitter"},\code{"stackoverflow"},
-\code{"github"}, and \code{"bitbucket"}.}
+\code{"qwant"},\code{"rstudio community"}, \code{"twitter"},\code{"stackoverflow"},
+\code{"github"}, \code{"grep"}, and \code{"bitbucket"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
 }
@@ -133,6 +136,12 @@ search interface please see:
 
 The \code{search_rseek()} function searches \href{https://rseek.org}{Rseek} using:
 \verb{https://rseek.org/?q=<query>}
+}
+
+\section{Qwant Search}{
+
+The \code{search_qwant()} function searches
+\href{https://qwant.com}{Qwant} using: \verb{https://www.qwant.com/?q=<query>}
 }
 
 \section{RStudio Community Search}{
@@ -217,6 +226,9 @@ search_startpage("VS Code")
 # Search Rseek
 search_rseek("searcher")
 
+# Search Qwant
+search_qwant("Quarto")
+
 # Search RStudio Community
 search_rstudio_community("RStudio IDE")
 
@@ -252,7 +264,7 @@ options(error = search_google)
 }
 \seealso{
 \code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
-\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_twitter]{search_twitter()}},
+\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_qwant]{search_qwant()}}, \code{\link[=search_twitter]{search_twitter()}},
 \code{\link[=search_rstudio_community]{search_rstudio_community()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}},
 \code{\link[=search_github]{search_github()}}, \code{\link[=search_grep]{search_grep()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
 }

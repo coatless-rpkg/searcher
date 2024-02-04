@@ -9,8 +9,8 @@ searcher(site, keyword = getOption("searcher.default_keyword"))
 \arguments{
 \item{site}{Name of site to search on. Supported options:
 \code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
-\code{"rstudio community"}, \code{"twitter"},\code{"stackoverflow"},
-\code{"github"}, and \code{"bitbucket"}.}
+\code{"qwant"},\code{"rstudio community"}, \code{"twitter"},\code{"stackoverflow"},
+\code{"github"}, \code{"grep"}, and \code{"bitbucket"}.}
 
 \item{keyword}{Opt to search under different default terms.}
 }

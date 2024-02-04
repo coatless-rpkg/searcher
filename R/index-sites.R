@@ -50,6 +50,7 @@ site_index =
     site_entry("duckduckgo", "https://duckduckgo.com/?q=", "ddg"),
     site_entry("startpage", "https://startpage.com/do/dsearch?query=", "sp"),
     site_entry("ecosia", "https://www.ecosia.org/search?q="),
+    site_entry("qwant", "https://www.qwant.com/?q="),
     site_entry(
       "stackoverflow",
       "https://stackoverflow.com/search?q=",

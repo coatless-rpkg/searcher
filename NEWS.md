@@ -2,11 +2,13 @@
 
 ## Features
 
-- Added search portal:
+- Added search portals:
     - `search_grep()`: Searches on grep.app. 
       ([#35](https://github.com/r-assist/searcher/issues/35), 
        [#37](https://github.com/r-assist/searcher/pull/37))
-
+    - `search_qwant()`: Searches on Qwant. 
+      ([#36](https://github.com/r-assist/searcher/issues/36), 
+       [#38](https://github.com/r-assist/searcher/pull/38))
 
 # searcher 0.0.6
 

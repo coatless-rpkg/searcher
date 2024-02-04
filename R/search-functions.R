@@ -5,8 +5,8 @@
 #'
 #' @param site   Name of site to search on. Supported options:
 #'               `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
-#'               `"rstudio community"`, `"twitter"`,`"stackoverflow"`,
-#'               `"github"`, and `"bitbucket"`.
+#'               `"qwant"`,`"rstudio community"`, `"twitter"`,`"stackoverflow"`,
+#'               `"github"`, `"grep"`, and `"bitbucket"`.
 #' @param query   Contents of string to search. Default is the error message.
 #' @param rlang   Search for results written in R. Default is `TRUE`
 #'
@@ -15,7 +15,7 @@
 #' @rdname search_site
 #' @export
 #' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
-#'          [search_startpage()], [search_rseek()], [search_twitter()],
+#'          [search_startpage()], [search_rseek()], [search_qwant()], [search_twitter()],
 #'          [search_rstudio_community()], [search_stackoverflow()],
 #'          [search_github()], [search_grep()], [search_bitbucket()], and [searcher()]
 #' @examples
@@ -36,6 +36,9 @@
 #'
 #' # Search Rseek
 #' search_rseek("searcher")
+#'
+#' # Search Qwant
+#' search_qwant("Quarto")
 #'
 #' # Search RStudio Community
 #' search_rstudio_community("RStudio IDE")
@@ -77,6 +80,7 @@ search_site = function(query,
                          "ddg",
                          "startpage",
                          "sp",
+                         "qwant",
                          "rseek",
                          "rstudio community",
                          "rscom",
@@ -101,6 +105,7 @@ search_site = function(query,
     ddg            = search_duckduckgo(query, rlang),
     startpage      = ,      # empty case carried below
     sp             = search_startpage(query, rlang),
+    qwant          = search_qwant(query, rlang),
     rseek          = search_rseek(query, rlang),
     `rstudio community` = , # empty case carried below
     rscom          = search_rstudio_community(query, rlang),
@@ -231,6 +236,13 @@ search_ecosia = searcher("ecosia")
 #' The `search_rseek()` function searches [Rseek](https://rseek.org) using:
 #' `https://rseek.org/?q=<query>`
 search_rseek = searcher("rseek")
+
+#' @rdname search_site
+#' @export
+#' @section Qwant Search:
+#' The `search_qwant()` function searches
+#' [Qwant](https://qwant.com) using: `https://www.qwant.com/?q=<query>`
+search_qwant = searcher("qwant")
 
 ########################### End Search Engines
 
