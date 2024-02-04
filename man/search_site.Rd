@@ -94,7 +94,7 @@ up the resulting page in a web browser.
 The \code{search_google} function searches \href{https://www.google.com/}{Google} using:
 \verb{https://www.google.com/search?q=<query>}
 
-See \url{https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters}
+See \url{https://moz.com/learn/seo/search-operators}
 for details.
 }
 
@@ -115,10 +115,6 @@ The \code{search_duckduckgo()} and \code{search_ddg()} functions both search
 The \code{search_startpage()} function searches
 \href{https://startpage.com}{startpage} using:
 \code{https://startpage.com/do/dsearch?query=<query>}
-
-For additional details regarding \href{https://startpage.com}{startpage}'s
-search interface please see:
-\url{https://support.startpage.com/index.php?/Knowledgebase/Article/View/1261/0/add-familystartpagecom-as-the-default-search-engine-in-chrome}
 }
 
 \section{Ecosia Search}{
@@ -129,7 +125,7 @@ Ecosia using:
 
 For additional details regarding Ecosia's
 search interface please see:
-\url{https://ecosia.zendesk.com/hc/en-us}
+\url{https://ecosia.helpscoutdocs.com/article/502-ecosia-on-desktop}
 }
 
 \section{Rseek Search}{
@@ -141,7 +137,7 @@ The \code{search_rseek()} function searches \href{https://rseek.org}{Rseek} usin
 \section{Qwant Search}{
 
 The \code{search_qwant()} function searches
-\href{https://qwant.com}{Qwant} using: \verb{https://www.qwant.com/?q=<query>}
+Qwant using: \verb{https://www.qwant.com/?q=<query>}
 }
 
 \section{RStudio Community Search}{
@@ -158,12 +154,12 @@ search interface please see the \href{https://discourse.org}{Discourse} API docu
 \section{Twitter Search}{
 
 The \code{search_twitter()} functions search
-\href{https://twitter.com/}{Twitter} using:
+Twitter using:
 \code{https://twitter.com/search?q=<query>}
 
-For additional details regarding \href{https://twitter.com/}{Twitter}'s
+For additional details regarding Twitter's
 search interface please see:
-\url{https://help.twitter.com/en/using-twitter/twitter-advanced-search}
+\verb{https://help.twitter.com/en/using-x/x-advanced-search}
 }
 
 \section{StackOverflow Search}{
@@ -174,7 +170,7 @@ The \code{search_stackoverflow()} and \code{search_so()} functions both search
 
 For additional details regarding \href{https://stackoverflow.com}{StackOverflow}'s
 search interface please see:
-\url{https://stackoverflow.com/help/advanced-search-parameters-jobs}
+\verb{https://stackoverflow.com/help/searching}
 }
 
 \section{GitHub Search}{
@@ -185,8 +181,8 @@ The \code{search_github()} and \code{search_gh()} functions both search
 
 For additional details regarding \href{https://github.com}{GitHub}'s
 search interface please see:
-\url{https://help.github.com/categories/searching-for-information-on-github/}
-and \url{https://help.github.com/articles/searching-code/}
+\url{https://docs.github.com/en/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github}
+and \url{https://docs.github.com/en/search-github/searching-on-github/searching-code/}
 }
 
 \section{grep.app Search}{

@@ -4,11 +4,10 @@
 
 - Added search portals:
     - `search_grep()`: Searches on grep.app. 
-      ([#35](https://github.com/r-assist/searcher/issues/35), 
-       [#37](https://github.com/r-assist/searcher/pull/37))
+      ([#35](https://github.com/coatless-rpkg/searcher/issues/35), 
+       [#37](https://github.com/coatless-rpkg/searcher/pull/37))
     - `search_qwant()`: Searches on Qwant. 
-      ([#36](https://github.com/r-assist/searcher/issues/36), 
-       [#38](https://github.com/r-assist/searcher/pull/38))
+      ([#36](https://github.com/coatless-rpkg/searcher/issues/36))
 
 # searcher 0.0.6
 
@@ -16,10 +15,10 @@
 
 - Added search portals:
     - `search_ecosia()`: Searches on Ecosia. 
-      ([#31](https://github.com/r-assist/searcher/issues/31), 
-       [#32](https://github.com/r-assist/searcher/pull/32))
+      ([#31](https://github.com/coatless-rpkg/searcher/issues/31), 
+       [#32](https://github.com/coatless-rpkg/searcher/pull/32))
     - `search_rseek()`: Searches on [rseek](https://rseek.org/). 
-      ([#32](https://github.com/r-assist/searcher/pull/33), thanks [@rossellhayes](https://github.com/rossellhayes)!)
+      ([#32](https://github.com/coatless-rpkg/searcher/pull/33), thanks [@rossellhayes](https://github.com/rossellhayes)!)
       
 ## Bug Fixes
 
@@ -29,20 +28,20 @@
 ## Deployment
 
 - Updated [GitHub Actions for R](https://github.com/r-lib/actions) workflows
-  ([#34](https://github.com/r-assist/searcher/pull/34)).
-- Added pkgdown website ([#34](https://github.com/r-assist/searcher/pull/34)).
+  ([#34](https://github.com/coatless-rpkg/searcher/pull/34)).
+- Added pkgdown website ([#34](https://github.com/coatless-rpkg/searcher/pull/34)).
 
 # searcher 0.0.5
 
 ## Features
 
 - Added search portal:
-    - `search_twitter()`: Searches on [Twitter](https://twitter.com/search). 
-      ([#19](https://github.com/r-assist/searcher/issues/19), 
-       [#30](https://github.com/r-assist/searcher/pull/30))
+    - `search_twitter()`: Searches on Twitter. 
+      ([#19](https://github.com/coatless-rpkg/searcher/issues/19), 
+       [#30](https://github.com/coatless-rpkg/searcher/pull/30))
 - Added ability to set default package actions.
-  ([#7](https://github.com/r-assist/searcher/issues/7),
-   [#20](https://github.com/r-assist/searcher/pull/20))
+  ([#7](https://github.com/coatless-rpkg/searcher/issues/7),
+   [#20](https://github.com/coatless-rpkg/searcher/pull/20))
   - `searcher.launch_delay` controls how long the user remains in _R_ prior
     to the browser opening. Default is `0.5` seconds.
   - `searcher.use_rstudio_viewer` specifies whether RStudio's viewer pane should
@@ -52,8 +51,8 @@
     between either `"base"` or `"tidyverse"`. Default is `"base"`.
 - Added option to launch RStudio's Viewer pane to display search results.
   - Note: This feature requires a patch per [rstudio/rstudio#2252](https://github.com/rstudio/rstudio/issues/2252). 
-  ([#21](https://github.com/r-assist/searcher/issues/21),
-   [#22](https://github.com/r-assist/searcher/pull/22))
+  ([#21](https://github.com/coatless-rpkg/searcher/issues/21),
+   [#22](https://github.com/coatless-rpkg/searcher/pull/22))
 
 ## Breaking Changes
 
@@ -68,11 +67,11 @@
 
 ## Deployment
 
-- Switched from using [TravisCI](http://travis-ci.com/) to using
+- Switched from using [TravisCI](https://www.travis-ci.com/) to using
   [GitHub Actions for R](https://github.com/r-lib/actions). 
-  ([#25](https://github.com/r-assist/searcher/issues/25),
-   [#27](https://github.com/r-assist/searcher/pull/27))
-- Improved code coverage of unit tests ([#29](https://github.com/r-assist/searcher/pull/29))
+  ([#25](https://github.com/coatless-rpkg/searcher/issues/25),
+   [#27](https://github.com/coatless-rpkg/searcher/pull/27))
+- Improved code coverage of unit tests ([#29](https://github.com/coatless-rpkg/searcher/pull/29))
 
 # searcher 0.0.4
 

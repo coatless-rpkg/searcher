@@ -173,7 +173,7 @@ searcher = function(site, keyword = getOption("searcher.default_keyword")) {
 #' The `search_google` function searches [Google](https://www.google.com/) using:
 #' `https://www.google.com/search?q=<query>`
 #'
-#' See \url{https://moz.com/blog/the-ultimate-guide-to-the-google-search-parameters}
+#' See \url{https://moz.com/learn/seo/search-operators}
 #' for details.
 search_google = searcher("google")
 
@@ -208,10 +208,6 @@ search_ixquick = function(query = geterrmessage(), rlang = TRUE) {
 #' The `search_startpage()` function searches
 #' [startpage](https://startpage.com) using:
 #'  \code{https://startpage.com/do/dsearch?query=<query>}
-#'
-#' For additional details regarding [startpage](https://startpage.com)'s
-#' search interface please see:
-#'  \url{https://support.startpage.com/index.php?/Knowledgebase/Article/View/1261/0/add-familystartpagecom-as-the-default-search-engine-in-chrome}
 search_startpage = searcher("sp")
 
 #' @rdname search_site
@@ -227,7 +223,7 @@ search_sp = search_startpage
 #'
 #' For additional details regarding Ecosia's
 #' search interface please see:
-#'  \url{https://ecosia.zendesk.com/hc/en-us}
+#'  \url{https://ecosia.helpscoutdocs.com/article/502-ecosia-on-desktop}
 search_ecosia = searcher("ecosia")
 
 #' @rdname search_site
@@ -241,7 +237,7 @@ search_rseek = searcher("rseek")
 #' @export
 #' @section Qwant Search:
 #' The `search_qwant()` function searches
-#' [Qwant](https://qwant.com) using: `https://www.qwant.com/?q=<query>`
+#' Qwant using: `https://www.qwant.com/?q=<query>`
 search_qwant = searcher("qwant")
 
 ########################### End Search Engines
@@ -270,12 +266,12 @@ search_rscom = search_rstudio_community
 #' @export
 #' @section Twitter Search:
 #' The `search_twitter()` functions search
-#' [Twitter](https://twitter.com/) using:
+#' Twitter using:
 #' \code{https://twitter.com/search?q=<query>}
 #'
-#' For additional details regarding [Twitter](https://twitter.com/)'s
+#' For additional details regarding Twitter's
 #' search interface please see:
-#' \url{https://help.twitter.com/en/using-twitter/twitter-advanced-search}
+#' `https://help.twitter.com/en/using-x/x-advanced-search`
 search_twitter = searcher("twitter")
 
 #' @rdname search_site
@@ -287,7 +283,7 @@ search_twitter = searcher("twitter")
 #'
 #' For additional details regarding [StackOverflow](https://stackoverflow.com)'s
 #' search interface please see:
-#'  \url{https://stackoverflow.com/help/advanced-search-parameters-jobs}
+#'  `https://stackoverflow.com/help/searching`
 search_stackoverflow = searcher("so")
 
 #' @rdname search_site
@@ -307,8 +303,8 @@ search_so = search_stackoverflow
 #'
 #' For additional details regarding [GitHub](https://github.com)'s
 #' search interface please see:
-#' \url{https://help.github.com/categories/searching-for-information-on-github/}
-#' and \url{https://help.github.com/articles/searching-code/}
+#' <https://docs.github.com/en/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github>
+#' and <https://docs.github.com/en/search-github/searching-on-github/searching-code/>
 search_github = searcher("gh")
 
 #' @rdname search_site

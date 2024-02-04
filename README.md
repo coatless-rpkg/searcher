@@ -9,8 +9,6 @@
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/searcher)](https://www.r-pkg.org/pkg/searcher)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
-[![Codecov test
-coverage](https://codecov.io/gh/coatless-rpkg/searcher/branch/master/graph/badge.svg)](https://codecov.io/gh/coatless-rpkg/searcher?branch=master)
 <!-- badges: end -->
 
 The goal of `searcher` is to provide a search interface directly inside
@@ -59,10 +57,10 @@ repositories. The following search platforms are supported:
 [Google](https://www.google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/), Ecosia,
-[rseek](https://rseek.org/), [Twitter](https://twitter.com/search),
-[StackOverflow](https://stackoverflow.com/search), [RStudio
+[rseek](https://rseek.org/), Qwant, X (formerly Twitter),
+[StackOverflow](https://stackoverflow.com/), [RStudio
 Community](https://community.rstudio.com/search),
-[GitHub](https://github.com/search), and
+[GitHub](https://github.com/search), [grep.app](https://grep.app/), and
 [BitBucket](https://bitbucket.org/product/). By default, an appropriate
 suffix for each platform that ensures relevant results to *R* is
 appended to all queries. This behavior can be disabled by using
@@ -74,6 +72,7 @@ search_google("R project")
 search_bing("R project")
 search_ecosia("R project")
 search_rseek("R project")
+search_qwant("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
 search_startpage("R project")                            # or search_sp(...)
 
@@ -88,6 +87,10 @@ search_stackoverflow("linear regression", rlang = FALSE) # or search_so(...)
 # Searching RStudio Community for tips
 search_rstudio_community("tips")
 search_rstudio_community("tips", rlang = FALSE)          # or search_rscom(...)
+
+# Searching GitHub code for graphs in R and other languages
+search_grep("graph")
+search_grep("graph", rlang = FALSE)
 
 # Searching GitHub Issues for maps in R and other languages
 search_github("maps")
@@ -135,7 +138,9 @@ search_google()
 search_bing()
 search_ecosia()
 search_rseek()
+search_qwant()
 search_twitter()
+search_grep()
 search_duckduckgo()        # or search_ddg()
 search_startpage()         # or search_sp()
 search_stackoverflow()     # or search_so()
@@ -209,8 +214,8 @@ a robust way to automatically searching errors and warnings.
 
 ### Publicity
 
-On the [`#rstats`-twitter
-verse](https://twitter.com/search?q=%23rstats), `searcher` has been
+On the `#rstats`-twitter verse (c.f.
+`https://twitter.com/search?q=%23rstats`), `searcher` has been
 positively received by community members.
 
 > R package “searcher” that automatically searches Stackoverflow for
@@ -218,19 +223,18 @@ positively received by community members.
 > those who learn R :) <https://github.com/coatless-rpkg/searcher> … \#r
 > \#rlang \#rstats \#rstudio
 >
-> — [Paweł
-> Przytuła](https://twitter.com/pawel_appsilon/status/1109545516264841216)
-> March 23th, 2019. ~292 Retweets and 876 likes (Note, URL updated to
-> new repository location.)
+> — Paweł Przytuła March 23th, 2019. ~292 Retweets and 876 likes (Note,
+> URL updated to new repository location.)
 
 > Did you know, using “searcher” package, you could automatically to
 > search stackoverflow, google, GitHub and many more sites for errors,
 > packages or topics. \#rstats
 >
-> — [Shakirah Nakalungi](https://twitter.com/cynthia_kyra) June 29th,
-> 2019, when she was [Rotating Curator for the “We are R-Ladies” twitter
-> account](https://twitter.com/WeAreRLadies/status/1144921174251581440).
-> ~144 Retweets and 544 likes
+> — Shakirah Nakalungi (c.f. `https://twitter.com/cynthia_kyra`) June
+> 29th, 2019, when she was Rotating Curator for the “We are R-Ladies”
+> twitter account (c.f.
+> `https://twitter.com/WeAreRLadies/status/1144921174251581440`) ~144
+> Retweets and 544 likes
 
 Please let us know via an [issue
 ticket](https://github.com/coatless-rpkg/searcher/issues/new) about how

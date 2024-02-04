@@ -63,8 +63,8 @@ _R_-specific results. If `rlang = FALSE`, then the results are generalized.
    - `"r programming"` was selected because it performed best when compared
      to `"rlang"`, `"rstats"`, and `"r language"` on [Google Trends](https://trends.google.com/trends/).
 - Community Sites
-   - [StackOverflow Search](https://stackoverflow.com/search): ` <query> + [r]`
-   - [Twitter](https://twitter.com/search): `<query> + #rstats`
+   - [StackOverflow](https://stackoverflow.com/): ` <query> + [r]`
+   - Twitter: `<query> + #rstats`
    - [RStudio Community](https://community.rstudio.com/search): `<query>`
    - [Rseek](https://rseek.org/): `<query>`
 - Code Repositories
@@ -89,5 +89,5 @@ To improve your _R_-related search query, it has been suggested to use:
   
 Suggestions here were pooled from discussion on rOpenSci's slack with
 [Steph Locke](https://itsalocke.com/blog/) and 
-[Robert Mitchell](http://robertmitchellv.com/).
+[Robert Mitchell](https://robertmitchellv.com/).
 
