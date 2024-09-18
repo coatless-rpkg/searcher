@@ -10,27 +10,10 @@
 #'    viewer pane instead of a web browser. Default is `FALSE`.
 #' - `searcher.default_keyword`: Suffix keyword to generate accurate results
 #'    between either `"base"` or `"tidyverse"`. Default is `"base"`.
-#' - ...
 #'
+#' @importFrom utils getOption
 "_PACKAGE"
 
-searcher_default_options = list(
-  searcher.launch_delay = 0.5,
-  searcher.use_rstudio_viewer = FALSE,
-  searcher.default_keyword = "base"
-)
-
-.onLoad = function(libname, pkgname) {
-  # Retrieve options
-  options_active = options()
-
-  # Determine if defaults are missing
-  missing_defaults = !(names(searcher_default_options) %in% names(options_active))
-
-  # Set any missing default options
-  if (any(missing_defaults)) {
-    options(searcher_default_options[missing_defaults])
-  }
-
-  invisible()
-}
+## usethis namespace: start
+## usethis namespace: end
+NULL
