@@ -37,12 +37,17 @@ browse_url = function(base,
       open_web_browser(url)
     } # nocov end
   } else {
-    message("Please type into your browser:\n", invisible(url))
+    message("Please type into your browser:\n", url)
   }
 
   invisible(url)
 }
 
+#' Open URL in RStudio Viewer
+#'
+#' @param url The URL to open in the RStudio Viewer
+#'
+#' @noRd
 open_rstudio_viewer = function(url) { # nocov start
   message("Searching query in RStudio's Viewer panel ... ")
   Sys.sleep(getOption("searcher.launch_delay"))
@@ -52,6 +57,12 @@ open_rstudio_viewer = function(url) { # nocov start
   viewer(url)
 } # nocov end
 
+#' Open URL in Web Browser
+#'
+#' @param url The URL to open in the web browser
+#'
+#' @importFrom utils browseURL
+#' @noRd
 open_web_browser = function(url) { # nocov start
   message("Searching query in a web browser ... ")
   Sys.sleep(getOption("searcher.launch_delay"))
@@ -97,11 +108,7 @@ encode_url = function(base, unencoded_query, encoded_query = "") {
 #' valid_query(c(1,2))
 #' @noRd
 valid_query = function(query) {
-  if(missing(query) || is.null(query) || length(query) != 1 || query == "") {
-    FALSE
-  } else {
-    TRUE
-  }
+  !missing(query) && !is.null(query) && length(query) == 1 && nzchar(query)
 }
 
 
@@ -149,3 +156,22 @@ append_search_term_suffix = function(query, rlang = TRUE, suffix = "r programmin
 is_rstudio = function() {
   Sys.getenv("RSTUDIO") == "1"
 }
+
+
+#' Check if in Positron
+#'
+#' Verifies whether the user is using the Positron IDE.
+#'
+#' @return
+#' A `logical` value indicating whether _R_ is being accessed from the Positron
+#' IDE.
+#'
+#' @examples
+#' # Check if in Positron
+#' is_positron_ide()
+#'
+#' @noRd
+is_positron_ide = function() {
+  Sys.getenv("POSITRON") == "1"
+}
+

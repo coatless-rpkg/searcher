@@ -19,7 +19,6 @@ a browser window. Default is \code{0.5} seconds.
 viewer pane instead of a web browser. Default is \code{FALSE}.
 \item \code{searcher.default_keyword}: Suffix keyword to generate accurate results
 between either \code{"base"} or \code{"tidyverse"}. Default is \code{"base"}.
-\item ...
 }
 }
 

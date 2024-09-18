@@ -10,8 +10,6 @@
 #'    viewer pane instead of a web browser. Default is `FALSE`.
 #' - `searcher.default_keyword`: Suffix keyword to generate accurate results
 #'    between either `"base"` or `"tidyverse"`. Default is `"base"`.
-#'
-#' @importFrom utils getOption
 "_PACKAGE"
 
 ## usethis namespace: start
