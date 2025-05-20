@@ -1,0 +1,233 @@
+---
+title: "Managing AI Prompts in `searcher`"
+author: "James Joseph Balamuta"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Managing AI Prompts}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+
+# Introduction
+
+The `searcher` package includes a powerful prompt management system for working
+with AI assistants. This vignette explains how to use this system to create, 
+manage, and apply effective prompts when using AI search functions. It 
+complements the main `vignette("search-with-ai-assistants")`, which provides a broader
+overview of using AI services with R.
+
+## What are Prompts?
+
+Prompts are instructions that guide how an AI assistant should respond to your 
+queries. A well-crafted prompt can dramatically improve the quality and 
+relevance of AI responses for R programming tasks.
+
+# The Prompt Management System
+
+The `searcher` package provides a multi-level prompt system:
+
+1. **System-level prompts**: Set with `ai_prompt()`, these apply across all AI services
+2. **Service-specific prompts**: Set with `options()` or within function calls
+3. **Default prompts**: Built-in prompts that ship with the package
+
+When you search with an AI assistant, prompts are applied in this order 
+(with the query at the end).
+
+## Built-in Prompt Library
+
+The package comes with several pre-defined prompts optimized for different R
+programming scenarios:
+
+```r
+# List available prompts
+ai_prompt_list()
+```
+
+This will show prompts like:
+
+- `general`: Balanced for general R questions and errors
+- `debugging`: For identifying and fixing bugs in R code
+- `learning`: For learning R concepts with progressive complexity
+- `package_selection`: For comparing R packages with balanced analysis
+- `code_review`: For evaluating and improving R code
+- `stats_analysis`: For statistical analysis in R
+- `visualization`: For creating effective data visualizations
+
+## Setting an Active Prompt
+
+To set a system-level prompt that will be used with all AI search functions:
+
+```r
+# Use a built-in prompt
+ai_prompt("debugging")
+
+# Then search with any AI service
+ask_chatgpt("Error: object 'mtcrs' not found")  # Note the typo
+```
+
+You'll see a message indicating which prompt is being used:
+
+```
+Using prompts: system (debugging)
+Searching query in a web browser...
+```
+
+The AI will receive both your prompt instruction and the query, helping it 
+respond more effectively.
+
+## Using Custom Prompts
+
+You can also use a custom prompt text directly:
+
+```r
+# Set a custom prompt
+ai_prompt("As an R package developer, explain this error in terms of how R handles namespaces:")
+
+# Check the active prompt
+ai_prompt_active()
+```
+
+## Checking and Clearing Prompts
+
+You can check the currently active prompt or clear it:
+
+```r
+# Check currently active prompt
+ai_prompt()
+# or
+ai_prompt_active()
+
+# Clear the active prompt
+ai_prompt(NA)
+# or
+ai_prompt_clear()
+```
+
+## Extending the Prompt Library
+
+You can add your own prompts to the library:
+
+```r
+# Register a new prompt
+ai_prompt_register(
+  "shiny_expert",
+  "As a Shiny app developer, explain how to implement this UI feature or fix this reactive issue:"
+)
+
+# Use your new prompt
+ai_prompt("shiny_expert")
+```
+
+## Removing Prompts
+
+To remove a prompt from the library:
+
+```r
+ai_prompt_remove("shiny_expert")
+```
+
+# Advanced Usage
+
+In this section, we will explore more advanced usage of the prompt system. 
+This includes layering multiple prompts, creating a session prompt library, 
+and managing prompts in your `.Rprofile` for persistent settings.
+
+## Prompt Layering
+
+The prompt system supports layering multiple prompts:
+
+```r
+# Set a system-level prompt
+ai_prompt("debugging")
+
+# Use with service-specific default prompt
+options(searcher.claude_prompt = "Focus on tidyverse solutions:")
+
+# Then use with a function-call prompt
+ask_claude("Error in filter(data, x > 0): object 'x' not found", 
+             prompt = "Explain in simple terms:")
+```
+
+This will use all three prompts in order (debugging, "Focus on tidyverse solutions", and "Explain in simple terms") before the query.
+
+## Creating a Session Prompt Library
+
+For more advanced usage, you can create a custom prompt library in your R session:
+
+```r
+# Create custom prompts for different projects
+ai_prompt_register("my_package", "As an R package developer reviewing the 'mypackage' codebase.")
+ai_prompt_register("data_cleaning", "Analyzing the customer_data.csv dataset with missing values.")
+ai_prompt_register("reporting", "Create a Quarto document report for business stakeholders.")
+
+# Switch between contexts as you work
+ai_prompt("my_package")
+# ... work on package development ...
+
+ai_prompt("data_cleaning")
+# ... work on data cleaning ...
+```
+
+## Prompt Management in .Rprofile
+
+For persistent prompt management, you can add code to your `.Rprofile`
+This file is executed every time you start R, allowing you to set up your environment.
+Most users will have a `.Rprofile` file in their home directory. You can create
+or edit this file to include your prompt management code. 
+
+To create or edit the `.Rprofile` file, you can use the following command in R:
+
+```r
+# Creating or editing the file:
+file.edit("~/.Rprofile")
+```
+
+Then, you can add the following code to set up your prompt management system:
+
+```r
+# In .Rprofile
+.First <- function() {
+  if (requireNamespace("searcher", quietly = TRUE)) {
+    # Register custom prompts
+    searcher::ai_prompt_register(
+      "work",
+      "As an R analyst at XYZ company working with our sales database:", 
+      overwrite = TRUE
+    )
+    
+    # Set default prompts for different AI services
+    options(
+      searcher.chatgpt_prompt = "Provide R code with tidyverse packages:",
+      searcher.claude_prompt = "Give me both base R and tidyverse solutions:"
+    )
+    
+    # Set a default system-level prompt if desired
+    # searcher::ai_prompt("debugging")
+  }
+}
+```
+
+# Conclusion
+
+The prompt management system in `searcher` provides a flexible and powerful way to
+create, manage, and apply prompts for AI search functions. Through using
+system-level prompts, service-specific prompts, and custom prompts, you can
+tailor the AI's responses to your specific needs and context. This
+approach enhances the quality of AI-generated responses and, subsequently,
+helps you save time and improve the efficiency of your R workflow.
+
+The system presented in this vignette transforms the custom prompts described
+in `vignette("search-with-ai-assistants")` from one-off tools into a systematic
+library that can be maintained, shared, and reused. This represents a shift from
+ad-hoc prompting to a more deliberate approach that treats prompts as valuable
+assets in your R programming toolkit.

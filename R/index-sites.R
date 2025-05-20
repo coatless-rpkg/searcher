@@ -85,7 +85,22 @@ site_index =
       "rseek",
       "https://rseek.org/?q=",
       keywords = keyword_entry("", "tidyverse")
-    )
+    ),
+    site_entry("chatgpt", "https://chat.openai.com/?model=auto&q=",
+               keywords = NULL),
+    site_entry("claude", "https://claude.ai/new?q=",
+               keywords = NULL),
+    site_entry("perplexity", "https://www.perplexity.ai/search?q=",
+               keywords = NULL,
+               suffix = "&focus=internet&copilot=false"),
+    site_entry("mistral", "https://chat.mistral.ai/chat?q=",
+               keywords = NULL),
+    site_entry("bing copilot", "https://www.bing.com/search?showconv=1&sendquery=1&q=",
+               "copilot",
+               keywords = NULL),
+    site_entry("meta ai", "https://www.meta.ai/?q=",
+               "meta",
+               keywords = NULL)
   )
 
 site_name_matrix = function() {
