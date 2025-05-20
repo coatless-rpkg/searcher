@@ -4,94 +4,66 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Using AI Assistants with searcher • searcher</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Using AI Assistants with searcher">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Using AI Assistants with searcher">
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">searcher</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
-      </span>
-    </div>
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
+    <a class="navbar-brand me-2" href="../index.html">searcher</a>
 
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a>
-    </li>
-    <li>
-      <a href="../articles/search-patterns.html">Search Patterns</a>
-    </li>
-    <li>
-      <a href="../articles/search-with-ai-assistants.html">Using AI Assistants with searcher</a>
-    </li>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7.2</small>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="../articles/search-patterns.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="active nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/search-patterns.html">Search Patterns</a></li>
+    <li><a class="dropdown-item" href="../articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
+    <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/coatless-rpkg/searcher/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
-
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/coatless-rpkg/searcher" aria-label="View on GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
+</nav><div class="container template-article">
 
 
 
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Using AI Assistants with searcher</h1>
+
+<div class="row">
+  <main id="main" class="col-md-9"><div class="page-header">
+
+      <h1>Using AI Assistants with searcher</h1>
                         <h4 data-toc-skip class="author">James Joseph
 Balamuta</h4>
             
             <h4 data-toc-skip class="date">2025-05-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/coatless-rpkg/searcher/blob/main/vignettes/search-with-ai-assistants.Rmd" class="external-link"><code>vignettes/search-with-ai-assistants.Rmd</code></a></small>
-      <div class="hidden name"><code>search-with-ai-assistants.Rmd</code></div>
-
+      <div class="d-none name"><code>search-with-ai-assistants.Rmd</code></div>
     </div>
 
     
@@ -110,23 +82,23 @@ workflow by leveraging AI-powered assistance.</p>
 <p>The package supports the following AI services:</p>
 <ol style="list-style-type: decimal">
 <li>
-<strong>ChatGPT</strong> (<code><a href="../reference/search_genai.html">ask_chatgpt()</a></code>) - OpenAI’s
+<strong>ChatGPT</strong> (<code><a href="../reference/ask_chatgpt.html">ask_chatgpt()</a></code>) - OpenAI’s
 popular large language model</li>
 <li>
-<strong>Claude</strong> (<code><a href="../reference/search_genai.html">ask_claude()</a></code>) - Anthropic’s
+<strong>Claude</strong> (<code><a href="../reference/ask_claude.html">ask_claude()</a></code>) - Anthropic’s
 assistant known for longer context and thoughtful responses</li>
 <li>
-<strong>Perplexity</strong> (<code><a href="../reference/search_genai.html">ask_perplexity()</a></code>) -
+<strong>Perplexity</strong> (<code><a href="../reference/ask_perplexity.html">ask_perplexity()</a></code>) -
 Research-focused AI with internet search capabilities</li>
 <li>
-<strong>Mistral</strong> (<code><a href="../reference/search_genai.html">ask_mistral()</a></code>) - Mistral AI’s
+<strong>Mistral</strong> (<code><a href="../reference/ask_mistral.html">ask_mistral()</a></code>) - Mistral AI’s
 assistant with strong reasoning capabilities</li>
 <li>
-<strong>Bing Copilot</strong> (<code><a href="../reference/search_genai.html">ask_bing_copilot()</a></code> or
-<code><a href="../reference/search_genai.html">ask_copilot()</a></code>) - Microsoft’s AI assistant with web search
+<strong>Bing Copilot</strong> (<code><a href="../reference/ask_bing_copilot.html">ask_bing_copilot()</a></code> or
+<code><a href="../reference/ask_bing_copilot.html">ask_copilot()</a></code>) - Microsoft’s AI assistant with web search
 integration</li>
 <li>
-<strong>Meta AI</strong> (<code><a href="../reference/search_genai.html">ask_meta_ai()</a></code>) - Meta’s
+<strong>Meta AI</strong> (<code><a href="../reference/ask_meta_ai.html">ask_meta_ai()</a></code>) - Meta’s
 conversational AI assistant</li>
 </ol>
 </div>
@@ -139,19 +111,19 @@ function with your query:</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/coatless-rpkg/searcher" class="external-link">searcher</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Ask ChatGPT a question about R</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"How do I create a scatterplot with ggplot2?"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"How do I create a scatterplot with ggplot2?"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Get Claude to explain a statistical concept</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_claude</a></span><span class="op">(</span><span class="st">"Explain GAMs (Generalized Additive Models) in R"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_claude.html">ask_claude</a></span><span class="op">(</span><span class="st">"Explain GAMs (Generalized Additive Models) in R"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Research time series forecasting methods</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_perplexity</a></span><span class="op">(</span><span class="st">"What are the best time series forecasting packages in R?"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_perplexity.html">ask_perplexity</a></span><span class="op">(</span><span class="st">"What are the best time series forecasting packages in R?"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Debug a problematic R function</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_mistral</a></span><span class="op">(</span><span class="st">"Debug this function: calculate_median &lt;- function(x) mean(x)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_mistral.html">ask_mistral</a></span><span class="op">(</span><span class="st">"Debug this function: calculate_median &lt;- function(x) mean(x)"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Compare programming approaches with Bing Copilot</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_copilot</a></span><span class="op">(</span><span class="st">"Compare data.table vs dplyr for large datasets"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_bing_copilot.html">ask_copilot</a></span><span class="op">(</span><span class="st">"Compare data.table vs dplyr for large datasets"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Ask Meta AI about best practices</span></span>
 <span><span class="fu">ask_metaai</span><span class="op">(</span><span class="st">"What's the best way to handle missing data in R?"</span><span class="op">)</span></span></code></pre></div>
@@ -169,15 +141,15 @@ ways:</p>
 to any AI search function:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ask for step-by-step debugging</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"Why doesn't this work? mtcars %&gt;% filter(cyl = 4)"</span>,</span>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"Why doesn't this work? mtcars %&gt;% filter(cyl = 4)"</span>,</span>
 <span>              prompt <span class="op">=</span> <span class="st">"You are an R debugging expert. Identify the error and explain step by step:"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Request tidyverse-focused solutions </span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_claude</a></span><span class="op">(</span><span class="st">"How to reshape data?"</span>,</span>
+<span><span class="fu"><a href="../reference/ask_claude.html">ask_claude</a></span><span class="op">(</span><span class="st">"How to reshape data?"</span>,</span>
 <span>             prompt <span class="op">=</span> <span class="st">"Answer using tidyverse packages, particularly tidyr:"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Ask for educational examples</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_perplexity</a></span><span class="op">(</span><span class="st">"How to implement PCA in R?"</span>,</span>
+<span><span class="fu"><a href="../reference/ask_perplexity.html">ask_perplexity</a></span><span class="op">(</span><span class="st">"How to implement PCA in R?"</span>,</span>
 <span>                 prompt <span class="op">=</span> <span class="st">"Provide a beginner-friendly tutorial with examples:"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -194,8 +166,8 @@ to any AI search function:</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Now all queries will use these default prompts</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"How to create a heatmap?"</span><span class="op">)</span> </span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_claude</a></span><span class="op">(</span><span class="st">"Efficient way to merge multiple dataframes"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"How to create a heatmap?"</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="../reference/ask_claude.html">ask_claude</a></span><span class="op">(</span><span class="st">"Efficient way to merge multiple dataframes"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -218,7 +190,7 @@ your errors with AI assistants:</p>
 <span><span class="fu">fibonacci</span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># You can also manually search the last error</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># Searches the last error message</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># Searches the last error message</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="effective-prompting-strategies">Effective Prompting Strategies<a class="anchor" aria-label="anchor" href="#effective-prompting-strategies"></a>
@@ -285,10 +257,10 @@ with straightforward queries</li>
 identify the specific issue and provide a clear explanation.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Less effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Fix this code:"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Fix this code:"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># More effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"You are an R debugging expert. First identify what's wrong with this code without fixing it. Then explain why it's wrong and what concept I'm misunderstanding. Finally, provide a working solution with an explanation of why it works."</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"You are an R debugging expert. First identify what's wrong with this code without fixing it. Then explain why it's wrong and what concept I'm misunderstanding. Finally, provide a working solution with an explanation of why it works."</span><span class="op">)</span></span></code></pre></div>
 <p>This improved prompt is effective because it:</p>
 <ul>
 <li>Establishes a clear role (debugging expert)</li>
@@ -303,10 +275,10 @@ identify the specific issue and provide a clear explanation.</p>
 explanations with progressive complexity.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Less effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Explain this R concept:"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Explain this R concept:"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># More effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As an R educator teaching a diverse classroom, explain this concept in multiple ways: 1) Start with an intuitive explanation a beginner would understand, 2) Provide a simple working example, 3) Explain how this concept connects to other R concepts like {relevant_concepts}, 4) Show a more advanced practical application with commented code."</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As an R educator teaching a diverse classroom, explain this concept in multiple ways: 1) Start with an intuitive explanation a beginner would understand, 2) Provide a simple working example, 3) Explain how this concept connects to other R concepts like {relevant_concepts}, 4) Show a more advanced practical application with commented code."</span><span class="op">)</span></span></code></pre></div>
 <p>This approach works well because it:</p>
 <ul>
 <li>Creates a teaching scenario that encourages clear communication</li>
@@ -322,10 +294,10 @@ explanations with progressive complexity.</p>
 comprehensive, balanced comparisons.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Less effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_perplexity</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"What package should I use for this?"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_perplexity.html">ask_perplexity</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"What package should I use for this?"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># More effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_perplexity</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As an unbiased R consultant familiar with the entire CRAN ecosystem, compare the top 3-4 R packages for this task. For each package, discuss: 1) Key strengths and limitations, 2) Ease of use and learning curve, 3) Community support and maintenance status, 4) Performance characteristics, 5) Unique features. Conclude with situational recommendations (when each would be the best choice) rather than a single recommendation. Include citations to benchmarks or articles where relevant."</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_perplexity.html">ask_perplexity</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As an unbiased R consultant familiar with the entire CRAN ecosystem, compare the top 3-4 R packages for this task. For each package, discuss: 1) Key strengths and limitations, 2) Ease of use and learning curve, 3) Community support and maintenance status, 4) Performance characteristics, 5) Unique features. Conclude with situational recommendations (when each would be the best choice) rather than a single recommendation. Include citations to benchmarks or articles where relevant."</span><span class="op">)</span></span></code></pre></div>
 <p>This strategy works because it:</p>
 <ul>
 <li>Explicitly requests multiple options instead of a single answer</li>
@@ -341,10 +313,10 @@ comprehensive, balanced comparisons.</p>
 with actionable improvements.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Less effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_mistral</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Review this code:"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_mistral.html">ask_mistral</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Review this code:"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># More effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_mistral</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As a senior R developer conducting a code review: 1) Note what the code does correctly, 2) Identify potential issues in correctness, performance, readability, and maintainability, 3) Suggest specific improvements with before/after code examples, 4) If relevant, mention R idioms or functions that would simplify the code, 5) Rate the code on a 1-10 scale for efficiency, readability, and robustness."</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_mistral.html">ask_mistral</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As a senior R developer conducting a code review: 1) Note what the code does correctly, 2) Identify potential issues in correctness, performance, readability, and maintainability, 3) Suggest specific improvements with before/after code examples, 4) If relevant, mention R idioms or functions that would simplify the code, 5) Rate the code on a 1-10 scale for efficiency, readability, and robustness."</span><span class="op">)</span></span></code></pre></div>
 <p>This approach is effective because it:</p>
 <ul>
 <li>Balances positive feedback with constructive criticism</li>
@@ -361,10 +333,10 @@ emphasize both theoretical understanding and practical
 implementation.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Less effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Help me analyze this data:"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_claude.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Help me analyze this data:"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># More effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As both a statistician and R programmer, help me with this analysis task. First, explain the appropriate statistical approach and why it's suitable for this situation. Then, provide an R implementation with explanations of: 1) Required packages, 2) Data preparation steps, 3) The analysis code with comments explaining each step, 4) How to interpret the outputs, 5) Diagnostic checks to validate assumptions, 6) Potential limitations of this approach. Show output examples where helpful."</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_claude.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As both a statistician and R programmer, help me with this analysis task. First, explain the appropriate statistical approach and why it's suitable for this situation. Then, provide an R implementation with explanations of: 1) Required packages, 2) Data preparation steps, 3) The analysis code with comments explaining each step, 4) How to interpret the outputs, 5) Diagnostic checks to validate assumptions, 6) Potential limitations of this approach. Show output examples where helpful."</span><span class="op">)</span></span></code></pre></div>
 <p>This works well because it:</p>
 <ul>
 <li>Connects statistical theory with R implementation</li>
@@ -382,10 +354,10 @@ if the visualization should be created with a specific package (e.g.,
 <code>ggplot2</code>, <code>plotly</code>, etc.).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Less effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Create a visualization of this data:"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"Create a visualization of this data:"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># More effective prompt</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As a data visualization expert who specializes in R: 1) Recommend 2-3 visualization types that would best represent this data and explain why, 2) For the most appropriate visualization, provide ggplot2 code with a clear aesthetic mapping rationale, 3) Suggest specific customizations to improve readability and visual appeal, 4) Explain how the visualization could be modified to highlight different aspects of the data. Follow ggplot2 best practices and modern data visualization principles."</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span>prompt <span class="op">=</span> <span class="st">"As a data visualization expert who specializes in R: 1) Recommend 2-3 visualization types that would best represent this data and explain why, 2) For the most appropriate visualization, provide ggplot2 code with a clear aesthetic mapping rationale, 3) Suggest specific customizations to improve readability and visual appeal, 4) Explain how the visualization could be modified to highlight different aspects of the data. Follow ggplot2 best practices and modern data visualization principles."</span><span class="op">)</span></span></code></pre></div>
 <p>This approach is effective because it:</p>
 <ul>
 <li>Focuses on visualization strategy, not just implementation</li>
@@ -402,12 +374,12 @@ how these two prompts would produce different results for the same query
 about handling missing data:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Technical focus</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> </span>
+<span><span class="fu"><a href="../reference/ask_claude.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> </span>
 <span>  <span class="st">"As an R package developer with deep knowledge of data structures, explain all approaches to handling missing values in R, including their algorithmic implementations, performance characteristics, and edge cases."</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Applied focus</span></span>
-<span><span class="fu"><a href="../reference/search_genai.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> </span>
+<span><span class="fu"><a href="../reference/ask_claude.html">ask_claude</a></span><span class="op">(</span>prompt <span class="op">=</span> </span>
 <span>  <span class="st">"As a data scientist who regularly cleans messy datasets, share your practical workflow for handling missing values in R. Include code examples using both base R and tidyverse approaches, focusing on real-world scenarios and decision criteria for when to use each technique."</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>Both are well-structured prompts, but they would yield different
@@ -430,7 +402,7 @@ prompt management system. This system allows you to:</p>
 <p>For comprehensive documentation on these advanced features, see the
 dedicated vignette:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"managing-ai-prompts"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"managing-ai-prompts"</span>, package <span class="op">=</span> <span class="st">"searcher"</span><span class="op">)</span></span></code></pre></div>
 <p>With the prompt management system, you can move beyond single-use
 prompts to create a personalized library of AI instructions tailored to
 your specific R workflows and projects.</p>
@@ -447,29 +419,22 @@ in mind that AI services have different strengths or “quirks”, so
 experiment with each to find which works best for your particular
 needs.</p>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-
-      </div>
-
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
 
-      <footer><div class="copyright">
-  <p></p>
-<p>Developed by <a href="https://thecoatlessprofessor.com" class="external-link">James Balamuta</a>.</p>
+    <footer><div class="pkgdown-footer-left">
+  <p>Developed by <a href="https://blog.thecoatlessprofessor.com" class="external-link">James Balamuta</a>.</p>
 </div>
 
-<div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+<div class="pkgdown-footer-right">
+  <p>Built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>. Distributed under GPL (&gt;= 2) license.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
-
 
 
 

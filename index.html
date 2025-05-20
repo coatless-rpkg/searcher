@@ -4,86 +4,64 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Query Search Interfaces • searcher</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Query Search Interfaces">
-<meta property="og:description" content="Provides a search interface to look up terms on Google, Bing, DuckDuckGo, Startpage, Ecosia, rseek, Twitter, StackOverflow, RStudio Community, GitHub, and BitBucket. Upon searching, a browser window will open with the aforementioned search results.">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>searcher - Search from R • searcher</title>
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="searcher - Search from R">
+<meta name="description" content="Provides a search interface directly inside of R. Opens a web browser with the query for various search engines, code repositories, and developer communities. Also includes AI assistant integration for ChatGPT, Claude, and other services.
+">
+<meta property="og:description" content="Provides a search interface directly inside of R. Opens a web browser with the query for various search engines, code repositories, and developer communities. Also includes AI assistant integration for ChatGPT, Claude, and other services.
+">
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">searcher</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
-      </span>
-    </div>
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
+    <a class="navbar-brand me-2" href="index.html">searcher</a>
 
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="articles/search-patterns.html">Search Patterns</a>
-    </li>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7.2</small>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="articles/search-patterns.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="articles/search-patterns.html">Search Patterns</a></li>
+    <li><a class="dropdown-item" href="articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
+    <li><a class="dropdown-item" href="articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
   </ul>
 </li>
-<li>
-  <a href="news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/coatless-rpkg/searcher/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
-
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/coatless-rpkg/searcher" aria-label="View on GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
-
-
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div class="section level1">
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
 
 <!-- badges: start -->
 
-<p>The goal of <code>searcher</code> is to provide a search interface directly inside of <em>R</em>. For example, to look up <code>rcpp example numeric vector</code> or <code>ggplot2 fix axis labels</code> call one of the <code>search_*()</code> functions to automatically have a web browser open, go to a search site, and type the query. By default, the search functions will attempt to search the last error on call if no query is specified.</p>
-<p><img src="https://i.imgur.com/Zq2rg6G.gif"></p>
-<div class="section level2">
+<p>The goal of <code>searcher</code> is to provide a search interface directly inside of <em>R</em>. For example, to look up <code>rcpp example numeric vector</code> or <code>ggplot2 fix axis labels</code> call one of the <code>search_*()</code> functions to automatically have a web browser open, go to a search site, and type the query. <code>searcher</code> also provides direct integration with AI assistants, allowing you to send queries to ChatGPT, Claude, and other AI services with R-optimized prompts. By default, the search functions will attempt to search the last error on call if no query is specified.</p>
+<figure><img src="https://i.imgur.com/Zq2rg6G.gif" alt="Example workflow of searching and asking AI assistants questions from R."><figcaption aria-hidden="true">
+Example workflow of searching and asking AI assistants questions from R.
+</figcaption></figure><div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>The <code>searcher</code> package is available on both <a href="https://CRAN.R-project.org/package=searcher" class="external-link">CRAN</a> and <a href="https://github.com/coatless-rpkg/searcher" class="external-link">GitHub</a>. The <a href="https://CRAN.R-project.org/package=searcher" class="external-link">CRAN</a> version is considered stable while the <a href="https://github.com/coatless-rpkg/searcher" class="external-link">GitHub</a> version is in a state of development and may break.</p>
@@ -104,40 +82,69 @@
 <div class="section level2">
 <h2 id="search-terms">Search Terms<a class="anchor" aria-label="anchor" href="#search-terms"></a>
 </h2>
-<p>The <code>search_*()</code> functions can be used to search a query directly from <em>R</em> on major search engines, programming help websites, and code repositories. The following search platforms are supported: <a href="https://www.google.com" class="external-link">Google</a>, <a href="https://www.bing.com/" class="external-link">Bing</a>, <a href="https://duckduckgo.com/" class="external-link">DuckDuckGo</a>, <a href="https://www.startpage.com/en/" class="external-link">Startpage</a>, Ecosia, <a href="https://rseek.org/" class="external-link">rseek</a>, Qwant, X (formerly Twitter), <a href="https://stackoverflow.com/" class="external-link">StackOverflow</a>, <a href="https://community.rstudio.com/search" class="external-link">RStudio Community</a>, <a href="https://github.com/search" class="external-link">GitHub</a>, <a href="https://grep.app/" class="external-link">grep.app</a>, and <a href="https://bitbucket.org/product/" class="external-link">BitBucket</a>. By default, an appropriate suffix for each platform that ensures relevant results to <em>R</em> is appended to all queries. This behavior can be disabled by using <code>rlang = FALSE</code>.</p>
+<p>The <code>search_*()</code> functions can be used to search a query directly from <em>R</em> on major search engines, programming help websites, and code repositories. The following search platforms are supported: <a href="https://www.google.com" class="external-link">Google</a>, <a href="https://www.bing.com/" class="external-link">Bing</a>, <a href="https://duckduckgo.com/" class="external-link">DuckDuckGo</a>, <a href="https://www.startpage.com/en/" class="external-link">Startpage</a>, Ecosia, <a href="https://rseek.org/" class="external-link">rseek</a>, Qwant, <a href="https://search.brave.com/" class="external-link">Brave</a>, Kagi, X (formerly Twitter), <a href="https://stackoverflow.com/" class="external-link">StackOverflow</a>, <a href="https://community.posit.co/search" class="external-link">Posit Community</a>, <a href="https://github.com/search" class="external-link">GitHub</a>, <a href="https://grep.app/" class="external-link">grep.app</a>, and <a href="https://bitbucket.org/product/" class="external-link">BitBucket</a>. By default, an appropriate suffix for each platform that ensures relevant results to <em>R</em> is appended to all queries. This behavior can be disabled by using <code>rlang = FALSE</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Searching R project on major search engines</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_google</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_bing</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_ecosia</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_rseek</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_qwant</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_duckduckgo</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span>                           <span class="co"># or search_ddg(...)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_startpage</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span>                            <span class="co"># or search_sp(...)</span></span>
+<span><span class="fu"><a href="reference/search_google.html">search_google</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_bing.html">search_bing</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_ecosia.html">search_ecosia</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_rseek.html">search_rseek</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_qwant.html">search_qwant</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_brave.html">search_brave</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_kagi.html">search_kagi</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_duckduckgo.html">search_duckduckgo</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span>                           <span class="co"># or search_ddg(...)</span></span>
+<span><span class="fu"><a href="reference/search_startpage.html">search_startpage</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span>                            <span class="co"># or search_sp(...)</span></span>
 <span></span>
 <span><span class="co"># Searching Twitter to find out about machine learning for R and in general</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_twitter</a></span><span class="op">(</span><span class="st">"machine learning"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_twitter</a></span><span class="op">(</span><span class="st">"machine learning"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="st">"machine learning"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="st">"machine learning"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Searching for linear regression questions for R and in general</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_stackoverflow</a></span><span class="op">(</span><span class="st">"linear regression"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_stackoverflow</a></span><span class="op">(</span><span class="st">"linear regression"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># or search_so(...)</span></span>
+<span><span class="fu"><a href="reference/search_stackoverflow.html">search_stackoverflow</a></span><span class="op">(</span><span class="st">"linear regression"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_stackoverflow.html">search_stackoverflow</a></span><span class="op">(</span><span class="st">"linear regression"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># or search_so(...)</span></span>
 <span></span>
-<span><span class="co"># Searching RStudio Community for tips</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_rstudio_community</a></span><span class="op">(</span><span class="st">"tips"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_rstudio_community</a></span><span class="op">(</span><span class="st">"tips"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>          <span class="co"># or search_rscom(...)</span></span>
+<span><span class="co"># Searching Posit Community for tips</span></span>
+<span><span class="fu"><a href="reference/search_posit_community.html">search_posit_community</a></span><span class="op">(</span><span class="st">"tips"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_posit_community.html">search_posit_community</a></span><span class="op">(</span><span class="st">"tips"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>          <span class="co"># or search_posit(...)</span></span>
 <span></span>
 <span><span class="co"># Searching GitHub code for graphs in R and other languages</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_grep</a></span><span class="op">(</span><span class="st">"graph"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_grep</a></span><span class="op">(</span><span class="st">"graph"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_grep.html">search_grep</a></span><span class="op">(</span><span class="st">"graph"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_grep.html">search_grep</a></span><span class="op">(</span><span class="st">"graph"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Searching GitHub Issues for maps in R and other languages</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_github</a></span><span class="op">(</span><span class="st">"maps"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_github</a></span><span class="op">(</span><span class="st">"maps"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>                     <span class="co"># or search_gh(...)</span></span>
+<span><span class="fu"><a href="reference/search_github.html">search_github</a></span><span class="op">(</span><span class="st">"maps"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_github.html">search_github</a></span><span class="op">(</span><span class="st">"maps"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>                     <span class="co"># or search_gh(...)</span></span>
 <span></span>
 <span><span class="co"># Searching BitBucket for assertions in R and other languages</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_bitbucket</a></span><span class="op">(</span><span class="st">"assertions"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_bitbucket</a></span><span class="op">(</span><span class="st">"assertions"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>            <span class="co"># or search_bb(...)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/search_bitbucket.html">search_bitbucket</a></span><span class="op">(</span><span class="st">"assertions"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_bitbucket.html">search_bitbucket</a></span><span class="op">(</span><span class="st">"assertions"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>            <span class="co"># or search_bb(...)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="ai-assistants">AI Assistants<a class="anchor" aria-label="anchor" href="#ai-assistants"></a>
+</h2>
+<p>The package also provides functions to query AI assistants directly from R. These functions open a browser with your query pre-filled, using customizable prompts that help the AI give more effective responses for R programming:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Get coding help from AI assistants</span></span>
+<span><span class="fu"><a href="reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"How to create a ggplot scatterplot with regression line?"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ask_claude.html">ask_claude</a></span><span class="op">(</span><span class="st">"Explain what purrr::map_df does"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ask_perplexity.html">ask_perplexity</a></span><span class="op">(</span><span class="st">"Compare dplyr vs data.table performance"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ask_mistral.html">ask_mistral</a></span><span class="op">(</span><span class="st">"How to handle missing data in R?"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ask_bing_copilot.html">ask_bing_copilot</a></span><span class="op">(</span><span class="st">"Write a function to calculate the median"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ask_meta_ai.html">ask_meta_ai</a></span><span class="op">(</span><span class="st">"What are the best R packages for time series analysis?"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Search with an error message</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">mtcrs</span><span class="op">)</span>,  <span class="co"># Intentional typo</span></span>
+<span>  error <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">e</span><span class="op">)</span> <span class="fu"><a href="reference/ask_claude.html">ask_claude</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># Will search the error message</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>All AI search functions accept an optional <code>prompt</code> parameter that guides how the AI responds:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Adding specific instructions to the prompt</span></span>
+<span><span class="fu"><a href="reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Fix this code: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()"</span>, </span>
+<span>  prompt <span class="op">=</span> <span class="st">"You are an R debugging expert. Explain what's wrong step by step."</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>See <code><a href="articles/search-with-ai-assistants.html">vignette("search-with-ai-assistants")</a></code> for more details on using AI assistants in searches through <code>searcher</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="search-errors">Search Errors<a class="anchor" aria-label="anchor" href="#search-errors"></a>
@@ -147,7 +154,7 @@
 <h3 id="automatically">Automatically<a class="anchor" aria-label="anchor" href="#automatically"></a>
 </h3>
 <p>Searching the last error automatically is possible by registering a function as <em>R</em>’s error handler via either <code>searcher(site="")</code> or one of the <code>search_*()</code> functions. Thus, when an error occurs, this function will automatically be called. This triggers a new browser window to open with the error term listed in verbatim.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using the generic search error handler</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="fu"><a href="reference/searcher.html">searcher</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -159,20 +166,22 @@
 <h3 id="manually">Manually<a class="anchor" aria-label="anchor" href="#manually"></a>
 </h3>
 <p>Alternatively, these functions can also be used manually so that the default error dispatch is preserved. In the manual case, you will have to explicitly call the search function. After that, a browser window will open with the last error message as the search query on the desired search portal.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/search_site.html">search_google</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_bing</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_ecosia</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_rseek</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_qwant</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_twitter</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_grep</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_duckduckgo</a></span><span class="op">(</span><span class="op">)</span>        <span class="co"># or search_ddg()</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_startpage</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># or search_sp()</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_stackoverflow</a></span><span class="op">(</span><span class="op">)</span>     <span class="co"># or search_so()</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_rstudio_community</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># or search_rscom()</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_github</a></span><span class="op">(</span><span class="op">)</span>            <span class="co"># or search_gh()</span></span>
-<span><span class="fu"><a href="reference/search_site.html">search_bitbucket</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># or search_bb()</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/search_google.html">search_google</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_bing.html">search_bing</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_ecosia.html">search_ecosia</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_rseek.html">search_rseek</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_qwant.html">search_qwant</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_brave.html">search_brave</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_kagi.html">search_kagi</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_grep.html">search_grep</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_duckduckgo.html">search_duckduckgo</a></span><span class="op">(</span><span class="op">)</span>        <span class="co"># or search_ddg()</span></span>
+<span><span class="fu"><a href="reference/search_startpage.html">search_startpage</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># or search_sp()</span></span>
+<span><span class="fu"><a href="reference/search_stackoverflow.html">search_stackoverflow</a></span><span class="op">(</span><span class="op">)</span>     <span class="co"># or search_so()</span></span>
+<span><span class="fu"><a href="reference/search_posit_community.html">search_posit_community</a></span><span class="op">(</span><span class="op">)</span>   <span class="co"># or search_posit()</span></span>
+<span><span class="fu"><a href="reference/search_github.html">search_github</a></span><span class="op">(</span><span class="op">)</span>            <span class="co"># or search_gh()</span></span>
+<span><span class="fu"><a href="reference/search_bitbucket.html">search_bitbucket</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># or search_bb()</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -186,20 +195,54 @@
 <code>searcher.use_rstudio_viewer</code>: Display search results in the RStudio viewer pane instead of a web browser. Default is <code>FALSE</code>.</li>
 <li>
 <code>searcher.default_keyword</code>: Suffix keyword to focus search results between either <code>"base"</code> or <code>"tidyverse"</code>. Default is <code>"base"</code>.</li>
+<li>
+<code>searcher.chatgpt_prompt</code>: Default prompt for ChatGPT queries, used if no specific prompt is provided.</li>
+<li>
+<code>searcher.claude_prompt</code>: Default prompt for Claude queries.</li>
+<li>
+<code>searcher.perplexity_prompt</code>: Default prompt for Perplexity queries.</li>
+<li>
+<code>searcher.mistral_prompt</code>: Default prompt for Mistral AI queries.</li>
+<li>
+<code>searcher.bing_copilot_prompt</code>: Default prompt for Bing Copilot queries.</li>
+<li>
+<code>searcher.meta_ai_prompt</code>: Default prompt for Meta AI queries.</li>
 </ul>
 <p>To set one of these options, please create the <code>.Rprofile</code> by typing into <em>R</em>:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/file.edit.html" class="external-link">file.edit</a></span><span class="op">(</span><span class="st">"~/.Rprofile"</span><span class="op">)</span></span></code></pre></div>
 <p>From there, add:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">.First</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span></span>
 <span>    searcher.launch_delay       <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>    searcher.use_rstudio_viewer <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    searcher.default_keyword    <span class="op">=</span> <span class="st">"tidyverse"</span></span>
+<span>    searcher.default_keyword    <span class="op">=</span> <span class="st">"tidyverse"</span>,</span>
+<span>    searcher.chatgpt_prompt     <span class="op">=</span> <span class="st">"You are an R programming expert. Please provide concise answers with code examples."</span>,</span>
 <span>    <span class="co">## Additional options.</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="ai-prompt-management">AI Prompt Management<a class="anchor" aria-label="anchor" href="#ai-prompt-management"></a>
+</h2>
+<p>For those who frequently use AI assistants, searcher provides a prompt management system:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># List available prompts</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_list.html">ai_prompt_list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Set a system-level prompt for all AI services</span></span>
+<span><span class="fu"><a href="reference/ai_prompt.html">ai_prompt</a></span><span class="op">(</span><span class="st">"debugging"</span><span class="op">)</span>  <span class="co"># Use a predefined prompt for debugging</span></span>
+<span></span>
+<span><span class="co"># Create custom prompts</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_register.html">ai_prompt_register</a></span><span class="op">(</span><span class="st">"my_prompt"</span>, <span class="st">"As an R expert analyzing the mtcars dataset..."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check active prompt</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_active.html">ai_prompt_active</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Clear active prompt</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_clear.html">ai_prompt_clear</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>See <code><a href="articles/managing-ai-prompts.html">vignette("managing-ai-prompts")</a></code> for more details on the prompt management system.</p>
 </div>
 <div class="section level2">
 <h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
@@ -236,10 +279,7 @@
 <p>GPL (&gt;= 2)</p>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
+  </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=searcher" class="external-link">View on CRAN</a></li>
@@ -267,30 +307,34 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://thecoatlessprofessor.com" class="external-link">James Balamuta</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-2826-8458" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<a href="https://blog.thecoatlessprofessor.com" class="external-link">James Balamuta</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-2826-8458" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://www.r-pkg.org/pkg/searcher" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/searcher" alt="CRAN RStudio mirror downloads"></a></li>
+<li><a href="https://cran.r-project.org/package=searcher" class="external-link"><img src="https://www.r-pkg.org/badges/version/searcher" alt="CRAN_Status_Badge"></a></li>
+</ul>
+</div>
 
-
-  </div>
+  </aside>
 </div>
 
 
-      <footer><div class="copyright">
-  <p></p>
-<p>Developed by <a href="https://thecoatlessprofessor.com" class="external-link">James Balamuta</a>.</p>
+    <footer><div class="pkgdown-footer-left">
+  <p>Developed by <a href="https://blog.thecoatlessprofessor.com" class="external-link">James Balamuta</a>.</p>
 </div>
 
-<div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+<div class="pkgdown-footer-right">
+  <p>Built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>. Distributed under GPL (&gt;= 2) license.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
-
 
 
 
