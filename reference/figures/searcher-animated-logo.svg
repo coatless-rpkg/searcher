@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2521 2911">
+  <!-- Generator: Adobe Illustrator 29.1.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 142)  -->
+  <defs>
+    <style>
+      .st0 {
+        opacity: .2;
+      }
+
+      .st0, .st1, .st2, .st3 {
+        isolation: isolate;
+      }
+
+      .st0, .st4, .st3 {
+        fill: #20c997;
+      }
+
+      .st5 {
+        fill: url(#radial-gradient);
+        stroke: #1a1a1a;
+        stroke-width: 8px;
+      }
+
+      .st1 {
+        opacity: .3;
+        stroke: #e0e0e0;
+        stroke-width: 35px;
+      }
+
+      .st1, .st6, .st7 {
+        fill: none;
+      }
+
+      .st6 {
+        stroke-linecap: round;
+        stroke-width: 10px;
+      }
+
+      .st6, .st2 {
+        stroke: #20c997;
+      }
+
+      .st2 {
+        fill: url(#linear-gradient);
+        opacity: .8;
+        stroke-width: 2px;
+      }
+
+      .st3 {
+        font-family: HelveticaNeue-Bold, 'Helvetica Neue';
+        font-size: 200px;
+        font-weight: 700;
+      }
+
+      .st7 {
+        stroke: #20809e;
+        stroke-opacity: .5;
+        stroke-width: 4px;
+      }
+
+      .st8 {
+        fill: #f8f8f8;
+        stroke: #3a3a3a;
+        stroke-width: 15px;
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="962.8" cy="1876.2" fx="962.8" fy="1876.2" r=".6" gradientTransform="translate(-1250327 2440390.8) scale(1300 -1300)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f3a5d"/>
+      <stop offset="1" stop-color="#051628"/>
+    </radialGradient>
+    <linearGradient id="linear-gradient" x1="961.2" y1="1877.3" x2="962.2" y2="1876.3" gradientTransform="translate(-539946 1221062.4) scale(563 -650)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#41daa5" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#41daa5" stop-opacity=".3"/>
+    </linearGradient>
+  </defs>
+  <path class="st8" d="M126.1,866.9v1177.1l1134.4,588.6,1134.4-588.6V866.9L1260.5,278.4,126.1,866.9Z"/>
+  <path class="st1" d="M146.1,877v1157.2l1116.7,578.6,1116.7-578.6V877L1262.8,298.4,146.1,877Z"/>
+  <circle class="st5" cx="1260" cy="1350" r="650"/>
+  <g>
+    <circle class="st7" cx="1260" cy="1350" r="520"/>
+    <circle class="st7" cx="1260" cy="1350" r="390"/>
+    <circle class="st7" cx="1260" cy="1350" r="260"/>
+    <circle class="st7" cx="1260" cy="1350" r="130"/>
+    <line class="st7" x1="1260" y1="700" x2="1260" y2="2000"/>
+    <line class="st7" x1="610" y1="1350" x2="1910" y2="1350"/>
+    <line class="st7" x1="832" y1="922" x2="1688" y2="1778"/>
+    <line class="st7" x1="832" y1="1778" x2="1688" y2="922"/>
+  </g>
+  <g>
+    <path class="st2" d="M1260,1350v-650c254.2,18.2,474.3,183.1,563,422">
+      <animateTransform accumulate="none" additive="replace" attributeName="transform" attributeType="XML" calcMode="linear" dur="6s" fill="remove" from="0 1260 1350" repeatCount="indefinite" restart="always" to="360 1260 1350" type="rotate"/>
+    </path>
+    <line class="st6" x1="1260" y1="1350" x2="1823" y2="1122">
+      <animateTransform accumulate="none" additive="replace" attributeName="transform" attributeType="XML" calcMode="linear" dur="6s" fill="remove" from="0 1260 1350" repeatCount="indefinite" restart="always" to="360 1260 1350" type="rotate"/>
+    </line>
+    <circle class="st4" cx="1260" cy="1350" r="25"/>
+  </g>
+  <g>
+    <circle class="st0" cx="1000" cy="1100" r="12">
+      <animate accumulate="none" additive="replace" attributeName="opacity" begin="1.35s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="0.2;1;0.2"/>
+      <animate accumulate="none" additive="replace" attributeName="r" begin="1.35s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="12;20;12"/>
+    </circle>
+    <circle class="st0" cx="1600" cy="1500" r="10">
+      <animate accumulate="none" additive="replace" attributeName="opacity" begin="4.2s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="0.2;1;0.2"/>
+      <animate accumulate="none" additive="replace" attributeName="r" begin="4.2s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="10;18;10"/>
+    </circle>
+    <circle class="st0" cx="1400" cy="1000" r="15">
+      <animate accumulate="none" additive="replace" attributeName="opacity" begin="0.6s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="0.2;1;0.2"/>
+      <animate accumulate="none" additive="replace" attributeName="r" begin="0.6s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="15;24;15"/>
+    </circle>
+    <circle class="st0" cx="900" cy="1450" r="8">
+      <animate accumulate="none" additive="replace" attributeName="opacity" begin="3s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="0.2;1;0.2"/>
+      <animate accumulate="none" additive="replace" attributeName="r" begin="3s" calcMode="linear" dur="6s" fill="remove" repeatCount="indefinite" restart="always" values="8;16;8"/>
+    </circle>
+  </g>
+  <text class="st3" transform="translate(841.4 2300)"><tspan x="0" y="0">searcher</tspan></text>
+</svg>
