@@ -2,8 +2,10 @@ pandoc: 3.1.11
 pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
+  managing-ai-prompts: managing-ai-prompts.html
   search-patterns: search-patterns.html
-last_built: 2025-05-20T02:56Z
+  search-with-ai-assistants: search-with-ai-assistants.html
+last_built: 2025-05-20T09:15Z
 urls:
   reference: https://r-pkg.thecoatlessprofessor.com/searcher/reference
   article: https://r-pkg.thecoatlessprofessor.com/searcher/articles
