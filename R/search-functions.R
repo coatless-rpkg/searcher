@@ -4,10 +4,15 @@
 #' up the resulting page in a web browser.
 #'
 #' @param site   Name of site to search on. Supported options:
-#'               `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
-#'               `"qwant"`,`"posit community"`, `"brave"`, `"kagi"`,
+#'               `"google"` (default), `"bing"`, `"duckduckgo"` or `"ddg"`,
+#'               `"startpage"`  (formerly `"ixquick"`) or `"sp"`,
+#'               `"qwant"`, `"rseek"`, `"brave"`, `"kagi"`,
+#'               `"posit community"` (formerly `"rstudio community"`) or `"posit"`,
 #'               `"twitter"`, `"stackoverflow"`,
-#'               `"github"`, `"grep"`, and `"bitbucket"`.
+#'               `"github"`, `"grep"`, `"bitbucket"`,
+#'               `"chatgpt"`, `"claude"`, `"perplexity"`,
+#'               `"mistral"`, `"bing copilot"` or `"copilot"`, and
+#'               `"meta ai"` or `"meta"`.
 #' @param query   Contents of string to search. Default is the error message.
 #' @param rlang   Search for results written in R. Default is `TRUE`
 #' @param prompt  Optional prompt prefix to add before your query to guide how the AI
@@ -16,70 +21,10 @@
 #' @return
 #' The generated search URL or an empty string.
 #'
-#' @rdname search_site
 #' @export
-#' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
-#'          [search_startpage()], [search_rseek()], [search_qwant()],
-#'          [search_brave()], [search_kagi()], [search_twitter()],
-#'          [search_posit_community()], [search_stackoverflow()],
-#'          [search_github()], [search_grep()], [search_bitbucket()], and [searcher()]
 #' @examples
 #' # Search in a generic way
 #' search_site("r-project", "google")
-#'
-#' # Search Google
-#' search_google("r-project")
-#'
-#' # Search Bing
-#' search_bing("Microsoft R")
-#'
-#' # Search DuckDuckGo
-#' search_duckduckgo("R language")
-#'
-#' # Search startpage
-#' search_startpage("VS Code")
-#'
-#' # Search Rseek
-#' search_rseek("searcher")
-#'
-#' # Search Qwant
-#' search_qwant("Quarto")
-#'
-#' # Search Brave
-#' search_brave("webR")
-#'
-#' # Search Posit Community
-#' search_posit_community("RStudio IDE")
-#'
-#' # Search Twitter
-#' search_twitter("searcher")
-#'
-#' # Search StackOverflow for Convolutions in the r tag
-#' search_stackoverflow("convolutions")
-#'
-#' # Search all languages on StackOverflow for convolutions
-#' search_stackoverflow("convolutions", rlang = FALSE)
-#'
-#' # Search GitHub Issues for bivariate normal in the language:r
-#' search_github("bivariate normal")
-#'
-#' # Search all languages on GitHub Issues for bivariate normal
-#' search_github("bivariate normal", rlang = FALSE)
-#'
-#' # Search R code on GitHub for numerical optimization
-#' search_grep("optim")
-#'
-#' # Search all code on GitHub for numerical optimization
-#' search_grep("optim", rlang = FALSE)
-#'
-#' # Search BitBucket for assertions
-#' search_bitbucket("assertions")
-#'
-#' \dontrun{
-#' # On error, automatically search the message on google
-#' options(error = searcher("google"))
-#' options(error = search_google)
-#' }
 search_site = function(query,
                        site = c(
                          "google",
@@ -197,143 +142,225 @@ searcher = function(site, keyword = getOption("searcher.default_keyword")) {
 
 ########################### Start Search Engines
 
-#' @rdname search_site
-#' @export
-#' @section Google Search:
+#' Search Google
+#'
 #' The `search_google` function searches [Google](https://www.google.com/) using:
 #' `https://www.google.com/search?q=<query>`
 #'
-#' See \url{https://moz.com/learn/seo/search-operators}
-#' for details.
+#' @inheritParams search_site
+#' @return
+#' The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search Google
+#' search_google("r-project")
+#'
+#' \dontrun{
+#' # On error, automatically search the message on google
+#' options(error = searcher("google"))
+#' options(error = search_google)
+#' }
 search_google = searcher("google")
 
-#' @rdname search_site
-#' @export
-#' @section Bing Search:
+#' Search Bing
+#'
 #' The `search_bing()` function searches [Bing](https://www.bing.com/) using:
 #' `https://www.bing.com/search?q=<query>`
+#'
+#' @inheritParams search_site
+#' @return
+#' The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search Bing
+#' search_bing("Microsoft R")
 search_bing = searcher("bing")
 
-#' @rdname search_site
-#' @export
-#' @section DuckDuckGo Search:
+#' Search DuckDuckGo
+#'
 #' The `search_duckduckgo()` and `search_ddg()` functions both search
 #' [DuckDuckGo](https://duckduckgo.com) using: `https://duckduckgo.com/?q=<query>`
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search DuckDuckGo
+#' search_duckduckgo("R language")
 search_duckduckgo = searcher("ddg")
 
-#' @rdname search_site
+#' @rdname search_duckduckgo
 #' @export
 search_ddg = search_duckduckgo
 
-
-#' @rdname search_site
-#' @export
-search_ixquick = function(query = geterrmessage(), rlang = TRUE) {
-  .Defunct(msg = "ixquick is now startpage, please use `search_startpage()`.")
-}
-
-#' @rdname search_site
-#' @export
-#' @section Startpage Search:
+#' Search Startpage
+#'
 #' The `search_startpage()` function searches
 #' [startpage](https://startpage.com) using:
-#'  \code{https://startpage.com/do/dsearch?query=<query>}
+#' `https://startpage.com/do/dsearch?query=<query>`
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search startpage
+#' search_startpage("VS Code")
 search_startpage = searcher("sp")
 
-#' @rdname search_site
+#' @rdname search_startpage
 #' @export
 search_sp = search_startpage
 
-#' @rdname search_site
-#' @export
-#' @section Ecosia Search:
-#' The `search_ecosia()` function searches
-#' Ecosia using:
-#'  \code{https://www.ecosia.org/search?q=<query>}
+#' Search Ecosia
 #'
-#' For additional details regarding Ecosia's
-#' search interface please see:
-#'  \url{https://support.ecosia.org/article/657-installing-ecosia-on-your-desktop-device}
+#' The `search_ecosia()` function searches
+#' Ecosia using: `https://www.ecosia.org/search?q=<query>`
+#'
+#' For additional details regarding Ecosia's search interface please see:
+#' <https://support.ecosia.org/article/657-installing-ecosia-on-your-desktop-device>
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search Ecosia
+#' search_ecosia("climate change R analysis")
 search_ecosia = searcher("ecosia")
 
-#' @rdname search_site
-#' @export
-#' @section Rseek Search:
+#' Search Rseek
+#'
 #' The `search_rseek()` function searches [Rseek](https://rseek.org) using:
 #' `https://rseek.org/?q=<query>`
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search Rseek
+#' search_rseek("searcher")
 search_rseek = searcher("rseek")
 
-#' @rdname search_site
-#' @export
-#' @section Qwant Search:
+#' Search Qwant
+#'
 #' The `search_qwant()` function searches
 #' Qwant using: `https://www.qwant.com/?q=<query>`
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search Qwant
+#' search_qwant("Quarto")
 search_qwant = searcher("qwant")
 
-#' @rdname search_site
-#' @export
-#' @section Brave Search:
+#' Search Brave
+#'
 #' The `search_brave()` function searches
 #' Brave using: `https://search.brave.com/search?q=<query>&source=web`
+#'
+#' @inheritParams search_site
+#' @return
+#' The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search Brave
+#' search_brave("webR")
 search_brave = searcher("brave")
 
-#' @rdname search_site
-#' @export
-#' @section Kagi Search:
+#' Search Kagi
+#'
 #' The `search_kagi()` function searches
 #' Kagi using: `https://kagi.com/search?q=<query>`
 #'
 #' This is a paid search engine, and you will need to
 #' sign up for an account to use it.
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family search engines
+#' @examples
+#' # Search Kagi
+#' search_kagi("advanced R programming")
 search_kagi = searcher("kagi")
 
 ########################### End Search Engines
 
-
 ########################### Start Search Development Community Websites
 
 
-#' @rdname search_site
-#' @export
-#' @section Posit Community Search:
+#' Search Posit Community
+#'
 #' The `search_posit_community()` and `search_posit()` functions both search
 #' [Posit Community](https://forum.posit.co/) using:
-#' \code{https://forum.posit.co/search?q=<query>}
+#' `https://forum.posit.co/search?q=<query>`
 #'
 #' For additional details regarding [Posit Community](https://forum.posit.co/)'s
 #' search interface please see the [Discourse](https://discourse.org) API documentation:
-#'  \url{https://docs.discourse.org/#tag/Search}
+#' <https://docs.discourse.org/#tag/Search>
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family community sites
+#' @examples
+#' # Search Posit Community
+#' search_posit_community("RStudio IDE")
 search_posit_community = searcher("posit")
 
-#' @rdname search_site
+#' @rdname search_posit_community
 #' @export
 search_posit = search_posit_community
 
-#' @rdname search_site
-#' @export
-#' @section Twitter Search:
+#' Search Twitter
+#'
 #' The `search_twitter()` functions search
-#' Twitter using:
-#' \code{https://twitter.com/search?q=<query>}
+#' Twitter using: `https://twitter.com/search?q=<query>`
 #'
 #' For additional details regarding Twitter's
 #' search interface please see:
-#' `https://help.twitter.com/en/using-x/x-advanced-search`
+#' <https://help.twitter.com/en/using-x/x-advanced-search>
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family community sites
+#' @examples
+#' # Search Twitter
+#' search_twitter("searcher")
 search_twitter = searcher("twitter")
 
-#' @rdname search_site
-#' @export
-#' @section StackOverflow Search:
+#' Search StackOverflow
+#'
 #' The `search_stackoverflow()` and `search_so()` functions both search
 #' [StackOverflow](https://stackoverflow.com) using:
-#' \code{https://stackoverflow.com/search?q=\%5Br\%5D+<query>}
+#' `https://stackoverflow.com/search?q=\%5Br\%5D+<query>`
 #'
 #' For additional details regarding [StackOverflow](https://stackoverflow.com)'s
 #' search interface please see:
-#'  `https://stackoverflow.com/help/searching`
+#' <https://stackoverflow.com/help/searching>
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family community sites
+#' @examples
+#' # Search StackOverflow for Convolutions in the r tag
+#' search_stackoverflow("convolutions")
+#'
+#' # Search all languages on StackOverflow for convolutions
+#' search_stackoverflow("convolutions", rlang = FALSE)
 search_stackoverflow = searcher("so")
 
-#' @rdname search_site
+#' @rdname search_stackoverflow
 #' @export
 search_so = search_stackoverflow
 
@@ -341,48 +368,76 @@ search_so = search_stackoverflow
 
 ########################### Start Search Code Repos
 
-#' @rdname search_site
-#' @export
-#' @section GitHub Search:
+#' Search GitHub
+#'
 #' The `search_github()` and `search_gh()` functions both search
 #' [GitHub](https://github.com) using:
-#' \code{https://github.com/search?q=<query>+language\%3Ar+type\%3Aissue&type=Issues}
+#' `https://github.com/search?q=<query>+language\%3Ar+type\%3Aissue&type=Issues`
 #'
 #' For additional details regarding [GitHub](https://github.com)'s
 #' search interface please see:
 #' <https://docs.github.com/en/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github>
 #' and <https://docs.github.com/en/search-github/searching-on-github/searching-code/>
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family code repositories
+#' @examples
+#' # Search GitHub Issues for bivariate normal in the language:r
+#' search_github("bivariate normal")
+#'
+#' # Search all languages on GitHub Issues for bivariate normal
+#' search_github("bivariate normal", rlang = FALSE)
 search_github = searcher("gh")
 
-#' @rdname search_site
+#' @rdname search_github
 #' @export
 search_gh = search_github
 
-#' @rdname search_site
-#' @export
-#' @section grep.app Search:
+#' Search Grep.app
+#'
 #' The `search_grep()` function searches all public code on
 #' [GitHub](https://github.com) using [grep.app](https://grep.app) by
 #' querying: `https://grep.app/search?q=<query-here>&filter[lang][0]=R`
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family code repositories
+#' @examples
+#' # Search R code on GitHub for numerical optimization
+#' search_grep("optim")
+#'
+#' # Search all code on GitHub for numerical optimization
+#' search_grep("optim", rlang = FALSE)
 search_grep = searcher("grep")
 
-#' @rdname search_site
-#' @export
-#' @section BitBucket Search:
+#' Search BitBucket
+#'
 #' The `search_bitbucket()` and `search_bb()` functions both search
 #' [BitBucket](https://bitbucket.org) using:
-#'  \code{https://bitbucket.org/search?q=lang\%3Ar+<query>}
+#' `https://bitbucket.org/search?q=lang\%3Ar+<query>`
 #'
 #' For additional details regarding [BitBucket](https://bitbucket.org)'s
 #' search interface please see:
-#'  \url{https://confluence.atlassian.com/bitbucket/code-search-in-bitbucket-873876782.html}
+#' <https://confluence.atlassian.com/bitbucket/code-search-in-bitbucket-873876782.html>
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family code repositories
+#' @examples
+#' # Search BitBucket for assertions
+#' search_bitbucket("assertions")
+#'
+#' # Search all languages on BitBucket for assertions
+#' search_bitbucket("assertions", rlang = FALSE)
 search_bitbucket = searcher("bb")
 
-#' @rdname search_site
+#' @rdname search_bitbucket
 #' @export
 search_bb = search_bitbucket
 
 ########################### End Search Code Repos
-
-
 

@@ -8,7 +8,11 @@ Functions listed below are no longer included in the \code{searcher} package
 }
 \details{
 \itemize{
-\item \code{\link[=search_ixquick]{search_ixquick()}}: The function binding was removed as the search engine
+\item \code{search_ixquick()}: The function binding was removed as the search engine
 name changed to "Startpage". Please use \code{\link[=search_startpage]{search_startpage()}}.
+\item \code{search_rstudio_community()}: The function binding was removed as the
+company name changed to "Posit". Please use \code{\link[=search_posit_community]{search_posit_community()}}.
+\item \code{search_rscom()}: The function binding was removed as the
+company name changed to "Posit". Please use \code{\link[=search_posit]{search_posit()}}.
 }
 }

@@ -8,10 +8,15 @@ searcher(site, keyword = getOption("searcher.default_keyword"))
 }
 \arguments{
 \item{site}{Name of site to search on. Supported options:
-\code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
-\code{"qwant"},\code{"posit community"}, \code{"brave"}, \code{"kagi"},
+\code{"google"} (default), \code{"bing"}, \code{"duckduckgo"} or \code{"ddg"},
+\code{"startpage"}  (formerly \code{"ixquick"}) or \code{"sp"},
+\code{"qwant"}, \code{"rseek"}, \code{"brave"}, \code{"kagi"},
+\code{"posit community"} (formerly \code{"rstudio community"}) or \code{"posit"},
 \code{"twitter"}, \code{"stackoverflow"},
-\code{"github"}, \code{"grep"}, and \code{"bitbucket"}.}
+\code{"github"}, \code{"grep"}, \code{"bitbucket"},
+\code{"chatgpt"}, \code{"claude"}, \code{"perplexity"},
+\code{"mistral"}, \code{"bing copilot"} or \code{"copilot"}, and
+\code{"meta ai"} or \code{"meta"}.}
 
 \item{keyword}{Opt to search under different default terms.}
 }
