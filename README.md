@@ -19,7 +19,13 @@ query. `searcher` also provides direct integration with AI assistants,
 allowing you to send queries to ChatGPT, Claude, and other AI services
 with R-optimized prompts. By default, the search functions will attempt
 to search the last error on call if no query is specified.
-![](https://i.imgur.com/Zq2rg6G.gif)
+
+<figure>
+<img src="https://i.imgur.com/Zq2rg6G.gif"
+alt="Example workflow of searching and asking AI assistants questions from R." />
+<figcaption aria-hidden="true">Example workflow of searching and asking
+AI assistants questions from R.</figcaption>
+</figure>
 
 ## Installation
 

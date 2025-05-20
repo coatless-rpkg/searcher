@@ -4,7 +4,7 @@ author: "James Joseph Balamuta"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Managing AI Prompts}
+  %\VignetteIndexEntry{Managing AI Prompts in `searcher`}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -23,8 +23,8 @@ knitr::opts_chunk$set(
 The `searcher` package includes a powerful prompt management system for working
 with AI assistants. This vignette explains how to use this system to create, 
 manage, and apply effective prompts when using AI search functions. It 
-complements the main `vignette("search-with-ai-assistants")`, which provides a broader
-overview of using AI services with R.
+complements the main `vignette("search-with-ai-assistants", package = "searcher")`,
+which provides a broader overview of using AI services with R.
 
 ## What are Prompts?
 
@@ -227,7 +227,7 @@ approach enhances the quality of AI-generated responses and, subsequently,
 helps you save time and improve the efficiency of your R workflow.
 
 The system presented in this vignette transforms the custom prompts described
-in `vignette("search-with-ai-assistants")` from one-off tools into a systematic
-library that can be maintained, shared, and reused. This represents a shift from
-ad-hoc prompting to a more deliberate approach that treats prompts as valuable
-assets in your R programming toolkit.
+in `vignette("search-with-ai-assistants", package = "searcher")` from one-off tools
+into a systematic library that can be maintained, shared, and reused. This
+represents a shift from ad-hoc prompting to a more deliberate approach that
+treats prompts as valuable assets in your R programming toolkit.

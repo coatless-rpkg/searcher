@@ -26,6 +26,25 @@
       ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
 - Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
 
+## Documentation
+
+### Package Website
+
+- Enhanced `_pkgdown.yml` with a more organized structure and improved navigation
+  - Set the theme to use Bootstrap 5's Flatly theme for a modern look
+- Added categorized function reference sections for better discoverability
+
+### Function Documentation
+
+- Reorganized search functions into separate help pages by category:
+  - Search engines (Google, Bing, etc.)
+  - Community sites (StackOverflow, Twitter, etc.) 
+  - Code repositories (GitHub, BitBucket, etc.)
+  - AI assistants (ChatGPT, Claude, etc.)
+- Implemented `@family` tags to group related functions in the "See also" section
+- Added more specific, relevant examples for each function
+- Added brief descriptions of each AI service's strengths and characteristics
+
 ## Deprecations
 
 - Deprecated `search_rstudio_community()` and `search_rscom()` functions. ([#43](https://github.com/coatless-rpkg/searcher/pull/43))

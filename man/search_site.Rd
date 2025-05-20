@@ -2,28 +2,6 @@
 % Please edit documentation in R/search-functions.R
 \name{search_site}
 \alias{search_site}
-\alias{search_google}
-\alias{search_bing}
-\alias{search_duckduckgo}
-\alias{search_ddg}
-\alias{search_ixquick}
-\alias{search_startpage}
-\alias{search_sp}
-\alias{search_ecosia}
-\alias{search_rseek}
-\alias{search_qwant}
-\alias{search_brave}
-\alias{search_kagi}
-\alias{search_posit_community}
-\alias{search_posit}
-\alias{search_twitter}
-\alias{search_stackoverflow}
-\alias{search_so}
-\alias{search_github}
-\alias{search_gh}
-\alias{search_grep}
-\alias{search_bitbucket}
-\alias{search_bb}
 \title{Search a Query on a Search Portal in a Web Browser}
 \usage{
 search_site(
@@ -35,59 +13,20 @@ search_site(
   rlang = TRUE,
   prompt = NULL
 )
-
-search_google(query = geterrmessage(), rlang = TRUE)
-
-search_bing(query = geterrmessage(), rlang = TRUE)
-
-search_duckduckgo(query = geterrmessage(), rlang = TRUE)
-
-search_ddg(query = geterrmessage(), rlang = TRUE)
-
-search_ixquick(query = geterrmessage(), rlang = TRUE)
-
-search_startpage(query = geterrmessage(), rlang = TRUE)
-
-search_sp(query = geterrmessage(), rlang = TRUE)
-
-search_ecosia(query = geterrmessage(), rlang = TRUE)
-
-search_rseek(query = geterrmessage(), rlang = TRUE)
-
-search_qwant(query = geterrmessage(), rlang = TRUE)
-
-search_brave(query = geterrmessage(), rlang = TRUE)
-
-search_kagi(query = geterrmessage(), rlang = TRUE)
-
-search_posit_community(query = geterrmessage(), rlang = TRUE)
-
-search_posit(query = geterrmessage(), rlang = TRUE)
-
-search_twitter(query = geterrmessage(), rlang = TRUE)
-
-search_stackoverflow(query = geterrmessage(), rlang = TRUE)
-
-search_so(query = geterrmessage(), rlang = TRUE)
-
-search_github(query = geterrmessage(), rlang = TRUE)
-
-search_gh(query = geterrmessage(), rlang = TRUE)
-
-search_grep(query = geterrmessage(), rlang = TRUE)
-
-search_bitbucket(query = geterrmessage(), rlang = TRUE)
-
-search_bb(query = geterrmessage(), rlang = TRUE)
 }
 \arguments{
 \item{query}{Contents of string to search. Default is the error message.}
 
 \item{site}{Name of site to search on. Supported options:
-\code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
-\code{"qwant"},\code{"posit community"}, \code{"brave"}, \code{"kagi"},
+\code{"google"} (default), \code{"bing"}, \code{"duckduckgo"} or \code{"ddg"},
+\code{"startpage"}  (formerly \code{"ixquick"}) or \code{"sp"},
+\code{"qwant"}, \code{"rseek"}, \code{"brave"}, \code{"kagi"},
+\code{"posit community"} (formerly \code{"rstudio community"}) or \code{"posit"},
 \code{"twitter"}, \code{"stackoverflow"},
-\code{"github"}, \code{"grep"}, and \code{"bitbucket"}.}
+\code{"github"}, \code{"grep"}, \code{"bitbucket"},
+\code{"chatgpt"}, \code{"claude"}, \code{"perplexity"},
+\code{"mistral"}, \code{"bing copilot"} or \code{"copilot"}, and
+\code{"meta ai"} or \code{"meta"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
 
@@ -101,197 +40,7 @@ The generated search URL or an empty string.
 Creates an appropriate query string for a search engine and then opens
 up the resulting page in a web browser.
 }
-\section{Google Search}{
-
-The \code{search_google} function searches \href{https://www.google.com/}{Google} using:
-\verb{https://www.google.com/search?q=<query>}
-
-See \url{https://moz.com/learn/seo/search-operators}
-for details.
-}
-
-\section{Bing Search}{
-
-The \code{search_bing()} function searches \href{https://www.bing.com/}{Bing} using:
-\verb{https://www.bing.com/search?q=<query>}
-}
-
-\section{DuckDuckGo Search}{
-
-The \code{search_duckduckgo()} and \code{search_ddg()} functions both search
-\href{https://duckduckgo.com}{DuckDuckGo} using: \verb{https://duckduckgo.com/?q=<query>}
-}
-
-\section{Startpage Search}{
-
-The \code{search_startpage()} function searches
-\href{https://startpage.com}{startpage} using:
-\code{https://startpage.com/do/dsearch?query=<query>}
-}
-
-\section{Ecosia Search}{
-
-The \code{search_ecosia()} function searches
-Ecosia using:
-\code{https://www.ecosia.org/search?q=<query>}
-
-For additional details regarding Ecosia's
-search interface please see:
-\url{https://support.ecosia.org/article/657-installing-ecosia-on-your-desktop-device}
-}
-
-\section{Rseek Search}{
-
-The \code{search_rseek()} function searches \href{https://rseek.org}{Rseek} using:
-\verb{https://rseek.org/?q=<query>}
-}
-
-\section{Qwant Search}{
-
-The \code{search_qwant()} function searches
-Qwant using: \verb{https://www.qwant.com/?q=<query>}
-}
-
-\section{Brave Search}{
-
-The \code{search_brave()} function searches
-Brave using: \verb{https://search.brave.com/search?q=<query>&source=web}
-}
-
-\section{Kagi Search}{
-
-The \code{search_kagi()} function searches
-Kagi using: \verb{https://kagi.com/search?q=<query>}
-
-This is a paid search engine, and you will need to
-sign up for an account to use it.
-}
-
-\section{Posit Community Search}{
-
-The \code{search_posit_community()} and \code{search_posit()} functions both search
-\href{https://forum.posit.co/}{Posit Community} using:
-\code{https://forum.posit.co/search?q=<query>}
-
-For additional details regarding \href{https://forum.posit.co/}{Posit Community}'s
-search interface please see the \href{https://discourse.org}{Discourse} API documentation:
-\url{https://docs.discourse.org/#tag/Search}
-}
-
-\section{Twitter Search}{
-
-The \code{search_twitter()} functions search
-Twitter using:
-\code{https://twitter.com/search?q=<query>}
-
-For additional details regarding Twitter's
-search interface please see:
-\verb{https://help.twitter.com/en/using-x/x-advanced-search}
-}
-
-\section{StackOverflow Search}{
-
-The \code{search_stackoverflow()} and \code{search_so()} functions both search
-\href{https://stackoverflow.com}{StackOverflow} using:
-\code{https://stackoverflow.com/search?q=\%5Br\%5D+<query>}
-
-For additional details regarding \href{https://stackoverflow.com}{StackOverflow}'s
-search interface please see:
-\verb{https://stackoverflow.com/help/searching}
-}
-
-\section{GitHub Search}{
-
-The \code{search_github()} and \code{search_gh()} functions both search
-\href{https://github.com}{GitHub} using:
-\code{https://github.com/search?q=<query>+language\%3Ar+type\%3Aissue&type=Issues}
-
-For additional details regarding \href{https://github.com}{GitHub}'s
-search interface please see:
-\url{https://docs.github.com/en/enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/about-searching-on-github}
-and \url{https://docs.github.com/en/search-github/searching-on-github/searching-code/}
-}
-
-\section{grep.app Search}{
-
-The \code{search_grep()} function searches all public code on
-\href{https://github.com}{GitHub} using \href{https://grep.app}{grep.app} by
-querying: \verb{https://grep.app/search?q=<query-here>&filter[lang][0]=R}
-}
-
-\section{BitBucket Search}{
-
-The \code{search_bitbucket()} and \code{search_bb()} functions both search
-\href{https://bitbucket.org}{BitBucket} using:
-\code{https://bitbucket.org/search?q=lang\%3Ar+<query>}
-
-For additional details regarding \href{https://bitbucket.org}{BitBucket}'s
-search interface please see:
-\url{https://confluence.atlassian.com/bitbucket/code-search-in-bitbucket-873876782.html}
-}
-
 \examples{
 # Search in a generic way
 search_site("r-project", "google")
-
-# Search Google
-search_google("r-project")
-
-# Search Bing
-search_bing("Microsoft R")
-
-# Search DuckDuckGo
-search_duckduckgo("R language")
-
-# Search startpage
-search_startpage("VS Code")
-
-# Search Rseek
-search_rseek("searcher")
-
-# Search Qwant
-search_qwant("Quarto")
-
-# Search Brave
-search_brave("webR")
-
-# Search Posit Community
-search_posit_community("RStudio IDE")
-
-# Search Twitter
-search_twitter("searcher")
-
-# Search StackOverflow for Convolutions in the r tag
-search_stackoverflow("convolutions")
-
-# Search all languages on StackOverflow for convolutions
-search_stackoverflow("convolutions", rlang = FALSE)
-
-# Search GitHub Issues for bivariate normal in the language:r
-search_github("bivariate normal")
-
-# Search all languages on GitHub Issues for bivariate normal
-search_github("bivariate normal", rlang = FALSE)
-
-# Search R code on GitHub for numerical optimization
-search_grep("optim")
-
-# Search all code on GitHub for numerical optimization
-search_grep("optim", rlang = FALSE)
-
-# Search BitBucket for assertions
-search_bitbucket("assertions")
-
-\dontrun{
-# On error, automatically search the message on google
-options(error = searcher("google"))
-options(error = search_google)
-}
-}
-\seealso{
-\code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
-\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_qwant]{search_qwant()}},
-\code{\link[=search_brave]{search_brave()}}, \code{\link[=search_kagi]{search_kagi()}}, \code{\link[=search_twitter]{search_twitter()}},
-\code{\link[=search_posit_community]{search_posit_community()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}},
-\code{\link[=search_github]{search_github()}}, \code{\link[=search_grep]{search_grep()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
 }

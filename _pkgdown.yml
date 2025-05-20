@@ -2,10 +2,126 @@ url: https://r-pkg.thecoatlessprofessor.com/searcher
 
 authors:
   "James Balamuta":
-    href: https://thecoatlessprofessor.com
-
-development:
-  mode: auto
+    href: https://blog.thecoatlessprofessor.com
 
 home:
   strip_header: true
+  title: searcher - Search from R
+  description: >
+    Provides a search interface directly inside of R. Opens a web browser with
+    the query for various search engines, code repositories, and developer communities.
+    Also includes AI assistant integration for ChatGPT, Claude, and other services.
+
+template:
+  bootstrap: 5
+  bootswatch: flatly
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [github]
+  components:
+    intro:
+      text: Get started
+      href: articles/search-patterns.html
+    articles:
+      text: Articles
+      menu:
+      - text: "Search Patterns"
+        href: articles/search-patterns.html
+      - text: "Search with AI Assistants"
+        href: articles/search-with-ai-assistants.html
+      - text: "Managing AI Prompts in `searcher`"
+        href: articles/managing-ai-prompts.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    github:
+      icon: fab fa-github fa-lg
+      aria-label: View on GitHub
+      href: https://github.com/coatless-rpkg/searcher
+
+reference:
+  - title: "Search Engines"
+    desc: >
+      Functions to search general search engines
+    contents:
+      - search_google
+      - search_bing
+      - search_duckduckgo
+      - search_ddg
+      - search_startpage
+      - search_sp
+      - search_ecosia
+      - search_rseek
+      - search_qwant
+      - search_brave
+      - search_kagi
+      - search_site
+
+  - title: "AI Assistants"
+    desc: >
+      Functions to interact with AI assistants
+    contents:
+      - ask_chatgpt
+      - ask_claude
+      - ask_perplexity
+      - ask_mistral
+      - ask_bing_copilot
+      - ask_copilot
+      - ask_meta_ai
+
+  - title: "Community Sites"
+    desc: >
+      Functions to search developer communities
+    contents:
+      - search_stackoverflow
+      - search_so
+      - search_posit_community
+      - search_posit
+      - search_twitter
+
+  - title: "Code Repositories"
+    desc: >
+      Functions to search code repositories
+    contents:
+      - search_github
+      - search_gh
+      - search_grep
+      - search_bitbucket
+      - search_bb
+
+  - title: "AI Prompt Management"
+    desc: >
+      Functions to manage AI prompts
+    contents:
+      - ai_prompt
+      - ai_prompt_active
+      - ai_prompt_list
+      - ai_prompt_register
+      - ai_prompt_remove
+      - ai_prompt_clear
+      - ai_prompt_management
+
+  - title: "Helper Functions"
+    desc: >
+      General utility functions
+    contents:
+      - searcher
+
+  - title: "Package Options and Details"
+    desc: >
+      Package configuration options and function deprecation details
+    contents:
+      - "searcher-package"
+      - "searcher-defunct"
+
+
+footer:
+  structure:
+    left: developed_by
+    right: [built_with, legal]
+  components:
+    legal: Distributed under GPL (>= 2) license.
+    built_with: Built with <a href="https://pkgdown.r-lib.org/">pkgdown</a>.
+

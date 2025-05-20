@@ -59,106 +59,137 @@ ai_searcher = function(site) {
 
 ########################### Start Search with Generative AI
 
-#' Search Generative AI Services from R
+#' Search with ChatGPT
 #'
-#' Opens a browser to query various generative AI assistants directly from R.
-#' These functions allow you to ask questions, get code help, or search for information
-#' using popular AI services.
+#' Opens a browser with OpenAI's ChatGPT interface and your query.
+#' This function allows you to ask questions, get code help,
+#' or search for information using ChatGPT.
 #'
-#' @param query Contents of string to send to the AI. Default is the last error message.
-#' @param prompt Optional prompt prefix to add before your query to guide how the AI
+#' @param query Contents of string to send to ChatGPT. Default is the last error message.
+#' @param prompt Optional prompt prefix to add before your query to guide how ChatGPT
 #'        responds. If NULL, uses the service-specific default prompt option.
 #'
 #' @return The generated search URL or an empty string.
 #'
-#' @rdname search_genai
 #' @export
-#' @seealso [search_site()]
+#' @family AI assistants
 #' @examples
-#' \dontrun{
-#' # Basic AI queries
+#' # Basic query
 #' ask_chatgpt("How to join two dataframes in R?")
-#' ask_claude("Explain what purrr::map_df does")
-#' ask_perplexity("Compare dplyr vs data.table")
 #'
-#' # Using custom prompts
-#' ask_mistral("Find bug: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()",
-#'              prompt = "Debug this code step by step:")
+#' # Using a custom prompt
+#' ask_chatgpt("Error: object 'mtcrs' not found",
+#'             prompt = "Debug this error step by step:")
 #'
 #' # Searching the last error
+#' \dontrun{
 #' tryCatch(
 #'   median("not a number"),
 #'   error = function(e) ask_chatgpt()
 #' )
-#'
-#' # Setting default prompts
-#' options(
-#'   searcher.chatgpt_prompt = "You are an R viz expert. Help with:",
-#'   searcher.claude_prompt = "As an R statistics expert, answer:"
-#' )
 #' }
-#'
-#' @section ChatGPT Search:
-#' The `ask_chatgpt()` function opens a browser with OpenAI's ChatGPT interface and your query using:
-#' `https://chat.openai.com/?model=auto&q=<query>`
-#'
-#' You can customize the AI's behavior by setting a prompt prefix through:
-#' 1. The `prompt` parameter for per-call customization
-#' 2. The `options(searcher.chatgpt_prompt = "...")` setting for persistent customization
 ask_chatgpt = ai_searcher("chatgpt")
 
-#' @rdname search_genai
-#' @export
-#' @section Claude Search:
-#' The `ask_claude()` function opens Anthropic's Claude AI assistant with your query using:
-#' `https://claude.ai/new?q=<query>`
+#' Search with Claude
 #'
-#' Claude can be directed to respond in specific ways by using the prompt parameter or by
-#' setting a default prompt via `options()`.
+#' Opens Anthropic's Claude AI assistant with your query.
+#' Claude can provide thorough answers to complex questions
+#' and offers excellent code explanations.
+#'
+#' @inheritParams ask_chatgpt
+#' @return The generated search URL or an empty string.
+#'
+#' @export
+#' @family AI assistants
+#' @examples
+#' # Basic query
+#' ask_claude("Explain what purrr::map_df does")
+#'
+#' # Using a custom prompt
+#' ask_claude("Compare tidyr::pivot_wider vs tidyr::spread",
+#'            prompt = "Provide examples of when to use each:")
 ask_claude = ai_searcher("claude")
 
-#' @rdname search_genai
-#' @export
-#' @section Perplexity Search:
-#' The `ask_perplexity()` function searches with Perplexity AI using:
-#' `https://www.perplexity.ai/search?q=<query>&focus=internet&copilot=false`
+#' Search with Perplexity
 #'
-#' Perplexity AI provides answers with citations to sources, making it particularly
+#' Searches with Perplexity AI, which provides answers with
+#' citations to sources. This makes it particularly
 #' useful for research-oriented queries.
+#'
+#' @inheritParams ask_chatgpt
+#' @return The generated search URL or an empty string.
+#'
+#' @export
+#' @family AI assistants
+#' @examples
+#' # Basic query
+#' ask_perplexity("Compare dplyr vs data.table")
+#'
+#' # Using a custom prompt
+#' ask_perplexity("Best packages for time series in R",
+#'                prompt = "Provide citations and compare performance:")
 ask_perplexity = ai_searcher("perplexity")
 
-#' @rdname search_genai
-#' @export
-#' @section Mistral Search:
-#' The `ask_mistral()` function launches Mistral AI with your query using:
-#' `https://chat.mistral.ai/chat?q=<query>`
+#' Search with Mistral AI
 #'
-#' The default prompt can be customized through the `searcher.mistral_prompt` option.
+#' Launches Mistral AI with your query. Mistral is known for
+#' its strong reasoning capabilities and efficiency.
+#'
+#' @inheritParams ask_chatgpt
+#' @return The generated search URL or an empty string.
+#'
+#' @export
+#' @family AI assistants
+#' @examples
+#' # Basic query
+#' ask_mistral("How to handle missing data in R?")
+#'
+#' # Using a custom prompt
+#' ask_mistral("Fix this code: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()",
+#'             prompt = "Explain the error and fix it:")
 ask_mistral = ai_searcher("mistral")
 
-#' @rdname search_genai
-#' @export
-#' @section Bing Copilot Search:
-#' The `ask_bing_copilot()` and `search_copilot()` functions both search
-#' Microsoft Bing Copilot using:
-#' `https://www.bing.com/search?showconv=1&sendquery=1&q=<query>`
+#' Search with Bing Copilot
 #'
-#' Bing Copilot combines search results with AI-generated responses, making it
-#' useful for queries that benefit from web information.
+#' Searches Microsoft Bing Copilot, which combines web search results
+#' with AI-generated responses. This makes it useful for queries that
+#' benefit from current web information.
+#'
+#' @inheritParams ask_chatgpt
+#' @return The generated search URL or an empty string.
+#'
+#' @export
+#' @family AI assistants
+#' @examples
+#' # Basic query
+#' ask_bing_copilot("Latest R package for geospatial analysis")
+#'
+#' # Using a custom prompt
+#' ask_bing_copilot("Write a function to calculate the median",
+#'                  prompt = "Show multiple approaches:")
 ask_bing_copilot = ai_searcher("copilot")
 
-#' @rdname search_genai
+#' @rdname ask_bing_copilot
 #' @export
 ask_copilot = ask_bing_copilot
 
-#' @rdname search_genai
-#' @export
-#' @section Meta AI Search:
-#' The `ask_meta_ai()` function searches Meta AI using:
-#' `https://www.meta.ai/?q=<query>`
+#' Search with Meta AI
 #'
-#' Meta AI provides general-purpose AI assistance with a focus on conversational
-#' responses.
+#' Searches Meta AI, which provides general-purpose AI assistance
+#' with a focus on conversational responses.
+#'
+#' @inheritParams ask_chatgpt
+#' @return The generated search URL or an empty string.
+#'
+#' @export
+#' @family AI assistants
+#' @examples
+#' # Basic query
+#' ask_meta_ai("What are the best R packages for visualization?")
+#'
+#' # Using a custom prompt
+#' ask_meta_ai("How to create a heatmap in R",
+#'             prompt = "Compare ggplot2 and base R approaches:")
 ask_meta_ai = ai_searcher("meta")
 
 ########################### End Search with Generative AI
