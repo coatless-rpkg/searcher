@@ -26,6 +26,11 @@
       ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
 - Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
 
+## Deprecations
+
+- Deprecated `search_rstudio_community()` and `search_rscom()` functions. 
+  - These functions are now replaced by `search_posit_community()`/`search_posit()`
+    which searches [Posit Community](https://community.posit.co/search).
 
 # searcher 0.0.7
 
@@ -107,7 +112,7 @@
 ## Features
 
 - Added search portal:
-    - `search_rstudio_community()` or `search_rscom()`: Searches on [RStudio Community](https://community.rstudio.com/search). 
+    - `search_rstudio_community()` or `search_rscom()`: Searches on RStudio Community. 
       (#13, #17)
 - Added vignette on search patterns (#18).
 

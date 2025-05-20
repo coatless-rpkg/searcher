@@ -5,7 +5,8 @@
 #'
 #' @param site   Name of site to search on. Supported options:
 #'               `"google"` (default), `"bing"`, `"duckduckgo"`, `"startpage"`,
-#'               `"qwant"`,`"rstudio community"`, `"twitter"`,`"stackoverflow"`,
+#'               `"qwant"`,`"posit community"`, `"brave"`, `"kagi"`,
+#'               `"twitter"`, `"stackoverflow"`,
 #'               `"github"`, `"grep"`, and `"bitbucket"`.
 #' @param query   Contents of string to search. Default is the error message.
 #' @param rlang   Search for results written in R. Default is `TRUE`
@@ -20,7 +21,7 @@
 #' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
 #'          [search_startpage()], [search_rseek()], [search_qwant()],
 #'          [search_brave()], [search_kagi()], [search_twitter()],
-#'          [search_rstudio_community()], [search_stackoverflow()],
+#'          [search_posit_community()], [search_stackoverflow()],
 #'          [search_github()], [search_grep()], [search_bitbucket()], and [searcher()]
 #' @examples
 #' # Search in a generic way
@@ -47,8 +48,8 @@
 #' # Search Brave
 #' search_brave("webR")
 #'
-#' # Search RStudio Community
-#' search_rstudio_community("RStudio IDE")
+#' # Search Posit Community
+#' search_posit_community("RStudio IDE")
 #'
 #' # Search Twitter
 #' search_twitter("searcher")
@@ -91,8 +92,8 @@ search_site = function(query,
                          "rseek",
                          "brave",
                          "kagi",
-                         "rstudio community",
-                         "rscom",
+                         "posit community",
+                         "posit",
                          "twitter",
                          "stackoverflow",
                          "so",
@@ -127,8 +128,8 @@ search_site = function(query,
     rseek          = search_rseek(query, rlang),
     brave          = search_brave(query, rlang),
     kagi           = search_kagi(query, rlang),
-    `rstudio community` = , # empty case carried below
-    rscom          = search_rstudio_community(query, rlang),
+    `posit community` = , # empty case carried below
+    posit          = search_posit_community(query, rlang),
     twitter        = search_twitter(query, rlang),
     stackoverflow  = ,      # empty case carried below
     so             = search_stackoverflow(query, rlang),
@@ -252,7 +253,7 @@ search_sp = search_startpage
 #'
 #' For additional details regarding Ecosia's
 #' search interface please see:
-#'  \url{https://ecosia.helpscoutdocs.com/article/502-ecosia-on-desktop}
+#'  \url{https://support.ecosia.org/article/657-installing-ecosia-on-your-desktop-device}
 search_ecosia = searcher("ecosia")
 
 #' @rdname search_site
@@ -294,19 +295,19 @@ search_kagi = searcher("kagi")
 
 #' @rdname search_site
 #' @export
-#' @section RStudio Community Search:
-#' The `search_rstudio_community()` and `search_rscom()` functions both search
-#' [RStudio Community](https://community.rstudio.com/) using:
-#' \code{https://community.rstudio.com/search?q=<query>}
+#' @section Posit Community Search:
+#' The `search_posit_community()` and `search_posit()` functions both search
+#' [Posit Community](https://forum.posit.co/) using:
+#' \code{https://forum.posit.co/search?q=<query>}
 #'
-#' For additional details regarding [RStudio Community](https://community.rstudio.com/)'s
+#' For additional details regarding [Posit Community](https://forum.posit.co/)'s
 #' search interface please see the [Discourse](https://discourse.org) API documentation:
 #'  \url{https://docs.discourse.org/#tag/Search}
-search_rstudio_community = searcher("rscom")
+search_posit_community = searcher("posit")
 
 #' @rdname search_site
 #' @export
-search_rscom = search_rstudio_community
+search_posit = search_posit_community
 
 #' @rdname search_site
 #' @export
