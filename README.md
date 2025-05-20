@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# searcher <img src="man/figures/searcher-animated-logo.svg" width="170" align="right" alt="A hexagonal logo for searcher"/>
+# searcher <a href="https://r-pkg.thecoatlessprofessor.com/searcher/" alt="searcher"><img src="man/figures/searcher-animated-logo.svg" width="170" align="right" alt="A hexagonal logo for searcher"/></a>
 
 <!-- badges: start -->
 
@@ -10,6 +10,8 @@
 downloads](https://cranlogs.r-pkg.org/badges/searcher)](https://www.r-pkg.org/pkg/searcher)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
 <!-- badges: end -->
+
+## Overview
 
 The goal of `searcher` is to provide a search interface directly inside
 of *R*. For example, to look up `rcpp example numeric vector` or
@@ -65,8 +67,10 @@ repositories. The following search platforms are supported:
 [DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/), Ecosia,
 [rseek](https://rseek.org/), Qwant, [Brave](https://search.brave.com/),
-Kagi, X (formerly Twitter), [StackOverflow](https://stackoverflow.com/),
-[Posit Community](https://community.posit.co/search),
+Kagi, X (formerly Twitter), [BlueSky](https://bsky.app),
+[Mastodon](https://mastodon.social),
+[StackOverflow](https://stackoverflow.com/), [Posit
+Community](https://forum.posit.co/),
 [GitHub](https://github.com/search), [grep.app](https://grep.app/), and
 [BitBucket](https://bitbucket.org/product/). By default, an appropriate
 suffix for each platform that ensures relevant results to *R* is
@@ -85,11 +89,19 @@ search_kagi("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
 search_startpage("R project")                            # or search_sp(...)
 
-# Searching Twitter to find out about machine learning for R and in general
+# Searching X/Twitter to find out about machine learning for R and in general
 search_twitter("machine learning")
 search_twitter("machine learning", rlang = FALSE)
 
-# Searching for linear regression questions for R and in general
+# Searching BlueSky to find out about deep learning for R and in general
+search_bluesky("deep learning")
+search_bluesky("deep learning", rlang = FALSE)
+
+# Searching Mastodon to find out about data visualization for R and in general
+search_mastodon("data vis")
+search_mastodon("data vis", rlang = FALSE)
+
+# Searching SO for linear regression questions for R and in general
 search_stackoverflow("linear regression")
 search_stackoverflow("linear regression", rlang = FALSE) # or search_so(...)
 
@@ -187,8 +199,10 @@ search_rseek()
 search_qwant()
 search_brave()
 search_kagi()
-search_twitter()
 search_grep()
+search_mastodon()
+search_bluesky()
+search_twitter()           # or search_x()
 search_duckduckgo()        # or search_ddg()
 search_startpage()         # or search_sp()
 search_stackoverflow()     # or search_so()

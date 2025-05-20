@@ -24,6 +24,10 @@
       ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
     - `search_kagi()`: Searches on Kagi. 
       ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
+    - `search_mastodon()`: Searches on Mastodon. 
+      ([#45](https://github.com/coatless-rpkg/searcher/pull/45))
+    - `search_bluesky()`: Searches on BlueSky. 
+      ([#45](https://github.com/coatless-rpkg/searcher/pull/45))
 - Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
 
 ## Documentation
@@ -49,7 +53,7 @@
 
 - Deprecated `search_rstudio_community()` and `search_rscom()` functions. ([#43](https://github.com/coatless-rpkg/searcher/pull/43))
   - These functions are now replaced by `search_posit_community()`/`search_posit()`
-    which searches [Posit Community](https://community.posit.co/search). 
+    which searches [Posit Community](https://forum.posit.co/search). 
 
 # searcher 0.0.7
 

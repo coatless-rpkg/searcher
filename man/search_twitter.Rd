@@ -2,9 +2,12 @@
 % Please edit documentation in R/search-functions.R
 \name{search_twitter}
 \alias{search_twitter}
-\title{Search Twitter}
+\alias{search_x}
+\title{Search Twitter/X}
 \usage{
 search_twitter(query = geterrmessage(), rlang = TRUE)
+
+search_x(query = geterrmessage(), rlang = TRUE)
 }
 \arguments{
 \item{query}{Contents of string to search. Default is the error message.}
@@ -21,7 +24,7 @@ Twitter using: \verb{https://twitter.com/search?q=<query>}
 \details{
 For additional details regarding Twitter's
 search interface please see:
-\url{https://help.twitter.com/en/using-x/x-advanced-search}
+\url{https://help.x.com/en/using-x/x-advanced-search}
 }
 \examples{
 # Search Twitter
@@ -29,6 +32,8 @@ search_twitter("searcher")
 }
 \seealso{
 Other community sites: 
+\code{\link{search_bluesky}()},
+\code{\link{search_mastodon}()},
 \code{\link{search_posit_community}()},
 \code{\link{search_stackoverflow}()}
 }

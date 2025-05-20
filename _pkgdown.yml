@@ -80,6 +80,8 @@ reference:
       - search_posit_community
       - search_posit
       - search_twitter
+      - search_bluesky
+      - search_mastodon
 
   - title: "Code Repositories"
     desc: >

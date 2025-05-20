@@ -33,6 +33,8 @@ search_posit_community("RStudio IDE")
 }
 \seealso{
 Other community sites: 
+\code{\link{search_bluesky}()},
+\code{\link{search_mastodon}()},
 \code{\link{search_stackoverflow}()},
 \code{\link{search_twitter}()}
 }
