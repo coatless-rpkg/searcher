@@ -8,7 +8,7 @@
 #'               `"startpage"`  (formerly `"ixquick"`) or `"sp"`,
 #'               `"qwant"`, `"rseek"`, `"brave"`, `"kagi"`,
 #'               `"posit community"` (formerly `"rstudio community"`) or `"posit"`,
-#'               `"twitter"`, `"stackoverflow"`,
+#'               `"twitter"` or `"x"`, `"bluesky"`, `"mastodon"`, `"stackoverflow"`,
 #'               `"github"`, `"grep"`, `"bitbucket"`,
 #'               `"chatgpt"`, `"claude"`, `"perplexity"`,
 #'               `"mistral"`, `"bing copilot"` or `"copilot"`, and
@@ -40,6 +40,9 @@ search_site = function(query,
                          "posit community",
                          "posit",
                          "twitter",
+                         "x",
+                         "bluesky",
+                         "mastodon",
                          "stackoverflow",
                          "so",
                          "github",
@@ -75,7 +78,10 @@ search_site = function(query,
     kagi           = search_kagi(query, rlang),
     `posit community` = , # empty case carried below
     posit          = search_posit_community(query, rlang),
-    twitter        = search_twitter(query, rlang),
+    twitter        = ,      # empty case carried below
+    x              = search_twitter(query, rlang),
+    bluesky        = search_bluesky(query, rlang),
+    mastodon       = search_mastodon(query, rlang),
     stackoverflow  = ,      # empty case carried below
     so             = search_stackoverflow(query, rlang),
     github         = ,      # empty case carried below
@@ -320,14 +326,14 @@ search_posit_community = searcher("posit")
 #' @export
 search_posit = search_posit_community
 
-#' Search Twitter
+#' Search Twitter/X
 #'
 #' The `search_twitter()` functions search
 #' Twitter using: `https://twitter.com/search?q=<query>`
 #'
 #' For additional details regarding Twitter's
 #' search interface please see:
-#' <https://help.twitter.com/en/using-x/x-advanced-search>
+#' <https://help.x.com/en/using-x/x-advanced-search>
 #'
 #' @inheritParams search_site
 #' @return The generated search URL or an empty string.
@@ -338,6 +344,39 @@ search_posit = search_posit_community
 #' search_twitter("searcher")
 search_twitter = searcher("twitter")
 
+#' @rdname search_twitter
+#' @export
+search_x = search_twitter
+
+#' Search Mastodon
+#'
+#' The `search_mastodon()` functions search
+#' Mastodon using: `https://mastodon.social/search?q=%23rstats+<query>`
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family community sites
+#' @examples
+#' # Search Mastodon
+#' search_mastodon("searcher")
+search_mastodon = searcher("mastodon")
+
+
+#' Search BlueSky
+#'
+#' The `search_bluesky()` functions search
+#' BlueSky using: `https://bsky.app/search?q=%23rstats+<query>`
+#'
+#' @inheritParams search_site
+#' @return The generated search URL or an empty string.
+#' @export
+#' @family community sites
+#' @examples
+#' # Search BlueSky
+#' search_bluesky("searcher")
+search_bluesky = searcher("bluesky")
+
 #' Search StackOverflow
 #'
 #' The `search_stackoverflow()` and `search_so()` functions both search
@@ -346,7 +385,10 @@ search_twitter = searcher("twitter")
 #'
 #' For additional details regarding [StackOverflow](https://stackoverflow.com)'s
 #' search interface please see:
-#' <https://stackoverflow.com/help/searching>
+#'
+#' ```
+#' https://stackoverflow.com/help/searching
+#' ```
 #'
 #' @inheritParams search_site
 #' @return The generated search URL or an empty string.

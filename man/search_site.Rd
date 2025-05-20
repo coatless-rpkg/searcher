@@ -7,9 +7,9 @@
 search_site(
   query,
   site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "qwant", "rseek",
-    "brave", "kagi", "posit community", "posit", "twitter", "stackoverflow", "so",
-    "github", "gh", "grep", "bitbucket", "bb", "chatgpt", "claude", "perplexity",
-    "mistral", "bing copilot", "copilot", "meta ai", "meta"),
+    "brave", "kagi", "posit community", "posit", "twitter", "x", "bluesky", "mastodon",
+    "stackoverflow", "so", "github", "gh", "grep", "bitbucket", "bb", "chatgpt",
+    "claude", "perplexity", "mistral", "bing copilot", "copilot", "meta ai", "meta"),
   rlang = TRUE,
   prompt = NULL
 )
@@ -22,7 +22,7 @@ search_site(
 \code{"startpage"}  (formerly \code{"ixquick"}) or \code{"sp"},
 \code{"qwant"}, \code{"rseek"}, \code{"brave"}, \code{"kagi"},
 \code{"posit community"} (formerly \code{"rstudio community"}) or \code{"posit"},
-\code{"twitter"}, \code{"stackoverflow"},
+\code{"twitter"} or \code{"x"}, \code{"bluesky"}, \code{"mastodon"}, \code{"stackoverflow"},
 \code{"github"}, \code{"grep"}, \code{"bitbucket"},
 \code{"chatgpt"}, \code{"claude"}, \code{"perplexity"},
 \code{"mistral"}, \code{"bing copilot"} or \code{"copilot"}, and

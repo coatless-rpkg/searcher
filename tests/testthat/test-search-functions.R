@@ -140,6 +140,36 @@ test_that("Check link generation - twitter", {
 })
 
 
+test_that("Check link generation - Mastodon", {
+
+  expect_identical(
+    search_mastodon("toad"),
+    "https://mastodon.social/search?q=toad %23rstats"
+  )
+
+  expect_identical(
+    search_mastodon("toad", rlang = FALSE),
+    "https://mastodon.social/search?q=toad"
+  )
+
+})
+
+test_that("Check link generation - BlueSky", {
+
+  expect_identical(
+    search_bluesky("toad"),
+    "https://bsky.app/search?q=toad %23rstats"
+  )
+
+  expect_identical(
+    search_bluesky("toad", rlang = FALSE),
+    "https://bsky.app/search?q=toad"
+  )
+
+})
+
+
+
 test_that("Check link generation - stackoverflow", {
 
   expect_identical(

@@ -25,7 +25,9 @@ The \code{search_stackoverflow()} and \code{search_so()} functions both search
 \details{
 For additional details regarding \href{https://stackoverflow.com}{StackOverflow}'s
 search interface please see:
-\url{https://stackoverflow.com/help/searching}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{https://stackoverflow.com/help/searching
+}\if{html}{\out{</div>}}
 }
 \examples{
 # Search StackOverflow for Convolutions in the r tag
@@ -36,6 +38,8 @@ search_stackoverflow("convolutions", rlang = FALSE)
 }
 \seealso{
 Other community sites: 
+\code{\link{search_bluesky}()},
+\code{\link{search_mastodon}()},
 \code{\link{search_posit_community}()},
 \code{\link{search_twitter}()}
 }

@@ -81,6 +81,17 @@ site_index =
     site_entry(
       "twitter",
       "https://twitter.com/search?q=",
+      "x",
+      keywords = keyword_entry("%23rstats", "%23rstats %23tidyverse") # %23 is #
+    ),
+    site_entry(
+      "mastodon",
+      "https://mastodon.social/search?q=",
+      keywords = keyword_entry("%23rstats", "%23rstats %23tidyverse") # %23 is #
+    ),
+    site_entry(
+      "bluesky",
+      "https://bsky.app/search?q=",
       keywords = keyword_entry("%23rstats", "%23rstats %23tidyverse") # %23 is #
     ),
     site_entry(

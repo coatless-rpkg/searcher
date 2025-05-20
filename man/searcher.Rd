@@ -12,7 +12,7 @@ searcher(site, keyword = getOption("searcher.default_keyword"))
 \code{"startpage"}  (formerly \code{"ixquick"}) or \code{"sp"},
 \code{"qwant"}, \code{"rseek"}, \code{"brave"}, \code{"kagi"},
 \code{"posit community"} (formerly \code{"rstudio community"}) or \code{"posit"},
-\code{"twitter"}, \code{"stackoverflow"},
+\code{"twitter"} or \code{"x"}, \code{"bluesky"}, \code{"mastodon"}, \code{"stackoverflow"},
 \code{"github"}, \code{"grep"}, \code{"bitbucket"},
 \code{"chatgpt"}, \code{"claude"}, \code{"perplexity"},
 \code{"mistral"}, \code{"bing copilot"} or \code{"copilot"}, and
