@@ -314,7 +314,7 @@ For comprehensive documentation on these advanced features, see the dedicated
 vignette:
 
 ```r
-vignette("managing-ai-prompts")
+vignette("managing-ai-prompts", package = "searcher")
 ```
 
 With the prompt management system, you can move beyond single-use prompts to 
