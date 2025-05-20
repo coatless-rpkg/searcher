@@ -1,22 +1,11 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/404.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/index.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/managing-ai-prompts.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/search-patterns.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/search-with-ai-assistants.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/authors.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/index.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/news/index.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_active.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_clear.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_list.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_management.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_register.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_remove.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_searcher.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/index.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_genai.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_site.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/searcher-defunct.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/searcher-package.html</loc></url>

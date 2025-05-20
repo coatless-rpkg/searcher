@@ -33,13 +33,7 @@ up the resulting page in a web browser."><!-- mathjax --><script src="https://cd
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a>
-    </li>
-    <li>
       <a href="../articles/search-patterns.html">Search Patterns</a>
-    </li>
-    <li>
-      <a href="../articles/search-with-ai-assistants.html">Using AI Assistants with searcher</a>
     </li>
   </ul></li>
 <li>
@@ -61,7 +55,7 @@ up the resulting page in a web browser."><!-- mathjax --><script src="https://cd
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Search a Query on a Search Portal in a Web Browser</h1>
-    <small class="dont-index">Source: <a href="https://github.com/coatless-rpkg/searcher/blob/main/R/search-functions.R" class="external-link"><code>R/search-functions.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/coatless-rpkg/searcher/blob/v0.0.7/R/search-functions.R" class="external-link"><code>R/search-functions.R</code></a></small>
     <div class="hidden name"><code>search_site.Rd</code></div>
     </div>
 
@@ -75,10 +69,8 @@ up the resulting page in a web browser.</p>
 <span>  <span class="va">query</span>,</span>
 <span>  site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"google"</span>, <span class="st">"bing"</span>, <span class="st">"duckduckgo"</span>, <span class="st">"ddg"</span>, <span class="st">"startpage"</span>, <span class="st">"sp"</span>, <span class="st">"qwant"</span>, <span class="st">"rseek"</span>,</span>
 <span>    <span class="st">"rstudio community"</span>, <span class="st">"rscom"</span>, <span class="st">"twitter"</span>, <span class="st">"stackoverflow"</span>, <span class="st">"so"</span>, <span class="st">"github"</span>, <span class="st">"gh"</span>,</span>
-<span>    <span class="st">"grep"</span>, <span class="st">"bitbucket"</span>, <span class="st">"bb"</span>, <span class="st">"chatgpt"</span>, <span class="st">"claude"</span>, <span class="st">"perplexity"</span>, <span class="st">"mistral"</span>,</span>
-<span>    <span class="st">"bing copilot"</span>, <span class="st">"copilot"</span>, <span class="st">"meta ai"</span>, <span class="st">"meta"</span><span class="op">)</span>,</span>
-<span>  rlang <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  prompt <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>    <span class="st">"grep"</span>, <span class="st">"bitbucket"</span>, <span class="st">"bb"</span><span class="op">)</span>,</span>
+<span>  rlang <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">search_google</span><span class="op">(</span>query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/stop.html" class="external-link">geterrmessage</a></span><span class="op">(</span><span class="op">)</span>, rlang <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -139,11 +131,6 @@ up the resulting page in a web browser.</p>
 
 <dt id="arg-rlang">rlang<a class="anchor" aria-label="anchor" href="#arg-rlang"></a></dt>
 <dd><p>Search for results written in R. Default is <code>TRUE</code></p></dd>
-
-
-<dt id="arg-prompt">prompt<a class="anchor" aria-label="anchor" href="#arg-prompt"></a></dt>
-<dd><p>Optional prompt prefix to add before your query to guide how the AI
-responds. If <code>NULL</code>, uses the service-specific default prompt option.</p></dd>
 
 </dl></div>
     <div id="value">
