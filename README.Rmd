@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# searcher
+# searcher  <img src="man/figures/searcher-animated-logo.svg" width="170" align="right" alt="A hexagonal logo for searcher"/> 
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml)
