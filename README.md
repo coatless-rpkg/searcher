@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# searcher
+# searcher <img src="man/figures/searcher-animated-logo.svg" width="170" align="right" alt="A hexagonal logo for searcher"/>
 
 <!-- badges: start -->
 
