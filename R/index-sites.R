@@ -61,7 +61,7 @@ site_index =
     ),
     site_entry(
       "posit community",
-      "https://community.posit.co/search?q=",
+      "https://forum.posit.co/search?q=",
       "posit",
       NULL
     ),

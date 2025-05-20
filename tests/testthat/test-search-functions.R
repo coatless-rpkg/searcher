@@ -115,12 +115,12 @@ test_that("Check link generation - Posit Community", {
 
   expect_identical(
     search_posit("toad"),
-    "https://community.posit.co/search?q=toad"
+    "https://forum.posit.co/search?q=toad"
   )
 
   expect_identical(
     search_posit("toad", rlang = FALSE),
-    "https://community.posit.co/search?q=toad"
+    "https://forum.posit.co/search?q=toad"
   )
 
 })
@@ -250,7 +250,7 @@ test_that("Validate selection short name - search_site", {
 
   expect_identical(
     search_site("toad", "posit", rlang = FALSE),
-    "https://community.posit.co/search?q=toad"
+    "https://forum.posit.co/search?q=toad"
   )
 
   expect_identical(
