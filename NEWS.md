@@ -1,3 +1,10 @@
+# searcher 0.0.8
+
+## Features
+
+- Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
+
+
 # searcher 0.0.7
 
 ## Features
