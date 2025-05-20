@@ -82,6 +82,35 @@ test_that("Check link generation - rseek", {
 
 })
 
+
+test_that("Check link generation - Brave", {
+
+  expect_identical(
+    search_brave("toad"),
+    "https://search.brave.com/search?q=toad%20r%20programming"
+  )
+
+  expect_identical(
+    search_brave("toad", rlang = FALSE),
+    "https://search.brave.com/search?q=toad"
+  )
+
+})
+
+test_that("Check link generation - kagi", {
+
+  expect_identical(
+    search_kagi("toad"),
+    "https://kagi.com/search?q=toad%20r%20programming"
+  )
+
+  expect_identical(
+    search_kagi("toad", rlang = FALSE),
+    "https://kagi.com/search?q=toad"
+  )
+
+})
+
 test_that("Check link generation - RStudio Community", {
 
   expect_identical(

@@ -18,7 +18,8 @@
 #' @rdname search_site
 #' @export
 #' @seealso [search_google()], [search_bing()], [search_duckduckgo()],
-#'          [search_startpage()], [search_rseek()], [search_qwant()], [search_twitter()],
+#'          [search_startpage()], [search_rseek()], [search_qwant()],
+#'          [search_brave()], [search_kagi()], [search_twitter()],
 #'          [search_rstudio_community()], [search_stackoverflow()],
 #'          [search_github()], [search_grep()], [search_bitbucket()], and [searcher()]
 #' @examples
@@ -42,6 +43,9 @@
 #'
 #' # Search Qwant
 #' search_qwant("Quarto")
+#'
+#' # Search Brave
+#' search_brave("webR")
 #'
 #' # Search RStudio Community
 #' search_rstudio_community("RStudio IDE")
@@ -85,6 +89,8 @@ search_site = function(query,
                          "sp",
                          "qwant",
                          "rseek",
+                         "brave",
+                         "kagi",
                          "rstudio community",
                          "rscom",
                          "twitter",
@@ -119,6 +125,8 @@ search_site = function(query,
     sp             = search_startpage(query, rlang),
     qwant          = search_qwant(query, rlang),
     rseek          = search_rseek(query, rlang),
+    brave          = search_brave(query, rlang),
+    kagi           = search_kagi(query, rlang),
     `rstudio community` = , # empty case carried below
     rscom          = search_rstudio_community(query, rlang),
     twitter        = search_twitter(query, rlang),
@@ -260,6 +268,23 @@ search_rseek = searcher("rseek")
 #' The `search_qwant()` function searches
 #' Qwant using: `https://www.qwant.com/?q=<query>`
 search_qwant = searcher("qwant")
+
+#' @rdname search_site
+#' @export
+#' @section Brave Search:
+#' The `search_brave()` function searches
+#' Brave using: `https://search.brave.com/search?q=<query>&source=web`
+search_brave = searcher("brave")
+
+#' @rdname search_site
+#' @export
+#' @section Kagi Search:
+#' The `search_kagi()` function searches
+#' Kagi using: `https://kagi.com/search?q=<query>`
+#'
+#' This is a paid search engine, and you will need to
+#' sign up for an account to use it.
+search_kagi = searcher("kagi")
 
 ########################### End Search Engines
 
