@@ -9,7 +9,7 @@
     - `ask_mistral()`: Searches with Mistral AI
     - `ask_copilot()`: Searches with Microsoft Bing's Copilot
     - `ask_meta_ai()`: Searches with Meta AI
-- Added an AI Prompt Management System with Persona Prompts
+- Added an AI Prompt Management System with Persona Prompts:
     - `ai_prompt()`: Set a prompt for the AI
     - `ai_prompt_active()`: View the active prompt
     - `ai_prompt_clear()`: Clear the active prompt
@@ -26,6 +26,11 @@
       ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
 - Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
 
+## Deprecations
+
+- Deprecated `search_rstudio_community()` and `search_rscom()` functions. ([#43](https://github.com/coatless-rpkg/searcher/pull/43))
+  - These functions are now replaced by `search_posit_community()`/`search_posit()`
+    which searches [Posit Community](https://community.posit.co/search). 
 
 # searcher 0.0.7
 
@@ -107,7 +112,7 @@
 ## Features
 
 - Added search portal:
-    - `search_rstudio_community()` or `search_rscom()`: Searches on [RStudio Community](https://community.rstudio.com/search). 
+    - `search_rstudio_community()` or `search_rscom()`: Searches on RStudio Community. 
       (#13, #17)
 - Added vignette on search patterns (#18).
 

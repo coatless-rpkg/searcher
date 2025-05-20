@@ -14,8 +14,8 @@
 \alias{search_qwant}
 \alias{search_brave}
 \alias{search_kagi}
-\alias{search_rstudio_community}
-\alias{search_rscom}
+\alias{search_posit_community}
+\alias{search_posit}
 \alias{search_twitter}
 \alias{search_stackoverflow}
 \alias{search_so}
@@ -29,7 +29,7 @@
 search_site(
   query,
   site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "qwant", "rseek",
-    "brave", "kagi", "rstudio community", "rscom", "twitter", "stackoverflow", "so",
+    "brave", "kagi", "posit community", "posit", "twitter", "stackoverflow", "so",
     "github", "gh", "grep", "bitbucket", "bb", "chatgpt", "claude", "perplexity",
     "mistral", "bing copilot", "copilot", "meta ai", "meta"),
   rlang = TRUE,
@@ -60,9 +60,9 @@ search_brave(query = geterrmessage(), rlang = TRUE)
 
 search_kagi(query = geterrmessage(), rlang = TRUE)
 
-search_rstudio_community(query = geterrmessage(), rlang = TRUE)
+search_posit_community(query = geterrmessage(), rlang = TRUE)
 
-search_rscom(query = geterrmessage(), rlang = TRUE)
+search_posit(query = geterrmessage(), rlang = TRUE)
 
 search_twitter(query = geterrmessage(), rlang = TRUE)
 
@@ -85,7 +85,8 @@ search_bb(query = geterrmessage(), rlang = TRUE)
 
 \item{site}{Name of site to search on. Supported options:
 \code{"google"} (default), \code{"bing"}, \code{"duckduckgo"}, \code{"startpage"},
-\code{"qwant"},\code{"rstudio community"}, \code{"twitter"},\code{"stackoverflow"},
+\code{"qwant"},\code{"posit community"}, \code{"brave"}, \code{"kagi"},
+\code{"twitter"}, \code{"stackoverflow"},
 \code{"github"}, \code{"grep"}, and \code{"bitbucket"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
@@ -136,7 +137,7 @@ Ecosia using:
 
 For additional details regarding Ecosia's
 search interface please see:
-\url{https://ecosia.helpscoutdocs.com/article/502-ecosia-on-desktop}
+\url{https://support.ecosia.org/article/657-installing-ecosia-on-your-desktop-device}
 }
 
 \section{Rseek Search}{
@@ -166,13 +167,13 @@ This is a paid search engine, and you will need to
 sign up for an account to use it.
 }
 
-\section{RStudio Community Search}{
+\section{Posit Community Search}{
 
-The \code{search_rstudio_community()} and \code{search_rscom()} functions both search
-\href{https://community.rstudio.com/}{RStudio Community} using:
-\code{https://community.rstudio.com/search?q=<query>}
+The \code{search_posit_community()} and \code{search_posit()} functions both search
+\href{https://forum.posit.co/}{Posit Community} using:
+\code{https://forum.posit.co/search?q=<query>}
 
-For additional details regarding \href{https://community.rstudio.com/}{RStudio Community}'s
+For additional details regarding \href{https://forum.posit.co/}{Posit Community}'s
 search interface please see the \href{https://discourse.org}{Discourse} API documentation:
 \url{https://docs.discourse.org/#tag/Search}
 }
@@ -254,8 +255,8 @@ search_qwant("Quarto")
 # Search Brave
 search_brave("webR")
 
-# Search RStudio Community
-search_rstudio_community("RStudio IDE")
+# Search Posit Community
+search_posit_community("RStudio IDE")
 
 # Search Twitter
 search_twitter("searcher")
@@ -291,6 +292,6 @@ options(error = search_google)
 \code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
 \code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_qwant]{search_qwant()}},
 \code{\link[=search_brave]{search_brave()}}, \code{\link[=search_kagi]{search_kagi()}}, \code{\link[=search_twitter]{search_twitter()}},
-\code{\link[=search_rstudio_community]{search_rstudio_community()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}},
+\code{\link[=search_posit_community]{search_posit_community()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}},
 \code{\link[=search_github]{search_github()}}, \code{\link[=search_grep]{search_grep()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
 }

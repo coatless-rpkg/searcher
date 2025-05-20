@@ -60,7 +60,7 @@ repositories. The following search platforms are supported:
 [Startpage](https://www.startpage.com/en/), Ecosia,
 [rseek](https://rseek.org/), Qwant, [Brave](https://search.brave.com/),
 Kagi, X (formerly Twitter), [StackOverflow](https://stackoverflow.com/),
-[RStudio Community](https://community.rstudio.com/search),
+[Posit Community](https://community.posit.co/search),
 [GitHub](https://github.com/search), [grep.app](https://grep.app/), and
 [BitBucket](https://bitbucket.org/product/). By default, an appropriate
 suffix for each platform that ensures relevant results to *R* is
@@ -87,9 +87,9 @@ search_twitter("machine learning", rlang = FALSE)
 search_stackoverflow("linear regression")
 search_stackoverflow("linear regression", rlang = FALSE) # or search_so(...)
 
-# Searching RStudio Community for tips
-search_rstudio_community("tips")
-search_rstudio_community("tips", rlang = FALSE)          # or search_rscom(...)
+# Searching Posit Community for tips
+search_posit_community("tips")
+search_posit_community("tips", rlang = FALSE)          # or search_posit(...)
 
 # Searching GitHub code for graphs in R and other languages
 search_grep("graph")
@@ -186,7 +186,7 @@ search_grep()
 search_duckduckgo()        # or search_ddg()
 search_startpage()         # or search_sp()
 search_stackoverflow()     # or search_so()
-search_rstudio_community() # or search_rscom()
+search_posit_community()   # or search_posit()
 search_github()            # or search_gh()
 search_bitbucket()         # or search_bb()
 ```

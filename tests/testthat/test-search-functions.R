@@ -111,16 +111,16 @@ test_that("Check link generation - kagi", {
 
 })
 
-test_that("Check link generation - RStudio Community", {
+test_that("Check link generation - Posit Community", {
 
   expect_identical(
-    search_rscom("toad"),
-    "https://community.rstudio.com/search?q=toad"
+    search_posit("toad"),
+    "https://community.posit.co/search?q=toad"
   )
 
   expect_identical(
-    search_rscom("toad", rlang = FALSE),
-    "https://community.rstudio.com/search?q=toad"
+    search_posit("toad", rlang = FALSE),
+    "https://community.posit.co/search?q=toad"
   )
 
 })
@@ -219,8 +219,8 @@ test_that("Validate selection short name - search_site", {
   )
 
   expect_identical(
-    search_site("toad", "rscom", rlang = FALSE),
-    "https://community.rstudio.com/search?q=toad"
+    search_site("toad", "posit", rlang = FALSE),
+    "https://community.posit.co/search?q=toad"
   )
 
   expect_identical(
@@ -288,7 +288,7 @@ test_that("Malformed search query validation", {
 
 
   expect_identical(
-    search_rscom(""),
+    search_posit(""),
     "",
     "Empty string check if no error messages"
   )

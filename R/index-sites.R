@@ -60,9 +60,9 @@ site_index =
       keyword_entry("[r]", "[tidyverse]")
     ),
     site_entry(
-      "rstudio community",
-      "https://community.rstudio.com/search?q=",
-      "rscom",
+      "posit community",
+      "https://community.posit.co/search?q=",
+      "posit",
       NULL
     ),
     site_entry(
