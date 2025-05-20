@@ -12,8 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# searcher  <img src="man/figures/searcher-animated-logo.svg" width="170" align="right" alt="A hexagonal logo for searcher"/> 
-
+# searcher <img src="man/figures/searcher-animated-logo.svg" width="170" align="right" alt="A hexagonal logo for searcher"/> 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/coatless-rpkg/searcher/actions/workflows/R-CMD-check.yaml)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/searcher)](https://www.r-pkg.org/pkg/searcher)
@@ -24,10 +23,12 @@ The goal of `searcher` is to provide a search interface directly inside of _R_.
 For example, to look up  `rcpp example numeric vector`
 or `ggplot2 fix axis labels` call one of the `search_*()` functions to
 automatically have a web browser open, go to a search site, and type the query.
-`searcher` also provides direct integration with AI assistants, allowing you to send queries to ChatGPT, Claude, and other AI services with R-optimized prompts.
+`searcher` also provides direct integration with AI assistants, allowing you to
+send queries to ChatGPT, Claude, and other AI services with R-optimized prompts.
 By default, the search functions will attempt to search the last error on call
 if no query is specified.
-![](https://i.imgur.com/Zq2rg6G.gif)
+
+![Example workflow of searching and asking AI assistants questions from R.](https://i.imgur.com/Zq2rg6G.gif)
 
 ## Installation
 
