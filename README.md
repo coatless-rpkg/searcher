@@ -11,7 +11,7 @@ downloads](https://cranlogs.r-pkg.org/badges/searcher)](https://www.r-pkg.org/pk
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
 <!-- badges: end -->
 
-## Overview
+### Overview
 
 The goal of `searcher` is to provide a search interface directly inside
 of *R*. For example, to look up `rcpp example numeric vector` or

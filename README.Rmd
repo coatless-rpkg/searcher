@@ -20,8 +20,7 @@ knitr::opts_chunk$set(
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/searcher)](https://cran.r-project.org/package=searcher)
 <!-- badges: end -->
 
-## Overview 
-
+### Overview 
 
 The goal of `searcher` is to provide a search interface directly inside of _R_.
 For example, to look up  `rcpp example numeric vector`
