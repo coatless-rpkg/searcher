@@ -58,9 +58,9 @@ repositories. The following search platforms are supported:
 [Google](https://www.google.com), [Bing](https://www.bing.com/),
 [DuckDuckGo](https://duckduckgo.com/),
 [Startpage](https://www.startpage.com/en/), Ecosia,
-[rseek](https://rseek.org/), Qwant, X (formerly Twitter),
-[StackOverflow](https://stackoverflow.com/), [RStudio
-Community](https://community.rstudio.com/search),
+[rseek](https://rseek.org/), Qwant, [Brave](https://search.brave.com/),
+Kagi, X (formerly Twitter), [StackOverflow](https://stackoverflow.com/),
+[RStudio Community](https://community.rstudio.com/search),
 [GitHub](https://github.com/search), [grep.app](https://grep.app/), and
 [BitBucket](https://bitbucket.org/product/). By default, an appropriate
 suffix for each platform that ensures relevant results to *R* is
@@ -74,6 +74,8 @@ search_bing("R project")
 search_ecosia("R project")
 search_rseek("R project")
 search_qwant("R project")
+search_brave("R project")
+search_kagi("R project")
 search_duckduckgo("R project")                           # or search_ddg(...)
 search_startpage("R project")                            # or search_sp(...)
 
@@ -177,6 +179,8 @@ search_bing()
 search_ecosia()
 search_rseek()
 search_qwant()
+search_brave()
+search_kagi()
 search_twitter()
 search_grep()
 search_duckduckgo()        # or search_ddg()

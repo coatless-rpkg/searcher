@@ -12,6 +12,8 @@
 \alias{search_ecosia}
 \alias{search_rseek}
 \alias{search_qwant}
+\alias{search_brave}
+\alias{search_kagi}
 \alias{search_rstudio_community}
 \alias{search_rscom}
 \alias{search_twitter}
@@ -27,9 +29,9 @@
 search_site(
   query,
   site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "qwant", "rseek",
-    "rstudio community", "rscom", "twitter", "stackoverflow", "so", "github", "gh",
-    "grep", "bitbucket", "bb", "chatgpt", "claude", "perplexity", "mistral",
-    "bing copilot", "copilot", "meta ai", "meta"),
+    "brave", "kagi", "rstudio community", "rscom", "twitter", "stackoverflow", "so",
+    "github", "gh", "grep", "bitbucket", "bb", "chatgpt", "claude", "perplexity",
+    "mistral", "bing copilot", "copilot", "meta ai", "meta"),
   rlang = TRUE,
   prompt = NULL
 )
@@ -53,6 +55,10 @@ search_ecosia(query = geterrmessage(), rlang = TRUE)
 search_rseek(query = geterrmessage(), rlang = TRUE)
 
 search_qwant(query = geterrmessage(), rlang = TRUE)
+
+search_brave(query = geterrmessage(), rlang = TRUE)
+
+search_kagi(query = geterrmessage(), rlang = TRUE)
 
 search_rstudio_community(query = geterrmessage(), rlang = TRUE)
 
@@ -145,6 +151,21 @@ The \code{search_qwant()} function searches
 Qwant using: \verb{https://www.qwant.com/?q=<query>}
 }
 
+\section{Brave Search}{
+
+The \code{search_brave()} function searches
+Brave using: \verb{https://search.brave.com/search?q=<query>&source=web}
+}
+
+\section{Kagi Search}{
+
+The \code{search_kagi()} function searches
+Kagi using: \verb{https://kagi.com/search?q=<query>}
+
+This is a paid search engine, and you will need to
+sign up for an account to use it.
+}
+
 \section{RStudio Community Search}{
 
 The \code{search_rstudio_community()} and \code{search_rscom()} functions both search
@@ -230,6 +251,9 @@ search_rseek("searcher")
 # Search Qwant
 search_qwant("Quarto")
 
+# Search Brave
+search_brave("webR")
+
 # Search RStudio Community
 search_rstudio_community("RStudio IDE")
 
@@ -265,7 +289,8 @@ options(error = search_google)
 }
 \seealso{
 \code{\link[=search_google]{search_google()}}, \code{\link[=search_bing]{search_bing()}}, \code{\link[=search_duckduckgo]{search_duckduckgo()}},
-\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_qwant]{search_qwant()}}, \code{\link[=search_twitter]{search_twitter()}},
+\code{\link[=search_startpage]{search_startpage()}}, \code{\link[=search_rseek]{search_rseek()}}, \code{\link[=search_qwant]{search_qwant()}},
+\code{\link[=search_brave]{search_brave()}}, \code{\link[=search_kagi]{search_kagi()}}, \code{\link[=search_twitter]{search_twitter()}},
 \code{\link[=search_rstudio_community]{search_rstudio_community()}}, \code{\link[=search_stackoverflow]{search_stackoverflow()}},
 \code{\link[=search_github]{search_github()}}, \code{\link[=search_grep]{search_grep()}}, \code{\link[=search_bitbucket]{search_bitbucket()}}, and \code{\link[=searcher]{searcher()}}
 }

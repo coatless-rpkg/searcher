@@ -19,6 +19,11 @@
 - Added new vignettes:
     - `search-with-ai-assistants.Rmd`: Overview of the AI Searching Techniques
     - `managing-ai-prompts.Rmd`: Overview of `searcher`'s AI Prompt Management System
+- Added search portals:
+    - `search_brave()`: Searches on Brave. 
+      ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
+    - `search_kagi()`: Searches on Kagi. 
+      ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
 - Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
 
 
