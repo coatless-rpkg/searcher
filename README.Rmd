@@ -21,12 +21,12 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of `searcher` is to provide a search interface directly inside of _R_.
-For example, to look up  `rcpp example numeric vector` 
+For example, to look up  `rcpp example numeric vector`
 or `ggplot2 fix axis labels` call one of the `search_*()` functions to
-automatically have a web browser open, go to a search site, and type the query. 
-By default, the search functions will attempt to search the last error on call 
+automatically have a web browser open, go to a search site, and type the query.
+`searcher` also provides direct integration with AI assistants, allowing you to send queries to ChatGPT, Claude, and other AI services with R-optimized prompts.
+By default, the search functions will attempt to search the last error on call
 if no query is specified.
-
 ![](https://i.imgur.com/Zq2rg6G.gif)
 
 ## Installation
@@ -106,6 +106,42 @@ search_bitbucket("assertions")
 search_bitbucket("assertions", rlang = FALSE)            # or search_bb(...)
 ```
 
+## AI Assistants
+
+The package also provides functions to query AI assistants directly from R.
+These functions open a browser with your query pre-filled, using customizable
+prompts that help the AI give more effective responses for R programming:
+
+```r
+# Get coding help from AI assistants
+ask_chatgpt("How to create a ggplot scatterplot with regression line?")
+ask_claude("Explain what purrr::map_df does")
+ask_perplexity("Compare dplyr vs data.table performance")
+ask_mistral("How to handle missing data in R?")
+ask_bing_copilot("Write a function to calculate the median")
+ask_meta_ai("What are the best R packages for time series analysis?")
+
+# Search with an error message
+tryCatch(
+  cor(mtcrs),  # Intentional typo
+  error = function(e) ask_claude()  # Will search the error message
+)
+```
+
+All AI search functions accept an optional `prompt` parameter that guides how
+the AI responds:
+
+```r
+# Adding specific instructions to the prompt
+ask_chatgpt(
+  "Fix this code: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()", 
+  prompt = "You are an R debugging expert. Explain what's wrong step by step."
+)
+```
+
+See `vignette("search-with-ai-assistants")` for more details on using AI
+assistants in searches through `searcher`.
+
 ## Search Errors
 
 `searcher` offers preliminary support for automatically or manually 
@@ -165,6 +201,12 @@ Presently, the following options are available:
    viewer pane instead of a web browser. Default is `FALSE`.
 - `searcher.default_keyword`: Suffix keyword to focus search results
   between either `"base"` or `"tidyverse"`. Default is `"base"`.
+- `searcher.chatgpt_prompt`: Default prompt for ChatGPT queries, used if no specific prompt is provided.
+- `searcher.claude_prompt`: Default prompt for Claude queries.
+- `searcher.perplexity_prompt`: Default prompt for Perplexity queries.
+- `searcher.mistral_prompt`: Default prompt for Mistral AI queries.
+- `searcher.bing_copilot_prompt`: Default prompt for Bing Copilot queries.
+- `searcher.meta_ai_prompt`: Default prompt for Meta AI queries.
 
 To set one of these options, please create the `.Rprofile` by typing into _R_:
 
@@ -179,11 +221,36 @@ From there, add:
   options(
     searcher.launch_delay       = 0,
     searcher.use_rstudio_viewer = FALSE,
-    searcher.default_keyword    = "tidyverse"
+    searcher.default_keyword    = "tidyverse",
+    searcher.chatgpt_prompt     = "You are an R programming expert. Please provide concise answers with code examples.",
     ## Additional options.
   )
 }
 ```
+
+## AI Prompt Management
+
+For those who frequently use AI assistants, searcher provides a prompt management system:
+
+```r
+# List available prompts
+ai_prompt_list()
+
+# Set a system-level prompt for all AI services
+ai_prompt("debugging")  # Use a predefined prompt for debugging
+
+# Create custom prompts
+ai_prompt_register("my_prompt", "As an R expert analyzing the mtcars dataset...")
+
+# Check active prompt
+ai_prompt_active()
+
+# Clear active prompt
+ai_prompt_clear()
+```
+
+See `vignette("managing-ai-prompts")` for more details on the prompt management system.
+
 
 ## Motivation
 

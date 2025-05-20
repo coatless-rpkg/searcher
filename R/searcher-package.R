@@ -17,7 +17,15 @@
 searcher_default_options = list(
   searcher.launch_delay = 0.5,
   searcher.use_rstudio_viewer = FALSE,
-  searcher.default_keyword = "base"
+  searcher.default_keyword = "base",
+
+  # Default AI prompts
+  searcher.chatgpt_prompt = "You are an R programming expert. Please answer questions concisely with code examples when appropriate.",
+  searcher.claude_prompt = "You are an R programming assistant. Focus on providing clear explanations and efficient code solutions.",
+  searcher.perplexity_prompt = "Answer with a focus on R programming and statistics. Include reliable sources when possible.",
+  searcher.mistral_prompt = "As an R expert, please help with this question. Include code examples if relevant.",
+  searcher.bing_copilot_prompt = "Please help with this R programming question. Provide working code examples.",
+  searcher.metaai_prompt = "You're an R programming assistant. Answer questions with practical examples."
 )
 
 .onLoad = function(libname, pkgname) {

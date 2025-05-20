@@ -2,6 +2,23 @@
 
 ## Features
 
+- Added GenAI Search Portals: 
+    - `ask_chatgpt()`: Searches with ChatGPT
+    - `ask_claude()`: Searches with Claude AI
+    - `ask_perplexity()`: Searches with Perplexity AI
+    - `ask_mistral()`: Searches with Mistral AI
+    - `ask_copilot()`: Searches with Microsoft Bing's Copilot
+    - `ask_meta_ai()`: Searches with Meta AI
+- Added an AI Prompt Management System with Persona Prompts
+    - `ai_prompt()`: Set a prompt for the AI
+    - `ai_prompt_active()`: View the active prompt
+    - `ai_prompt_clear()`: Clear the active prompt
+    - `ai_prompt_list()`: List all prompts
+    - `ai_prompt_register()`: Add a custom prompt
+    - `ai_prompt_remove()`: Remove a prompt
+- Added new vignettes:
+    - `search-with-ai-assistants.Rmd`: Overview of the AI Searching Techniques
+    - `managing-ai-prompts.Rmd`: Overview of `searcher`'s AI Prompt Management System
 - Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
 
 

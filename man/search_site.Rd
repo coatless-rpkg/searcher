@@ -28,8 +28,10 @@ search_site(
   query,
   site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "qwant", "rseek",
     "rstudio community", "rscom", "twitter", "stackoverflow", "so", "github", "gh",
-    "grep", "bitbucket", "bb"),
-  rlang = TRUE
+    "grep", "bitbucket", "bb", "chatgpt", "claude", "perplexity", "mistral",
+    "bing copilot", "copilot", "meta ai", "meta"),
+  rlang = TRUE,
+  prompt = NULL
 )
 
 search_google(query = geterrmessage(), rlang = TRUE)
@@ -81,6 +83,9 @@ search_bb(query = geterrmessage(), rlang = TRUE)
 \code{"github"}, \code{"grep"}, and \code{"bitbucket"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
+
+\item{prompt}{Optional prompt prefix to add before your query to guide how the AI
+responds. If \code{NULL}, uses the service-specific default prompt option.}
 }
 \value{
 The generated search URL or an empty string.

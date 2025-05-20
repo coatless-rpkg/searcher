@@ -9,8 +9,11 @@
 #'               `"github"`, `"grep"`, and `"bitbucket"`.
 #' @param query   Contents of string to search. Default is the error message.
 #' @param rlang   Search for results written in R. Default is `TRUE`
+#' @param prompt  Optional prompt prefix to add before your query to guide how the AI
+#'                responds. If `NULL`, uses the service-specific default prompt option.
 #'
-#' @return The generated search URL or an empty string.
+#' @return
+#' The generated search URL or an empty string.
 #'
 #' @rdname search_site
 #' @export
@@ -91,9 +94,18 @@ search_site = function(query,
                          "gh",
                          "grep",
                          "bitbucket",
-                         "bb"
+                         "bb",
+                         "chatgpt",
+                         "claude",
+                         "perplexity",
+                         "mistral",
+                         "bing copilot",
+                         "copilot",
+                         "meta ai",
+                         "meta"
                        ),
-                       rlang = TRUE) {
+                       rlang = TRUE,
+                       prompt = NULL) {
   site = tolower(site)
   site = match.arg(site)
 
@@ -116,7 +128,15 @@ search_site = function(query,
     gh             = search_github(query, rlang),
     grep           = search_grep(query, rlang),
     bitbucket      = ,      # empty case carried below
-    bb             = search_bitbucket(query, rlang)
+    bb             = search_bitbucket(query, rlang),
+    chatgpt        = ask_chatgpt(query, prompt),
+    claude         = ask_claude(query, prompt),
+    perplexity     = ask_perplexity(query, prompt),
+    mistral        = ask_mistral(query, prompt),
+    `bing copilot` = ,      # empty case carried below
+    copilot        = ask_bing_copilot(query, prompt),
+    `meta ai`      = ,      # empty case carried below,
+    meta           = ask_meta_ai(query, prompt)
   )
 }
 
@@ -164,6 +184,7 @@ searcher = function(site, keyword = getOption("searcher.default_keyword")) {
     browse_url(entry$site_url, query, entry$suffix)
   }
 }
+
 
 ########################### Start Search Engines
 
@@ -336,3 +357,6 @@ search_bitbucket = searcher("bb")
 search_bb = search_bitbucket
 
 ########################### End Search Code Repos
+
+
+
