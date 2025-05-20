@@ -58,10 +58,15 @@
 
 <!-- badges: start -->
 
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>The goal of <code>searcher</code> is to provide a search interface directly inside of <em>R</em>. For example, to look up <code>rcpp example numeric vector</code> or <code>ggplot2 fix axis labels</code> call one of the <code>search_*()</code> functions to automatically have a web browser open, go to a search site, and type the query. <code>searcher</code> also provides direct integration with AI assistants, allowing you to send queries to ChatGPT, Claude, and other AI services with R-optimized prompts. By default, the search functions will attempt to search the last error on call if no query is specified.</p>
 <figure><img src="https://i.imgur.com/Zq2rg6G.gif" alt="Example workflow of searching and asking AI assistants questions from R."><figcaption aria-hidden="true">
 Example workflow of searching and asking AI assistants questions from R.
-</figcaption></figure><div class="section level2">
+</figcaption></figure>
+</div>
+<div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>The <code>searcher</code> package is available on both <a href="https://CRAN.R-project.org/package=searcher" class="external-link">CRAN</a> and <a href="https://github.com/coatless-rpkg/searcher" class="external-link">GitHub</a>. The <a href="https://CRAN.R-project.org/package=searcher" class="external-link">CRAN</a> version is considered stable while the <a href="https://github.com/coatless-rpkg/searcher" class="external-link">GitHub</a> version is in a state of development and may break.</p>
@@ -82,7 +87,7 @@ Example workflow of searching and asking AI assistants questions from R.
 <div class="section level2">
 <h2 id="search-terms">Search Terms<a class="anchor" aria-label="anchor" href="#search-terms"></a>
 </h2>
-<p>The <code>search_*()</code> functions can be used to search a query directly from <em>R</em> on major search engines, programming help websites, and code repositories. The following search platforms are supported: <a href="https://www.google.com" class="external-link">Google</a>, <a href="https://www.bing.com/" class="external-link">Bing</a>, <a href="https://duckduckgo.com/" class="external-link">DuckDuckGo</a>, <a href="https://www.startpage.com/en/" class="external-link">Startpage</a>, Ecosia, <a href="https://rseek.org/" class="external-link">rseek</a>, Qwant, <a href="https://search.brave.com/" class="external-link">Brave</a>, Kagi, X (formerly Twitter), <a href="https://stackoverflow.com/" class="external-link">StackOverflow</a>, <a href="https://community.posit.co/search" class="external-link">Posit Community</a>, <a href="https://github.com/search" class="external-link">GitHub</a>, <a href="https://grep.app/" class="external-link">grep.app</a>, and <a href="https://bitbucket.org/product/" class="external-link">BitBucket</a>. By default, an appropriate suffix for each platform that ensures relevant results to <em>R</em> is appended to all queries. This behavior can be disabled by using <code>rlang = FALSE</code>.</p>
+<p>The <code>search_*()</code> functions can be used to search a query directly from <em>R</em> on major search engines, programming help websites, and code repositories. The following search platforms are supported: <a href="https://www.google.com" class="external-link">Google</a>, <a href="https://www.bing.com/" class="external-link">Bing</a>, <a href="https://duckduckgo.com/" class="external-link">DuckDuckGo</a>, <a href="https://www.startpage.com/en/" class="external-link">Startpage</a>, Ecosia, <a href="https://rseek.org/" class="external-link">rseek</a>, Qwant, <a href="https://search.brave.com/" class="external-link">Brave</a>, Kagi, X (formerly Twitter), <a href="https://bsky.app" class="external-link">BlueSky</a>, <a href="https://mastodon.social" class="external-link">Mastodon</a>, <a href="https://stackoverflow.com/" class="external-link">StackOverflow</a>, <a href="https://forum.posit.co/" class="external-link">Posit Community</a>, <a href="https://github.com/search" class="external-link">GitHub</a>, <a href="https://grep.app/" class="external-link">grep.app</a>, and <a href="https://bitbucket.org/product/" class="external-link">BitBucket</a>. By default, an appropriate suffix for each platform that ensures relevant results to <em>R</em> is appended to all queries. This behavior can be disabled by using <code>rlang = FALSE</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Searching R project on major search engines</span></span>
 <span><span class="fu"><a href="reference/search_google.html">search_google</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span></span>
@@ -95,11 +100,19 @@ Example workflow of searching and asking AI assistants questions from R.
 <span><span class="fu"><a href="reference/search_duckduckgo.html">search_duckduckgo</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span>                           <span class="co"># or search_ddg(...)</span></span>
 <span><span class="fu"><a href="reference/search_startpage.html">search_startpage</a></span><span class="op">(</span><span class="st">"R project"</span><span class="op">)</span>                            <span class="co"># or search_sp(...)</span></span>
 <span></span>
-<span><span class="co"># Searching Twitter to find out about machine learning for R and in general</span></span>
+<span><span class="co"># Searching X/Twitter to find out about machine learning for R and in general</span></span>
 <span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="st">"machine learning"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="st">"machine learning"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Searching for linear regression questions for R and in general</span></span>
+<span><span class="co"># Searching BlueSky to find out about deep learning for R and in general</span></span>
+<span><span class="fu"><a href="reference/search_bluesky.html">search_bluesky</a></span><span class="op">(</span><span class="st">"deep learning"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_bluesky.html">search_bluesky</a></span><span class="op">(</span><span class="st">"deep learning"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Searching Mastodon to find out about data visualization for R and in general</span></span>
+<span><span class="fu"><a href="reference/search_mastodon.html">search_mastodon</a></span><span class="op">(</span><span class="st">"data vis"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_mastodon.html">search_mastodon</a></span><span class="op">(</span><span class="st">"data vis"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Searching SO for linear regression questions for R and in general</span></span>
 <span><span class="fu"><a href="reference/search_stackoverflow.html">search_stackoverflow</a></span><span class="op">(</span><span class="st">"linear regression"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/search_stackoverflow.html">search_stackoverflow</a></span><span class="op">(</span><span class="st">"linear regression"</span>, rlang <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># or search_so(...)</span></span>
 <span></span>
@@ -174,8 +187,10 @@ Example workflow of searching and asking AI assistants questions from R.
 <span><span class="fu"><a href="reference/search_qwant.html">search_qwant</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/search_brave.html">search_brave</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/search_kagi.html">search_kagi</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/search_grep.html">search_grep</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_mastodon.html">search_mastodon</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_bluesky.html">search_bluesky</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="op">)</span>           <span class="co"># or search_x()</span></span>
 <span><span class="fu"><a href="reference/search_duckduckgo.html">search_duckduckgo</a></span><span class="op">(</span><span class="op">)</span>        <span class="co"># or search_ddg()</span></span>
 <span><span class="fu"><a href="reference/search_startpage.html">search_startpage</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># or search_sp()</span></span>
 <span><span class="fu"><a href="reference/search_stackoverflow.html">search_stackoverflow</a></span><span class="op">(</span><span class="op">)</span>     <span class="co"># or search_so()</span></span>
