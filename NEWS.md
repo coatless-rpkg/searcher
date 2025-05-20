@@ -25,9 +25,9 @@
     - `search_kagi()`: Searches on Kagi. 
       ([#42](https://github.com/coatless-rpkg/searcher/pull/42))
     - `search_mastodon()`: Searches on Mastodon. 
-      ([#44](https://github.com/coatless-rpkg/searcher/pull/44))
+      ([#45](https://github.com/coatless-rpkg/searcher/pull/45))
     - `search_bluesky()`: Searches on BlueSky. 
-      ([#44](https://github.com/coatless-rpkg/searcher/pull/44))
+      ([#45](https://github.com/coatless-rpkg/searcher/pull/45))
 - Added searcher logo ([#40](https://github.com/coatless-rpkg/searcher/pull/40))
 
 ## Documentation
