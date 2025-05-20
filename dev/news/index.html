@@ -81,7 +81,7 @@
 <li>
 <code><a href="../reference/search_genai.html">ask_meta_ai()</a></code>: Searches with Meta AI</li>
 </ul></li>
-<li>Added an AI Prompt Management System with Persona Prompts
+<li>Added an AI Prompt Management System with Persona Prompts:
 <ul><li>
 <code><a href="../reference/ai_prompt.html">ai_prompt()</a></code>: Set a prompt for the AI</li>
 <li>
@@ -108,6 +108,12 @@
 <code><a href="../reference/search_site.html">search_kagi()</a></code>: Searches on Kagi. (<a href="https://github.com/coatless-rpkg/searcher/pull/42" class="external-link">#42</a>)</li>
 </ul></li>
 <li>Added searcher logo (<a href="https://github.com/coatless-rpkg/searcher/pull/40" class="external-link">#40</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="deprecations-0-0-8">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-0-0-8"></a></h3>
+<ul><li>Deprecated <code>search_rstudio_community()</code> and <code>search_rscom()</code> functions. (<a href="https://github.com/coatless-rpkg/searcher/pull/43" class="external-link">#43</a>)
+<ul><li>These functions are now replaced by <code><a href="../reference/search_site.html">search_posit_community()</a></code>/<code><a href="../reference/search_site.html">search_posit()</a></code> which searches <a href="https://community.posit.co/search" class="external-link">Posit Community</a>.</li>
+</ul></li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -186,7 +192,7 @@
 <h3 id="features-0-0-4">Features<a class="anchor" aria-label="anchor" href="#features-0-0-4"></a></h3>
 <ul><li>Added search portal:
 <ul><li>
-<code><a href="../reference/search_site.html">search_rstudio_community()</a></code> or <code><a href="../reference/search_site.html">search_rscom()</a></code>: Searches on <a href="https://community.rstudio.com/search" class="external-link">RStudio Community</a>. (<a href="https://github.com/coatless-rpkg/searcher/issues/13" class="external-link">#13</a>, <a href="https://github.com/coatless-rpkg/searcher/issues/17" class="external-link">#17</a>)</li>
+<code>search_rstudio_community()</code> or <code>search_rscom()</code>: Searches on RStudio Community. (<a href="https://github.com/coatless-rpkg/searcher/issues/13" class="external-link">#13</a>, <a href="https://github.com/coatless-rpkg/searcher/issues/17" class="external-link">#17</a>)</li>
 </ul></li>
 <li>Added vignette on search patterns (<a href="https://github.com/coatless-rpkg/searcher/issues/18" class="external-link">#18</a>).</li>
 </ul></div>
