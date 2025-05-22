@@ -40,8 +40,17 @@ The `searcher` package provides a multi-level prompt system:
 2. **Service-specific prompts**: Set with `options()` or within function calls
 3. **Default prompts**: Built-in prompts that ship with the package
 
-When you search with an AI assistant, prompts are applied in this order 
-(with the query at the end).
+When you search with an AI assistant, we combine all relevant prompts in the following order:
+
+- System-level prompt (if any)
+- Service-specific prompt (if set) or Function call prompt (if provided)
+- Default prompt (if no other prompt is set)
+- Query: The actual question or request (with the query at the end). 
+
+For clarity, the prompt hierarchy is illustrated below:
+
+![An example of the prompt hierarchy used in the `searcher` package.](../man/figures/prompt-hierarchy.svg)
+
 
 ## Built-in Prompt Library
 

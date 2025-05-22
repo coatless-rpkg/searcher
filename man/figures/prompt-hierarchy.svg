@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 974.7 545.8">
+  <!-- Generator: Adobe Illustrator 29.1.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 142)  -->
+  <defs>
+    <style>
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st14, .st15, .st16, .st17, .st18, .st19, .st20, .st21, .st22, .st23 {
+        isolation: isolate;
+      }
+
+      .st0, .st2, .st24, .st10 {
+        fill: #fff;
+      }
+
+      .st0, .st5 {
+        font-family: ArialMT, Arial;
+        font-size: 12px;
+      }
+
+      .st1, .st3, .st7, .st8 {
+        fill: #6c5ce7;
+      }
+
+      .st1, .st4, .st6, .st13, .st15 {
+        font-size: 11px;
+      }
+
+      .st1, .st4, .st6, .st15 {
+        font-family: CourierNewPSMT, 'Courier New';
+      }
+
+      .st2, .st3, .st9 {
+        font-size: 14px;
+      }
+
+      .st2, .st3, .st9, .st10, .st11, .st13, .st14, .st18, .st21 {
+        font-weight: 700;
+      }
+
+      .st2, .st3, .st9, .st10, .st11, .st14, .st18, .st21 {
+        font-family: Arial-BoldMT, Arial;
+      }
+
+      .st25 {
+        fill: none;
+        stroke: #333;
+        stroke-width: 3px;
+      }
+
+      .st4, .st22, .st23 {
+        fill: #00b894;
+      }
+
+      .st5 {
+        fill: #555;
+      }
+
+      .st6, .st9, .st16, .st17 {
+        fill: #0984e3;
+      }
+
+      .st7, .st17, .st19, .st22 {
+        opacity: .2;
+      }
+
+      .st8, .st12, .st16, .st20, .st23 {
+        opacity: .9;
+      }
+
+      .st24 {
+        stroke: #ddd;
+        stroke-width: 2px;
+      }
+
+      .st10, .st21 {
+        font-size: 16px;
+      }
+
+      .st11 {
+        font-size: 20px;
+      }
+
+      .st11, .st14, .st18, .st21, .st26 {
+        fill: #333;
+      }
+
+      .st12 {
+        fill: #e17055;
+      }
+
+      .st13 {
+        font-family: CourierNewPS-BoldMT, 'Courier New';
+      }
+
+      .st13, .st15, .st19, .st20 {
+        fill: #4a69bd;
+      }
+
+      .st14 {
+        font-size: 18px;
+      }
+
+      .st27 {
+        fill: #f8f9fa;
+      }
+
+      .st18 {
+        font-size: 24px;
+      }
+    </style>
+  </defs>
+  <rect class="st27" y="0" width="974.7" height="545.8" rx="10" ry="10"/>
+  <text class="st18" transform="translate(327.8 40)"><tspan x="0" y="0">Prompt Hierarchy in searcher</tspan></text>
+  <g>
+    <rect class="st8" x="59.8" y="109.2" width="180" height="100" rx="8" ry="8"/>
+    <text class="st10" transform="translate(100.9 144.2)"><tspan x="0" y="0">System-level</tspan></text>
+    <text class="st10" transform="translate(121.8 164.2)"><tspan x="0" y="0">Prompt</tspan></text>
+    <text class="st0" transform="translate(119.1 184.2)"><tspan x="0" y="0">ai_prompt()</tspan></text>
+    <text class="st3" transform="translate(123 94.2)"><tspan x="0" y="0">FIRST</tspan></text>
+    <line class="st25" x1="239.8" y1="159.2" x2="279.8" y2="159.2"/>
+    <polygon class="st26" points="279.8 154.2 294.8 159.2 279.8 164.2 279.8 154.2"/>
+    <rect class="st23" x="304.8" y="64.2" width="180" height="80" rx="8" ry="8"/>
+    <text class="st10" transform="translate(333.9 94.2)"><tspan x="0" y="0">Service-specific</tspan></text>
+    <text class="st10" transform="translate(366.8 114.2)"><tspan x="0" y="0">Prompt</tspan></text>
+    <text class="st0" transform="translate(331.1 132.2)"><tspan x="0" y="0">options() or function call</tspan></text>
+    <text class="st14" transform="translate(381.3 169.2)"><tspan x="0" y="0">OR</tspan></text>
+    <rect class="st12" x="304.8" y="184.2" width="180" height="80" rx="8" ry="8"/>
+    <text class="st10" transform="translate(337.5 214.2)"><tspan x="0" y="0">Default Prompt</tspan></text>
+    <text class="st0" transform="translate(331.8 239.2)"><tspan x="0" y="0">Built-in package prompt</tspan></text>
+    <text class="st0" transform="translate(342.8 254.2)"><tspan x="0" y="0">if no other specified</tspan></text>
+    <line class="st25" x1="484.8" y1="104.2" x2="514.8" y2="104.2"/>
+    <polygon class="st26" points="514.8 99.2 529.8 104.2 514.8 109.2 514.8 99.2"/>
+    <line class="st25" x1="484.8" y1="224.2" x2="514.8" y2="224.2"/>
+    <polygon class="st26" points="514.8 219.2 529.8 224.2 514.8 229.2 514.8 219.2"/>
+    <line class="st25" x1="529.8" y1="104.2" x2="529.8" y2="184.2"/>
+    <line class="st25" x1="529.8" y1="184.2" x2="529.8" y2="224.2"/>
+    <line class="st25" x1="528.6" y1="164.2" x2="548.6" y2="164.2"/>
+    <polygon class="st26" points="548.6 159.2 563.6 164.2 548.6 169.2 548.6 159.2"/>
+    <rect class="st16" x="570.5" y="125.8" width="180" height="80" rx="8" ry="8"/>
+    <text class="st10" transform="translate(617.3 155.8)"><tspan x="0" y="0">User Query</tspan></text>
+    <text class="st0" transform="translate(597.1 180.8)"><tspan x="0" y="0">The question or request</tspan></text>
+    <text class="st0" transform="translate(625.1 195.8)"><tspan x="0" y="0">from the user</tspan></text>
+    <text class="st9" transform="translate(642.2 105.8)"><tspan x="0" y="0">LAST</tspan></text>
+    <rect class="st20" x="805.5" y="105.8" width="120" height="120" rx="8" ry="8"/>
+    <text class="st2" transform="translate(831.2 135.8)"><tspan x="0" y="0">Combined</tspan></text>
+    <text class="st2" transform="translate(841 155.8)"><tspan x="0" y="0">Prompt</tspan></text>
+    <text class="st2" transform="translate(841.7 175.8)"><tspan x="0" y="0">Sent to</tspan></text>
+    <text class="st2" transform="translate(831.6 195.8)"><tspan x="0" y="0">AI Service</tspan></text>
+    <text class="st11" transform="translate(255.8 149.7)"><tspan x="0" y="0">+</tspan></text>
+    <text class="st11" transform="translate(539.8 109.2)"><tspan x="0" y="0">+</tspan></text>
+    <text class="st11" transform="translate(539.8 229.2)"><tspan x="0" y="0">+</tspan></text>
+    <text class="st11" transform="translate(770.5 170.8)"><tspan x="0" y="0">=</tspan></text>
+  </g>
+  <g>
+    <rect class="st24" x="43.2" y="295.8" width="882.3" height="150" rx="8" ry="8"/>
+    <text class="st21" transform="translate(59.8 325.8)"><tspan x="0" y="0">Example Concatenation:</tspan></text>
+    <rect class="st7" x="59.8" y="339.9" width="218.5" height="30" rx="4" ry="4"/>
+    <text class="st1" transform="translate(64.8 360.8)"><tspan x="0" y="0">&quot;You are an R debugging expert.&quot;</tspan></text>
+    <text class="st21" transform="translate(287.3 361.3)"><tspan x="0" y="0">+</tspan></text>
+    <rect class="st22" x="308.3" y="341.2" width="220" height="30" rx="4" ry="4"/>
+    <text class="st4" transform="translate(317.1 361.3)"><tspan x="0" y="0">&quot;Focus on tidyverse solutions.&quot;</tspan></text>
+    <text class="st21" transform="translate(535.8 362.9)"><tspan x="0" y="0">+</tspan></text>
+    <rect class="st17" x="554" y="341.6" width="212.9" height="30" rx="4" ry="4"/>
+    <text class="st6" transform="translate(563 361.6)"><tspan x="0" y="0">&quot;How to filter a dataframe?&quot;</tspan></text>
+    <text class="st21" transform="translate(775.2 363.3)"><tspan x="0" y="0">=</tspan></text>
+    <rect class="st19" x="59.8" y="385.8" width="750" height="40" rx="4" ry="4"/>
+    <text class="st13" transform="translate(64.8 400.8)"><tspan x="0" y="0">Combined prompt sent to AI:</tspan></text>
+    <text class="st15" transform="translate(64.8 415.8)"><tspan x="0" y="0">&quot;You are an R debugging expert. Focus on tidyverse solutions. How to filter a dataframe?&quot;</tspan></text>
+  </g>
+  <g>
+    <text class="st5" transform="translate(50.5 485.8)"><tspan x="0" y="0">Notes:</tspan></text>
+    <text class="st5" transform="translate(50.5 505.8)"><tspan x="0" y="0">• System-level prompt is always first (if set)</tspan></text>
+    <text class="st5" transform="translate(50.5 520.8)"><tspan x="0" y="0">• Either service-specific OR default prompt is used (not both)</tspan></text>
+    <text class="st5" transform="translate(50.5 535.8)"><tspan x="0" y="0">• User query is always last</tspan></text>
+    <text class="st5" transform="translate(450.5 505.8)"><tspan x="0" y="0">• Priority: System → Service → Default → Query (User input is always included)</tspan></text>
+    <text class="st5" transform="translate(450.5 520.8)"><tspan x="0" y="0" xml:space="preserve">• Sources: ai_prompt(), options(), function call, and built-in defaults  </tspan></text>
+  </g>
+</svg>

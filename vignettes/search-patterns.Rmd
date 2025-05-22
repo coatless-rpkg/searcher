@@ -51,6 +51,7 @@ library("searcher")
 search_google("tips")
 ```
 
+
 # Search Operators
 
 Within the `searcher` package, each `search_*()` function has the parameter
@@ -91,3 +92,67 @@ Suggestions here were pooled from discussion on rOpenSci's slack with
 [Steph Locke](https://itsalocke.com/blog/) and 
 [Robert Mitchell](https://robertmitchellv.com/).
 
+# Search Platform URLs
+
+The `searcher` package uses specific URLs to direct searches to various
+platforms. Understanding these URLs can be helpful for troubleshooting 
+or creating custom search functions.
+
+## Search Engines
+
+The following search engines are supported with their corresponding base URLs:
+
+| Function | Service | Base URL |
+|----------|---------|----------|
+| `search_google()` | Google | `https://google.com/search?q=` |
+| `search_bing()` | Bing | `https://bing.com/search?q=` |
+| `search_duckduckgo()` / `search_ddg()` | DuckDuckGo | `https://duckduckgo.com/?q=` |
+| `search_startpage()` / `search_sp()` | Startpage | `https://startpage.com/do/dsearch?query=` |
+| `search_ecosia()` | Ecosia | `https://www.ecosia.org/search?q=` |
+| `search_qwant()` | Qwant | `https://www.qwant.com/?q=` |
+| `search_brave()` | Brave Search | `https://search.brave.com/search?q=` |
+| `search_kagi()` | Kagi | `https://kagi.com/search?q=` |
+| `search_rseek()` | Rseek | `https://rseek.org/?q=` |
+
+## Community Sites
+
+Community and developer discussion platforms:
+
+| Function | Service | Base URL |
+|----------|---------|----------|
+| `search_stackoverflow()` / `search_so()` | StackOverflow | `https://stackoverflow.com/search?q=` |
+| `search_posit_community()` / `search_posit()` | Posit Community | `https://forum.posit.co/search?q=` |
+| `search_twitter()` / `search_x()` | Twitter/X | `https://twitter.com/search?q=` |
+| `search_mastodon()` | Mastodon | `https://mastodon.social/search?q=` |
+| `search_bluesky()` | BlueSky | `https://bsky.app/search?q=` |
+
+## Code Repositories
+
+Code hosting and search platforms:
+
+| Function | Service | Base URL | Additional Parameters |
+|----------|---------|----------|----------------------|
+| `search_github()` / `search_gh()` | GitHub | `https://github.com/search?q=` | `&type=Issues` |
+| `search_grep()` | grep.app | `https://grep.app/search?q=` | N/A |
+| `search_bitbucket()` / `search_bb()` | BitBucket | `https://bitbucket.com/search?q=` | N/A |
+
+## URL Construction
+
+When you use a search function, the final URL is constructed by:
+
+1. **Base URL**: The platform's search endpoint
+2. **Encoded Query**: Your search term, URL-encoded for safety
+3. **R-specific Keywords**: Added automatically when `rlang = TRUE` (default)
+4. **Additional Parameters**: Platform-specific options (like GitHub's `&type=Issues`)
+
+For example, when you run:
+
+```r
+search_github("data visualization")
+```
+
+The constructed URL becomes:
+
+```default
+https://github.com/search?q=data%20visualization%20language%3Ar%20type%3Aissue&type=Issues
+```
