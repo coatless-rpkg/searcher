@@ -41,6 +41,7 @@
 <li><a class="dropdown-item" href="articles/search-patterns.html">Search Patterns</a></li>
     <li><a class="dropdown-item" href="articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
     <li><a class="dropdown-item" href="articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
+    <li><a class="dropdown-item" href="articles/faq.html">Frequently Asked Questions (FAQ)</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -157,7 +158,62 @@ Example workflow of searching and asking AI assistants questions from R.
 <span>  <span class="st">"Fix this code: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()"</span>, </span>
 <span>  prompt <span class="op">=</span> <span class="st">"You are an R debugging expert. Explain what's wrong step by step."</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>See <code><a href="articles/search-with-ai-assistants.html">vignette("search-with-ai-assistants")</a></code> for more details on using AI assistants in searches through <code>searcher</code>.</p>
+<p>See <code><a href="articles/search-with-ai-assistants.html">vignette("search-with-ai-assistants",  package = "searcher")</a></code> for more details on using AI assistants in searches through <code>searcher</code>.</p>
+</div>
+<div class="section level2">
+<h2 id="ai-prompt-management">AI Prompt Management<a class="anchor" aria-label="anchor" href="#ai-prompt-management"></a>
+</h2>
+<p>For those who frequently use AI assistants, searcher provides a prompt management system:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># List available prompts</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_list.html">ai_prompt_list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Set a system-level prompt for all AI services</span></span>
+<span><span class="fu"><a href="reference/ai_prompt.html">ai_prompt</a></span><span class="op">(</span><span class="st">"debugging"</span><span class="op">)</span>  <span class="co"># Use a predefined prompt for debugging</span></span>
+<span></span>
+<span><span class="co"># Create custom prompts</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_register.html">ai_prompt_register</a></span><span class="op">(</span><span class="st">"my_prompt"</span>, <span class="st">"As an R expert analyzing the mtcars dataset..."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check active prompt</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_active.html">ai_prompt_active</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Clear active prompt</span></span>
+<span><span class="fu"><a href="reference/ai_prompt_clear.html">ai_prompt_clear</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>See <code><a href="articles/managing-ai-prompts.html">vignette("managing-ai-prompts")</a></code> for more details on the prompt management system.</p>
+<div class="section level3">
+<h3 id="comparison-with-ellmer-package">Comparison with ellmer Package<a class="anchor" aria-label="anchor" href="#comparison-with-ellmer-package"></a>
+</h3>
+<p>While both <code>searcher</code> and <code>ellmer</code> provide AI assistance for R users, they take different approaches:</p>
+<ul>
+<li>
+<code>searcher</code> opens a web browser with your query pre-filled in the AI service’s interface
+<ul>
+<li>No API keys needed<br>
+</li>
+<li>Works with multiple AI services<br>
+</li>
+<li>Visual interface for complex interactions<br>
+</li>
+<li>Requires browser access and being logged in</li>
+</ul>
+</li>
+<li>
+<code>ellmer</code> uses API connections to interact with models directly within R
+<ul>
+<li>Requires API keys</li>
+<li>Results returned directly to R console/environment</li>
+<li>Better for programmatic/automated use</li>
+<li>Works in non-interactive environments</li>
+</ul>
+</li>
+</ul>
+<p>These packages are <strong>complementary</strong> rather than competitive:</p>
+<ul>
+<li>Use <code>searcher</code> for interactive exploration, debugging, and research</li>
+<li>Use <code>ellmer</code> for reproducible workflows, batch processing, and production code</li>
+</ul>
+<p>See <code><a href="articles/faq.html">vignette("faq", package = "searcher")</a></code> for a more detailed comparison.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="search-errors">Search Errors<a class="anchor" aria-label="anchor" href="#search-errors"></a>
@@ -167,36 +223,29 @@ Example workflow of searching and asking AI assistants questions from R.
 <h3 id="automatically">Automatically<a class="anchor" aria-label="anchor" href="#automatically"></a>
 </h3>
 <p>Searching the last error automatically is possible by registering a function as <em>R</em>’s error handler via either <code>searcher(site="")</code> or one of the <code>search_*()</code> functions. Thus, when an error occurs, this function will automatically be called. This triggers a new browser window to open with the error term listed in verbatim.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using the generic search error handler</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="fu"><a href="reference/searcher.html">searcher</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Directly specify the search function</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="va">search_github</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="va">search_google</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Directly specify the search or ask function</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="va">search_google</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>error <span class="op">=</span> <span class="va">ask_claude</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="manually">Manually<a class="anchor" aria-label="anchor" href="#manually"></a>
 </h3>
 <p>Alternatively, these functions can also be used manually so that the default error dispatch is preserved. In the manual case, you will have to explicitly call the search function. After that, a browser window will open with the last error message as the search query on the desired search portal.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/search_google.html">search_google</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_bing.html">search_bing</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_ecosia.html">search_ecosia</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_rseek.html">search_rseek</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_qwant.html">search_qwant</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_brave.html">search_brave</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_kagi.html">search_kagi</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_grep.html">search_grep</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_mastodon.html">search_mastodon</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_bluesky.html">search_bluesky</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/search_twitter.html">search_twitter</a></span><span class="op">(</span><span class="op">)</span>           <span class="co"># or search_x()</span></span>
-<span><span class="fu"><a href="reference/search_duckduckgo.html">search_duckduckgo</a></span><span class="op">(</span><span class="op">)</span>        <span class="co"># or search_ddg()</span></span>
-<span><span class="fu"><a href="reference/search_startpage.html">search_startpage</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># or search_sp()</span></span>
-<span><span class="fu"><a href="reference/search_stackoverflow.html">search_stackoverflow</a></span><span class="op">(</span><span class="op">)</span>     <span class="co"># or search_so()</span></span>
-<span><span class="fu"><a href="reference/search_posit_community.html">search_posit_community</a></span><span class="op">(</span><span class="op">)</span>   <span class="co"># or search_posit()</span></span>
-<span><span class="fu"><a href="reference/search_github.html">search_github</a></span><span class="op">(</span><span class="op">)</span>            <span class="co"># or search_gh()</span></span>
-<span><span class="fu"><a href="reference/search_bitbucket.html">search_bitbucket</a></span><span class="op">(</span><span class="op">)</span>         <span class="co"># or search_bb()</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Search the last error message with Google</span></span>
+<span><span class="fu"><a href="reference/search_google.html">search_google</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Ask an AI assistant about the last error</span></span>
+<span><span class="co">## Switch into debug mode</span></span>
+<span><span class="fu"><a href="reference/ai_prompt.html">ai_prompt</a></span><span class="op">(</span><span class="st">"debugging"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Ask Claude about the last error</span></span>
+<span><span class="fu"><a href="reference/ask_claude.html">ask_claude</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -224,10 +273,10 @@ Example workflow of searching and asking AI assistants questions from R.
 <code>searcher.meta_ai_prompt</code>: Default prompt for Meta AI queries.</li>
 </ul>
 <p>To set one of these options, please create the <code>.Rprofile</code> by typing into <em>R</em>:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/file.edit.html" class="external-link">file.edit</a></span><span class="op">(</span><span class="st">"~/.Rprofile"</span><span class="op">)</span></span></code></pre></div>
 <p>From there, add:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">.First</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span></span>
 <span>    searcher.launch_delay       <span class="op">=</span> <span class="fl">0</span>,</span>
@@ -237,27 +286,6 @@ Example workflow of searching and asking AI assistants questions from R.
 <span>    <span class="co">## Additional options.</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="ai-prompt-management">AI Prompt Management<a class="anchor" aria-label="anchor" href="#ai-prompt-management"></a>
-</h2>
-<p>For those who frequently use AI assistants, searcher provides a prompt management system:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># List available prompts</span></span>
-<span><span class="fu"><a href="reference/ai_prompt_list.html">ai_prompt_list</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Set a system-level prompt for all AI services</span></span>
-<span><span class="fu"><a href="reference/ai_prompt.html">ai_prompt</a></span><span class="op">(</span><span class="st">"debugging"</span><span class="op">)</span>  <span class="co"># Use a predefined prompt for debugging</span></span>
-<span></span>
-<span><span class="co"># Create custom prompts</span></span>
-<span><span class="fu"><a href="reference/ai_prompt_register.html">ai_prompt_register</a></span><span class="op">(</span><span class="st">"my_prompt"</span>, <span class="st">"As an R expert analyzing the mtcars dataset..."</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Check active prompt</span></span>
-<span><span class="fu"><a href="reference/ai_prompt_active.html">ai_prompt_active</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Clear active prompt</span></span>
-<span><span class="fu"><a href="reference/ai_prompt_clear.html">ai_prompt_clear</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>See <code><a href="articles/managing-ai-prompts.html">vignette("managing-ai-prompts")</a></code> for more details on the prompt management system.</p>
 </div>
 <div class="section level2">
 <h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>

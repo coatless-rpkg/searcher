@@ -37,6 +37,7 @@
 <li><a class="dropdown-item" href="../articles/search-patterns.html">Search Patterns</a></li>
     <li><a class="dropdown-item" href="../articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
     <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
+    <li><a class="dropdown-item" href="../articles/faq.html">Frequently Asked Questions (FAQ)</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -60,7 +61,7 @@
                         <h4 data-toc-skip class="author">James Joseph
 Balamuta</h4>
             
-            <h4 data-toc-skip class="date">2025-05-20</h4>
+            <h4 data-toc-skip class="date">2025-05-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/coatless-rpkg/searcher/blob/main/vignettes/search-patterns.Rmd" class="external-link"><code>vignettes/search-patterns.Rmd</code></a></small>
       <div class="d-none name"><code>search-patterns.Rmd</code></div>
@@ -186,6 +187,199 @@ the query.</li>
 </ul>
 <p>Suggestions here were pooled from discussion on rOpenSci’s slack with
 <a href="https://itsalocke.com/blog/" class="external-link">Steph Locke</a> and <a href="https://robertmitchellv.com/" class="external-link">Robert Mitchell</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="search-platform-urls">Search Platform URLs<a class="anchor" aria-label="anchor" href="#search-platform-urls"></a>
+</h2>
+<p>The <code>searcher</code> package uses specific URLs to direct
+searches to various platforms. Understanding these URLs can be helpful
+for troubleshooting or creating custom search functions.</p>
+<div class="section level3">
+<h3 id="search-engines">Search Engines<a class="anchor" aria-label="anchor" href="#search-engines"></a>
+</h3>
+<p>The following search engines are supported with their corresponding
+base URLs:</p>
+<table class="table">
+<colgroup>
+<col width="34%">
+<col width="31%">
+<col width="34%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Service</th>
+<th>Base URL</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code><a href="../reference/search_google.html">search_google()</a></code></td>
+<td>Google</td>
+<td><code>https://google.com/search?q=</code></td>
+</tr>
+<tr class="even">
+<td><code><a href="../reference/search_bing.html">search_bing()</a></code></td>
+<td>Bing</td>
+<td><code>https://bing.com/search?q=</code></td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/search_duckduckgo.html">search_duckduckgo()</a></code> / <code><a href="../reference/search_duckduckgo.html">search_ddg()</a></code>
+</td>
+<td>DuckDuckGo</td>
+<td><code>https://duckduckgo.com/?q=</code></td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/search_startpage.html">search_startpage()</a></code> / <code><a href="../reference/search_startpage.html">search_sp()</a></code>
+</td>
+<td>Startpage</td>
+<td><code>https://startpage.com/do/dsearch?query=</code></td>
+</tr>
+<tr class="odd">
+<td><code><a href="../reference/search_ecosia.html">search_ecosia()</a></code></td>
+<td>Ecosia</td>
+<td><code>https://www.ecosia.org/search?q=</code></td>
+</tr>
+<tr class="even">
+<td><code><a href="../reference/search_qwant.html">search_qwant()</a></code></td>
+<td>Qwant</td>
+<td><code>https://www.qwant.com/?q=</code></td>
+</tr>
+<tr class="odd">
+<td><code><a href="../reference/search_brave.html">search_brave()</a></code></td>
+<td>Brave Search</td>
+<td><code>https://search.brave.com/search?q=</code></td>
+</tr>
+<tr class="even">
+<td><code><a href="../reference/search_kagi.html">search_kagi()</a></code></td>
+<td>Kagi</td>
+<td><code>https://kagi.com/search?q=</code></td>
+</tr>
+<tr class="odd">
+<td><code><a href="../reference/search_rseek.html">search_rseek()</a></code></td>
+<td>Rseek</td>
+<td><code>https://rseek.org/?q=</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="community-sites">Community Sites<a class="anchor" aria-label="anchor" href="#community-sites"></a>
+</h3>
+<p>Community and developer discussion platforms:</p>
+<table class="table">
+<colgroup>
+<col width="34%">
+<col width="31%">
+<col width="34%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Service</th>
+<th>Base URL</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code><a href="../reference/search_stackoverflow.html">search_stackoverflow()</a></code> / <code><a href="../reference/search_stackoverflow.html">search_so()</a></code>
+</td>
+<td>StackOverflow</td>
+<td><code>https://stackoverflow.com/search?q=</code></td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="../reference/search_posit_community.html">search_posit_community()</a></code> /
+<code><a href="../reference/search_posit_community.html">search_posit()</a></code>
+</td>
+<td>Posit Community</td>
+<td><code>https://forum.posit.co/search?q=</code></td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/search_twitter.html">search_twitter()</a></code> / <code><a href="../reference/search_twitter.html">search_x()</a></code>
+</td>
+<td>Twitter/X</td>
+<td><code>https://twitter.com/search?q=</code></td>
+</tr>
+<tr class="even">
+<td><code><a href="../reference/search_mastodon.html">search_mastodon()</a></code></td>
+<td>Mastodon</td>
+<td><code>https://mastodon.social/search?q=</code></td>
+</tr>
+<tr class="odd">
+<td><code><a href="../reference/search_bluesky.html">search_bluesky()</a></code></td>
+<td>BlueSky</td>
+<td><code>https://bsky.app/search?q=</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="code-repositories">Code Repositories<a class="anchor" aria-label="anchor" href="#code-repositories"></a>
+</h3>
+<p>Code hosting and search platforms:</p>
+<table class="table">
+<colgroup>
+<col width="19%">
+<col width="17%">
+<col width="19%">
+<col width="43%">
+</colgroup>
+<thead><tr class="header">
+<th>Function</th>
+<th>Service</th>
+<th>Base URL</th>
+<th>Additional Parameters</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<code><a href="../reference/search_github.html">search_github()</a></code> / <code><a href="../reference/search_github.html">search_gh()</a></code>
+</td>
+<td>GitHub</td>
+<td><code>https://github.com/search?q=</code></td>
+<td><code>&amp;type=Issues</code></td>
+</tr>
+<tr class="even">
+<td><code><a href="../reference/search_grep.html">search_grep()</a></code></td>
+<td>grep.app</td>
+<td><code>https://grep.app/search?q=</code></td>
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="../reference/search_bitbucket.html">search_bitbucket()</a></code> / <code><a href="../reference/search_bitbucket.html">search_bb()</a></code>
+</td>
+<td>BitBucket</td>
+<td><code>https://bitbucket.com/search?q=</code></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="url-construction">URL Construction<a class="anchor" aria-label="anchor" href="#url-construction"></a>
+</h3>
+<p>When you use a search function, the final URL is constructed by:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Base URL</strong>: The platform’s search endpoint</li>
+<li>
+<strong>Encoded Query</strong>: Your search term, URL-encoded for
+safety</li>
+<li>
+<strong>R-specific Keywords</strong>: Added automatically when
+<code>rlang = TRUE</code> (default)</li>
+<li>
+<strong>Additional Parameters</strong>: Platform-specific options
+(like GitHub’s <code>&amp;type=Issues</code>)</li>
+</ol>
+<p>For example, when you run:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_github.html">search_github</a></span><span class="op">(</span><span class="st">"data visualization"</span><span class="op">)</span></span></code></pre></div>
+<p>The constructed URL becomes:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>https://github.com/search?q=data%20visualization%20language%3Ar%20type%3Aissue&amp;type=Issues</span></code></pre></div>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

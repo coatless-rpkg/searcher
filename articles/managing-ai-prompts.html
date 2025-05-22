@@ -37,6 +37,7 @@
 <li><a class="dropdown-item" href="../articles/search-patterns.html">Search Patterns</a></li>
     <li><a class="dropdown-item" href="../articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
     <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
+    <li><a class="dropdown-item" href="../articles/faq.html">Frequently Asked Questions (FAQ)</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -60,7 +61,7 @@
                         <h4 data-toc-skip class="author">James Joseph
 Balamuta</h4>
             
-            <h4 data-toc-skip class="date">2025-05-20</h4>
+            <h4 data-toc-skip class="date">2025-05-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/coatless-rpkg/searcher/blob/main/vignettes/managing-ai-prompts.Rmd" class="external-link"><code>vignettes/managing-ai-prompts.Rmd</code></a></small>
       <div class="d-none name"><code>managing-ai-prompts.Rmd</code></div>
@@ -101,8 +102,21 @@ system:</p>
 <strong>Default prompts</strong>: Built-in prompts that ship with
 the package</li>
 </ol>
-<p>When you search with an AI assistant, prompts are applied in this
-order (with the query at the end).</p>
+<p>When you search with an AI assistant, we combine all relevant prompts
+in the following order:</p>
+<ul>
+<li>System-level prompt (if any)</li>
+<li>Service-specific prompt (if set) or Function call prompt (if
+provided)</li>
+<li>Default prompt (if no other prompt is set)</li>
+<li>Query: The actual question or request (with the query at the
+end).</li>
+</ul>
+<p>For clarity, the prompt hierarchy is illustrated below:</p>
+<div class="float">
+<img src="../reference/figures/prompt-hierarchy.svg" alt="An example of the prompt hierarchy used in the searcher package."><div class="figcaption">An example of the prompt hierarchy used in the
+<code>searcher</code> package.</div>
+</div>
 <div class="section level3">
 <h3 id="built-in-prompt-library">Built-in Prompt Library<a class="anchor" aria-label="anchor" href="#built-in-prompt-library"></a>
 </h3>
