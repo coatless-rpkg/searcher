@@ -58,8 +58,39 @@ ask_mistral("Debug this function: calculate_median <- function(x) mean(x)")
 ask_copilot("Compare data.table vs dplyr for large datasets")
 
 # Ask Meta AI about best practices
-ask_metaai("What's the best way to handle missing data in R?")
+ask_meta_ai("What's the best way to handle missing data in R?")
 ```
+
+# AI Service Links
+
+The `searcher` package uses direct links to create new chat sessions with 
+various AI assistants. When you use any of the `ask_*()` functions, the package 
+will open a browser tab with a new chat at the corresponding service URL.
+
+## Links Used by the Package
+
+The following URLs are used to create new chat sessions:
+
+| Function | Service | URL Used |
+|----------|---------|----------|
+| `ask_chatgpt()` | OpenAI ChatGPT | `https://chat.openai.com/?model=auto&q=` |
+| `ask_claude()` | Anthropic Claude | `https://claude.ai/new?q=` |
+| `ask_perplexity()` | Perplexity AI | `https://www.perplexity.ai/search?q=` (with additional parameters) |
+| `ask_mistral()` | Mistral AI | `https://chat.mistral.ai/chat?q=` |
+| `ask_bing_copilot()` | Microsoft Bing Copilot | `https://www.bing.com/search?showconv=1&sendquery=1&q=` |
+| `ask_meta_ai()` | Meta AI | `https://www.meta.ai/?q=` |
+
+## Account Requirements
+
+To use these services, you need to:
+
+1. **Have an account**: Each AI service requires you to sign up
+2. **Be logged in**: You must be logged into the service in your browser
+3. **Have necessary subscription tiers**: Some services may require paid 
+   subscriptions for full functionality
+
+If you're not already logged in when using an `ask_*()` function, the browser
+will open to the login page instead of creating a new chat with your query.
 
 # Customizing AI Behavior with Prompts
 
@@ -73,16 +104,22 @@ function:
 
 ```r
 # Ask for step-by-step debugging
-ask_chatgpt("Why doesn't this work? mtcars %>% filter(cyl = 4)",
-              prompt = "You are an R debugging expert. Identify the error and explain step by step:")
+ask_chatgpt(
+  "Why doesn't this work? mtcars %>% filter(cyl = 4)",
+  prompt = "You are an R debugging expert. Identify the error and explain step by step:"
+)
 
 # Request tidyverse-focused solutions 
-ask_claude("How to reshape data?",
-             prompt = "Answer using tidyverse packages, particularly tidyr:")
+ask_claude(
+  "How to reshape data?",
+  prompt = "Answer using tidyverse packages, particularly tidyr:"
+)
 
 # Ask for educational examples
-ask_perplexity("How to implement PCA in R?",
-                 prompt = "Provide a beginner-friendly tutorial with examples:")
+ask_perplexity(
+  "How to implement PCA in R?",
+  prompt = "Provide a beginner-friendly tutorial with examples:"
+)
 ```
 
 ## 2. Default Prompts via Options
@@ -147,6 +184,12 @@ your query. A good prompt typically includes:
 3. **Output format**: How responses should be structured (e.g., "Provide step-by-step explanations")
 4. **Context**: Any relevant background information (e.g., "This is for a beginner's tutorial")
 
+You can think of prompts as a way to set the stage for the AI's response. The
+more specific and structured your prompt, the better the AI can tailor its
+response to your needs. Consider the following annotated example:
+
+![An example of a well-structured prompt for an AI assistant.](../man/figures/prompt-structure.svg)
+
 ## Tailoring Prompts to Different AI Services
 
 Different AI services have different strengths and characteristics. Varying
@@ -165,13 +208,16 @@ general guidelines for tailoring prompts to specific AI services:
 When debugging R code, effective prompts should guide the AI to identify the
 specific issue and provide a clear explanation.
 
-```r
-# Less effective prompt
-ask_chatgpt(prompt = "Fix this code:")
+**Less effective prompt**
 
-# More effective prompt
-ask_chatgpt(prompt = "You are an R debugging expert. First identify what's wrong with this code without fixing it. Then explain why it's wrong and what concept I'm misunderstanding. Finally, provide a working solution with an explanation of why it works.")
-```
+> Fix this code:
+
+**More effective prompt**
+
+> You are an R debugging expert. First identify what's wrong with this code 
+> without fixing it. Then explain why it's wrong and what concept
+> I'm misunderstanding. Finally, provide a working solution with an explanation
+> of why it works.
 
 This improved prompt is effective because it:
 
@@ -179,18 +225,29 @@ This improved prompt is effective because it:
 - Structures the analysis process (identify → explain → solve)
 - Focuses on learning (explaining the underlying concept)
 
+We suggest using either Claude (`ask_claude()`) or ChatGPT (`ask_chatgpt()`)
+functions for debugging tasks, as they are particularly good at providing
+detailed explanations and getting close to or fully solving the problem.
+
 ## Learning New Concepts
 
 When using AI to learn R concepts, prompts should encourage clear explanations
 with progressive complexity.
 
-```r
-# Less effective prompt
-ask_chatgpt(prompt = "Explain this R concept:")
+**Less effective prompt**
 
-# More effective prompt
-ask_chatgpt(prompt = "As an R educator teaching a diverse classroom, explain this concept in multiple ways: 1) Start with an intuitive explanation a beginner would understand, 2) Provide a simple working example, 3) Explain how this concept connects to other R concepts like {relevant_concepts}, 4) Show a more advanced practical application with commented code.")
-```
+> Explain this R concept:
+
+**More effective prompt**
+
+> As an R educator teaching a diverse classroom, explain this concept in 
+> multiple ways: 1) Start with an intuitive explanation a beginner would understand, 
+> 2) Provide a simple working example, 3) Explain how this concept connects to
+> other R concepts like {relevant_concepts}, 4) Show a more advanced
+> practical application with commented code.
+
+where `{relevant_concepts}` is a placeholder for other concepts that are 
+relevant to the concept being explained.
 
 This approach works well because it:
 
@@ -199,17 +256,29 @@ This approach works well because it:
 - Asks for concrete examples, not just theory
 - Encourages connections to existing knowledge
 
+
+We suggest using ChatGPT (`ask_chatgpt()`) for trying to learn new concepts,
+as it is particularly good at providing detailed explanations and examples.
+
 ## Selecting Packages and Tools
 
-When seeking advice on package selection, prompts should encourage comprehensive, balanced comparisons.
+When seeking advice on package selection, prompts should encourage
+comprehensive, balanced comparisons.
 
-```r
-# Less effective prompt
-ask_perplexity(prompt = "What package should I use for this?")
+**Less effective prompt**
 
-# More effective prompt
-ask_perplexity(prompt = "As an unbiased R consultant familiar with the entire CRAN ecosystem, compare the top 3-4 R packages for this task. For each package, discuss: 1) Key strengths and limitations, 2) Ease of use and learning curve, 3) Community support and maintenance status, 4) Performance characteristics, 5) Unique features. Conclude with situational recommendations (when each would be the best choice) rather than a single recommendation. Include citations to benchmarks or articles where relevant.")
-```
+> What package should I use for this?
+
+
+**More effective prompt**
+
+> As an unbiased R consultant familiar with the entire CRAN ecosystem, compare
+> the top 3-4 R packages for this task. For each package, discuss: 1) Key 
+> strengths and limitations, 2) Ease of use and learning curve, 3) Community
+> support and maintenance status, 4) Performance characteristics, 5) Unique 
+> features. Conclude with situational recommendations (when each would be the
+> best choice) rather than a single recommendation. Include citations to
+> benchmarks or articles where relevant.
 
 This strategy works because it:
 
@@ -218,17 +287,26 @@ This strategy works because it:
 - Asks for situation-dependent recommendations
 - Requests evidence/citations to support claims
 
+We suggest using Perplexity AI (`ask_perplexity()`) for package selection tasks,
+as it is particularly good at providing detailed comparisons and citations.
+
 ## Code Review and Improvement
 
-For code review prompts, focus on balancing constructive criticism with actionable improvements.
+For code review prompts, focus on balancing constructive criticism with
+actionable improvements.
 
-```r
-# Less effective prompt
-ask_mistral(prompt = "Review this code:")
+**Less effective prompt**
+
+> Review this code:
 
 # More effective prompt
-ask_mistral(prompt = "As a senior R developer conducting a code review: 1) Note what the code does correctly, 2) Identify potential issues in correctness, performance, readability, and maintainability, 3) Suggest specific improvements with before/after code examples, 4) If relevant, mention R idioms or functions that would simplify the code, 5) Rate the code on a 1-10 scale for efficiency, readability, and robustness.")
-```
+
+> As a senior R developer conducting a code review: 1) Note what the code does
+> correctly, 2) Identify potential issues in correctness, performance, 
+> readability, and maintainability, 3) Suggest specific improvements with 
+> before/after code examples, 4) If relevant, mention R idioms or functions 
+> that would simplify the code, 5) Rate the code on a 1-10 scale for efficiency,
+> readability, and robustness.
 
 This approach is effective because it:
 
@@ -237,18 +315,27 @@ This approach is effective because it:
 - Provides specific examples, not just general advice
 - Includes a structured evaluation framework
 
+We suggest using Claude (`ask_claude()`) for code review tasks, as it reasons
+better about R code and can provide more accurate feedback.
+
 ## Complex Statistical Analysis
 
 When seeking help with statistical methods in R, prompts should emphasize both
 theoretical understanding and practical implementation.
 
-```r
-# Less effective prompt
-ask_claude(prompt = "Help me analyze this data:")
+**Less effective prompt**
+
+> Help me analyze this data:
 
 # More effective prompt
-ask_claude(prompt = "As both a statistician and R programmer, help me with this analysis task. First, explain the appropriate statistical approach and why it's suitable for this situation. Then, provide an R implementation with explanations of: 1) Required packages, 2) Data preparation steps, 3) The analysis code with comments explaining each step, 4) How to interpret the outputs, 5) Diagnostic checks to validate assumptions, 6) Potential limitations of this approach. Show output examples where helpful.")
-```
+
+> As both a statistician and R programmer, help me with this analysis task.
+> First, explain the appropriate statistical approach and why it's suitable for
+> this situation. Then, provide an R implementation with explanations of: 1)
+> Required packages, 2) Data preparation steps, 3) The analysis code with
+> comments explaining each step, 4) How to interpret the outputs, 5) Diagnostic
+> checks to validate assumptions, 6) Potential limitations of this approach. 
+> Show output examples where helpful.
 
 This works well because it:
 
@@ -257,19 +344,28 @@ This works well because it:
 - Includes validation and limitations
 - Balances code with explanations
 
+We suggest using Claude (`ask_claude()`) for statistical analysis tasks,
+as it is particularly good under thinking and reasoning tasks.
+
 ## Creating Visualizations
 
 For data visualization queries, prompts should focus on design principles, not 
 just code implementation. Though, you do want to specify if the visualization should be
 created with a specific package (e.g., `ggplot2`, `plotly`, etc.).
 
-```r
-# Less effective prompt
-ask_chatgpt(prompt = "Create a visualization of this data:")
+**Less effective prompt**
 
-# More effective prompt
-ask_chatgpt(prompt = "As a data visualization expert who specializes in R: 1) Recommend 2-3 visualization types that would best represent this data and explain why, 2) For the most appropriate visualization, provide ggplot2 code with a clear aesthetic mapping rationale, 3) Suggest specific customizations to improve readability and visual appeal, 4) Explain how the visualization could be modified to highlight different aspects of the data. Follow ggplot2 best practices and modern data visualization principles.")
-```
+> Create a visualization of this data
+
+**More effective prompt**
+
+> As a data visualization expert who specializes in R: 
+> 1) Recommend 2-3 visualization types that would best represent this data 
+> and explain why, 2) For the most appropriate visualization, provide ggplot2 
+> code with a clear aesthetic mapping rationale, 3) Suggest specific
+> customizations to improve readability and visual appeal, 4) Explain how the
+> visualization could be modified to highlight different aspects of the data. 
+> Follow ggplot2 best practices and modern data visualization principles.
 
 This approach is effective because it:
 
@@ -278,23 +374,28 @@ This approach is effective because it:
 - Provides customization options
 - Grounds recommendations in best practices
 
+We suggest using either Claude (`ask_claude()`) or ChatGPT (`ask_chatgpt()`)
+services for visualization tasks, as they are particularly good at providing
+modern `ggplot2` code and visually pleasing designs.
+
 ## Experimenting with Different Approaches
 
 The power of prompt engineering comes from experimentation. Consider how these 
 two prompts would produce different results for the same query about handling
 missing data:
 
-```r
-# Technical focus
-ask_claude(prompt = 
-  "As an R package developer with deep knowledge of data structures, explain all approaches to handling missing values in R, including their algorithmic implementations, performance characteristics, and edge cases."
-)
+**Technical focus**
 
-# Applied focus
-ask_claude(prompt = 
-  "As a data scientist who regularly cleans messy datasets, share your practical workflow for handling missing values in R. Include code examples using both base R and tidyverse approaches, focusing on real-world scenarios and decision criteria for when to use each technique."
-)
-```
+> As an R package developer with deep knowledge of data structures, explain all
+> approaches to handling missing values in R, including their algorithmic
+> implementations, performance characteristics, and edge cases.
+
+**Applied focus**
+
+> As a data scientist who regularly cleans messy datasets, share your practical
+> workflow for handling missing values in R. Include code examples using both
+> base R and tidyverse approaches, focusing on real-world scenarios and decision
+> criteria for when to use each technique.
 
 Both are well-structured prompts, but they would yield different responses 
 focused on either technical depth or practical application.

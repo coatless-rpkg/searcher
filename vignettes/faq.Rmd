@@ -1,0 +1,419 @@
+---
+title: "Frequently Asked Questions (FAQ) about searcher"
+author: "James Joseph Balamuta"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Frequently Asked Questions (FAQ) about searcher}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+# Frequently Asked Questions
+
+This vignette addresses common questions about using the `searcher` package.
+If you have a question not covered here, please consider opening an issue on
+[GitHub][searcher-gh].
+
+## General Questions
+
+### What is the `searcher` package?
+
+The `searcher` package provides a search and query interface directly inside R.
+It allows you to quickly search or inquiry about error messages, code examples, 
+or any query across multiple platforms including search engines,
+developer communities, code repositories, and AI assistants.
+
+### How do I install the package?
+
+```r
+# From CRAN (stable version)
+install.packages("searcher")
+
+# From GitHub (development version)
+if(!requireNamespace("remotes")) { install.packages("remotes") }
+remotes::install_github("coatless-rpkg/searcher")
+```
+
+### Why would I use `searcher` instead of manually searching in a browser?
+
+`searcher` offers several advantages:
+
+- Streamlines the workflow by allowing you to search directly from R
+- Automatically formats queries to be R-specific
+- Can automatically search error messages
+- Provides direct integration with AI assistants with R-specific prompts
+- Saves time by not having to copy/paste errors or switch contexts
+
+### Which platforms does `searcher` support?
+
+The package supports multiple types of platforms:
+
+- **Search Engines**
+  - Google, Bing, DuckDuckGo, Startpage, Ecosia, Qwant, Brave, Kagi, Rseek
+- **AI Assistants**
+  - ChatGPT, Claude, Perplexity, Mistral, Bing Copilot, Meta AI
+- **Developer Communities**
+  - StackOverflow, Posit Community, Twitter/X, Mastodon, BlueSky
+- **Code Repositories**
+  - GitHub, BitBucket, grep.app
+
+## Search Functionality
+
+### How do I search for a specific term?
+
+Simply use any of the search functions with your query:
+
+```r
+# Search Google
+search_google("ggplot2 themes")
+
+# Search StackOverflow
+search_stackoverflow("dplyr filter")
+
+# Search GitHub
+search_github("shiny dashboard")
+```
+
+### How do I ensure my search results are R-specific?
+
+By default, all search functions append R-specific terms to your queries. This
+behavior is controlled by the `rlang` parameter which is set to `TRUE` by
+default. If you want more general results, set `rlang = FALSE`:
+
+```r
+# R-specific results
+search_google("linear regression")
+
+# General results not limited to R
+search_google("linear regression", rlang = FALSE)
+```
+
+### Which search engine is best for R-related questions?
+
+Different platforms have different strengths:
+
+- **Rseek** (`search_rseek()`) is a specialized search engine for R content
+- **StackOverflow** (`search_stackoverflow()`) is excellent for specific error messages and programming questions
+- **GitHub** (`search_github()`) is useful for package-specific issues
+- **Posit Community** (`search_posit_community()`) is great for questions about RStudio, Shiny, and other Posit products
+
+For general searches, Google often provides the most comprehensive results, but
+you might prefer privacy-focused alternatives like DuckDuckGo or Brave.
+
+## Working with Errors
+
+### How do I search for an error message?
+
+If you've just encountered an error, all search functions will use the last
+error message as the default query if you don't specify one:
+
+```r
+# This will search the last error message on Google
+search_google()
+
+# This will search the last error message on StackOverflow
+search_stackoverflow()
+```
+
+### Can I automatically search errors when they occur?
+
+Yes, you can set the `error` option to use one of the search functions:
+
+```r
+# Automatically search errors on Google
+options(error = searcher("google"))
+
+# Automatically search errors on StackOverflow
+options(error = search_stackoverflow)
+
+# Automatically send errors to Claude AI
+options(error = ask_claude)
+```
+
+### Is there a way to search warnings too?
+
+The `searcher` package itself doesn't directly handle warnings, but the
+companion package [`errorist`](https://github.com/coatless-rpkg/errorist)
+provides this functionality:
+
+```r
+# Install errorist
+install.packages("errorist")
+
+# Set up errorist to search both errors and warnings
+errorist::errorist_enable()
+```
+
+## AI Assistant Integration
+
+### How do I use AI assistants with `searcher`?
+
+The package provides dedicated functions for interacting with AI assistants:
+
+```r
+# Ask ChatGPT
+ask_chatgpt("How do I create a violin plot in ggplot2?")
+
+# Ask Claude
+ask_claude("Explain the difference between lapply and sapply")
+
+# Ask Perplexity
+ask_perplexity("What's the best approach for time series forecasting in R?")
+```
+
+### Do I need API keys to use the AI features?
+
+No. The AI search functions open a browser tab with your query pre-filled on
+the respective AI service's web interface. This means:
+
+1. You'll need to be logged in to that service in your browser
+2. You don't need to manage API keys in R
+3. Any usage limits will be based on your account with that service
+
+### How do I customize how AI assistants respond to my queries?
+
+You can customize AI responses using prompts in two ways:
+
+**1. Per-call prompts:**
+
+```r
+ask_chatgpt("How to merge data frames?", 
+            prompt = "Show examples using both base R and dplyr:")
+```
+
+**2. Default prompts via options:**
+
+```r
+options(searcher.claude_prompt = "As an R expert, provide clear code examples:")
+
+# Now all Claude queries will use this prompt
+ask_claude("How to handle missing data?")
+```
+
+**3. System-level prompts:**
+
+```r
+# Use a built-in prompt
+ai_prompt("debugging")
+# Now all AI assistants will use the debugging prompt
+ask_claude("Error: object 'mtcrs' not found")
+
+
+# Set a system-level prompt
+ai_prompt("As an R educator, explain this concept in detail:")
+
+# Now all AI assistants will use this prompt
+ask_chatgpt("What is the tidyverse?")
+```
+
+See `vignette("search-with-ai-assistants", "searcher")` for more details on
+effective prompting.
+
+## Prompt Management
+
+### What is the prompt management system?
+
+The prompt management system in `searcher` allows you to create, store, and
+apply sophisticated prompts when working with AI assistants. This helps you get
+more consistent and helpful responses.
+
+### How do I use the built-in prompts?
+
+The package comes with several pre-defined prompts for different scenarios:
+
+```r
+# List available prompts
+ai_prompt_list()
+
+# Set the "debugging" prompt as active
+ai_prompt("debugging")
+
+# Now use any AI assistant with this prompt
+ask_claude("Error: object 'mtcrs' not found")
+```
+
+### Can I create my own prompts?
+
+Yes, you can either use custom prompt text directly or add it to the prompt library:
+
+```r
+# Use custom text directly
+ai_prompt("As an R package developer, explain this error in detail:")
+
+# Add to the prompt library
+ai_prompt_register(
+  "tidyverse_expert",
+  "As a tidyverse expert, provide modern data manipulation solutions:"
+)
+
+# Use your registered prompt
+ai_prompt("tidyverse_expert")
+```
+
+For more details, see `vignette("managing-ai-prompts", "searcher")`.
+
+## Customization
+
+### How do I customize the default behavior of `searcher`?
+
+You can set various options to customize the package behavior:
+
+```r
+# In your .Rprofile or at the start of your session
+options(
+  # Launch browser after a delay (in seconds)
+  searcher.launch_delay = 0.2,
+  
+  # Use RStudio's viewer pane instead of a browser
+  searcher.use_rstudio_viewer = TRUE,
+  
+  # Default keyword suffix (base or tidyverse)
+  searcher.default_keyword = "tidyverse",
+  
+  # Default prompts for AI services
+  searcher.chatgpt_prompt = "You are an R educator...",
+  searcher.claude_prompt = "As an R expert..."
+)
+```
+
+### How do I change the default search keyword from "base" to "tidyverse"?
+
+You can change the default keyword suffix used in searches by setting the
+`searcher.default_keyword` option:
+
+```r
+# In your .Rprofile or at the start of your session
+options(searcher.default_keyword = "tidyverse")
+```
+
+This will modify the keywords appended to your searches to target 
+tidyverse-related content instead of base R.
+
+### How can I reduce or increase the delay before the browser opens?
+
+By default, there's a 0.5-second delay before opening a browser. You can adjust this:
+
+```r
+# Shorter delay (0.2 seconds)
+options(searcher.launch_delay = 0.2)
+
+# No delay
+options(searcher.launch_delay = 0)
+
+# Longer delay (1 second)
+options(searcher.launch_delay = 1)
+```
+
+## Comparing AI Solutions
+
+### How does `searcher`'s AI assistant integration differ from the `ellmer` package?
+
+Both [`searcher`][searcher-web] and [`ellmer`][ellmer-web] provide ways to
+integrate AI assistance into your R workflow, but they take different approaches
+and have different strengths:
+
+#### Interface Differences
+
+**`searcher`**: Opens a web browser with your query pre-filled in the 
+AI service's web interface. This means:
+
+- No API keys or tokens needed in R
+- Utilizes the full web interface capabilities
+- Works with multiple AI services (ChatGPT, Claude, Perplexity, etc.)
+- Requires browser access and being logged in to the services
+
+**`ellmer`**: Uses API connections to interact with AI models directly from R. 
+This generally means:
+
+- Requires API keys and managing tokens
+- Results are returned directly to your R console/environment
+- More programmatic control over interactions
+- Works without a browser and in non-interactive sessions
+
+#### Use Case Differences
+
+- **Use [`searcher`][searcher-web] when**:
+  - You prefer a visual interface for complex queries
+  - You want to use multiple different AI services without managing API keys
+  - You want to take advantage of special features in the web interfaces
+  - You're asking exploratory questions or conducting research
+  
+- **Use [`ellmer`][ellmer-web] when**:
+  - You need programmatic access to AI responses
+  - You want to integrate AI responses directly into R scripts or applications
+  - You need to process many queries in batch
+  - You're working in environments without browser access
+
+#### Prompt Management
+
+- [**`searcher`**][searcher-web]: Offers a prompt management system for web interfaces
+- [**`ellmer`**][ellmer-web]: Typically provides direct control over prompts in API calls
+
+#### Complementary Usage
+
+These packages can be complementary rather than competitive:
+
+- Use [`searcher`][searcher-web] for exploratory work, debugging, and research
+- Use [`ellmer`][ellmer-web] for production code, reproducible workflows, and batch processing
+
+If you're building AI capabilities into an R package or application, 
+`ellmer`'s API approach may be more suitable. For interactive use during
+data analysis or debugging, `searcher`'s browser approach may be more convenient.
+
+## Troubleshooting
+
+### My browser doesn't open when I use a search function. What's wrong?
+
+This could be due to several issues:
+
+1. Check if you're in an interactive R session (the browser won't open in non-interactive sessions)
+2. Make sure your system has a default browser configured
+3. Try setting a longer delay: `options(searcher.launch_delay = 1)`
+4. If using RStudio Server, browser support may be limited
+
+### How do I search an error that's not the most recent one?
+
+If you want to search a specific error rather than the most recent one, you need to explicitly provide the error message:
+
+```r
+search_google("Error: object 'specific_error' not found")
+```
+
+### The AI assistant isn't giving me R-specific answers. How do I fix this?
+
+If the AI responses aren't focused on R, try:
+
+1. Using a more specific prompt:
+   ```r
+   ask_claude("How to join tables?", prompt = "I'm specifically asking about R dplyr joins.")
+   ```
+
+2. Setting a system-level prompt:
+   ```r
+   ai_prompt("As an R programming expert, all my questions are about R unless specified otherwise.")
+   ```
+
+3. Including "in R" explicitly in your queries:
+   ```r
+   ask_chatgpt("How to join tables in R?")
+   ```
+
+### Can I use `searcher` in non-interactive scripts?
+
+Yes, but the browser opening functionality will be disabled in non-interactive
+sessions. The functions will still return the search URLs, which can be useful
+in logs or notifications.
+
+[searcher-web]: https://r-pkg.thecoatlessprofessor.com/searcher/
+[searcher-gh]: https://github.com/coatless-rpkg/searcher
+[ellmer-web]: https://ellmer.tidyverse.org/
+[ellmer-gh]: https://github.com/tidyverse/ellmer
