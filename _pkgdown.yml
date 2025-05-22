@@ -33,6 +33,8 @@ navbar:
         href: articles/search-with-ai-assistants.html
       - text: "Managing AI Prompts in `searcher`"
         href: articles/managing-ai-prompts.html
+      - text: "Frequently Asked Questions (FAQ)"
+        href: articles/faq.html
     reference:
       text: Reference
       href: reference/index.html

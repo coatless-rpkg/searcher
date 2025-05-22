@@ -156,8 +156,60 @@ ask_chatgpt(
 )
 ```
 
-See `vignette("search-with-ai-assistants")` for more details on using AI
-assistants in searches through `searcher`.
+See `vignette("search-with-ai-assistants",  package = "searcher")` for
+more details on using AI assistants in searches through `searcher`.
+
+## AI Prompt Management
+
+For those who frequently use AI assistants, searcher provides a prompt
+management system:
+
+``` r
+# List available prompts
+ai_prompt_list()
+
+# Set a system-level prompt for all AI services
+ai_prompt("debugging")  # Use a predefined prompt for debugging
+
+# Create custom prompts
+ai_prompt_register("my_prompt", "As an R expert analyzing the mtcars dataset...")
+
+# Check active prompt
+ai_prompt_active()
+
+# Clear active prompt
+ai_prompt_clear()
+```
+
+See `vignette("managing-ai-prompts")` for more details on the prompt
+management system.
+
+### Comparison with ellmer Package
+
+While both `searcher` and `ellmer` provide AI assistance for R users,
+they take different approaches:
+
+- `searcher` opens a web browser with your query pre-filled in the AI
+  service’s interface
+  - No API keys needed  
+  - Works with multiple AI services  
+  - Visual interface for complex interactions  
+  - Requires browser access and being logged in
+- `ellmer` uses API connections to interact with models directly within
+  R
+  - Requires API keys
+  - Results returned directly to R console/environment
+  - Better for programmatic/automated use
+  - Works in non-interactive environments
+
+These packages are **complementary** rather than competitive:
+
+- Use `searcher` for interactive exploration, debugging, and research
+- Use `ellmer` for reproducible workflows, batch processing, and
+  production code
+
+See `vignette("faq", package = "searcher")` for a more detailed
+comparison.
 
 ## Search Errors
 
@@ -178,9 +230,10 @@ with the error term listed in verbatim.
 # Using the generic search error handler
 options(error = searcher("google"))
 
-# Directly specify the search function
-options(error = search_github)
+# Directly specify the search or ask function
 options(error = search_google)
+
+options(error = ask_claude)
 ```
 
 ### Manually
@@ -192,23 +245,15 @@ will open with the last error message as the search query on the desired
 search portal.
 
 ``` r
+# Search the last error message with Google
 search_google()
-search_bing()
-search_ecosia()
-search_rseek()
-search_qwant()
-search_brave()
-search_kagi()
-search_grep()
-search_mastodon()
-search_bluesky()
-search_twitter()           # or search_x()
-search_duckduckgo()        # or search_ddg()
-search_startpage()         # or search_sp()
-search_stackoverflow()     # or search_so()
-search_posit_community()   # or search_posit()
-search_github()            # or search_gh()
-search_bitbucket()         # or search_bb()
+
+# Ask an AI assistant about the last error
+## Switch into debug mode
+ai_prompt("debugging")
+
+## Ask Claude about the last error
+ask_claude()
 ```
 
 ## Package Customizations
@@ -255,31 +300,6 @@ From there, add:
   )
 }
 ```
-
-## AI Prompt Management
-
-For those who frequently use AI assistants, searcher provides a prompt
-management system:
-
-``` r
-# List available prompts
-ai_prompt_list()
-
-# Set a system-level prompt for all AI services
-ai_prompt("debugging")  # Use a predefined prompt for debugging
-
-# Create custom prompts
-ai_prompt_register("my_prompt", "As an R expert analyzing the mtcars dataset...")
-
-# Check active prompt
-ai_prompt_active()
-
-# Clear active prompt
-ai_prompt_clear()
-```
-
-See `vignette("managing-ai-prompts")` for more details on the prompt
-management system.
 
 ## Motivation
 
