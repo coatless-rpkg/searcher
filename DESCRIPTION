@@ -1,6 +1,6 @@
 Package: searcher
-Title: Query Search Interfaces 
-Version: 0.0.7.2
+Title: Query Search Interfaces and AI Assistants
+Version: 0.1.0
 Authors@R: c(
              person("James", "Balamuta",
                     email = "balamut2@illinois.edu", 
@@ -13,11 +13,17 @@ Authors@R: c(
                     comment = c(ORCID = "0000-0001-9412-0457")
                    )
             )
-Description: Provides a search interface to look up terms
-    on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Ecosia', 'rseek',
-    'Twitter', 'StackOverflow', 'RStudio Community', 'GitHub', and 'BitBucket'.
-    Upon searching, a browser window will open with the aforementioned search
-    results.
+Description: Provides search interfaces to look up terms on major search engines
+    including 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Ecosia', 'Brave', 
+    'Kagi', 'rseek', social platforms like 'X' (formerly Twitter), 'BlueSky', 
+    'Mastodon', programming communities such as 'StackOverflow', 'Posit Community', 
+    and code repositories including 'GitHub', 'grep.app', and 'BitBucket'. 
+    Additionally, provides direct integration with AI assistants through 
+    specialized query functions for 'ChatGPT', 'Claude AI', 'Perplexity AI', 
+    'Mistral AI', 'Microsoft Copilot', and 'Meta AI', complete with an AI prompt 
+    management system for R-optimized interactions. Upon searching or querying, 
+    a browser window will open with the search results or AI interface pre-populated 
+    with the specified query.
 URL: https://github.com/coatless-rpkg/searcher, https://r-pkg.thecoatlessprofessor.com/searcher/
 BugReports: https://github.com/coatless-rpkg/searcher/issues
 Depends: R (>= 3.3.0)
