@@ -65,8 +65,8 @@ ai_searcher = function(site) {
 #' This function allows you to ask questions, get code help,
 #' or search for information using ChatGPT.
 #'
-#' @param query Contents of string to send to ChatGPT. Default is the last error message.
-#' @param prompt Optional prompt prefix to add before your query to guide how ChatGPT
+#' @param query Contents of string to send to AI Service. Default is the last error message.
+#' @param prompt Optional prompt prefix to add before your query to guide how the AI Service
 #'        responds. If NULL, uses the service-specific default prompt option.
 #'
 #' @return The generated search URL or an empty string.
@@ -172,6 +172,25 @@ ask_bing_copilot = ai_searcher("copilot")
 #' @rdname ask_bing_copilot
 #' @export
 ask_copilot = ask_bing_copilot
+
+#' Search with Grok
+#'
+#' Searches xAI's Grok, which provides AI assistance focused on
+#' maximize truth and objectivity.
+#'
+#' @inheritParams ask_chatgpt
+#' @return The generated search URL or an empty string.
+#'
+#' @export
+#' @family AI assistants
+#' @examples
+#' # Basic query
+#' ask_grok("What are the best practices for R package development?")
+#'
+#' # Using a custom prompt
+#' ask_grok("How to optimize this R code for performance?",
+#'                  prompt = "Focus on efficiency and best practices:")
+ask_grok = ai_searcher("grok")
 
 #' Search with Meta AI
 #'
