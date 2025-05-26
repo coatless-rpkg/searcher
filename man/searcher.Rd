@@ -15,8 +15,8 @@ searcher(site, keyword = getOption("searcher.default_keyword"))
 \code{"twitter"} or \code{"x"}, \code{"bluesky"}, \code{"mastodon"}, \code{"stackoverflow"},
 \code{"github"}, \code{"grep"}, \code{"bitbucket"},
 \code{"chatgpt"}, \code{"claude"}, \code{"perplexity"},
-\code{"mistral"}, \code{"bing copilot"} or \code{"copilot"}, and
-\code{"meta ai"} or \code{"meta"}.}
+\code{"mistral"} or \code{"le chat"}, \code{"bing copilot"} or \code{"copilot"}, and
+\code{"grok"} or \code{"xai"}, \code{"meta ai"} or \code{"meta"}.}
 
 \item{keyword}{Opt to search under different default terms.}
 }

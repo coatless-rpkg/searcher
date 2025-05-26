@@ -11,8 +11,8 @@
 #'               `"twitter"` or `"x"`, `"bluesky"`, `"mastodon"`, `"stackoverflow"`,
 #'               `"github"`, `"grep"`, `"bitbucket"`,
 #'               `"chatgpt"`, `"claude"`, `"perplexity"`,
-#'               `"mistral"`, `"bing copilot"` or `"copilot"`, and
-#'               `"meta ai"` or `"meta"`.
+#'               `"mistral"` or `"le chat"`, `"bing copilot"` or `"copilot"`, and
+#'               `"grok"` or `"xai"`, `"meta ai"` or `"meta"`.
 #' @param query   Contents of string to search. Default is the error message.
 #' @param rlang   Search for results written in R. Default is `TRUE`
 #' @param prompt  Optional prompt prefix to add before your query to guide how the AI
@@ -56,6 +56,7 @@ search_site = function(query,
                          "mistral",
                          "bing copilot",
                          "copilot",
+                         "grok",
                          "meta ai",
                          "meta"
                        ),
@@ -92,9 +93,12 @@ search_site = function(query,
     chatgpt        = ask_chatgpt(query, prompt),
     claude         = ask_claude(query, prompt),
     perplexity     = ask_perplexity(query, prompt),
+    `le chat`      = ,      # empty case carried below
     mistral        = ask_mistral(query, prompt),
     `bing copilot` = ,      # empty case carried below
     copilot        = ask_bing_copilot(query, prompt),
+    xai            = ,      # empty case carried below
+    grok           = ask_grok(query, prompt),
     `meta ai`      = ,      # empty case carried below,
     meta           = ask_meta_ai(query, prompt)
   )

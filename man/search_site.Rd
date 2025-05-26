@@ -9,7 +9,8 @@ search_site(
   site = c("google", "bing", "duckduckgo", "ddg", "startpage", "sp", "qwant", "rseek",
     "brave", "kagi", "posit community", "posit", "twitter", "x", "bluesky", "mastodon",
     "stackoverflow", "so", "github", "gh", "grep", "bitbucket", "bb", "chatgpt",
-    "claude", "perplexity", "mistral", "bing copilot", "copilot", "meta ai", "meta"),
+    "claude", "perplexity", "mistral", "bing copilot", "copilot", "grok", "meta ai",
+    "meta"),
   rlang = TRUE,
   prompt = NULL
 )
@@ -25,8 +26,8 @@ search_site(
 \code{"twitter"} or \code{"x"}, \code{"bluesky"}, \code{"mastodon"}, \code{"stackoverflow"},
 \code{"github"}, \code{"grep"}, \code{"bitbucket"},
 \code{"chatgpt"}, \code{"claude"}, \code{"perplexity"},
-\code{"mistral"}, \code{"bing copilot"} or \code{"copilot"}, and
-\code{"meta ai"} or \code{"meta"}.}
+\code{"mistral"} or \code{"le chat"}, \code{"bing copilot"} or \code{"copilot"}, and
+\code{"grok"} or \code{"xai"}, \code{"meta ai"} or \code{"meta"}.}
 
 \item{rlang}{Search for results written in R. Default is \code{TRUE}}
 

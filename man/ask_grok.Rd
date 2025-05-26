@@ -2,9 +2,12 @@
 % Please edit documentation in R/ai-search-functions.R
 \name{ask_grok}
 \alias{ask_grok}
+\alias{ask_xai}
 \title{Search with Grok}
 \usage{
 ask_grok(query = geterrmessage(), prompt = NULL)
+
+ask_xai(query = geterrmessage(), prompt = NULL)
 }
 \arguments{
 \item{query}{Contents of string to send to AI Service. Default is the last error message.}

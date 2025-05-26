@@ -2,9 +2,12 @@
 % Please edit documentation in R/ai-search-functions.R
 \name{ask_mistral}
 \alias{ask_mistral}
+\alias{ask_le_chat}
 \title{Search with Mistral AI}
 \usage{
 ask_mistral(query = geterrmessage(), prompt = NULL)
+
+ask_le_chat(query = geterrmessage(), prompt = NULL)
 }
 \arguments{
 \item{query}{Contents of string to send to AI Service. Default is the last error message.}

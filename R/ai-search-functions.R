@@ -149,6 +149,11 @@ ask_perplexity = ai_searcher("perplexity")
 #'             prompt = "Explain the error and fix it:")
 ask_mistral = ai_searcher("mistral")
 
+
+#' @rdname ask_mistral
+#' @export
+ask_le_chat = ask_mistral
+
 #' Search with Bing Copilot
 #'
 #' Searches Microsoft Bing Copilot, which combines web search results
@@ -191,6 +196,10 @@ ask_copilot = ask_bing_copilot
 #' ask_grok("How to optimize this R code for performance?",
 #'                  prompt = "Focus on efficiency and best practices:")
 ask_grok = ai_searcher("grok")
+
+#' @rdname ask_grok
+#' @export
+ask_xai = ask_grok
 
 #' Search with Meta AI
 #'
