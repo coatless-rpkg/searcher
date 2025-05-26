@@ -85,8 +85,9 @@ responds. If NULL, uses the service-specific default prompt option.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Basic query</span></span></span>
 <span class="r-in"><span><span class="fu">ask_grok</span><span class="op">(</span><span class="st">"What are the best practices for R package development?"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Using prompts: default (grok)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Please type into your browser:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> https://www.grok.com/?q=What%20are%20the%20best%20practices%20for%20R%20package%20development?</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> https://www.grok.com/?q=As%20an%20R%20programming%20assistant,%20provide%20clear%20and%20concise%20answers%20with%20practical%20examples.%20What%20are%20the%20best%20practices%20for%20R%20package%20development?</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Using a custom prompt</span></span></span>
 <span class="r-in"><span><span class="fu">ask_grok</span><span class="op">(</span><span class="st">"How to optimize this R code for performance?"</span>,</span></span>
