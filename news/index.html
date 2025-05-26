@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">searcher</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,8 +20,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/search-patterns.html">Search Patterns</a></li>
-    <li><a class="dropdown-item" href="../articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
-    <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
+    <li><a class="dropdown-item" href="../articles/using-ai-assistants-with-searcher.html">Using AI Assistants with searcher</a></li>
+    <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in searcher</a></li>
     <li><a class="dropdown-item" href="../articles/faq.html">Frequently Asked Questions (FAQ)</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -39,22 +39,24 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.0.8" id="searcher-008">searcher 0.0.8<a class="anchor" aria-label="anchor" href="#searcher-008"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.1.0" id="searcher-010">searcher 0.1.0<a class="anchor" aria-label="anchor" href="#searcher-010"></a></h2>
 <div class="section level3">
-<h3 id="features-0-0-8">Features<a class="anchor" aria-label="anchor" href="#features-0-0-8"></a></h3>
+<h3 id="features-0-1-0">Features<a class="anchor" aria-label="anchor" href="#features-0-1-0"></a></h3>
 <ul><li>Added GenAI Search Portals:
 <ul><li>
-<code><a href="../reference/ask_chatgpt.html">ask_chatgpt()</a></code>: Searches with ChatGPT</li>
+<code><a href="../reference/ask_chatgpt.html">ask_chatgpt()</a></code>: Discuss with OpenAI’s ChatGPT</li>
 <li>
-<code><a href="../reference/ask_claude.html">ask_claude()</a></code>: Searches with Claude AI</li>
+<code><a href="../reference/ask_claude.html">ask_claude()</a></code>: Discuss with Anthropic’s Claude AI</li>
 <li>
-<code><a href="../reference/ask_perplexity.html">ask_perplexity()</a></code>: Searches with Perplexity AI</li>
+<code><a href="../reference/ask_perplexity.html">ask_perplexity()</a></code>: Discuss with Perplexity AI</li>
 <li>
-<code><a href="../reference/ask_mistral.html">ask_mistral()</a></code>: Searches with Mistral AI</li>
+<code><a href="../reference/ask_mistral.html">ask_mistral()</a></code>/<code><a href="../reference/ask_mistral.html">ask_le_chat()</a></code>: Discuss with Mistral AI’s Le Chat</li>
 <li>
-<code><a href="../reference/ask_bing_copilot.html">ask_copilot()</a></code>: Searches with Microsoft Bing’s Copilot</li>
+<code><a href="../reference/ask_bing_copilot.html">ask_copilot()</a></code>: Discuss with Microsoft Bing’s Copilot</li>
 <li>
-<code><a href="../reference/ask_meta_ai.html">ask_meta_ai()</a></code>: Searches with Meta AI</li>
+<code><a href="../reference/ask_grok.html">ask_xai()</a></code>/<code><a href="../reference/ask_grok.html">ask_grok()</a></code>: Discuss with xAI’s Grok</li>
+<li>
+<code><a href="../reference/ask_meta_ai.html">ask_meta_ai()</a></code>: Discuss with Meta AI</li>
 </ul></li>
 <li>Added an AI Prompt Management System with Persona Prompts:
 <ul><li>
@@ -72,7 +74,7 @@
 </ul></li>
 <li>Added new vignettes:
 <ul><li>
-<code>search-with-ai-assistants.Rmd</code>: Overview of the AI Searching Techniques</li>
+<code>using-ai-assistants-with-searcher.Rmd</code>: Overview of the AI Searching Techniques</li>
 <li>
 <code>managing-ai-prompts.Rmd</code>: Overview of <code>searcher</code>’s AI Prompt Management System</li>
 </ul></li>
@@ -89,21 +91,21 @@
 <li>Added searcher logo (<a href="https://github.com/coatless-rpkg/searcher/pull/40" class="external-link">#40</a>)</li>
 </ul></div>
 <div class="section level3">
-<h3 id="documentation-0-0-8">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-0-8"></a></h3>
+<h3 id="documentation-0-1-0">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-1-0"></a></h3>
 <div class="section level4">
-<h4 id="package-website-0-0-8">Package Website<a class="anchor" aria-label="anchor" href="#package-website-0-0-8"></a></h4>
+<h4 id="package-website-0-1-0">Package Website<a class="anchor" aria-label="anchor" href="#package-website-0-1-0"></a></h4>
 <ul><li>Enhanced <code>_pkgdown.yml</code> with a more organized structure and improved navigation
 <ul><li>Set the theme to use Bootstrap 5’s Flatly theme for a modern look</li>
 </ul></li>
 <li>Added categorized function reference sections for better discoverability</li>
 </ul></div>
 <div class="section level4">
-<h4 id="function-documentation-0-0-8">Function Documentation<a class="anchor" aria-label="anchor" href="#function-documentation-0-0-8"></a></h4>
+<h4 id="function-documentation-0-1-0">Function Documentation<a class="anchor" aria-label="anchor" href="#function-documentation-0-1-0"></a></h4>
 <ul><li>Reorganized search functions into separate help pages by category:
 <ul><li>Search engines (Google, Bing, etc.)</li>
+<li>AI assistants (ChatGPT, Claude, etc.)</li>
 <li>Community sites (StackOverflow, Twitter, etc.)</li>
 <li>Code repositories (GitHub, BitBucket, etc.)</li>
-<li>AI assistants (ChatGPT, Claude, etc.)</li>
 </ul></li>
 <li>Implemented <code>@family</code> tags to group related functions in the “See also” section</li>
 <li>Added more specific, relevant examples for each function</li>
@@ -111,7 +113,7 @@
 </ul></div>
 </div>
 <div class="section level3">
-<h3 id="deprecations-0-0-8">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-0-0-8"></a></h3>
+<h3 id="deprecations-0-1-0">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-0-1-0"></a></h3>
 <ul><li>Deprecated <code>search_rstudio_community()</code> and <code>search_rscom()</code> functions. (<a href="https://github.com/coatless-rpkg/searcher/pull/43" class="external-link">#43</a>)
 <ul><li>These functions are now replaced by <code><a href="../reference/search_posit_community.html">search_posit_community()</a></code>/<code><a href="../reference/search_posit_community.html">search_posit()</a></code> which searches <a href="https://forum.posit.co/search" class="external-link">Posit Community</a>.</li>
 </ul></li>

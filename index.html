@@ -24,7 +24,7 @@
 
     <a class="navbar-brand me-2" href="index.html">searcher</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,8 +39,8 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/search-patterns.html">Search Patterns</a></li>
-    <li><a class="dropdown-item" href="articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
-    <li><a class="dropdown-item" href="articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
+    <li><a class="dropdown-item" href="articles/using-ai-assistants-with-searcher.html">Using AI Assistants with searcher</a></li>
+    <li><a class="dropdown-item" href="articles/managing-ai-prompts.html">Managing AI Prompts in searcher</a></li>
     <li><a class="dropdown-item" href="articles/faq.html">Frequently Asked Questions (FAQ)</a></li>
   </ul>
 </li>
@@ -62,7 +62,8 @@
 <div class="section level3">
 <h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h3>
-<p>The goal of <code>searcher</code> is to provide a search interface directly inside of <em>R</em>. For example, to look up <code>rcpp example numeric vector</code> or <code>ggplot2 fix axis labels</code> call one of the <code>search_*()</code> functions to automatically have a web browser open, go to a search site, and type the query. <code>searcher</code> also provides direct integration with AI assistants, allowing you to send queries to ChatGPT, Claude, and other AI services with R-optimized prompts. By default, the search functions will attempt to search the last error on call if no query is specified.</p>
+<p>The goal of <code>searcher</code> is to provide a search interface directly inside of <em>R</em>. For example, to look up <code>rcpp example numeric vector</code> or <code>ggplot2 fix axis labels</code> call one of the <code>search_*()</code> functions to automatically have a web browser open, go to a search site, and type the query. <code>searcher</code> also provides direct integration with AI assistants through <code>ask_*()</code> functions, allowing you to send queries to ChatGPT, Claude, and other AI services with R-optimized prompts.</p>
+<p>By default, the search and ask functions will attempt to search the last error on call if no query is specified.</p>
 <figure><img src="https://i.imgur.com/Zq2rg6G.gif" alt="Example workflow of searching and asking AI assistants questions from R."><figcaption aria-hidden="true">
 Example workflow of searching and asking AI assistants questions from R.
 </figcaption></figure>
@@ -136,7 +137,7 @@ Example workflow of searching and asking AI assistants questions from R.
 <div class="section level2">
 <h2 id="ai-assistants">AI Assistants<a class="anchor" aria-label="anchor" href="#ai-assistants"></a>
 </h2>
-<p>The package also provides functions to query AI assistants directly from R. These functions open a browser with your query pre-filled, using customizable prompts that help the AI give more effective responses for R programming:</p>
+<p>The package also provides functions to query AI assistants directly from R. The following AI Assistant platforms are supported: OpenAI’s <a href="https://chatgpt.com/" class="external-link">ChatGPT</a>, Anthropic’s <a href="https://claude.ai/" class="external-link">Claude</a>, <a href="https://www.perplexity.ai/" class="external-link">Perplexity</a>, Microsoft (Bing)’s <a href="https://copilot.microsoft.com/" class="external-link">Copilot</a>, Mistral’s <a href="https://chat.mistral.ai/chat" class="external-link">le Chat</a>, xAI’s <a href="https://grok.com/" class="external-link">Grok</a>, and <a href="https://www.meta.ai/" class="external-link">Meta.ai</a>. These functions open a browser with your query pre-filled, using customizable prompts that help the AI give more effective responses for R programming:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Get coding help from AI assistants</span></span>
 <span><span class="fu"><a href="reference/ask_chatgpt.html">ask_chatgpt</a></span><span class="op">(</span><span class="st">"How to create a ggplot scatterplot with regression line?"</span><span class="op">)</span></span>
@@ -144,6 +145,7 @@ Example workflow of searching and asking AI assistants questions from R.
 <span><span class="fu"><a href="reference/ask_perplexity.html">ask_perplexity</a></span><span class="op">(</span><span class="st">"Compare dplyr vs data.table performance"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/ask_mistral.html">ask_mistral</a></span><span class="op">(</span><span class="st">"How to handle missing data in R?"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/ask_bing_copilot.html">ask_bing_copilot</a></span><span class="op">(</span><span class="st">"Write a function to calculate the median"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/ask_grok.html">ask_grok</a></span><span class="op">(</span><span class="st">"What is better base R or tidyverse for research?"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/ask_meta_ai.html">ask_meta_ai</a></span><span class="op">(</span><span class="st">"What are the best R packages for time series analysis?"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Search with an error message</span></span>
@@ -158,7 +160,7 @@ Example workflow of searching and asking AI assistants questions from R.
 <span>  <span class="st">"Fix this code: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()"</span>, </span>
 <span>  prompt <span class="op">=</span> <span class="st">"You are an R debugging expert. Explain what's wrong step by step."</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>See <code><a href="articles/search-with-ai-assistants.html">vignette("search-with-ai-assistants",  package = "searcher")</a></code> for more details on using AI assistants in searches through <code>searcher</code>.</p>
+<p>See <code><a href="https://r-pkg.thecoatlessprofessor.com/searcher/articles/search-with-ai-assistants.html">vignette("search-with-ai-assistants",  package = "searcher")</a></code> for more details on using AI assistants in searches through <code>searcher</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="ai-prompt-management">AI Prompt Management<a class="anchor" aria-label="anchor" href="#ai-prompt-management"></a>

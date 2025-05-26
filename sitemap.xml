@@ -4,7 +4,7 @@
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/index.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/managing-ai-prompts.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/search-patterns.html</loc></url>
-<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/search-with-ai-assistants.html</loc></url>
+<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/articles/using-ai-assistants-with-searcher.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/authors.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/index.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/news/index.html</loc></url>
@@ -19,6 +19,7 @@
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_bing_copilot.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_chatgpt.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.html</loc></url>
+<url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_grok.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_meta_ai.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_mistral.html</loc></url>
 <url><loc>https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_perplexity.html</loc></url>

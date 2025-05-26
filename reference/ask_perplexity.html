@@ -11,7 +11,7 @@ useful for research-oriented queries."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">searcher</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,8 +24,8 @@ useful for research-oriented queries."></head><body>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/search-patterns.html">Search Patterns</a></li>
-    <li><a class="dropdown-item" href="../articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
-    <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
+    <li><a class="dropdown-item" href="../articles/using-ai-assistants-with-searcher.html">Using AI Assistants with searcher</a></li>
+    <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in searcher</a></li>
     <li><a class="dropdown-item" href="../articles/faq.html">Frequently Asked Questions (FAQ)</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -59,11 +59,11 @@ useful for research-oriented queries.</p>
 
 
 <dl><dt id="arg-query">query<a class="anchor" aria-label="anchor" href="#arg-query"></a></dt>
-<dd><p>Contents of string to send to ChatGPT. Default is the last error message.</p></dd>
+<dd><p>Contents of string to send to AI Service. Default is the last error message.</p></dd>
 
 
 <dt id="arg-prompt">prompt<a class="anchor" aria-label="anchor" href="#arg-prompt"></a></dt>
-<dd><p>Optional prompt prefix to add before your query to guide how ChatGPT
+<dd><p>Optional prompt prefix to add before your query to guide how the AI Service
 responds. If NULL, uses the service-specific default prompt option.</p></dd>
 
 </dl></div>
@@ -77,6 +77,7 @@ responds. If NULL, uses the service-specific default prompt option.</p></dd>
 <code><a href="ask_bing_copilot.html">ask_bing_copilot</a>()</code>,
 <code><a href="ask_chatgpt.html">ask_chatgpt</a>()</code>,
 <code><a href="ask_claude.html">ask_claude</a>()</code>,
+<code><a href="ask_grok.html">ask_grok</a>()</code>,
 <code><a href="ask_meta_ai.html">ask_meta_ai</a>()</code>,
 <code><a href="ask_mistral.html">ask_mistral</a>()</code></p></div>
     </div>

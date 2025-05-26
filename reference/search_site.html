@@ -9,7 +9,7 @@ up the resulting page in a web browser."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">searcher</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,8 +22,8 @@ up the resulting page in a web browser."></head><body>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/search-patterns.html">Search Patterns</a></li>
-    <li><a class="dropdown-item" href="../articles/search-with-ai-assistants.html">Search with AI Assistants</a></li>
-    <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in `searcher`</a></li>
+    <li><a class="dropdown-item" href="../articles/using-ai-assistants-with-searcher.html">Using AI Assistants with searcher</a></li>
+    <li><a class="dropdown-item" href="../articles/managing-ai-prompts.html">Managing AI Prompts in searcher</a></li>
     <li><a class="dropdown-item" href="../articles/faq.html">Frequently Asked Questions (FAQ)</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -53,7 +53,8 @@ up the resulting page in a web browser.</p>
 <span>  site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"google"</span>, <span class="st">"bing"</span>, <span class="st">"duckduckgo"</span>, <span class="st">"ddg"</span>, <span class="st">"startpage"</span>, <span class="st">"sp"</span>, <span class="st">"qwant"</span>, <span class="st">"rseek"</span>,</span>
 <span>    <span class="st">"brave"</span>, <span class="st">"kagi"</span>, <span class="st">"posit community"</span>, <span class="st">"posit"</span>, <span class="st">"twitter"</span>, <span class="st">"x"</span>, <span class="st">"bluesky"</span>, <span class="st">"mastodon"</span>,</span>
 <span>    <span class="st">"stackoverflow"</span>, <span class="st">"so"</span>, <span class="st">"github"</span>, <span class="st">"gh"</span>, <span class="st">"grep"</span>, <span class="st">"bitbucket"</span>, <span class="st">"bb"</span>, <span class="st">"chatgpt"</span>,</span>
-<span>    <span class="st">"claude"</span>, <span class="st">"perplexity"</span>, <span class="st">"mistral"</span>, <span class="st">"bing copilot"</span>, <span class="st">"copilot"</span>, <span class="st">"meta ai"</span>, <span class="st">"meta"</span><span class="op">)</span>,</span>
+<span>    <span class="st">"claude"</span>, <span class="st">"perplexity"</span>, <span class="st">"mistral"</span>, <span class="st">"bing copilot"</span>, <span class="st">"copilot"</span>, <span class="st">"grok"</span>, <span class="st">"meta ai"</span>,</span>
+<span>    <span class="st">"meta"</span><span class="op">)</span>,</span>
 <span>  rlang <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  prompt <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -76,8 +77,8 @@ up the resulting page in a web browser.</p>
 <code>"twitter"</code> or <code>"x"</code>, <code>"bluesky"</code>, <code>"mastodon"</code>, <code>"stackoverflow"</code>,
 <code>"github"</code>, <code>"grep"</code>, <code>"bitbucket"</code>,
 <code>"chatgpt"</code>, <code>"claude"</code>, <code>"perplexity"</code>,
-<code>"mistral"</code>, <code>"bing copilot"</code> or <code>"copilot"</code>, and
-<code>"meta ai"</code> or <code>"meta"</code>.</p></dd>
+<code>"mistral"</code> or <code>"le chat"</code>, <code>"bing copilot"</code> or <code>"copilot"</code>, and
+<code>"grok"</code> or <code>"xai"</code>, <code>"meta ai"</code> or <code>"meta"</code>.</p></dd>
 
 
 <dt id="arg-rlang">rlang<a class="anchor" aria-label="anchor" href="#arg-rlang"></a></dt>
