@@ -17,10 +17,12 @@ The goal of `searcher` is to provide a search interface directly inside
 of *R*. For example, to look up `rcpp example numeric vector` or
 `ggplot2 fix axis labels` call one of the `search_*()` functions to
 automatically have a web browser open, go to a search site, and type the
-query. `searcher` also provides direct integration with AI assistants,
-allowing you to send queries to ChatGPT, Claude, and other AI services
-with R-optimized prompts. By default, the search functions will attempt
-to search the last error on call if no query is specified.
+query. `searcher` also provides direct integration with AI assistants
+through `ask_*()` functions, allowing you to send queries to ChatGPT,
+Claude, and other AI services with R-optimized prompts.
+
+By default, the search and ask functions will attempt to search the last
+error on call if no query is specified.
 
 <figure>
 <img src="https://i.imgur.com/Zq2rg6G.gif"
@@ -125,9 +127,15 @@ search_bitbucket("assertions", rlang = FALSE)            # or search_bb(...)
 ## AI Assistants
 
 The package also provides functions to query AI assistants directly from
-R. These functions open a browser with your query pre-filled, using
-customizable prompts that help the AI give more effective responses for
-R programming:
+R. The following AI Assistant platforms are supported: OpenAI’s
+[ChatGPT](https://chatgpt.com/), Anthropic’s
+[Claude](https://claude.ai/), [Perplexity](https://www.perplexity.ai/),
+Microsoft (Bing)’s [Copilot](https://copilot.microsoft.com/), Mistral’s
+[le Chat](https://chat.mistral.ai/chat), xAI’s
+[Grok](https://grok.com/), and [Meta.ai](https://www.meta.ai/). These
+functions open a browser with your query pre-filled, using customizable
+prompts that help the AI give more effective responses for R
+programming:
 
 ``` r
 # Get coding help from AI assistants
@@ -136,6 +144,7 @@ ask_claude("Explain what purrr::map_df does")
 ask_perplexity("Compare dplyr vs data.table performance")
 ask_mistral("How to handle missing data in R?")
 ask_bing_copilot("Write a function to calculate the median")
+ask_grok("What is better base R or tidyverse for research?")
 ask_meta_ai("What are the best R packages for time series analysis?")
 
 # Search with an error message
