@@ -3,9 +3,9 @@
 \docType{package}
 \name{searcher-package}
 \alias{searcher-package}
-\title{searcher: Query Search Interfaces}
+\title{searcher: Query Search Interfaces and AI Assistants}
 \description{
-Provides a search interface to look up terms on 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Ecosia', 'rseek', 'Twitter', 'StackOverflow', 'RStudio Community', 'GitHub', and 'BitBucket'. Upon searching, a browser window will open with the aforementioned search results.
+Provides search interfaces to look up terms on major search engines including 'Google', 'Bing', 'DuckDuckGo', 'Startpage', 'Ecosia', 'Brave', 'Kagi', 'rseek', social platforms like 'X' (formerly Twitter), 'BlueSky', 'Mastodon', programming communities such as 'StackOverflow', 'Posit Community', and code repositories including 'GitHub', 'grep.app', and 'BitBucket'. Additionally, provides direct integration with AI assistants through specialized query functions for 'ChatGPT', 'Claude AI', 'Perplexity AI', 'Mistral AI', 'Microsoft Copilot', and 'Meta AI', complete with an AI prompt management system for R-optimized interactions. Upon searching or querying, a browser window will open with the search results or AI interface pre-populated with the specified query.
 }
 \section{Package Customizations}{
 
@@ -19,7 +19,16 @@ a browser window. Default is \code{0.5} seconds.
 viewer pane instead of a web browser. Default is \code{FALSE}.
 \item \code{searcher.default_keyword}: Suffix keyword to generate accurate results
 between either \code{"base"} or \code{"tidyverse"}. Default is \code{"base"}.
-\item ...
+\item Other options are used to set the default prompts for AI services
+\itemize{
+\item \code{searcher.chatgpt_prompt}: Default prompt for OpenAI's ChatGPT.
+\item \code{searcher.claude_prompt}: Default prompt for Anthropic's Claude AI.
+\item \code{searcher.perplexity_prompt}: Default prompt for Perplexity AI.
+\item \code{searcher.mistral_prompt}: Default prompt for Mistral AI's Le Chat.
+\item \code{searcher.bing_copilot_prompt}: Default prompt for Microsoft's (Bing) Copilot.
+\item \code{searcher.grok_prompt}: Default prompt for xAI's Grok AI.
+\item \code{searcher.meta_ai_prompt}: Default prompt for Meta's AI.
+}
 }
 }
 

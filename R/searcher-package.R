@@ -10,7 +10,14 @@
 #'    viewer pane instead of a web browser. Default is `FALSE`.
 #' - `searcher.default_keyword`: Suffix keyword to generate accurate results
 #'    between either `"base"` or `"tidyverse"`. Default is `"base"`.
-#' - ...
+#' - Other options are used to set the default prompts for AI services
+#'   - `searcher.chatgpt_prompt`: Default prompt for OpenAI's ChatGPT.
+#'   - `searcher.claude_prompt`: Default prompt for Anthropic's Claude AI.
+#'   - `searcher.perplexity_prompt`: Default prompt for Perplexity AI.
+#'   - `searcher.mistral_prompt`: Default prompt for Mistral AI's Le Chat.
+#'   - `searcher.bing_copilot_prompt`: Default prompt for Microsoft's (Bing) Copilot.
+#'   - `searcher.grok_prompt`: Default prompt for xAI's Grok AI.
+#'   - `searcher.meta_ai_prompt`: Default prompt for Meta's AI.
 #'
 "_PACKAGE"
 
@@ -25,7 +32,8 @@ searcher_default_options = list(
   searcher.perplexity_prompt = "Answer with a focus on R programming and statistics. Include reliable sources when possible.",
   searcher.mistral_prompt = "As an R expert, please help with this question. Include code examples if relevant.",
   searcher.bing_copilot_prompt = "Please help with this R programming question. Provide working code examples.",
-  searcher.metaai_prompt = "You're an R programming assistant. Answer questions with practical examples."
+  searcher.grok_prompt = "As an R programming assistant, provide clear and concise answers with practical examples.",
+  searcher.meta_ai_prompt = "You're an R programming assistant. Answer questions with practical examples."
 )
 
 .onLoad = function(libname, pkgname) {
