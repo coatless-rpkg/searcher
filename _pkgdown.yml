@@ -29,9 +29,9 @@ navbar:
       menu:
       - text: "Search Patterns"
         href: articles/search-patterns.html
-      - text: "Search with AI Assistants"
-        href: articles/search-with-ai-assistants.html
-      - text: "Managing AI Prompts in `searcher`"
+      - text: "Using AI Assistants with searcher"
+        href: articles/using-ai-assistants-with-searcher.html
+      - text: "Managing AI Prompts in searcher"
         href: articles/managing-ai-prompts.html
       - text: "Frequently Asked Questions (FAQ)"
         href: articles/faq.html
@@ -71,6 +71,7 @@ reference:
       - ask_mistral
       - ask_bing_copilot
       - ask_copilot
+      - ask_grok
       - ask_meta_ai
 
   - title: "Community Sites"

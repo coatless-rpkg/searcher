@@ -111,6 +111,8 @@ site_index =
     site_entry("bing copilot", "https://www.bing.com/search?showconv=1&sendquery=1&q=",
                "copilot",
                keywords = NULL),
+    site_entry("grok", "https://www.grok.com/?q=",
+               keywords = NULL),
     site_entry("meta ai", "https://www.meta.ai/?q=",
                "meta",
                keywords = NULL)

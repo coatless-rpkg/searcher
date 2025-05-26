@@ -1,14 +1,15 @@
-# searcher 0.0.8
+# searcher 0.1.0
 
 ## Features
 
 - Added GenAI Search Portals: 
-    - `ask_chatgpt()`: Searches with ChatGPT
-    - `ask_claude()`: Searches with Claude AI
-    - `ask_perplexity()`: Searches with Perplexity AI
-    - `ask_mistral()`: Searches with Mistral AI
-    - `ask_copilot()`: Searches with Microsoft Bing's Copilot
-    - `ask_meta_ai()`: Searches with Meta AI
+    - `ask_chatgpt()`: Discuss with OpenAI's ChatGPT
+    - `ask_claude()`: Discuss with Anthropic's Claude AI
+    - `ask_perplexity()`: Discuss with Perplexity AI
+    - `ask_mistral()`/`ask_le_chat()`: Discuss with Mistral AI's Le Chat
+    - `ask_copilot()`: Discuss with Microsoft Bing's Copilot
+    - `ask_xai()`/`ask_grok()`: Discuss with xAI's Grok
+    - `ask_meta_ai()`: Discuss with Meta AI
 - Added an AI Prompt Management System with Persona Prompts:
     - `ai_prompt()`: Set a prompt for the AI
     - `ai_prompt_active()`: View the active prompt
@@ -17,7 +18,7 @@
     - `ai_prompt_register()`: Add a custom prompt
     - `ai_prompt_remove()`: Remove a prompt
 - Added new vignettes:
-    - `search-with-ai-assistants.Rmd`: Overview of the AI Searching Techniques
+    - `using-ai-assistants-with-searcher.Rmd`: Overview of the AI Searching Techniques
     - `managing-ai-prompts.Rmd`: Overview of `searcher`'s AI Prompt Management System
 - Added search portals:
     - `search_brave()`: Searches on Brave. 
@@ -42,9 +43,9 @@
 
 - Reorganized search functions into separate help pages by category:
   - Search engines (Google, Bing, etc.)
+  - AI assistants (ChatGPT, Claude, etc.)
   - Community sites (StackOverflow, Twitter, etc.) 
   - Code repositories (GitHub, BitBucket, etc.)
-  - AI assistants (ChatGPT, Claude, etc.)
 - Implemented `@family` tags to group related functions in the "See also" section
 - Added more specific, relevant examples for each function
 - Added brief descriptions of each AI service's strengths and characteristics

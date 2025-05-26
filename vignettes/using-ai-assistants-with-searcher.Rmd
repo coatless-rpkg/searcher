@@ -33,7 +33,8 @@ The package supports the following AI services:
 3. **Perplexity** (`ask_perplexity()`) - Research-focused AI with internet search capabilities
 4. **Mistral** (`ask_mistral()`) - Mistral AI's assistant with strong reasoning capabilities
 5. **Bing Copilot** (`ask_bing_copilot()` or `ask_copilot()`) - Microsoft's AI assistant with web search integration
-6. **Meta AI** (`ask_meta_ai()`) - Meta's conversational AI assistant
+6. **Grok** (`ask_grok()`) - xAI's AI assistant, known for its desire to maximize truth and objectivity
+7. **Meta AI** (`ask_meta_ai()`) - Meta's conversational AI assistant
 
 # Basic Usage
 
@@ -57,6 +58,9 @@ ask_mistral("Debug this function: calculate_median <- function(x) mean(x)")
 # Compare programming approaches with Bing Copilot
 ask_copilot("Compare data.table vs dplyr for large datasets")
 
+# Ask Grok about R best practices
+ask_grok("What are the best practices for data cleaning in R?")
+
 # Ask Meta AI about best practices
 ask_meta_ai("What's the best way to handle missing data in R?")
 ```
@@ -78,6 +82,7 @@ The following URLs are used to create new chat sessions:
 | `ask_perplexity()` | Perplexity AI | `https://www.perplexity.ai/search?q=` (with additional parameters) |
 | `ask_mistral()` | Mistral AI | `https://chat.mistral.ai/chat?q=` |
 | `ask_bing_copilot()` | Microsoft Bing Copilot | `https://www.bing.com/search?showconv=1&sendquery=1&q=` |
+| `ask_grok()` | xAI | `https://www.grok.com/?q=` |
 | `ask_meta_ai()` | Meta AI | `https://www.meta.ai/?q=` |
 
 ## Account Requirements

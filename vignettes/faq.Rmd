@@ -1,10 +1,10 @@
 ---
-title: "Frequently Asked Questions (FAQ) about searcher"
+title: "Frequently Asked Questions (FAQ)"
 author: "James Joseph Balamuta"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Frequently Asked Questions (FAQ) about searcher}
+  %\VignetteIndexEntry{Frequently Asked Questions (FAQ)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -60,7 +60,7 @@ The package supports multiple types of platforms:
 - **Search Engines**
   - Google, Bing, DuckDuckGo, Startpage, Ecosia, Qwant, Brave, Kagi, Rseek
 - **AI Assistants**
-  - ChatGPT, Claude, Perplexity, Mistral, Bing Copilot, Meta AI
+  - ChatGPT, Claude, Perplexity, Mistral, Microsoft (Bing)'s Copilot, Grok, Meta AI
 - **Developer Communities**
   - StackOverflow, Posit Community, Twitter/X, Mastodon, BlueSky
 - **Code Repositories**
@@ -215,7 +215,7 @@ ai_prompt("As an R educator, explain this concept in detail:")
 ask_chatgpt("What is the tidyverse?")
 ```
 
-See `vignette("search-with-ai-assistants", "searcher")` for more details on
+See `vignette("using-ai-assistants-with-searcher", "searcher")` for more details on
 effective prompting.
 
 ## Prompt Management

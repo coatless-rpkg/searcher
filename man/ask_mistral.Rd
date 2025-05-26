@@ -2,14 +2,17 @@
 % Please edit documentation in R/ai-search-functions.R
 \name{ask_mistral}
 \alias{ask_mistral}
+\alias{ask_le_chat}
 \title{Search with Mistral AI}
 \usage{
 ask_mistral(query = geterrmessage(), prompt = NULL)
+
+ask_le_chat(query = geterrmessage(), prompt = NULL)
 }
 \arguments{
-\item{query}{Contents of string to send to ChatGPT. Default is the last error message.}
+\item{query}{Contents of string to send to AI Service. Default is the last error message.}
 
-\item{prompt}{Optional prompt prefix to add before your query to guide how ChatGPT
+\item{prompt}{Optional prompt prefix to add before your query to guide how the AI Service
 responds. If NULL, uses the service-specific default prompt option.}
 }
 \value{
@@ -32,6 +35,7 @@ Other AI assistants:
 \code{\link{ask_bing_copilot}()},
 \code{\link{ask_chatgpt}()},
 \code{\link{ask_claude}()},
+\code{\link{ask_grok}()},
 \code{\link{ask_meta_ai}()},
 \code{\link{ask_perplexity}()}
 }
