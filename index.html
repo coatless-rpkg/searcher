@@ -160,7 +160,7 @@ Example workflow of searching and asking AI assistants questions from R.
 <span>  <span class="st">"Fix this code: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()"</span>, </span>
 <span>  prompt <span class="op">=</span> <span class="st">"You are an R debugging expert. Explain what's wrong step by step."</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>See <code>vignette("search-with-ai-assistants",  package = "searcher")</code> for more details on using AI assistants in searches through <code>searcher</code>.</p>
+<p>See <code><a href="articles/using-ai-assistants-with-searcher.html">vignette("using-ai-assistants-with-searcher",  package = "searcher")</a></code> for more details on using AI assistants in searches through <code>searcher</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="ai-prompt-management">AI Prompt Management<a class="anchor" aria-label="anchor" href="#ai-prompt-management"></a>
@@ -261,18 +261,24 @@ Example workflow of searching and asking AI assistants questions from R.
 <code>searcher.use_rstudio_viewer</code>: Display search results in the RStudio viewer pane instead of a web browser. Default is <code>FALSE</code>.</li>
 <li>
 <code>searcher.default_keyword</code>: Suffix keyword to focus search results between either <code>"base"</code> or <code>"tidyverse"</code>. Default is <code>"base"</code>.</li>
+<li>AI service prompts:
+<ul>
 <li>
-<code>searcher.chatgpt_prompt</code>: Default prompt for ChatGPT queries, used if no specific prompt is provided.</li>
+<code>searcher.chatgpt_prompt</code>: Default prompt for OpenAI’s ChatGPT queries.</li>
 <li>
-<code>searcher.claude_prompt</code>: Default prompt for Claude queries.</li>
+<code>searcher.claude_prompt</code>: Default prompt for Anthropic’s Claude queries.</li>
 <li>
-<code>searcher.perplexity_prompt</code>: Default prompt for Perplexity queries.</li>
+<code>searcher.perplexity_prompt</code>: Default prompt for Perplexity AI queries.</li>
 <li>
 <code>searcher.mistral_prompt</code>: Default prompt for Mistral AI queries.</li>
 <li>
 <code>searcher.bing_copilot_prompt</code>: Default prompt for Bing Copilot queries.</li>
 <li>
+<code>searcher.grok_prompt</code>: Default prompt for xAI’s Grok AI queries.</li>
+<li>
 <code>searcher.meta_ai_prompt</code>: Default prompt for Meta AI queries.</li>
+</ul>
+</li>
 </ul>
 <p>To set one of these options, please create the <code>.Rprofile</code> by typing into <em>R</em>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
