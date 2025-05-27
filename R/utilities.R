@@ -73,7 +73,7 @@ open_web_browser = function(url) { # nocov start
 #' [utils::URLencode()]
 #' @noRd
 encode_url = function(base, unencoded_query, encoded_query = "") {
-  paste0(base, utils::URLencode(unencoded_query), encoded_query)
+  paste0(base, utils::URLencode(unencoded_query, reserved = TRUE), encoded_query)
 }
 
 #' Validate search query
@@ -94,10 +94,10 @@ encode_url = function(base, unencoded_query, encoded_query = "") {
 #' valid_query()
 #' valid_query(NULL)
 #' valid_query("")
-#' valid_query(c(1,2))
+#' valid_query(c(1, 2))
 #' @noRd
 valid_query = function(query) {
-  if(missing(query) || is.null(query) || length(query) != 1 || query == "") {
+  if(missing(query) || anyNA(query) || !is.character(query) || length(query) != 1 || query == "") {
     FALSE
   } else {
     TRUE
@@ -126,7 +126,7 @@ valid_query = function(query) {
 #' @noRd
 append_search_term_suffix = function(query, rlang = TRUE, suffix = "r programming") {
 
-  if (rlang && !is.null(suffix))
+  if (rlang && !is.null(suffix) && suffix != "")
     paste(query, suffix)
   else
     query

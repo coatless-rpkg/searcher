@@ -165,8 +165,9 @@ ask_chatgpt(
 )
 ```
 
-See `vignette("search-with-ai-assistants",  package = "searcher")` for
-more details on using AI assistants in searches through `searcher`.
+See
+`vignette("using-ai-assistants-with-searcher",  package = "searcher")`
+for more details on using AI assistants in searches through `searcher`.
 
 ## AI Prompt Management
 
@@ -280,14 +281,18 @@ Presently, the following options are available:
   viewer pane instead of a web browser. Default is `FALSE`.
 - `searcher.default_keyword`: Suffix keyword to focus search results
   between either `"base"` or `"tidyverse"`. Default is `"base"`.
-- `searcher.chatgpt_prompt`: Default prompt for ChatGPT queries, used if
-  no specific prompt is provided.
-- `searcher.claude_prompt`: Default prompt for Claude queries.
-- `searcher.perplexity_prompt`: Default prompt for Perplexity queries.
-- `searcher.mistral_prompt`: Default prompt for Mistral AI queries.
-- `searcher.bing_copilot_prompt`: Default prompt for Bing Copilot
-  queries.
-- `searcher.meta_ai_prompt`: Default prompt for Meta AI queries.
+- AI service prompts:
+  - `searcher.chatgpt_prompt`: Default prompt for OpenAI’s ChatGPT
+    queries.
+  - `searcher.claude_prompt`: Default prompt for Anthropic’s Claude
+    queries.
+  - `searcher.perplexity_prompt`: Default prompt for Perplexity AI
+    queries.
+  - `searcher.mistral_prompt`: Default prompt for Mistral AI queries.
+  - `searcher.bing_copilot_prompt`: Default prompt for Bing Copilot
+    queries.
+  - `searcher.grok_prompt`: Default prompt for xAI’s Grok AI queries.
+  - `searcher.meta_ai_prompt`: Default prompt for Meta AI queries.
 
 To set one of these options, please create the `.Rprofile` by typing
 into *R*:
