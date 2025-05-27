@@ -72,7 +72,7 @@ test_that("Check link generation - rseek", {
 
   expect_identical(
     search_rseek("toad"),
-    "https://rseek.org/?q=toad%20"
+    "https://rseek.org/?q=toad"
   )
 
   expect_identical(
@@ -174,7 +174,7 @@ test_that("Check link generation - stackoverflow", {
 
   expect_identical(
     search_stackoverflow("toad"),
-    "https://stackoverflow.com/search?q=toad%20[r]"
+    "https://stackoverflow.com/search?q=toad%20%5Br%5D"
   )
 
   expect_identical(
@@ -188,7 +188,7 @@ test_that("Check link generation - github", {
 
   expect_identical(
     search_github("toad"),
-    "https://github.com/search?q=toad%20language:r%20type:issue&type=Issues"
+    "https://github.com/search?q=toad%20language%3Ar%20type%3Aissue&type=Issues"
   )
 
   expect_identical(
@@ -202,7 +202,7 @@ test_that("Check link generation - bitbucket", {
 
   expect_identical(
     search_bitbucket("toad"),
-    "https://bitbucket.com/search?q=toad%20lang:r"
+    "https://bitbucket.com/search?q=toad%20lang%3Ar"
   )
 
   expect_identical(
