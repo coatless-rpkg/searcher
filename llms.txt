@@ -1,0 +1,506 @@
+### Overview
+
+The goal of `searcher` is to provide a search interface directly inside
+of *R*. For example, to look up `rcpp example numeric vector` or
+`ggplot2 fix axis labels` call one of the `search_*()` functions to
+automatically have a web browser open, go to a search site, and type the
+query. `searcher` also provides direct integration with AI assistants
+through `ask_*()` functions, allowing you to send queries to ChatGPT,
+Claude, and other AI services with R-optimized prompts.
+
+By default, the search and ask functions will attempt to search the last
+error on call if no query is specified.
+
+![Example workflow of searching and asking AI assistants questions from
+R.](https://i.imgur.com/Zq2rg6G.gif)
+
+Example workflow of searching and asking AI assistants questions from R.
+
+## Installation
+
+The `searcher` package is available on both
+[CRAN](https://CRAN.R-project.org/package=searcher) and
+[GitHub](https://github.com/coatless-rpkg/searcher). The
+[CRAN](https://CRAN.R-project.org/package=searcher) version is
+considered stable while the
+[GitHub](https://github.com/coatless-rpkg/searcher) version is in a
+state of development and may break.
+
+You can install the stable version of the `searcher` package with:
+
+``` r
+
+install.packages("searcher")
+```
+
+For the development version, you can opt for:
+
+``` r
+
+if(!requireNamespace("remotes")) { install.packages("remotes") }
+remotes::install_github("coatless-rpkg/searcher")
+```
+
+## Usage
+
+``` r
+
+library(searcher)
+```
+
+## Search Terms
+
+The `search_*()` functions can be used to search a query directly from
+*R* on major search engines, programming help websites, and code
+repositories. The following search platforms are supported:
+[Google](https://www.google.com), [Bing](https://www.bing.com/),
+[DuckDuckGo](https://duckduckgo.com/),
+[Startpage](https://www.startpage.com/en/), Ecosia,
+[rseek](https://rseek.org/), Qwant, [Brave](https://search.brave.com/),
+Kagi, X (formerly Twitter), [BlueSky](https://bsky.app),
+[Mastodon](https://mastodon.social),
+[StackOverflow](https://stackoverflow.com/), [Posit
+Community](https://forum.posit.co/),
+[GitHub](https://github.com/search), [grep.app](https://grep.app/), and
+[BitBucket](https://bitbucket.org/product/). By default, an appropriate
+suffix for each platform that ensures relevant results to *R* is
+appended to all queries. This behavior can be disabled by using
+`rlang = FALSE`.
+
+``` r
+
+# Searching R project on major search engines
+search_google("R project")
+search_bing("R project")
+search_ecosia("R project")
+search_rseek("R project")
+search_qwant("R project")
+search_brave("R project")
+search_kagi("R project")
+search_duckduckgo("R project")                           # or search_ddg(...)
+search_startpage("R project")                            # or search_sp(...)
+
+# Searching X/Twitter to find out about machine learning for R and in general
+search_twitter("machine learning")
+search_twitter("machine learning", rlang = FALSE)
+
+# Searching BlueSky to find out about deep learning for R and in general
+search_bluesky("deep learning")
+search_bluesky("deep learning", rlang = FALSE)
+
+# Searching Mastodon to find out about data visualization for R and in general
+search_mastodon("data vis")
+search_mastodon("data vis", rlang = FALSE)
+
+# Searching SO for linear regression questions for R and in general
+search_stackoverflow("linear regression")
+search_stackoverflow("linear regression", rlang = FALSE) # or search_so(...)
+
+# Searching Posit Community for tips
+search_posit_community("tips")
+search_posit_community("tips", rlang = FALSE)          # or search_posit(...)
+
+# Searching GitHub code for graphs in R and other languages
+search_grep("graph")
+search_grep("graph", rlang = FALSE)
+
+# Searching GitHub Issues for maps in R and other languages
+search_github("maps")
+search_github("maps", rlang = FALSE)                     # or search_gh(...)
+
+# Searching BitBucket for assertions in R and other languages
+search_bitbucket("assertions")
+search_bitbucket("assertions", rlang = FALSE)            # or search_bb(...)
+```
+
+## AI Assistants
+
+The package also provides functions to query AI assistants directly from
+R. The following AI Assistant platforms are supported: OpenAI’s
+[ChatGPT](https://chatgpt.com/), Anthropic’s
+[Claude](https://claude.ai/), [Perplexity](https://www.perplexity.ai/),
+Microsoft (Bing)’s [Copilot](https://copilot.microsoft.com/), Mistral’s
+[le Chat](https://chat.mistral.ai/chat), xAI’s
+[Grok](https://grok.com/), and [Meta.ai](https://www.meta.ai/). These
+functions open a browser with your query pre-filled, using customizable
+prompts that help the AI give more effective responses for R
+programming:
+
+``` r
+
+# Get coding help from AI assistants
+ask_chatgpt("How to create a ggplot scatterplot with regression line?")
+ask_claude("Explain what purrr::map_df does")
+ask_perplexity("Compare dplyr vs data.table performance")
+ask_mistral("How to handle missing data in R?")
+ask_bing_copilot("Write a function to calculate the median")
+ask_grok("What is better base R or tidyverse for research?")
+ask_meta_ai("What are the best R packages for time series analysis?")
+
+# Search with an error message
+tryCatch(
+  cor(mtcrs),  # Intentional typo
+  error = function(e) ask_claude()  # Will search the error message
+)
+```
+
+All AI search functions accept an optional `prompt` parameter that
+guides how the AI responds:
+
+``` r
+
+# Adding specific instructions to the prompt
+ask_chatgpt(
+  "Fix this code: ggplot(mtcars, aes(x=mpg, y=hp) + geom_point()", 
+  prompt = "You are an R debugging expert. Explain what's wrong step by step."
+)
+```
+
+See
+[`vignette("using-ai-assistants-with-searcher", package = "searcher")`](https://r-pkg.thecoatlessprofessor.com/searcher/articles/using-ai-assistants-with-searcher.md)
+for more details on using AI assistants in searches through `searcher`.
+
+## AI Prompt Management
+
+For those who frequently use AI assistants, searcher provides a prompt
+management system:
+
+``` r
+
+# List available prompts
+ai_prompt_list()
+
+# Set a system-level prompt for all AI services
+ai_prompt("debugging")  # Use a predefined prompt for debugging
+
+# Create custom prompts
+ai_prompt_register("my_prompt", "As an R expert analyzing the mtcars dataset...")
+
+# Check active prompt
+ai_prompt_active()
+
+# Clear active prompt
+ai_prompt_clear()
+```
+
+See
+[`vignette("managing-ai-prompts")`](https://r-pkg.thecoatlessprofessor.com/searcher/articles/managing-ai-prompts.md)
+for more details on the prompt management system.
+
+### Comparison with ellmer Package
+
+While both `searcher` and `ellmer` provide AI assistance for R users,
+they take different approaches:
+
+- `searcher` opens a web browser with your query pre-filled in the AI
+  service’s interface
+  - No API keys needed  
+  - Works with multiple AI services  
+  - Visual interface for complex interactions  
+  - Requires browser access and being logged in
+- `ellmer` uses API connections to interact with models directly within
+  R
+  - Requires API keys
+  - Results returned directly to R console/environment
+  - Better for programmatic/automated use
+  - Works in non-interactive environments
+
+These packages are **complementary** rather than competitive:
+
+- Use `searcher` for interactive exploration, debugging, and research
+- Use `ellmer` for reproducible workflows, batch processing, and
+  production code
+
+See
+[`vignette("faq", package = "searcher")`](https://r-pkg.thecoatlessprofessor.com/searcher/articles/faq.md)
+for a more detailed comparison.
+
+## Search Errors
+
+`searcher` offers preliminary support for automatically or manually
+searching errors that are generated in *R*. For more robust error search
+support and to also search warning messages, please use the
+[`errorist`](https://github.com/coatless-rpkg/errorist) package.
+
+### Automatically
+
+Searching the last error automatically is possible by registering a
+function as *R*’s error handler via either `searcher(site="")` or one of
+the `search_*()` functions. Thus, when an error occurs, this function
+will automatically be called. This triggers a new browser window to open
+with the error term listed in verbatim.
+
+``` r
+
+# Using the generic search error handler
+options(error = searcher("google"))
+
+# Directly specify the search or ask function
+options(error = search_google)
+
+options(error = ask_claude)
+```
+
+### Manually
+
+Alternatively, these functions can also be used manually so that the
+default error dispatch is preserved. In the manual case, you will have
+to explicitly call the search function. After that, a browser window
+will open with the last error message as the search query on the desired
+search portal.
+
+``` r
+
+# Search the last error message with Google
+search_google()
+
+# Ask an AI assistant about the last error
+## Switch into debug mode
+ai_prompt("debugging")
+
+## Ask Claude about the last error
+ask_claude()
+```
+
+## Package Customizations
+
+The ability to customize different operations in `searcher` is possible
+by setting values in
+[`options()`](https://stat.ethz.ch/R-manual/R-patched/RHOME/library/base/html/options.html)
+within
+[`~/.Rprofile`](https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html).
+Presently, the following options are available:
+
+- `searcher.launch_delay`: Amount of time between launching the web
+  browser from when the command was issued. Default is `0.5` seconds.
+- `searcher.use_rstudio_viewer`: Display search results in the RStudio
+  viewer pane instead of a web browser. Default is `FALSE`.
+- `searcher.default_keyword`: Suffix keyword to focus search results
+  between either `"base"` or `"tidyverse"`. Default is `"base"`.
+- AI service prompts:
+  - `searcher.chatgpt_prompt`: Default prompt for OpenAI’s ChatGPT
+    queries.
+  - `searcher.claude_prompt`: Default prompt for Anthropic’s Claude
+    queries.
+  - `searcher.perplexity_prompt`: Default prompt for Perplexity AI
+    queries.
+  - `searcher.mistral_prompt`: Default prompt for Mistral AI queries.
+  - `searcher.bing_copilot_prompt`: Default prompt for Bing Copilot
+    queries.
+  - `searcher.grok_prompt`: Default prompt for xAI’s Grok AI queries.
+  - `searcher.meta_ai_prompt`: Default prompt for Meta AI queries.
+
+To set one of these options, please create the `.Rprofile` by typing
+into *R*:
+
+``` r
+
+file.edit("~/.Rprofile")
+```
+
+From there, add:
+
+``` r
+
+.First = function() {
+  options(
+    searcher.launch_delay       = 0,
+    searcher.use_rstudio_viewer = FALSE,
+    searcher.default_keyword    = "tidyverse",
+    searcher.chatgpt_prompt     = "You are an R programming expert. Please provide concise answers with code examples.",
+    ## Additional options.
+  )
+}
+```
+
+## Motivation
+
+The idea for `searcher` began as a project to automatically search
+errors and warnings that occurred while working with *R* after a
+conversation among [Dirk Eddelbuettel](http://dirk.eddelbuettel.com),
+[Barry Rowlingson](http://barry.rowlingson.com), and myself. However,
+there was no search interface that allowed querying directly from *R*
+outside of the built-in
+[`utils::RSiteSearch()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/RSiteSearch.html),
+which only queries <http://search.r-project.org/>, and the
+[`sos`](https://cran.r-project.org/package=sos) package, which queries
+an off-site user premade database. Both of these options were focused
+solely on querying *R* documentation made available by packages. Given
+the nature of errors generally being *undocumented*, neither of these
+approaches could be used. Thus, `searcher` was unintentionally born to
+provide a means for
+[`errorist`](https://github.com/coatless-rpkg/errorist), which contains
+a robust way to automatically searching errors and warnings.
+
+### Special Thanks
+
+- [Dirk Eddelbuettel](http://dirk.eddelbuettel.com) for starting the
+  discussion on [XKCD Comic 1185: Ineffective
+  Sorts](https://xkcd.com/1185/).
+- [Barry Rowlingson](http://barry.rowlingson.com) for remarks about
+  functionality.
+
+### Publicity
+
+On the `#rstats`-twitter verse (c.f.
+`https://twitter.com/search?q=%23rstats`), `searcher` has been
+positively received by community members.
+
+> R package “searcher” that automatically searches Stackoverflow for
+> error that you just saw in the console. Cool package, especially for
+> those who learn R :) <https://github.com/coatless-rpkg/searcher> … \#r
+> \#rlang \#rstats \#rstudio
+>
+> — Paweł Przytuła March 23th, 2019. ~292 Retweets and 876 likes (Note,
+> URL updated to new repository location.)
+
+> Did you know, using “searcher” package, you could automatically to
+> search stackoverflow, google, GitHub and many more sites for errors,
+> packages or topics. \#rstats
+>
+> — Shakirah Nakalungi (c.f. `https://twitter.com/cynthia_kyra`) June
+> 29th, 2019, when she was Rotating Curator for the “We are R-Ladies”
+> twitter account (c.f.
+> `https://twitter.com/WeAreRLadies/status/1144921174251581440`) ~144
+> Retweets and 544 likes
+
+Please let us know via an [issue
+ticket](https://github.com/coatless-rpkg/searcher/issues/new) about how
+you are using `searcher`.
+
+## License
+
+GPL (\>= 2)
+
+# Package index
+
+## Search Engines
+
+Functions to search general search engines
+
+- [`search_google()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_google.md)
+  : Search Google
+- [`search_bing()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bing.md)
+  : Search Bing
+- [`search_duckduckgo()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_duckduckgo.md)
+  [`search_ddg()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_duckduckgo.md)
+  : Search DuckDuckGo
+- [`search_startpage()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_startpage.md)
+  [`search_sp()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_startpage.md)
+  : Search Startpage
+- [`search_ecosia()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_ecosia.md)
+  : Search Ecosia
+- [`search_rseek()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_rseek.md)
+  : Search Rseek
+- [`search_qwant()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_qwant.md)
+  : Search Qwant
+- [`search_brave()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_brave.md)
+  : Search Brave
+- [`search_kagi()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_kagi.md)
+  : Search Kagi
+- [`search_site()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_site.md)
+  : Search a Query on a Search Portal in a Web Browser
+
+## AI Assistants
+
+Functions to interact with AI assistants
+
+- [`ask_chatgpt()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_chatgpt.md)
+  : Search with ChatGPT
+- [`ask_claude()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.md)
+  : Search with Claude
+- [`ask_perplexity()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_perplexity.md)
+  : Search with Perplexity
+- [`ask_mistral()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_mistral.md)
+  [`ask_le_chat()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_mistral.md)
+  : Search with Mistral AI
+- [`ask_bing_copilot()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_bing_copilot.md)
+  [`ask_copilot()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_bing_copilot.md)
+  : Search with Bing Copilot
+- [`ask_grok()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_grok.md)
+  [`ask_xai()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_grok.md)
+  : Search with Grok
+- [`ask_meta_ai()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_meta_ai.md)
+  : Search with Meta AI
+
+## Community Sites
+
+Functions to search developer communities
+
+- [`search_stackoverflow()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_stackoverflow.md)
+  [`search_so()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_stackoverflow.md)
+  : Search StackOverflow
+- [`search_posit_community()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_posit_community.md)
+  [`search_posit()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_posit_community.md)
+  : Search Posit Community
+- [`search_twitter()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_twitter.md)
+  [`search_x()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_twitter.md)
+  : Search Twitter/X
+- [`search_bluesky()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bluesky.md)
+  : Search BlueSky
+- [`search_mastodon()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_mastodon.md)
+  : Search Mastodon
+
+## Code Repositories
+
+Functions to search code repositories
+
+- [`search_github()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_github.md)
+  [`search_gh()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_github.md)
+  : Search GitHub
+- [`search_grep()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_grep.md)
+  : Search Grep.app
+- [`search_bitbucket()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bitbucket.md)
+  [`search_bb()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bitbucket.md)
+  : Search BitBucket
+
+## AI Prompt Management
+
+Functions to manage AI prompts
+
+- [`ai_prompt()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt.md)
+  : Set or View Active System-level AI Prompt
+- [`ai_prompt_active()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_active.md)
+  : Get Currently Active System Prompt
+- [`ai_prompt_list()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_list.md)
+  : List Available AI Prompts
+- [`ai_prompt_register()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_register.md)
+  : Register a New AI Prompt
+- [`ai_prompt_remove()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_remove.md)
+  : Remove an AI Prompt from the Library
+- [`ai_prompt_clear()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_clear.md)
+  : Clear the Active System Prompt
+- [`ai_prompt_management`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ai_prompt_management.md)
+  : AI Prompt Management System
+
+## Helper Functions
+
+General utility functions
+
+- [`searcher()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/searcher.md)
+  : Generate a Searcher function for use with Error Handling
+
+## Package Options and Details
+
+Package configuration options and function deprecation details
+
+- [`searcher-package`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/searcher-package.md)
+  : searcher: Query Search Interfaces and AI Assistants
+
+- [`searcher-defunct`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/searcher-defunct.md)
+  :
+
+  Defunct functions in `searcher`
+
+# Articles
+
+### All vignettes
+
+- [Frequently Asked Questions
+  (FAQ)](https://r-pkg.thecoatlessprofessor.com/searcher/articles/faq.md):
+- [Managing AI Prompts in
+  searcher](https://r-pkg.thecoatlessprofessor.com/searcher/articles/managing-ai-prompts.md):
+- [Search
+  Patterns](https://r-pkg.thecoatlessprofessor.com/searcher/articles/search-patterns.md):
+- [Using AI Assistants with
+  searcher](https://r-pkg.thecoatlessprofessor.com/searcher/articles/using-ai-assistants-with-searcher.md):

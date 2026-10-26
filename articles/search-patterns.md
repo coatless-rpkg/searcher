@@ -1,0 +1,152 @@
+# Search Patterns
+
+## Introduction
+
+When trying to solve a problem, part of the process is to research what
+attempts have been made by others. The most common form of research is
+to **query a search portal**. One downside to this approach is that each
+search portal has its own set of operators or query phrasing that will
+yield relevant content. As a result, those that have domain knowledge
+are able to format the search query in a way that is better. Still many
+queries are not constrained enough to the programming language being
+used. The goal of `searcher` is to attempt to address both needs by
+providing a convenient pre-specified search interface that tailors the
+results to *R*.
+
+## Usage
+
+To begin using `searcher`, first install the package from
+[CRAN](https://CRAN.R-project.org/package=searcher).
+
+``` r
+
+# Install the searcher package if not already installed
+install.packages("searcher")
+```
+
+Once installed, searching with `searcher` is done by using one or more
+of the `search_*()` functions. To access these functions, either use a
+namespace function call of `searcher::search_*()` or load the `searcher`
+package and, then, call the function.
+
+``` r
+
+# Loads the searcher package
+library("searcher")
+
+# Searches using Google for `tips`
+search_google("tips")
+```
+
+## Search Operators
+
+Within the `searcher` package, each `search_*()` function has the
+parameter of `rlang = TRUE`. By default, this enforces a search that
+guarantees *R*-specific results. If `rlang = FALSE`, then the results
+are generalized.
+
+- Search Engines
+  - All search engines affix `"r programming"` to the end of the query
+    to constrain the results to be *R*-specific.
+  - `"r programming"` was selected because it performed best when
+    compared to `"rlang"`, `"rstats"`, and `"r language"` on [Google
+    Trends](https://trends.google.com/trends/).
+- Community Sites
+  - [StackOverflow](https://stackoverflow.com/): `<query> + [r]`
+  - Twitter: `<query> + #rstats`
+  - [Posit Community](https://forum.posit.co/search) (formerly RStudio
+    Community): `<query>`
+  - [Rseek](https://rseek.org/): `<query>`
+- Code Repositories
+  - [GitHub Search](https://github.com/search):
+    `<query> language:r type:issue`
+  - [Bitbucket Search](https://bitbucket.org/search): `<query> lang:r`
+
+## General Search Tips
+
+To improve your *R*-related search query, it has been suggested to use:
+
+- `"r how to do <x>"`
+  - `"r how to remove legends in ggplot"`
+  - This is a baseline search query.
+- `"<package name> <problem>"`
+  - `"ggplot2 fix x-axis labels."`
+  - If the package is *R*-specific, it may help dropping `r` and instead
+    focusing on the package name at the start of the query.
+- `"r <package-name> <problem> <year> site:<specific-site>`
+  - `"r ggplot2 center graph title 2018 site:stackoverflow.com`
+  - By specifying the package name, a year, and target site the
+    “freshest” solution will likely be found.
+
+Suggestions here were pooled from discussion on rOpenSci’s slack with
+[Steph Locke](https://itsalocke.com/blog/) and [Robert
+Mitchell](https://robertmitchellv.com/).
+
+## Search Platform URLs
+
+The `searcher` package uses specific URLs to direct searches to various
+platforms. Understanding these URLs can be helpful for troubleshooting
+or creating custom search functions.
+
+### Search Engines
+
+The following search engines are supported with their corresponding base
+URLs:
+
+| Function | Service | Base URL |
+|----|----|----|
+| [`search_google()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_google.md) | Google | `https://google.com/search?q=` |
+| [`search_bing()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bing.md) | Bing | `https://bing.com/search?q=` |
+| [`search_duckduckgo()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_duckduckgo.md) / [`search_ddg()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_duckduckgo.md) | DuckDuckGo | `https://duckduckgo.com/?q=` |
+| [`search_startpage()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_startpage.md) / [`search_sp()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_startpage.md) | Startpage | `https://startpage.com/do/dsearch?query=` |
+| [`search_ecosia()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_ecosia.md) | Ecosia | `https://www.ecosia.org/search?q=` |
+| [`search_qwant()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_qwant.md) | Qwant | `https://www.qwant.com/?q=` |
+| [`search_brave()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_brave.md) | Brave Search | `https://search.brave.com/search?q=` |
+| [`search_kagi()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_kagi.md) | Kagi | `https://kagi.com/search?q=` |
+| [`search_rseek()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_rseek.md) | Rseek | `https://rseek.org/?q=` |
+
+### Community Sites
+
+Community and developer discussion platforms:
+
+| Function | Service | Base URL |
+|----|----|----|
+| [`search_stackoverflow()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_stackoverflow.md) / [`search_so()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_stackoverflow.md) | StackOverflow | `https://stackoverflow.com/search?q=` |
+| [`search_posit_community()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_posit_community.md) / [`search_posit()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_posit_community.md) | Posit Community | `https://forum.posit.co/search?q=` |
+| [`search_twitter()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_twitter.md) / [`search_x()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_twitter.md) | Twitter/X | `https://twitter.com/search?q=` |
+| [`search_mastodon()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_mastodon.md) | Mastodon | `https://mastodon.social/search?q=` |
+| [`search_bluesky()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bluesky.md) | BlueSky | `https://bsky.app/search?q=` |
+
+### Code Repositories
+
+Code hosting and search platforms:
+
+| Function | Service | Base URL | Additional Parameters |
+|----|----|----|----|
+| [`search_github()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_github.md) / [`search_gh()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_github.md) | GitHub | `https://github.com/search?q=` | `&type=Issues` |
+| [`search_grep()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_grep.md) | grep.app | `https://grep.app/search?q=` | N/A |
+| [`search_bitbucket()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bitbucket.md) / [`search_bb()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/search_bitbucket.md) | BitBucket | `https://bitbucket.com/search?q=` | N/A |
+
+### URL Construction
+
+When you use a search function, the final URL is constructed by:
+
+1.  **Base URL**: The platform’s search endpoint
+2.  **Encoded Query**: Your search term, URL-encoded for safety
+3.  **R-specific Keywords**: Added automatically when `rlang = TRUE`
+    (default)
+4.  **Additional Parameters**: Platform-specific options (like GitHub’s
+    `&type=Issues`)
+
+For example, when you run:
+
+``` r
+
+search_github("data visualization")
+```
+
+The constructed URL becomes:
+
+``` default
+https://github.com/search?q=data%20visualization%20language%3Ar%20type%3Aissue&type=Issues
+```

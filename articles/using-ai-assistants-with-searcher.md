@@ -1,0 +1,481 @@
+# Using AI Assistants with searcher
+
+## Introduction
+
+The `searcher` package now enables direct interaction with various AI
+assistants directly from your R environment. This vignette explains how
+to use these features to enhance your R programming workflow by
+leveraging AI-powered assistance.
+
+## Available AI Services
+
+The package supports the following AI services:
+
+1.  **ChatGPT**
+    ([`ask_chatgpt()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_chatgpt.md)) -
+    OpenAI’s popular large language model
+2.  **Claude**
+    ([`ask_claude()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.md)) -
+    Anthropic’s assistant known for longer context and thoughtful
+    responses
+3.  **Perplexity**
+    ([`ask_perplexity()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_perplexity.md)) -
+    Research-focused AI with internet search capabilities
+4.  **Mistral**
+    ([`ask_mistral()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_mistral.md)) -
+    Mistral AI’s assistant with strong reasoning capabilities
+5.  **Bing Copilot**
+    ([`ask_bing_copilot()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_bing_copilot.md)
+    or
+    [`ask_copilot()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_bing_copilot.md)) -
+    Microsoft’s AI assistant with web search integration
+6.  **Grok**
+    ([`ask_grok()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_grok.md)) -
+    xAI’s AI assistant, known for its desire to maximize truth and
+    objectivity
+7.  **Meta AI**
+    ([`ask_meta_ai()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_meta_ai.md)) -
+    Meta’s conversational AI assistant
+
+## Basic Usage
+
+To use any of these AI services, simply call the corresponding function
+with your query:
+
+``` r
+
+library(searcher)
+
+# Ask ChatGPT a question about R
+ask_chatgpt("How do I create a scatterplot with ggplot2?")
+
+# Get Claude to explain a statistical concept
+ask_claude("Explain GAMs (Generalized Additive Models) in R")
+
+# Research time series forecasting methods
+ask_perplexity("What are the best time series forecasting packages in R?")
+
+# Debug a problematic R function
+ask_mistral("Debug this function: calculate_median <- function(x) mean(x)")
+
+# Compare programming approaches with Bing Copilot
+ask_copilot("Compare data.table vs dplyr for large datasets")
+
+# Ask Grok about R best practices
+ask_grok("What are the best practices for data cleaning in R?")
+
+# Ask Meta AI about best practices
+ask_meta_ai("What's the best way to handle missing data in R?")
+```
+
+## AI Service Links
+
+The `searcher` package uses direct links to create new chat sessions
+with various AI assistants. When you use any of the `ask_*()` functions,
+the package will open a browser tab with a new chat at the corresponding
+service URL.
+
+### Links Used by the Package
+
+The following URLs are used to create new chat sessions:
+
+| Function | Service | URL Used |
+|----|----|----|
+| [`ask_chatgpt()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_chatgpt.md) | OpenAI ChatGPT | `https://chat.openai.com/?model=auto&q=` |
+| [`ask_claude()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.md) | Anthropic Claude | `https://claude.ai/new?q=` |
+| [`ask_perplexity()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_perplexity.md) | Perplexity AI | `https://www.perplexity.ai/search?q=` (with additional parameters) |
+| [`ask_mistral()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_mistral.md) | Mistral AI | `https://chat.mistral.ai/chat?q=` |
+| [`ask_bing_copilot()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_bing_copilot.md) | Microsoft Bing Copilot | `https://www.bing.com/search?showconv=1&sendquery=1&q=` |
+| [`ask_grok()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_grok.md) | xAI | `https://www.grok.com/?q=` |
+| [`ask_meta_ai()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_meta_ai.md) | Meta AI | `https://www.meta.ai/?q=` |
+
+### Account Requirements
+
+To use these services, you need to:
+
+1.  **Have an account**: Each AI service requires you to sign up
+2.  **Be logged in**: You must be logged into the service in your
+    browser
+3.  **Have necessary subscription tiers**: Some services may require
+    paid subscriptions for full functionality
+
+If you’re not already logged in when using an `ask_*()` function, the
+browser will open to the login page instead of creating a new chat with
+your query.
+
+## Customizing AI Behavior with Prompts
+
+One powerful feature of the AI search functions is the ability to
+customize how the AI responds by using prompts. This can be done in two
+ways:
+
+### 1. Per-call Prompts
+
+For one-time customization, provide a `prompt` parameter to any AI
+search function:
+
+``` r
+
+# Ask for step-by-step debugging
+ask_chatgpt(
+  "Why doesn't this work? mtcars %>% filter(cyl = 4)",
+  prompt = "You are an R debugging expert. Identify the error and explain step by step:"
+)
+
+# Request tidyverse-focused solutions 
+ask_claude(
+  "How to reshape data?",
+  prompt = "Answer using tidyverse packages, particularly tidyr:"
+)
+
+# Ask for educational examples
+ask_perplexity(
+  "How to implement PCA in R?",
+  prompt = "Provide a beginner-friendly tutorial with examples:"
+)
+```
+
+### 2. Default Prompts via Options
+
+For persistent customization, set default prompts in your `.Rprofile` or
+at the beginning of your session:
+
+``` r
+
+# Set default prompts
+options(
+  searcher.chatgpt_prompt = "As an R data visualization expert, please help with:",
+  searcher.claude_prompt = "Provide reproducible R code examples for:",
+  searcher.perplexity_prompt = "Provide evidence-based R solutions with references:"
+)
+
+# Now all queries will use these default prompts
+ask_chatgpt("How to create a heatmap?") 
+ask_claude("Efficient way to merge multiple dataframes")
+```
+
+## Error Handling Integration
+
+A particularly useful feature is the ability to automatically search
+your errors with AI assistants:
+
+``` r
+
+# Set Claude as your error handler
+options(error = ask_claude)
+
+# Now any error will automatically be sent to Claude
+fibonacci <- function(n) {
+  if(n <= 0) return(0)
+  if(n == 1) return(1)
+  return(fibonacci(n-1) + fibonacci(n-2))
+}
+
+# This will cause a stack overflow error that will be automatically searched
+fibonacci(1000)
+
+# You can also manually search the last error
+ask_chatgpt()  # Searches the last error message
+```
+
+## Effective Prompting Strategies
+
+Well-crafted prompts are essential for getting the most out of your
+interactions with AI assistants. By providing clear, structured prompts,
+you can dramatically improve the quality, relevance, and usefulness of
+AI responses. The prompts can also be tailored to the specific AI
+service you are using, as each has its own strengths and weaknesses or
+“quirks.” This section explores effective prompt strategies for
+different R programming scenarios.
+
+### Understanding Prompts
+
+Prompts serve as instructions that guide how an AI assistant should
+respond to your query. A good prompt typically includes:
+
+1.  **Role specification**: Who the AI should act as (e.g., “You are an
+    R programming expert”)
+2.  **Task definition**: What the AI should do (e.g., “Debug this code”)
+3.  **Output format**: How responses should be structured (e.g.,
+    “Provide step-by-step explanations”)
+4.  **Context**: Any relevant background information (e.g., “This is for
+    a beginner’s tutorial”)
+
+You can think of prompts as a way to set the stage for the AI’s
+response. The more specific and structured your prompt, the better the
+AI can tailor its response to your needs. Consider the following
+annotated example:
+
+![An example of a well-structured prompt for an AI
+assistant.](../reference/figures/prompt-structure.svg)
+
+An example of a well-structured prompt for an AI assistant.
+
+### Tailoring Prompts to Different AI Services
+
+Different AI services have different strengths and characteristics.
+Varying your prompts or selecting the right service can yield better
+results. Here are some general guidelines for tailoring prompts to
+specific AI services:
+
+- **ChatGPT**: Responds well to direct, structured instructions and
+  specific constraints
+- **Claude**: Excels with narrative prompts and nuanced instructions
+  about reasoning
+- **Perplexity**: Works best with prompts that request citations and
+  multiple perspectives
+- **Mistral**: Benefits from clear, concise prompts with explicit output
+  formatting
+- **Bing Copilot**: Responds well to prompts that involve web knowledge
+  and current information
+- **Meta AI**: Still a newcomer, but generally effective with
+  straightforward queries
+
+### Debugging Code
+
+When debugging R code, effective prompts should guide the AI to identify
+the specific issue and provide a clear explanation.
+
+**Less effective prompt**
+
+> Fix this code:
+
+**More effective prompt**
+
+> You are an R debugging expert. First identify what’s wrong with this
+> code without fixing it. Then explain why it’s wrong and what concept
+> I’m misunderstanding. Finally, provide a working solution with an
+> explanation of why it works.
+
+This improved prompt is effective because it:
+
+- Establishes a clear role (debugging expert)
+- Structures the analysis process (identify → explain → solve)
+- Focuses on learning (explaining the underlying concept)
+
+We suggest using either Claude
+([`ask_claude()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.md))
+or ChatGPT
+([`ask_chatgpt()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_chatgpt.md))
+functions for debugging tasks, as they are particularly good at
+providing detailed explanations and getting close to or fully solving
+the problem.
+
+### Learning New Concepts
+
+When using AI to learn R concepts, prompts should encourage clear
+explanations with progressive complexity.
+
+**Less effective prompt**
+
+> Explain this R concept:
+
+**More effective prompt**
+
+> As an R educator teaching a diverse classroom, explain this concept in
+> multiple ways: 1) Start with an intuitive explanation a beginner would
+> understand, 2) Provide a simple working example, 3) Explain how this
+> concept connects to other R concepts like {relevant_concepts}, 4) Show
+> a more advanced practical application with commented code.
+
+where `{relevant_concepts}` is a placeholder for other concepts that are
+relevant to the concept being explained.
+
+This approach works well because it:
+
+- Creates a teaching scenario that encourages clear communication
+- Requests multiple perspectives (from basic to advanced)
+- Asks for concrete examples, not just theory
+- Encourages connections to existing knowledge
+
+We suggest using ChatGPT
+([`ask_chatgpt()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_chatgpt.md))
+for trying to learn new concepts, as it is particularly good at
+providing detailed explanations and examples.
+
+### Selecting Packages and Tools
+
+When seeking advice on package selection, prompts should encourage
+comprehensive, balanced comparisons.
+
+**Less effective prompt**
+
+> What package should I use for this?
+
+**More effective prompt**
+
+> As an unbiased R consultant familiar with the entire CRAN ecosystem,
+> compare the top 3-4 R packages for this task. For each package,
+> discuss: 1) Key strengths and limitations, 2) Ease of use and learning
+> curve, 3) Community support and maintenance status, 4) Performance
+> characteristics, 5) Unique features. Conclude with situational
+> recommendations (when each would be the best choice) rather than a
+> single recommendation. Include citations to benchmarks or articles
+> where relevant.
+
+This strategy works because it:
+
+- Explicitly requests multiple options instead of a single answer
+- Defines specific comparison criteria
+- Asks for situation-dependent recommendations
+- Requests evidence/citations to support claims
+
+We suggest using Perplexity AI
+([`ask_perplexity()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_perplexity.md))
+for package selection tasks, as it is particularly good at providing
+detailed comparisons and citations.
+
+### Code Review and Improvement
+
+For code review prompts, focus on balancing constructive criticism with
+actionable improvements.
+
+**Less effective prompt**
+
+> Review this code:
+
+## More effective prompt
+
+> As a senior R developer conducting a code review: 1) Note what the
+> code does correctly, 2) Identify potential issues in correctness,
+> performance, readability, and maintainability, 3) Suggest specific
+> improvements with before/after code examples, 4) If relevant, mention
+> R idioms or functions that would simplify the code, 5) Rate the code
+> on a 1-10 scale for efficiency, readability, and robustness.
+
+This approach is effective because it:
+
+- Balances positive feedback with constructive criticism
+- Covers multiple dimensions of code quality
+- Provides specific examples, not just general advice
+- Includes a structured evaluation framework
+
+We suggest using Claude
+([`ask_claude()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.md))
+for code review tasks, as it reasons better about R code and can provide
+more accurate feedback.
+
+### Complex Statistical Analysis
+
+When seeking help with statistical methods in R, prompts should
+emphasize both theoretical understanding and practical implementation.
+
+**Less effective prompt**
+
+> Help me analyze this data:
+
+## More effective prompt
+
+> As both a statistician and R programmer, help me with this analysis
+> task. First, explain the appropriate statistical approach and why it’s
+> suitable for this situation. Then, provide an R implementation with
+> explanations of: 1) Required packages, 2) Data preparation steps, 3)
+> The analysis code with comments explaining each step, 4) How to
+> interpret the outputs, 5) Diagnostic checks to validate assumptions,
+> 6) Potential limitations of this approach. Show output examples where
+> helpful.
+
+This works well because it:
+
+- Connects statistical theory with R implementation
+- Provides a complete workflow from preparation to interpretation
+- Includes validation and limitations
+- Balances code with explanations
+
+We suggest using Claude
+([`ask_claude()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.md))
+for statistical analysis tasks, as it is particularly good under
+thinking and reasoning tasks.
+
+### Creating Visualizations
+
+For data visualization queries, prompts should focus on design
+principles, not just code implementation. Though, you do want to specify
+if the visualization should be created with a specific package (e.g.,
+`ggplot2`, `plotly`, etc.).
+
+**Less effective prompt**
+
+> Create a visualization of this data
+
+**More effective prompt**
+
+> As a data visualization expert who specializes in R: 1) Recommend 2-3
+> visualization types that would best represent this data and explain
+> why, 2) For the most appropriate visualization, provide ggplot2 code
+> with a clear aesthetic mapping rationale, 3) Suggest specific
+> customizations to improve readability and visual appeal, 4) Explain
+> how the visualization could be modified to highlight different aspects
+> of the data. Follow ggplot2 best practices and modern data
+> visualization principles.
+
+This approach is effective because it:
+
+- Focuses on visualization strategy, not just implementation
+- Explains the reasoning behind design choices
+- Provides customization options
+- Grounds recommendations in best practices
+
+We suggest using either Claude
+([`ask_claude()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_claude.md))
+or ChatGPT
+([`ask_chatgpt()`](https://r-pkg.thecoatlessprofessor.com/searcher/reference/ask_chatgpt.md))
+services for visualization tasks, as they are particularly good at
+providing modern `ggplot2` code and visually pleasing designs.
+
+### Experimenting with Different Approaches
+
+The power of prompt engineering comes from experimentation. Consider how
+these two prompts would produce different results for the same query
+about handling missing data:
+
+**Technical focus**
+
+> As an R package developer with deep knowledge of data structures,
+> explain all approaches to handling missing values in R, including
+> their algorithmic implementations, performance characteristics, and
+> edge cases.
+
+**Applied focus**
+
+> As a data scientist who regularly cleans messy datasets, share your
+> practical workflow for handling missing values in R. Include code
+> examples using both base R and tidyverse approaches, focusing on
+> real-world scenarios and decision criteria for when to use each
+> technique.
+
+Both are well-structured prompts, but they would yield different
+responses focused on either technical depth or practical application.
+
+## Advanced Prompt Management
+
+While the prompt examples in this vignette provide useful templates, the
+`searcher` package offers a more powerful and flexible prompt management
+system. This system allows you to:
+
+- Maintain a library of specialized prompts for different tasks
+- Set system-wide prompts that apply across all AI services
+- Layer multiple prompts for precise control
+- Save and reuse your most effective prompts
+
+For comprehensive documentation on these advanced features, see the
+dedicated vignette:
+
+``` r
+
+vignette("managing-ai-prompts", package = "searcher")
+```
+
+With the prompt management system, you can move beyond single-use
+prompts to create a personalized library of AI instructions tailored to
+your specific R workflows and projects.
+
+## Conclusion
+
+The AI assistant integration in `searcher` provides a way to access AI
+help directly from your R environment without needing an API key or
+external setup. By customizing prompts, you can tailor the AI’s
+responses to your specific needs, making it an even more powerful tool
+for R programming, data analysis, and problem-solving. Though, keep in
+mind that AI services have different strengths or “quirks”, so
+experiment with each to find which works best for your particular needs.
