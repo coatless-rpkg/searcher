@@ -18,9 +18,12 @@ template:
 
 navbar:
   structure:
-    left:  [intro, reference, articles, news]
+    left:  [intro, reference, articles, news, blog]
     right: [github]
   components:
+    blog:
+      text: Blog posts
+      href: https://blog.thecoatlessprofessor.com/projects/searcher/
     intro:
       text: Get started
       href: articles/search-patterns.html
